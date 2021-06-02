@@ -70,7 +70,6 @@ Santa looks nervous. Your puzzle input contains the message on the machine's con
 What code do you give the machine?
 
 
-
-
+------------------------------------------------------------------------------------------------------------------------
 --- Part Two ---
 

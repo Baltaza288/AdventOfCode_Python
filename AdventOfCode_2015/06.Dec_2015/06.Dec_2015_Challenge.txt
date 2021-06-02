@@ -30,7 +30,6 @@ For example:
 After following the instructions, how many lights are lit?
 
 
-
-
+------------------------------------------------------------------------------------------------------------------------
 --- Part Two ---
 

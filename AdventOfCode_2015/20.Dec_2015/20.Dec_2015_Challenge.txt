@@ -35,7 +35,6 @@ because it is visited by Elves 1, 2, and 4, for a total of 10 + 20 + 40 = 70 pre
 What is the lowest house number of the house to get at least as many presents as the number in your puzzle input?
 
 
-
-
+------------------------------------------------------------------------------------------------------------------------
 --- Part Two ---
 

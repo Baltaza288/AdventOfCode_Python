@@ -31,7 +31,6 @@ Disregarding the whitespace in the file, what is the number of characters of cod
 string literals minus the number of characters in memory for the values of the strings in total for the entire file?
 
 
-
-
+------------------------------------------------------------------------------------------------------------------------
 --- Part Two ---
 

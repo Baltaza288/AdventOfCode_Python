@@ -48,7 +48,6 @@ How many distinct molecules can be created after all the different
 ways you can do one replacement on the medicine molecule?
 
 
-
-
+------------------------------------------------------------------------------------------------------------------------
 --- Part Two ---
 

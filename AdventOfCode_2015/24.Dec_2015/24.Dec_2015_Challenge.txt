@@ -59,7 +59,6 @@ entanglement would be chosen.
 What is the quantum entanglement of the first group of packages in the ideal configuration?
 
 
-
-
+------------------------------------------------------------------------------------------------------------------------
 --- Part Two ---
 
