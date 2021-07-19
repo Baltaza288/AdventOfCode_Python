@@ -29,7 +29,7 @@ For example:
  -  ))) and )())()) both result in floor -3.
 
 
-To what floor do the instructions take Santa?
+To what floor do the instructions (INPUT) take Santa?
 
 
 ------------------------------------------------------------------------------------------------------------------------
