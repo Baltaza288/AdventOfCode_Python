@@ -1,0 +1,50 @@
+--- Tag 1: Fast Lisp ---
+
+Der Weihnachtsmann hat auf weiße Weihnachten gehofft aber die „Schnee“- Funktion
+seiner Wettermaschine wird mit Sternen betrieben welche ihm gerade ausgegangen sind.
+Um Weihnachten zu retten, muss er bis zum 25. Dezember fünfzig Sterne sammeln.
+
+Du sammelst Sterne, indem Du dem Weihnachtsmann beim Lösen von Rätseln hilfst.
+Jeden Tag werden im Adventskalender zwei Rätsel zur Verfügung gestellt.
+Das zweite Rätsel wird freigeschalten, wenn Du das erste Rätsel gelöst hast.
+Jedes Rätsel gewährt einen Stern. Viel Glück!
+
+Hier ist ein einfaches Rätsel zum Aufwärmen:
+
+Der Weihnachtsmann versucht die Geschenke in einem großen Wohnhaus auszuliefern.
+Leider kann er die richtige Etage nicht finden und die Wegbeschreibung,
+die er bekommen hat, ist ein wenig verwirrend.
+Er beginnt im Erdgeschosse (Etage 0) und folgt dann den Anweisungen Zeichen um Zeichen.
+
+Eine öffnende Klammer ‘(‘ bedeutet, dass er eine Etage höher gehen soll und
+eine schließende Klammer ‘)‘ bedeutet, dass er eine Etage tiefer muss.
+
+Das Wohnhaus ist sehr hoch und der Keller sehr tief.
+Er wird niemals die oberste oder die unterste Etage erreichen.
+
+Beispiel:
+-	(()) und ()() ergibt beides die Etage 0
+-	((( und (()(()( ergibt beides die Etage 3
+-	))((((( ergibt ebenfalls die Etage 3
+-	()) und ))( ergibt beides die Etage -1 (1. Kellergeschoss)
+-	))) und )())()) ergibt beides die Etage -3
+
+
+In welches Stockwerk führten die Anweisungen (INPUT) den Weihnachtsmann?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Part Two ---
+
+Finde nun mit denselben Anweisungen die Position des ersten Zeichens,
+das den Weihnachtsmann in den Keller (Etage -1) führt.
+
+Das erste Zeichen in der Anweisung hat die Position 1, das zweite Zeichen hat die Position 2 und so weiter.
+
+Beispiel:
+
+-	) veranlasst ihn, den Keller an Zeichenposition 1 zu betreten
+-	()()) bewirkt, dass er den Keller an Zeichenposition 5 betritt
+
+
+Wie ist die Position des Zeichens, welches den Weihnachtsmann dazu veranlasst, das 1. Mal den Keller zu betreten?
