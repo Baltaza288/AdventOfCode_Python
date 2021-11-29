@@ -1,4 +1,4 @@
---- Tag 1: Fast Lisp ---
+--- Tag 1: Nicht ganz Lisp ---
 
 Der Weihnachtsmann hat auf weiße Weihnachten gehofft aber die „Schnee“- Funktion
 seiner Wettermaschine wird mit Sternen betrieben welche ihm gerade ausgegangen sind.
@@ -6,7 +6,7 @@ Um Weihnachten zu retten, muss er bis zum 25. Dezember fünfzig Sterne sammeln.
 
 Du sammelst Sterne, indem Du dem Weihnachtsmann beim Lösen von Rätseln hilfst.
 Jeden Tag werden im Adventskalender zwei Rätsel zur Verfügung gestellt.
-Das zweite Rätsel wird freigeschalten, wenn Du das erste Rätsel gelöst hast.
+Das zweite Rätsel wird freigeschaltet, wenn Du das erste Rätsel gelöst hast.
 Jedes Rätsel gewährt einen Stern. Viel Glück!
 
 Hier ist ein einfaches Rätsel zum Aufwärmen:
@@ -34,7 +34,7 @@ In welches Stockwerk führten die Anweisungen (INPUT) den Weihnachtsmann?
 
 
 ------------------------------------------------------------------------------------------------------------------------
---- Part Two ---
+--- Part Zwei ---
 
 Finde nun mit denselben Anweisungen die Position des ersten Zeichens,
 das den Weihnachtsmann in den Keller (Etage -1) führt.

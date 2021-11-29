@@ -1,0 +1,51 @@
+
+--- Tag 2: Mir wurde gesagt, dass es hier keine Mathematik geben würde ---
+
+Den Elfen geht das Geschenkpapier aus, daher müssen sie neues bestellen.
+Sie haben eine Liste mit Abmessungen (Länge l, Breite b und Höhe h)
+der einzelnen Geschenke und wollen nur genau so viel bestellen wie sie benötigen.
+Praktischerweise befindet sich jedes Geschenk in einer rechteckigen Schachtel,
+was die Berechnung des benötigten Geschenkpapiers für jedes Geschenk ein
+wenig einfacher macht. Finde den Flächeninhalt der Kartons welcher
+2 x (l x w) + 2 x (w x h) + 2 x (h x l) beträgt.
+
+Als Reserve benötigen die Elfen für jedes Geschenk etwas Papier zusätzlich (1 x Fläche der kleinsten Seite).
+
+Beispiel:
+    - Ein Geschenk mit den Abmessungen 2 x 3 x 4 entspricht 2 x (2 x 3) + 2 x (3 x 4) + 2 x (2 x 4) = 52 cm²
+      plus 6 cm² Reserve, also insgesamt 58 cm²
+    - Ein Geschenk mit den Abmessungen 1 x 1 x 10 entspricht 2 x (1 x 1) + 2 x (1 x 10) + 2 x (1 x 10) = 43 cm²
+      plus 1 cm² Reserve, also insgesamt 43 cm²
+
+
+Alle Maße in der Liste (INPUT) sind in cm angegeben. Wie viele cm² Geschenkpapier müssen bestellt werden?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Part Zwei ---
+
+Den Elfen gehen auch die Geschenkbänder aus. Da alle Bänder die gleiche Breite haben,
+müssen sich also nur über die Länge Gedanken machen, welche sie bestellen müssen.
+
+Das Geschenkband, das zum Einpacken eines Geschenks benötigt wird,
+ist berechnet sich aus dem Umfang der kleinsten Seite.
+Jedes Geschenk soll noch eine Schleife bekommen.
+Die Länge der perfekten Schleife entspricht dem Volumen des Geschenks in cm.
+Fragen Sie aber nicht, wie sie die Schleife binden, das verraten sie nicht.
+
+Die Länge des Geschenkbandes für ein Geschenk berechnet sich demnach wie folgt:
+
+    Umfang der kleinsten Seite + Volumen des Geschenks in cm
+
+Beispiel:
+
+ - Für ein Geschenk mit den Maßen 2 x 3 x 4 benötigt man 2 + 2 + 3 + 3 =
+    10 cm Band zum Einpacken des Geschenks plus 2 * 3 * 4 =
+    24 cm Band für die Schleife, also insgesamt 34 cm.
+
+ - Für ein Geschenk mit den Maßen 1 x 1 x 10 benötigt man 1 + 1 + 1 + 1 =
+    4 cm Band zum Einwickeln des Geschenks plus 1 * 1 * 10 =
+    10 cm Band für die Schleife, also insgesamt 14 cm.
+
+
+Wie viele cm Geschenkband müssen insgesamt bestellt werden?

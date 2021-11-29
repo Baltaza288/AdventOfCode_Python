@@ -1,0 +1,48 @@
+
+--- Tag 3: Perfekt kugelförmige Häuser in einem Vakuum ---
+
+Der Weihnachtsmann beliefert ein unendliches zweidimensionales Netz von Häusern mit Geschenken.
+
+Er beginnt mit der Auslieferung eines Geschenkes an das Haus an seinem Startort.
+Anschließend ruft ihn eine Elfe am Nordpol über Funk an und sagt ihm wohin er als Nächstes ziehen soll.
+
+Er bewegt sich immer genau ein Haus nach Norden (^), Süden (v), Osten (>) oder Westen (<).
+Nach jedem Zug liefert er ein Geschenk an das Haus an seinem neuen Standort.
+
+Allerdings hat der Elf am Nordpol ein bisschen zu viel Eierlikör getrunken,
+sodass seine Richtungsangaben nicht ganz stimmen,
+und der Weihnachtsmann besucht einige Häuser mehr als einmal.
+
+
+Beispiel:
+
+    > liefert die Geschenke an 2 Häuser: eines am Startort und eines im Osten.
+    ^>v< beliefert 4 Häuser im Quadrat mit Geschenken, darunter zweimal das Haus an seinem Start-/Endpunkt.
+    ^v^v^v^v^v liefert ein Bündel von Geschenken an einige sehr glückliche Kinder in nur 2 Häusern aus.
+
+
+Wie viele Häuser erhalten mindestens ein Geschenk?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Part Zwei ---
+
+Um den Prozess zu beschleunigen, erfindet der Weihnachtsmann im nächsten Jahr
+eine Roboterversion von sich selbst, Robo-Santa, der mit ihm die Geschenke ausliefern soll.
+
+Der Weihnachtsmann und Robo-Santa starten am selben Ort (und liefern zwei Geschenke an dasselbe Starthaus),
+anschließend wechseln sie sich dann auf Anweisung der Elfe ab,
+welcher eifrig das gleiche Drehbuch wie im Vorjahr abliest.
+
+
+Beispiel:
+
+ - ^v liefert die Geschenke an 3 Häuser, weil der Weihnachtsmann nach Norden geht
+   und Robo-Santa geht nach Süden.
+ - ^>v< liefert nun die Geschenke an 3 Häuser, der Weihnachtsmann und der Robo-Santa
+   landen wieder dort wo sie angefangen haben.
+ - ^v^v^v^v^v liefert nun Geschenke an 11 Häuser, wobei der Weihnachtsmann stets nach Norden
+   und der Robo-Santa nach Süden geht.
+
+
+ Wie viele Häuser erhalten dieses Jahr mindestens ein Geschenk?
