@@ -1,0 +1,61 @@
+
+--- Tag 7: Etwas Montage erforderlich ---
+
+Dieses Jahr brachte der Weihnachtsmann dem kleinen Bobby Tables einen Satz Drähte und bitweise Logikgatter.
+Leider ist der kleine Bobby etwas unter der empfohlenen Altersgrenze,
+und er braucht Hilfe beim Zusammenbau der Schaltung.
+
+Jeder Draht hat eine Kennung (einige Kleinbuchstaben)
+und kann ein 16-Bit-Signal (eine Zahl von 0 bis 65535) übertragen.
+Ein Signal wird jedem Draht durch ein Gatter, einen anderen Draht oder einen bestimmten Wert zugeführt.
+Jede Leitung kann ein Signal nur von einer Quelle erhalten,
+sein Signal aber an mehrere Ziele weiterleiten.
+Ein Gatter liefert erst dann ein Signal, wenn alle seine Eingänge ein Signal haben.
+
+In der beiliegenden Anleitung wird beschrieben, wie man die Teile miteinander verbindet:
+x AND y -> z bedeutet, dass man die Drähte x und y an ein UND-Gatter anschließt und dann dessen Ausgang mit dem Draht z verbindet.
+
+
+Beispiel:
+
+ - 123 -> x bedeutet, dass das Signal 123 an die Leitung x gelegt wird.
+ - x AND y -> z bedeutet, dass die bitweise UND-Verknüpfung der Adern x und y an die Ader z gelegt wird.
+ - p LSHIFT 2 -> q bedeutet, dass der Wert von Leitung p um 2 nach links verschoben wird und dann an Leitung q geliefert wird.
+ - NOT e -> f bedeutet, dass das bitweise Komplement des Wertes von Leitung e an Leitung f weitergegeben wird.
+
+Weitere mögliche Gatter sind OR (bitweises ODER) und RSHIFT (Rechtsverschiebung).
+Wenn Sie aus irgendeinem Grund die Schaltung stattdessen emulieren möchten,
+bieten fast alle Programmiersprachen (z. B. C, JavaScript oder Python)
+Operatoren für diese Gatter.
+
+
+Hier ist zum Beispiel eine einfache Schaltung:
+
+    123 -> x
+    456 -> y
+    x AND y -> d
+    x OR y -> e
+    x LSHIFT 2 -> f
+    y RSHIFT 2 -> g
+    NOT x -> h
+    NOT y -> i
+
+Nach der Ausführung sind dies die Signale auf den Drähten:
+
+    d: 72
+    e: 507
+    f: 492
+    g: 114
+    h: 65412
+    i: 65079
+    x: 123
+    y: 456
+
+
+Anleitung des Bausatzes des kleinen Bobby (INPUT).
+
+welches Signal wird letztendlich für die Verdrahtung von a bereitgestellt?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Part Zwei ---

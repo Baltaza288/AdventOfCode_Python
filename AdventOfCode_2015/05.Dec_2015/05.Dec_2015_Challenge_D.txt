@@ -1,0 +1,28 @@
+
+--- Tag 5: Hat er keine Praktikanten-Elfen für so etwas? ---
+
+Der Weihnachtsmann braucht Hilfe, um herauszufinden, welche Zeichenfolgen in seiner Textdatei gut oder schlecht sind.
+
+Eine gute Zeichenfolge ist eine, die alle folgenden Eigenschaften aufweist:
+
+ - Sie enthält mindestens drei Vokale (nur aeiou), wie aei, xazegov oder aeiouaeiouaeiou.
+ - Er enthält mindestens einen Buchstaben, der zweimal hintereinander vorkommt, wie xx, abcdde (dd) oder aabbccdd (aa, bb, cc oder dd).
+ - Er enthält nicht die Zeichenfolgen ab, cd, pq oder xy, auch wenn sie Teil einer der anderen Anforderungen sind.
+
+
+Zum Beispiel:
+
+ - ugknbfddgicrmopn ist gut, weil es mindestens drei Vokale enthält (u...i...o...),
+    einen Doppelbuchstaben (...dd...) und keine der unzulässigen Teilzeichenfolgen.
+ - aaa ist gut, weil es mindestens drei Vokale und einen Doppelbuchstaben hat,
+    auch wenn sich die von verschiedenen Regeln verwendeten Buchstaben überschneiden.
+ - jchzalrnumimnmhp ist schlecht, weil es keinen Doppelbuchstaben hat.
+ - haegwjzuvuyypxyu ist schlecht, weil es die Zeichenfolge xy enthält.
+ - dvszwmarrgswjxmb ist schlecht, weil sie nur einen Vokal enthält.
+
+
+Wie viele Zeichenfolgen sind gut?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Part Zwei ---

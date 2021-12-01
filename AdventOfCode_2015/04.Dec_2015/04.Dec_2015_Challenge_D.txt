@@ -1,0 +1,24 @@
+
+--- Tag 4: Der ideale Stocking Stuffer ---
+
+Der Weihnachtsmann braucht Hilfe beim Schürfen von AdventCoins (ähnlich wie Bitcoins)
+um sie als Geschenke für alle wirtschaftlich vorausschauenden Mädchen und Jungen zu verwenden.
+
+Dazu muss er MD5-Hashes finden, die im Hexadezimalsystem mit mindestens fünf Nullen beginnen.
+Die Eingabe für den MD5-Hash ist ein Secret Key (INPUT), gefolgt von einer Dezimalzahl.
+Um AdventCoins abzubauen, musst du Santa die niedrigste positive Zahl (ohne führende Nullen: 1, 2, 3, ...) finden
+die einen solchen Hash ergibt.
+
+
+Beispiel:
+
+ - Wenn dein Secret Key abcdef ist, ist die Antwort 609043,
+    denn der MD5-Hash von abcdef609043 beginnt mit fünf Nullen (000001dbbfa...),
+    und es ist die niedrigste Zahl, die dieses Resultat liefert.
+ - Wenn dein Secret Key pqrstuv ist, ist die niedrigste Zahl,
+    mit der ein kombinierter MD5-Hash das gewünschte Ergebnis liefert die 1048970.
+    Das heißt, der MD5-Hash von pqrstuv1048970 beginnt mit: 000006136ef....
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Part Zwei ---

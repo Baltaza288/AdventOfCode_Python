@@ -39,4 +39,3 @@ Given Santa's current password (your puzzle input), what should his next passwor
 
 ------------------------------------------------------------------------------------------------------------------------
 --- Part Two ---
-

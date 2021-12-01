@@ -1,0 +1,38 @@
+
+--- Tag 8: Streichhölzer ---
+
+Da der Platz im Schlitten dieses Jahr begrenzt ist, bringt der Weihnachtsmann seine Liste als digitale Kopie mit.
+Er muss wissen, wie viel Platz die Liste beim Speichern einnimmt.
+
+In vielen Programmiersprachen gibt es eine Möglichkeit, Sonderzeichen in Zeichenketten zu umgehen.
+So gehen beispielsweise C, JavaScript, Perl, Python und sogar PHP mit Sonderzeichen auf sehr ähnliche Weise um.
+
+Es ist jedoch wichtig, sich den Unterschied zwischen der Anzahl der Zeichen im Code,
+Darstellung des Zeichenkettenliteral und der Anzahl der Zeichen in der speicherinternen Zeichenkette selbst.
+
+
+Ein Beispiel:
+
+ - "" besteht aus 2 Zeichen Code (die beiden Anführungszeichen), aber die Zeichenfolge enthält null Zeichen.
+ - "abc" besteht aus 5 Zeichen Code, aber 3 Zeichen in den Zeichenkettendaten.
+ - "aaa\"aaa" besteht aus 10 Zeichen Code, aber die Zeichenfolge selbst enthält sechs "a"-Zeichen und
+    ein einzelnes Anführungszeichen, also insgesamt 7 Zeichen in den Zeichenkettendaten.
+ - "\x27" besteht aus 6 Zeichen, aber die Zeichenfolge selbst enthält nur ein Zeichen - ein Apostroph ('),
+    das in hexadezimaler Notation dargestellt wird.
+
+Die Liste des Weihnachtsmanns ist eine Datei, die viele Zeichenfolgenliterale in doppelten Anführungszeichen enthält,
+eines in jeder Zeile. Die einzigen Escape-Sequenzen, die verwendet werden,
+sind \\ (was einen einfachen Backslash darstellt), \" (das für ein einzelnes Anführungszeichen steht) und
+\x plus zwei hexadezimale Zeichen (was ein einzelnes Zeichen mit diesem ASCII-Code darstellt).
+
+Bei den obigen vier Zeichenfolgen ergibt sich beispielsweise die Gesamtzahl der Zeichen
+des Zeichenfolgencodes (2 + 5 + 10 + 6 = 23) minus der Gesamtzahl der Zeichen im Speicher
+für Zeichenfolgenwerte (0 + 3 + 7 + 1 = 11) ist 23 - 11 = 12.
+
+
+Wie hoch ist die Anzahl der Zeichen des Codes für Stringliterale abzüglich
+der Anzahl der Zeichen im Speicher für die Werte der Strings insgesamt für die gesamte Datei?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Part Zwei ---
