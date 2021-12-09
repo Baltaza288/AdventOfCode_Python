@@ -52,4 +52,3 @@ What is the total change in happiness for the optimal seating arrangement of the
 
 ------------------------------------------------------------------------------------------------------------------------
 --- Part Two ---
-

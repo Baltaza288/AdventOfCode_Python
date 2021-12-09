@@ -25,31 +25,33 @@ Du hast 100 Trefferpunkte.
 
 Folgende Gegenstände werden im Item-Shop verkauft:
 
-    Waffen:      Kosten Schaden Rüstung
-    Dolch           8      4       0
-    Kurzschwert    10      5       0
-    Kriegshammer   25      6       0
-    Langschwert    40      7       0
-    Großaxt        74      8       0
+    Waffen:        Kosten Schaden Rüstung
+    Dolch             8      4       0
+    Kurzschwert      10      5       0
+    Kriegshammer     25      6       0
+    Langschwert      40      7       0
+    Großaxt          74      8       0
 
-    Rüstung: Kosten Schaden Rüstung
-    Leder 13 0 1
-    Kettenhemd 31 0 2
-    Splinthemd 53 0 3
-    Bandeisen 75 0 4
-    Plattenhemd 102 0 5
+    Rüstung:       Kosten Schaden Rüstung
+    Leder            13      0       1
+    Kettenhemd       31      0       2
+    Splinthemd       53      0       3
+    Bandeisen        75      0       4
+    Plattenhemd     102      0       5
 
-    Ringe:      Kosten Schaden Rüstung
-    Schaden +1 25 1 0
-    Schaden +2 50 2 0
-    Schaden +3 100 3 0
-    Verteidigung +1 20 0 1
-    Verteidigung +2 40 0 2
-    Verteidigung +3 80 0 3
+    Ringe:         Kosten Schaden Rüstung
+    Schaden +1       25      1      0
+    Schaden +2       50      2      0
+    Schaden +3      100      3      0
+    Verteidigung +1  20      0      1
+    Verteidigung +2  40      0      2
+    Verteidigung +3  80      0      3
 
-Ihr müsst genau eine Waffe kaufen; keine Doppelwaffen. Rüstung ist optional,
-aber du kannst nicht mehr als eine benutzen. Du kannst 0-2 Ringe kaufen (höchstens einen für jede Hand).
-Du musst alle gekauften Gegenstände benutzen. Im Laden gibt es von jedem Gegenstand nur ein Exemplar,
+
+Ihr müsst genau eine Waffe kaufen; keine Doppelwaffen.
+Rüstung ist optional, aber du kannst nicht mehr als eine benutzen.
+Du kannst 0-2 Ringe kaufen (höchstens einen für jede Hand).
+Du musst alle gekauften Gegenstände benutzen. Im Laden gibt es von jedem Gegenstand nur ein Exemplar.
 Du kannst also zum Beispiel nicht zwei Ringe mit Schaden +3 kaufen.
 
 
@@ -68,7 +70,7 @@ In diesem Szenario gewinnt der Spieler! (Knapp.)
 Du hast 100 Trefferpunkte. Die tatsächlichen Werte des Bosses stehen in deiner Rätseleingabe.
 
 
-Wie viel Gold kann man am wenigsten ausgeben und trotzdem den Kampf gewinnen?
+Wie viel Gold musst du mindestens ausgeben, um trotzdem den Kampf zu gewinnen?
 
 
 ------------------------------------------------------------------------------------------------------------------------

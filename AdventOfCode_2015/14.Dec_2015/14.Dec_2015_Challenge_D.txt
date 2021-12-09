@@ -1,0 +1,35 @@
+
+--- Tag 14: Rentier-Olympiade ---
+
+Dieses Jahr ist die Rentier-Olympiade! Rentiere können mit hoher Geschwindigkeit fliegen,
+aber sie müssen sich zwischendurch ausruhen, um ihre Energie zu regenerieren.
+Der Weihnachtsmann möchte wissen, welches seiner Rentiere am schnellsten ist, und lässt sie gegeneinander antreten.
+
+Rentiere können nur entweder fliegen (immer mit ihrer Höchstgeschwindigkeit)
+oder ruhen (sie bewegen sich überhaupt nicht), und sie verbringen immer ganze Sekunden in einem der beiden Zustände.
+
+
+Angenommen, du hast zum Beispiel folgende Rentiere:
+
+ - Comet kann 10 Sekunden lang 14 km/s fliegen, muss dann aber 127 Sekunden lang ruhen.
+ - Dancer kann 11 Sekunden lang 16 km/s fliegen, muss dann aber 162 Sekunden lang ruhen.
+
+Nach einer Sekunde hat Comet 14 km zurückgelegt, während Dancer 16 km zurückgelegt hat.
+Nach zehn Sekunden hat Comet 140 km zurückgelegt, während Dancer 160 km zurückgelegt hat.
+In der elften Sekunde beginnt Comet zu ruhen (er bleibt bei 140 km),
+und Dancer setzt seine Reise über eine Gesamtstrecke von 176 km fort.
+In der 12. Sekunde ruhen sich beide Rentiere aus.
+Sie ruhen weiter bis zur 138. Sekunde, in der Comet weitere zehn Sekunden fliegt.
+In der 174. Sekunde fliegt Dancer für weitere 11 Sekunden.
+
+In diesem Beispiel ruhen nach der 1000. Sekunde beide Rentiere,
+und Comet liegt mit 1120 km in Führung (der arme Dancer hat zu diesem Zeitpunkt nur 1056 km zurückgelegt).
+In dieser Situation würde Comet also gewinnen (wenn das Rennen nach 1000 Sekunden zu Ende wäre).
+
+
+Anhand der Beschreibungen der einzelnen Rentiere (INPUT),
+Welche Strecke hat das siegreiche Rentier nach genau 2503 Sekunden zurückgelegt?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Part Zwei ---

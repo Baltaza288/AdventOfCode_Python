@@ -1,0 +1,23 @@
+
+--- Tag 17: Es gibt kein Zuviel ---
+
+Die Elfen haben wieder zu viel Eierlikör gekauft - diesmal 150 Liter.
+Um alles in deinen Kühlschrank zu bekommen, musst du es in kleinere Behälter umfüllen.
+Du machst eine Bestandsaufnahme des Fassungsvermögens der vorhandenen Behälter.
+
+
+Nehmen wir zum Beispiel an, du hast Behälter mit einem Fassungsvermögen von 20, 15, 10, 5 und 5 Litern.
+Wenn Sie 25 Liter aufbewahren müssen, gibt es vier Möglichkeiten, dies zu tun:
+
+ - 15 und 10
+ - 20 und 5 (die ersten 5)
+ - 20 und 5 (die zweiten 5)
+ - 15, 5, und 5
+
+
+Wenn alle Behälter vollständig befüllt werden, wie viele verschiedene Kombinationen von
+Behälter fassen genau 150 Liter Eierlikör?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Part Zwei ---

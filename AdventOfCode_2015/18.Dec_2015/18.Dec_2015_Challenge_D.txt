@@ -1,0 +1,90 @@
+
+--- Tag 18: Wie ein GIF für deinen Garten ---
+
+Nach dem Vorfall mit der Million Lichter sind die Brandschutzvorschriften strenger geworden:
+Jetzt sind höchstens zehntausend Lichter erlaubt. Du ordnest sie in einem 100x100-Raster an.
+
+Der Weihnachtsmann, der dich nie im Stich lässt, schickt dir wieder eine Anleitung für die ideale Beleuchtung.
+Bei so wenigen Lichtern, sagt er, musst du auf Animation zurückgreifen.
+
+Beginne damit, deine Lichter auf die mitgelieferte Ausgangskonfiguration einzustellen (INPUT).
+Ein # bedeutet "an", und ein . bedeutet "aus".
+
+Animiere dann dein Raster schrittweise, wobei jeder Schritt auf der aktuellen Konfiguration basiert.
+Der nächste Zustand jeder Lampe (entweder an oder aus) hängt von ihrem dem aktuellen Zustand und
+den aktuellen Zuständen der acht benachbarten Leuchten (einschließlich der Diagonalen) ab.
+Da Lichter am Rande des Rasters nur weniger als acht Nachbarn haben können,
+zählen die fehlenden Lichter immer als "aus".
+
+In einem vereinfachten 6x6-Raster zum Beispiel hat die mit A markierte Leuchte die Nachbarn
+mit den Nummern 1 bis 8, und das mit B gekennzeichnete Licht, das sich auf einer Kante befindet,
+hat nur die Nachbarn mit den Nummern 1 bis 5:
+
+    1B5...
+    234...
+    ......
+    ..123.
+    ..8A4.
+    ..765.
+
+Der Zustand, den eine Leuchte als Nächstes haben sollte, basiert auf ihrem aktuellen Zustand
+(an oder aus) plus der Anzahl der Nachbarn, die an sind:
+
+ - Eine eingeschaltete Leuchte bleibt eingeschaltet, wenn 2 oder 3 Nachbarn eingeschaltet sind, und schaltet sich ansonsten aus.
+ - Ein ausgeschaltetes Licht schaltet sich ein, wenn genau 3 Nachbarn eingeschaltet sind, und bleibt ansonsten ausgeschaltet.
+
+Alle Lichter werden gleichzeitig aktualisiert;
+Sie berücksichtigen alle denselben aktuellen Zustand, bevor sie zum nächsten übergehen.
+
+
+Hier sind ein paar Schritte aus einer Beispielkonfiguration eines anderen 6x6-Gitters:
+
+    Anfangszustand:
+    .#.#.#
+    ...##.
+    #....#
+    ..#...
+    #.#..#
+    ####..
+
+    Nach 1 Schritt:
+    ..##..
+    ..##.#
+    ...##.
+    ......
+    #.....
+    #.##..
+
+    Nach 2 Schritten:
+    ..###.
+    ......
+    ..###.
+    ......
+    .#....
+    .#....
+
+    Nach 3 Schritten:
+    ...#..
+    ......
+    ...#..
+    ..##..
+    ......
+    ......
+
+    Nach 4 Schritten:
+    ......
+    ......
+    ..##..
+    ..##..
+    ......
+    ......
+
+Nach 4 Schritten sind in diesem Beispiel vier Lichter eingeschaltet.
+
+
+Ausgehend von deinem 100x100 Raster:
+Wie viele Lichter sind nach 100 Schritten an?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Part Zwei ---

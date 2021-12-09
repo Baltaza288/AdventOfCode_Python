@@ -1,0 +1,49 @@
+
+--- Tag 16: Tante Sue ---
+
+Deine Tante Sue hat dir ein wunderbares Geschenk gemacht, und du möchtest ihr eine Dankeskarte schicken.
+Allerdings gibt es ein kleines Problem: Sie hat sie mit "Von Tante Sue" unterschrieben.
+
+Du hast 500 Tanten mit dem Namen "Sue".
+
+Um zu vermeiden, dass du die Karte an die falsche Person schickst, musst du also herausfinden
+welche Tante Sue (die du der Einfachheit halber von 1 bis 500 durchnummerierst) dir das Geschenk gemacht hat.
+Du öffnest das Geschenk, und wie es der Zufall will, hat die gute alte Tante Sue dir eine
+My First Crime Scene Analysis Machine! Genau das, was du wolltest. Oder gebraucht hast, je nachdem.
+
+Die My First Crime Scene Analysis Machine (kurz: MFCSAM)
+kann ein paar spezifische Verbindungen in einer Probe nachweisen,
+und auch, wie viele verschiedene Arten dieser Verbindungen es gibt.
+Laut Gebrauchsanweisung kann die MFCSAM folgende Verbindungen nachweisen:
+
+ - Kinder, durch Analyse des Alters der menschlichen DNA.
+ - Katzen, es unterscheidet nicht zwischen einzelnen Rassen.
+ - Mehrere scheinbar zufällige Hunderassen: Samojeden, Pommern, Akitas und Vizslas.
+ - Goldfische, keine anderen Arten von Fischen.
+ - Bäume, im Allgemeinen.
+ - Autos, vermutlich durch Abgase oder Benzin oder so.
+ - Parfüms, was praktisch ist, da viele deiner Tanten Sue ein paar Sorten tragen.
+
+Tatsächlich haben viele deiner Tanten Sue viele von diesen. Du legst die Verpackung des Geschenks in das MFCSAM.
+Es piept dich ein paar Mal neugierig an und druckt dann eine Nachricht auf Laufschrift aus:
+
+    Kinder: 3
+    Katzen: 7
+    Samojeden: 2
+    Pomeranians: 3
+    Akitas: 0
+    Vizslas: 0
+    Goldfische: 5
+    Bäume: 3
+    Autos: 2
+    Parfüms: 1
+
+Du machst eine Liste mit den Dingen, an die du dich bei jeder Tante Sue erinnern kannst.
+Die Dinge, die auf deiner Liste fehlen, sind nicht null - du erinnerst dich einfach nicht an den Wert.
+
+
+Wie lautet die Nummer der Tante Sue, von der du das Geschenk hast?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Part Zwei ---

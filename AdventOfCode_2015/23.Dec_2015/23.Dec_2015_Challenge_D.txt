@@ -1,0 +1,41 @@
+
+--- Tag 23: Öffnen des Turing-Schlosses ---
+
+Die kleine Jane Marie hat gerade ihren allerersten Computer zu Weihnachten, von einem unbekannten Wohltäter, bekommen.
+Er wird mit einer Anleitung und einem Beispielprogramm geliefert,
+aber der Computer selbst scheint nicht zu funktionieren. Sie ist neugierig zu erfahren,
+was das Programm macht und möchte, dass du ihr hilfst es heraus zu finden.
+
+Das Handbuch erklärt, dass der Computer zwei Register und sechs Befehle unterstützt.
+Die Register heißen a und b, können jede nicht negative natürliche Zahl aufnehmen
+und beginnen mit einem Wert von 0. Die Befehle lauten wie folgt:
+
+ - hlf r setzt das Register r auf die Hälfte seines aktuellen Wertes und fährt dann mit dem nächsten Befehl fort.
+ - tpl r setzt das Register r auf das Dreifache seines aktuellen Wertes und fährt dann mit der nächsten Anweisung fort.
+ - inc r erhöht das Register r um 1 und fährt dann mit der nächsten Anweisung fort.
+ - jmp offset ist ein Sprung; er fährt mit der Anweisung fort, die relativ zu ihm selbst versetzt ist.
+ - jie r, offset ist wie jmp, springt aber nur, wenn das Register r gerade ist ("jump if even").
+ - jio r, offset ist wie jmp, springt aber nur, wenn das Register r 1 ist ("jump if one", nicht ungerade).
+
+Alle drei Sprunganweisungen arbeiten mit einem Offset relativ zu dieser Anweisung.
+Der Offset wird immer mit einem vorangestellten + oder - geschrieben, um die Richtung des Sprungs anzugeben
+des Sprungs (vorwärts bzw. rückwärts) anzugeben.
+Zum Beispiel würde jmp +1 einfach mit der nächsten Anweisung fortfahren, während jmp +0 ständig
+immer wieder zu sich selbst zurückspringt.
+
+Das Programm bricht ab, wenn es versucht, einen Befehl auszuführen, der über die definierten Befehle hinausgeht.
+
+
+Dieses Programm setzt zum Beispiel a auf 2, weil die Anweisung jio dazu führt, dass es die Anweisung tpl überspringt:
+
+    inc a
+    jio a, +2
+    tpl a
+    inc a
+
+
+Welchen Wert hat das Register b, wenn die Ausführung des Programms in der Puzzle-Eingabe beendet ist?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Part Zwei ---

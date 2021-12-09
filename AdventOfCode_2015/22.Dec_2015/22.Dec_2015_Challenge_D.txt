@@ -1,0 +1,149 @@
+
+--- Tag 22: Wizard Simulator 20XX ---
+
+Der kleine Henry Case beschließt, dass das Besiegen von Bossen mit Schwertern
+und anderem Zeug langweilig ist. Jetzt spielt er das Spiel mit einem Zauberer.
+Natürlich bleibt er bei einem anderen Endgegner stecken und braucht wieder deine Hilfe.
+
+In dieser Version finden die Kämpfe immer noch abwechselnd zwischen dem Spieler und
+Boss statt. Der Spieler ist immer noch zuerst an der Reihe.
+Allerdings bekommst du jetzt keine Ausrüstung mehr, sondern
+musst einen deiner Zaubersprüche wählen, den du wirken möchtest.
+Der erste Charakter, der 0 oder weniger Trefferpunkte hat, verliert.
+
+Da du ein Zauberer bist, darfst du keine Rüstung tragen und du kannst nicht normal angreifen.
+Da du jedoch magischen Schaden verursachst, wird die Rüstung deines Gegners ignoriert,
+sodass der Boss einen effektiven Rüstwert von Null besitzt.
+Wie zuvor gilt: Wenn eine Rüstung (in diesem Fall durch einen Zauber)
+den Schaden unter 1 reduzieren würde, wird er stattdessen 1 - das heißt,
+die Angriffe des Bosses verursachen immer mindestens 1 Schaden.
+
+In jedem eurer Züge müsst ihr einen eurer Zauber wählen, den ihr wirken wollt.
+Wenn du es dir nicht leisten kannst, einen Zauber zu wirken, hast du verloren. Zaubersprüche kosten Mana;
+Du beginnst mit 500 Mana, hast aber keine Obergrenze.
+Du musst genug Mana haben, um einen Zauber zu wirken, und seine Kosten werden sofort
+abgezogen, wenn du ihn wirkst. Deine Zauber sind: Magisches Geschoss, Entziehen,
+Schild, Gift und Wiederaufladen.
+
+ - Magisches Geschoss kostet 53 Mana und verursacht sofort 4 Schaden.
+ - Entziehen kostet 73 Mana, verursacht sofort 2 Schaden und heilt dich um 2 Trefferpunkte.
+ - Schutzschild kostet 113 Mana. Er löst einen Effekt aus, der 6 Runden lang anhält.
+    Während er aktiv ist, wird deine Rüstung um 7 erhöht.
+ - Gift kostet 173 Mana. Es löst einen Effekt aus, der 6 Runden lang anhält.
+    Zu Beginn jeder Runde, während er aktiv ist, fügt er dem Boss 3 Schaden zu.
+ - Aufladen kostet 229 Mana. Er löst einen Effekt aus, der 5 Runden lang anhält.
+    Zu Beginn jeder Runde, während er aktiv ist, erhältst du 101 neue Mana.
+
+Die Effekte funktionieren alle auf die gleiche Weise. Effekte gelten zu Beginn sowohl für
+des Spielzugs des Spielers und des Bosses. Effekte werden erzeugt
+mit einem Timer (die Anzahl der Züge, die sie andauern); zu Beginn eines jeden Zuges,
+nachdem sie einen Effekt angewendet haben, wird ihr Timer um eins verringert.
+Wenn dadurch der Timer auf Null sinkt, endet der Effekt.
+Es ist nicht möglich, einen Zauber zu wirken, der einen Effekt auslöst, der bereits aktiv ist.
+Effekte können jedoch in derselben Runde gestartet werden, in der sie enden.
+
+
+Nehmen wir zum Beispiel an, der Spieler hat 10 Trefferpunkte und 250 Mana,
+und der Boss hat 13 Trefferpunkte und 8 Schaden:
+
+    -- Spielerzug --
+    - Spieler hat 10 Trefferpunkte, 0 Rüstung, 250 Mana
+    - Der Boss hat 13 Trefferpunkte
+    - Der Spieler zaubert Gift.
+
+    -- Bosszug --
+    - Der Spieler hat 10 Trefferpunkte, 0 Rüstung, 77 Mana
+    - Der Boss hat 13 Trefferpunkte
+    - Gift verursacht 3 Schaden; sein Timer ist jetzt 5.
+    - Der Boss greift mit 8 Schaden an.
+
+    -- Spielerzug --
+    - Der Spieler hat 2 Trefferpunkte, 0 Rüstung, 77 Mana
+    - Der Boss hat 10 Trefferpunkte
+    - Gift fügt 3 Schaden zu; sein Timer ist jetzt 4.
+    - Der Spieler zaubert Magisches Geschoss, das 4 Schaden verursacht.
+
+    -- Bosszug --
+    - Der Spieler hat 2 Trefferpunkte, 0 Rüstung, 24 Mana
+    - Der Boss hat 3 Trefferpunkte
+    - Gift richtet 3 Schaden an. Dies tötet den Boss, und der Spieler gewinnt.
+
+
+Nehmen wir nun die gleichen Ausgangsbedingungen an, nur dass der Boss stattdessen 14 Trefferpunkte hat:
+
+    -- Spielerzug --
+    - Spieler hat 10 Trefferpunkte, 0 Rüstung, 250 Mana
+    - Der Boss hat 14 Trefferpunkte
+    Der Spieler wirkt Wiederaufladen.
+
+    -- Bosszug --
+    - Der Spieler hat 10 Trefferpunkte, 0 Rüstung, 21 Mana
+    - Der Boss hat 14 Trefferpunkte
+    Wiederaufladen liefert 101 Mana; der Timer ist jetzt 4.
+    Der Boss greift an und verursacht 8 Schaden.
+
+    -- Spielerzug --
+    - Der Spieler hat 2 Trefferpunkte, 0 Rüstung, 122 Mana
+    - Der Boss hat 14 Trefferpunkte
+    Die Wiederaufladung liefert 101 Mana; ihr Timer ist jetzt 3.
+    Der Spieler zaubert einen Schild, der die Rüstung um 7 erhöht.
+
+    -- Bosszug --
+    - Der Spieler hat 2 Trefferpunkte, 7 Rüstung, 110 Mana
+    - Der Boss hat 14 Trefferpunkte
+    Der Timer des Schildes ist jetzt 5.
+    Wiederaufladen liefert 101 Mana; der Timer ist jetzt 2.
+    Der Boss greift für 8 - 7 = 1 Schaden an.
+
+    -- Spielerzug --
+    - Der Spieler hat 1 Trefferpunkt, 7 Rüstung, 211 Mana
+    - Der Boss hat 14 Trefferpunkte
+    Der Timer des Schildes ist jetzt 4.
+    Aufladen liefert 101 Mana; sein Timer ist jetzt 1.
+    Der Spieler wirkt Entziehen, verursacht 2 Schaden und heilt 2 Trefferpunkte.
+
+    -- Bosszug --
+    - Der Spieler hat 3 Trefferpunkte, 7 Rüstung, 239 Mana
+    - Der Boss hat 12 Trefferpunkte
+    Der Timer des Schildes ist jetzt 3.
+    Wiederaufladen liefert 101 Mana; sein Timer ist jetzt 0.
+    Wiederaufladung lässt nach.
+    Der Boss greift für 8 - 7 = 1 Schaden an!
+
+    -- Spielerzug --
+    - Der Spieler hat 2 Trefferpunkte, 7 Rüstung, 340 Mana
+    - Der Boss hat 12 Trefferpunkte
+    Der Timer des Schildes ist jetzt 2.
+    Der Spieler zaubert Gift.
+
+    -- Bosszug --
+    - Der Spieler hat 2 Trefferpunkte, 7 Rüstung, 167 Mana
+    - Der Boss hat 12 Trefferpunkte
+    Der Timer des Schildes ist jetzt 1.
+    Gift verursacht 3 Schaden; sein Timer ist jetzt 5.
+    Der Boss greift für 8 - 7 = 1 Schaden an!
+
+    -- Spielerzug --
+    - Der Spieler hat 1 Trefferpunkt, 7 Rüstung, 167 Mana
+    - Der Boss hat 9 Trefferpunkte
+    Der Timer des Schildes ist jetzt 0.
+    Der Schild nutzt sich ab, wodurch die Rüstung um 7 verringert wird.
+    Gift verursacht 3 Schaden; sein Timer ist jetzt 4.
+    Der Spieler zaubert Magisches Geschoss, das 4 Schaden verursacht.
+
+    -- Bosszug --
+    - Spieler hat 1 Trefferpunkt, 0 Rüstung, 114 Mana
+    - Der Boss hat 2 Trefferpunkte
+    Gift verursacht 3 Schaden. Dies tötet den Boss, und der Spieler gewinnt.
+
+
+Du beginnst mit 50 Trefferpunkten und 500 Manapunkten.
+Die tatsächlichen Werte des Bosses stehen in deiner Rätseleingabe.
+
+
+Wie viel Mana muss mindestens ausgegeben werden um den Kampf zu gewinnen?
+(Mana-Aufladeeffekte zählen nicht als "Ausgeben" von negativem Mana.)
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Part Zwei ---

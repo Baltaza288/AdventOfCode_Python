@@ -1,0 +1,48 @@
+
+--- Tag 15: Wissenschaft für hungrige Menschen ---
+
+Heute machst du dich an die Aufgabe, dein Rezept für milchgetränkte Kekse zu perfektionieren.
+Alles, was du tun musst, ist, das richtige Gleichgewicht der Zutaten zu finden.
+
+Dein Rezept lässt Platz für genau 100 Teelöffel der Zutaten.
+Du erstellst eine Liste der restlichen Zutaten, die du verwenden könntest, zur
+Fertigstellung des Rezepts (INPUT) und ihre Eigenschaften pro Teelöffel:
+
+ - Fassungsvermögen (wie gut kann der Keks Milch aufnehmen)
+ - Haltbarkeit (wie gut hält sich der Keks intakt, wenn er mit Milch gefüllt ist)
+ - Geschmack (wie schmackhaft macht es den Keks)
+ - Textur (wie es die Haptik des Kekses verbessert)
+ - Kalorien (wie viele Kalorien der Keks enthält)
+
+Du kannst die Zutaten nur in ganzen Teelöffeln abmessen,
+und du musst genau sein, damit du deine Ergebnisse in Zukunft reproduzieren kannst.
+Die Gesamtpunktzahl eines Kekses ergibt sich aus der Summe der einzelnen Eigenschaften
+(negative Summen werden zu 0) und multipliziere dann alles außer den Kalorien.
+
+Nehmen wir zum Beispiel an, du hast diese beiden Zutaten:
+
+    Karamell: Fassungsvermögen -1, Haltbarkeit -2, Geschmack 6, Konsistenz 3, Kalorien 8
+    Zimt: Fassungsvermögen 2, Haltbarkeit 3, Geschmack -2, Konsistenz -1, Kalorien 3
+
+
+Wenn du nun 44 Teelöffel Karamell und 56 Teelöffel Zimt verwendest
+(denn die Mengen der einzelnen Zutaten müssen sich zu 100 addieren)
+würde ein Keks mit den folgenden Eigenschaften entstehen:
+
+ - Ein Fassungsvermögen von 44x-1 + 56x2 = 68
+ - Eine Haltbarkeit von 44x-2 + 56x3 = 80
+ - Ein Geschmack von 44x6 + 56x-2 = 152
+ - Eine Konsistenz von 44x3 + 56x-1 = 76
+
+Multipliziert man diese Werte miteinander (68 x 80 x 152 x 76, ohne Berücksichtigung der Kalorien)
+ergibt eine Gesamtpunktzahl von 62.842.880, was bei diesen Zutaten die bestmögliche Punktzahl ist
+die bei diesen Zutaten möglich ist. Hätte eine der Eigenschaften eine negative Gesamtpunktzahl ergeben,
+wäre sie stattdessen Null geworden, sodass die Gesamtpunktzahl auf Null multipliziert worden wäre.
+
+
+Nehmen wir die Zutaten in deiner Küche und ihre Eigenschaften,
+wie hoch ist die Gesamtpunktzahl des bestmöglichen Kekses, den du herstellen könntest?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Part Zwei ---

@@ -33,4 +33,3 @@ after exactly 2503 seconds, what distance has the winning reindeer traveled?
 
 ------------------------------------------------------------------------------------------------------------------------
 --- Part Two ---
-

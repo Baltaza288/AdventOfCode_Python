@@ -1,0 +1,50 @@
+
+--- Tag 19: Medizin für Rudolph ---
+
+Rudolph, das rotnasige Rentier, ist krank!
+Seine Nase leuchtet nicht sehr hell und er braucht Medizin.
+
+Die Biologie von Rudolph ist nicht vergleichbar mit der Biologie eines normalen Rentiers.
+Rudolph braucht eine maßgeschneiderte Medizin.
+
+Der Nordpol ist mit einer Kernfusions- und Kernspaltungsanlage für rotnasige Rentiere ausgestattet,
+die in der Lage ist, jedes beliebige Rentiermolekül herzustellen, das man braucht.
+Es funktioniert, indem es mit einem Eingangsmolekül beginnt und dann eine Reihe von Ersetzungen vornimmt,
+Schritt für Schritt, bis sie das richtige Molekül hat.
+
+Allerdings muss die Maschine kalibriert werden, bevor sie eingesetzt werden kann.
+Bei der Kalibrierung wird die Anzahl der Moleküle bestimmt, die
+die in einem Schritt von einem bestimmten Ausgangspunkt aus erzeugt werden können.
+
+
+Stell dir zum Beispiel eine einfachere Maschine vor, die nur die folgenden Ersetzungen unterstützt:
+
+    H => HO
+    H => OH
+    O => HH
+
+Ausgehend von den obigen Ersetzungen und beginnend mit HOH könnten die folgenden Moleküle erzeugt werden:
+
+ - HOOH (über H => HO am ersten H).
+ - HOHO (über H => HO am zweiten H).
+ - OHOH (über H => OH am ersten H).
+ - HOOH (über H => OH am zweiten H).
+ - HHHH (über O => HH).
+
+Im obigen Beispiel gibt es also 4 unterschiedliche Moleküle
+Das Lieblingsmolekül des Weihnachtsmanns, HOHOHO, kann zu 7 verschiedenen Molekülen werden
+werden (bei neun Ersetzungen: sechs aus H und drei aus O).
+
+Die Maschine ersetzt ohne Rücksicht auf die umgebenden Zeichen.
+Bei der Zeichenkette H2O zum Beispiel würde der Übergang H => OO zu OO2O führen.
+
+Deine Rätseleingabe beschreibt alle möglichen Ersetzungen und ganz unten
+das Medikamentenmolekül für das du die Maschine kalibrieren musst.
+
+
+Wie viele unterschiedliche Moleküle können nach all den verschiedenen
+Ersetzungsmöglichkeiten für das Medikamentenmolekül erstellt werden?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Part Zwei ---
