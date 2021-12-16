@@ -1,0 +1,145 @@
+
+--- Tag 11: Radioisotop-Thermoelektrische Generatoren ---
+
+Du stößt auf eine Säule mit vier Stockwerken, die bis auf eine kleine Lobby vom Rest des Gebäudes abgeschottet sind.
+Es gibt einige Strahlungswarnungen und ein großes Schild mit der Aufschrift "Radioisotopen-Testanlage".
+
+Laut der Projektstatus-Tafel wird diese Einrichtung derzeit für Experimente mit
+Radioisotop-Thermoelektrischen Generatoren (RTGs, oder einfach "Generatoren") genutzt,
+welche für die Kopplung mit speziell konstruierten Mikrochips ausgelegt sind.
+Im Grunde ist ein RTG ein hoch radioaktives Gestein, das durch Wärme Strom erzeugt.
+
+Die experimentellen RTGs sind schlecht abgeschirmt und daher gefährlich radioaktiv.
+Die Chips sind Prototypen und haben keinen normalen Strahlenschutz, aber sie haben die Fähigkeit,
+einen elektromagnetischen Strahlungsschutz zu erzeugen, wenn sie mit Strom versorgt werden.
+Leider können sie nur von ihrem entsprechenden RTG mit Strom versorgt werden.
+Ein RTG, das einen Mikrochip mit Strom versorgt, ist immer noch gefährlich für andere Mikrochips.
+
+Mit anderen Worten: Wenn ein Chip in der Nähe eines anderen RTGs bleibt und nicht
+mit seinem eigenen RTG verbunden ist, wird der Chip gebraten.
+Es wird daher davon ausgegangen, dass Chips an ihren jeweiligen RTG angeschlossen bleiben,
+wenn sie sich im selben Raum befinden und ansonsten von anderen RTGs ferngehalten werden.
+
+Diese Mikrochips klingen sehr interessant und nützlich für deine derzeitigen Aktivitäten
+und du versuchst, sie zurückzubekommen. Im vierten Stock der Anlage befindet sich eine Montagemaschine
+die einen eigenständigen, abgeschirmten Computer herstellen kann, welchen du mitnehmen kannst - das heißt,
+sofern du alle RTGs und Mikrochips mitbringen kannst.
+
+Im strahlungsgeschützten Teil der Anlage (in dem es sicher ist, diese vormontierten RTGs zu haben),
+gibt es einen Aufzug, der zwischen den vier Stockwerken verkehren kann. Aufgrund seiner begrenzten Kapazität
+kann er höchstens dich und zwei RTGs oder Mikrochips in beliebiger Kombination befördern.
+(Du bist an einem schweren Diagnosegerät befestigt - die Montagemaschine wird sie für dich abnehmen).
+Als Sicherheitsmaßnahme funktioniert der Aufzug nur, wenn er mindestens ein RTG oder einen Mikrochip enthält.
+Der Aufzug hält immer auf jeder Etage an, um sich aufzuladen.
+Dies dauert so lange, dass die Gegenstände im Aufzug, die Gegenstände auf der Etage
+und die Gegenstände in diesem Stockwerk sich gegenseitig bestrahlen können.
+(Du kannst dies verhindern, indem ein Mikrochip und sein Generator auf diese Weise im selben Stockwerk landen,
+während der Aufzug sich auflädt.)
+
+Du machst dir Notizen zu den Standorten der einzelnen Komponenten, die für dich von Interesse sind (INPUT).
+Bevor du einen Schutzanzug anziehst und anfängst, Dinge zu verschieben, möchtest du eine Vorstellung davon haben,
+was du tun musst.
+
+Wenn du den Einschlussbereich betrittst, starten du und der Aufzug im ersten Stock.
+
+Nehmen wir an, der abgeschottete Bereich hat die folgende Anordnung:
+
+Im ersten Stock befinden sich ein Wasserstoff kompatibler Mikrochip und ein Lithium kompatibler Mikrochip.
+Im zweiten Stockwerk befindet sich ein Wasserstoff-Generator.
+Die dritte Etage enthält einen Lithium-Generator.
+Die vierte Etage enthält nichts Relevantes.
+Als Diagramm (F# für eine Etagennummer, E für Elevator, H für Hydrogen, L für Lithium,
+M für Mikrochip und G für Generator) sieht der Ausgangszustand wie folgt aus:
+
+    F4 . . . . .
+    F3 . . .  LG .
+    F2 .  HG . . .
+    F1 E .  HM .  LM
+
+Um dann alles bis zur Montagemaschine im vierten Stock zu bringen, könnten folgende Schritte unternommen werden:
+
+ - Bring den Wasserstoff kompatiblen Mikrochip in den zweiten Stock, wo er sicher ist,
+   weil er vom Wasserstoff-Generator mit Strom versorgt werden kann:
+    F4 . . . . .
+    F3 . . .  LG .
+    F2 E HG HM . .
+    F1 . . . .  LM
+
+ - Bring beide Wasserstoff bezogenen Gegenstände in den dritten Stock, der sicher ist,
+   weil der Wasserstoff kompatible Mikrochip von seinem Generator mit Strom versorgt wird:
+    F4 . . . . .
+    F3 E HG HM LG .
+    F2 . . . . .
+    F1 . . . .  LM
+
+ - Lass den Wasserstoff-Generator im dritten Stockwerk, nimm aber den Wasserstoff kompatiblen Mikrochip mit nach unten,
+   damit du den Aufzug weiterhin benutzen kannst:
+    F4 . . . . .
+    F3 .  HG .  LG .
+    F2 E .  HM .
+    F1 . . . .  LM
+
+ - In der ersten Etage schnappst du dir den Lithium-kompatiblen Mikrochip, der sicher ist,
+   weil sich Mikrochips nicht gegenseitig beeinflussen:
+    F4 . . . . .
+    F3 .  HG .  LG .
+    F2 . . . . .
+    F1 E .  HM .  LM
+
+ - Bring beide Mikrochips eine Etage höher, wo es nichts gibt, was sie braten könnte:
+    F4 . . . . .
+    F3 .  HG .  LG .
+    F2 E .  HM .  LM
+    F1 . . . . .
+
+ - Bring beide Mikrochips wieder in die dritte Etage,
+   wo sie vorübergehend an die entsprechenden Generatoren angeschlossen werden können,
+   während der Aufzug wieder aufgeladen wird, um zu verhindern, dass einer der beiden Chips gebraten wird:
+    F4 . . . . .
+    F3 E HG HM LG LM
+    F2 . . . . .
+    F1 . . . . .
+
+ - Bring beide Mikrochips in den vierten Stock:
+    F4 E .  HM .  LM
+    F3 .  HG .  LG .
+    F2 . . . . .
+    F1 . . . . .
+
+ - Lass den Lithium-kompatiblen Mikrochip in der vierten Etage,
+   bring den Wasserstoff-kompatiblen mit, damit du den Aufzug weiterhin benutzen kannst.
+   Dies ist sicher, denn obwohl sich der Lithium-Generator in der Ziel-Etage befindet,
+   kannst du den Wasserstoff-kompatiblen Mikrochip dort an den Wasserstoff-Generator anschließen:
+    F4 . . . .  LM
+    F3 E HG HM LG .
+    F2 . . . . .
+    F1 . . . . .
+
+ - Bring beide Generatoren in den vierten Stock!
+   Der sicher ist, weil du den Lithium-kompatiblen Mikrochip bei der Ankunft an den Lithium-Generator anschließen kannst:
+    F4 E HG .  LG LM
+    F3 ... HM ...
+    F2 . . . . .
+    F1 . . . . .
+
+ - Nimm den Lithium-Mikrochip mit in den dritten Stock, damit du den Aufzug benutzen kannst:
+    F4 .  HG .  LG .
+    F3 E .  HM .  LM
+    F2 . . . . .
+    F1 . . . . .
+
+ - Bring beide Mikrochips in den vierten Stock:
+    F4 E HG HM LG LM
+    F3 . . . . .
+    F2 . . . . .
+    F1 . . . . .
+
+Bei dieser Anordnung sind 11 Schritte erforderlich, um alle Objekte im vierten Stockwerk für die Montage zu sammeln.
+(Jede Haltestelle des Aufzugs zählt als ein Schritt, auch wenn nichts hinzukommt oder weggenommen wird).
+
+
+Wie viele Schritte sind in Ihrer Situation mindestens erforderlich, um alle Objekte in die vierte Etage zu bringen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

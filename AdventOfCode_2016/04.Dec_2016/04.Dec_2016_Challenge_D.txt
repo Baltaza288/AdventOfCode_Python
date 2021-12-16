@@ -1,0 +1,31 @@
+
+--- Tag 4: Sicherheit durch Unsichtbarkeit ---
+
+Schließlich stößt du auf einen Informationskiosk mit einer Liste von Räumen.
+Natürlich ist die Liste verschlüsselt und voller gefälschter Daten, aber die Anweisungen
+zum Entschlüsseln der Liste sind in der Nähe kaum versteckt. Entferne zuerst die Täuschungsdaten.
+
+Jeder Raum besteht aus einem verschlüsselten Namen (Kleinbuchstaben, getrennt durch Bindestriche)
+gefolgt von einem Bindestrich, einer Sektor-ID und einer Prüfsumme in eckigen Klammern.
+
+Nur ein Raum ist real. Wenn die Prüfsumme aus den fünf häufigsten Buchstaben des verschlüsselten Namens sind,
+und zwar in dieser Reihenfolge, wobei Gleichstände durch Alphabetisierung aufgelöst werden.
+
+
+Zum Beispiel:
+
+ - aaaaa-bbb-z-y-x-123[abxyz] ist ein echter Raum, weil die häufigsten Buchstaben
+    sind a (5), b (3) und dann ein Gleichstand zwischen x, y und z, die alphabetisch geordnet sind.
+ - a-b-c-d-e-f-g-h-987[abcde] ist ein echter Raum, denn obwohl die Buchstaben
+    alle gleich sind (jeweils 1), werden die ersten fünf alphabetisch aufgelistet.
+ - not-a-real-room-404[oarel] ist ein echter Raum.
+ - total-real-room-200[decoy] ist kein echter Raum.
+
+Die Summe der Sektor-IDs der echten Räume aus der obigen Liste ist 1514.
+
+
+Wie hoch ist die Summe der Sektor-IDs der echten Räume?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

@@ -1,0 +1,55 @@
+
+--- Tag 13: Ein Labyrinth aus verwinkelten kleinen Zellen ---
+
+Du kommst im ersten Stock des neuen Gebäudes an und findest eine viel weniger einladende
+Umgebung als das glänzende Atrium des letzten Gebäudes. Stattdessen befindest du dich in einem Labyrinth aus
+kleinen Kabinen, die alle gleich sind.
+
+Jeder Ort in diesem Bereich wird durch ein Paar non negativer ganzer Zahlen (x,y) bezeichnet.
+Jede dieser Koordinaten ist entweder eine Wand oder ein offener Raum. Man kann sich nicht diagonal bewegen.
+Das Würfellabyrinth beginnt bei 0,0 und scheint sich unendlich in Richtung positiver x und y zu erstrecken.
+Negative Werte sind ungültig, da sie einen Ort außerhalb des Gebäudes darstellen.
+Du befindest dich in einem kleinen Wartebereich bei 1,1.
+
+Auch wenn es chaotisch erscheint, wie ein Plakat in der Nähe erklärt, ist die Anordnung
+eigentlich recht logisch. Sie können bestimmen, ob eine bestimmte x,y-Koordinate
+eine Wand oder ein offener Raum ist, kann man mit einem einfachen System bestimmen:
+
+ - Finde x*x + 3*x + 2*x*y + y + y*y.
+ - Addiere die Lieblingszahl des Bürodesigners (INPUT).
+ - Finde die binäre Darstellung dieser Summe; zähle die Anzahl der Bits, die 1 sind.
+     - Wenn die Anzahl der Bits, die 1 sind, gerade ist, handelt es sich um eine offene Stelle.
+     - Wenn die Anzahl der Bits, die 1 sind, ungerade ist, handelt es sich um eine Wand.
+
+
+Wenn die Lieblingszahl des Bürodesigners zum Beispiel 10 wäre, würden Wände
+als # und Freiflächen als . zeichnen würde, sähe die Ecke des Gebäudes, die 0,0 enthält, wie folgt aus:
+
+      0123456789
+    0 .#.####.##
+    1 ..#..#...#
+    2 #....##...
+    3 ###.#.###.
+    4 .##..#..#.
+    5 ..##....#.
+    6 #...##.###
+
+Nehmen wir nun an, du willst 7,4 erreichen. Der kürzeste Weg, den du nehmen kannst, ist mit O gekennzeichnet:
+
+      0123456789
+    0 .#.####.##
+    1 .O#..#...#
+    2 #OOO.##...
+    3 ###O#.###.
+    4 .##OO#OO#.
+    5 ..###OOO.#.
+    6 #...##.###
+
+Um 7,4 zu erreichen, braucht man also mindestens 11 Schritte (ausgehend von der aktuellen Position, 1,1).
+
+
+Wie viele Schritte benötigst du minimum, um 31,39 zu erreichen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

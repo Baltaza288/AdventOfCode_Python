@@ -1,0 +1,44 @@
+
+--- Tag 10: Balancierroboter ---
+
+Du kommst zu einer Fabrik, in der viele Roboter herumschwirren und sich gegenseitig kleine Mikrochips geben.
+
+Bei näherer Betrachtung stellst du fest, dass jeder Roboter nur dann weitermacht, wenn er zwei Mikrochips hat.
+Sobald er zwei Mikrochips hat, gibt er sie an einen anderen Roboter weiter oder
+legt sie in einen gekennzeichneten "Ausgabe"-Behälter.
+Manchmal nehmen die Bots auch Mikrochips aus "Eingabe"-Behältern.
+
+Wenn man einen der Mikrochips untersucht, sieht es so aus, als ob sie jeweils eine einzige Zahl enthalten.
+Die Bots müssen eine gewisse Logik anwenden, um zu entscheiden, was sie mit jedem Chip tun sollen.
+Du greifst auf den lokalen Kontrollcomputer zu und lädst die Anweisungen der Bots herunter (INPUT).
+
+Einige der Anweisungen legen fest, dass ein Mikrochip mit einem bestimmten Wert
+an einen bestimmten Roboter gegeben werden soll.
+Die übrigen Anweisungen geben an, was ein bestimmter Bot mit seinem Chip mit niedrigerem oder höherem Wert tun soll.
+
+
+Betrachten wir zum Beispiel die folgenden Anweisungen:
+
+    Wert 5 geht an Bot 2
+    Bot 2 gibt den niedrigen Wert an Bot 1 und den hohen an Bot 0
+    Wert 3 geht an Bot 1
+    Bot 1 gibt low an Ausgang 1 und high an Bot 0
+    Bot 0 gibt low an Ausgang 2 und high an Ausgang 0
+    Wert 2 geht an Bot 2
+
+ - Zu Beginn hat Bot 1 einen Wert-3-Chip und Bot 2 einen Wert-2-Chip und einen Wert-5-Chip.
+ - Da Bot 2 zwei Mikrochips hat, gibt er den niedrigeren (2) an Bot 1 und den höheren (5) an Bot 0.
+ - Dann hat Bot 1 zwei Mikrochips; er steckt den Wert-2-Chip in Ausgang 1 und gibt den Wert-3-Chip an Bot 0.
+ - Bot 0 schließlich hat zwei Mikrochips; er steckt die 3 in Ausgang 2 und die 5 in Ausgang 0.
+
+Am Ende enthält Ausgangskorb 0 einen Wert-5-Mikrochip, Ausgangskorb 1 einen Wert-2-Mikrochip,
+und Ausgangsfach 2 enthält einen Mikrochip mit dem Wert 3. In dieser Konfiguration ist Bot Nummer 2 für
+den Vergleich von Wert-5-Mikrochips mit Wert-2-Mikrochips zuständig.
+
+
+Wie lautet die Nummer des Roboters, der gemäß deinen Anweisungen für den
+Wert-61-Mikrochips mit Wert-17-Mikrochips zu vergleichen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

@@ -1,0 +1,39 @@
+
+--- Tag 9: Sprengstoff im Cyberspace ---
+
+Beim Herumwandern in einem gesicherten Bereich stoßt du auf einen Datalink-Port zu einem neuen Teil des Netzwerks.
+Nachdem du ihn kurz nach interessanten Dateien durchsucht hast, findest du eine Datei, die
+deine Aufmerksamkeit erregt. Sie ist mit einem experimentellen Format komprimiert, aber zum Glück,
+ist die Dokumentation für das Format in der Nähe.
+
+Das Format komprimiert eine Folge von Zeichen. Leerzeichen werden ignoriert. Um anzuzeigen, dass
+eine Sequenz wiederholt werden soll, wird der Datei eine Markierung hinzugefügt, etwa (10x2).
+Um diese Markierung zu dekomprimieren, nehme die folgenden 10 Zeichen und wiederholen sie 2 Mal.
+Lese dann die Datei nach den wiederholten Daten weiter. Die Markierung selbst ist nicht
+in der dekomprimierten Ausgabe enthalten.
+
+Wenn Klammern oder andere Zeichen in den Daten erscheinen, auf die eine Marke verweist, ist das in Ordnung.
+Behandeln sie wie normale Daten, nicht wie eine Markierung, und fahre dann mit der Suche nach
+Markierungen in dem dekomprimierten Abschnitt fort.
+
+
+Ein Beispiel:
+
+ - ADVENT enthält keine Markierungen und wird unverändert in sich selbst dekomprimiert,
+   was zu einer dekomprimierten Länge von 6 führt.
+ - A(1x5)BC wiederholt nur das B insgesamt 5 Mal und wird zu ABBBBBC mit einer dekomprimierten Länge von 7.
+ - (3x3)XYZ wird zu XYZXYZXYZ mit einer dekomprimierten Länge von 9.
+ - A(2x2)BCD(2x2)EFG verdoppelt BC und EF und wird zu ABCBCDEFEFG mit einer dekomprimierten Länge von 11.
+ - (6x1)(1x3)A wird einfach zu (6x1)A - das (1x3) sieht aus wie eine Markierung, da es sich aber
+    innerhalb eines Datenabschnitts einer anderen Markierung steht, wird es nicht anders behandelt als das A,
+    das danach kommt. Es hat eine dekomprimierte Länge von 6.
+ - X(8x2)(3x3)ABCY wird zu X(3x3)ABC(3x3)ABCY (mit einer dekomprimierten Länge von 18),
+    weil die dekomprimierten Daten der (8x2)-Markierung (das (3x3)ABC) übersprungen
+    und nicht weiterverarbeitet werden.
+
+
+Wie groß ist die dekomprimierte Länge der Datei (INPUT)? Leerzeichen nicht mitgezählt.
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

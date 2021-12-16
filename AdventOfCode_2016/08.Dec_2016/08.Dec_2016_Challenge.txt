@@ -61,4 +61,3 @@ after you swipe your card, if the screen did work, how many pixels should be lit
 
 ------------------------------------------------------------------------------------------------------------------------
 --- Part Two ---
-

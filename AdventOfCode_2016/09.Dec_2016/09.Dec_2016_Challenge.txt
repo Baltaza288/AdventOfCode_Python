@@ -36,4 +36,3 @@ What is the decompressed length of the file (your puzzle input)? Don't count whi
 
 ------------------------------------------------------------------------------------------------------------------------
 --- Part Two ---
-

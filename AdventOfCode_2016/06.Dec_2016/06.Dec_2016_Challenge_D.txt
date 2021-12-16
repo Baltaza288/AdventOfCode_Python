@@ -1,0 +1,42 @@
+
+--- Tag 6: Signale und Rauschen ---
+
+Irgendetwas stört deine Kommunikation mit dem Weihnachtsmann. Glücklicherweise ist dein Signal
+nur teilweise gestört, und das Protokoll sieht in solchen Situationen vor, dass man auf einen einfachen
+Wiederholungscode, um die Nachricht zu übermitteln.
+
+In diesem Modell wird die gleiche Nachricht wiederholt gesendet. Du hast das wiederholte
+Signal aufgezeichnet (INPUT), aber die Daten scheinen ziemlich beschädigt zu sein - fast
+zu schlecht, um sie wiederherzustellen. Fast.
+
+Alles, was du tun musst, ist herauszufinden, welches Zeichen für jede Position am häufigsten vorkommt.
+
+
+Beispiel:
+
+    eedadn
+    drvtee
+    eandsr
+    raavrd
+    atevrs
+    tsrnev
+    sdttsa
+    rasrtv
+    nssdts
+    ntnada
+    svetve
+    tesnvt
+    vntsnd
+    vrdear
+    dvrsen
+    enarar
+
+Das häufigste Zeichen in der ersten Spalte ist das e, in der zweiten das a, in der dritten das s, und so weiter.
+Die Kombination dieser Zeichen ergibt die fehlerbereinigte Nachricht "easter".
+
+
+Wie lautet die fehlerbereinigte Version der gesendeten Nachricht angesichts der Aufzeichnung in deiner Rätseleingabe?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

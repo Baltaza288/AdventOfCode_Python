@@ -1,0 +1,52 @@
+
+--- Tag 2: Sicherheit im Badezimmer ---
+
+Du kommst im Schutze der Dunkelheit im Hauptquartier des Osterhasen an.
+Aber du hattest es so eilig, dass du vergessen hast, die Toilette zu benutzen!
+Schicke Bürogebäude wie dieses haben in der Regel Tastenschlösser an ihren Toiletten,
+also suchst du an der Rezeption nach dem Code.
+
+"Um die Sicherheit zu verbessern", heißt es in dem Dokument, das du findest, "werden die Toilettencodes
+nicht mehr aufgeschrieben. Bitte merken Sie sich die Codes und befolgen Sie die folgende Prozedur
+um Zugang zu den Toiletten zu erhalten."
+
+In dem Dokument wird weiter erklärt, dass jeder zu drückende Knopf gefunden werden kann, indem man
+mit der vorherigen Taste beginnt und zu den benachbarten Tasten auf dem Tastenfeld geht:
+U geht nach oben, D geht nach unten, L geht nach links und R geht nach rechts. Jede Zeile von Anweisungen
+entspricht einer Taste, beginnend bei der vorherigen Taste (oder, für die erste Zeile, der Taste "5");
+Drücke am Ende jeder Zeile die Taste, auf der du dich gerade befindest.
+Wenn ein Zug nicht zu einer Taste führt, ignoriere ihn.
+
+Du kannst es nicht länger aushalten und beschließt, den Code auf dem Weg zur Toilette herauszufinden.
+Du stellst dir ein Tastenfeld wie dieses vor:
+
+    1 2 3
+    4 5 6
+    7 8 9
+
+Angenommen, deine Anweisungen lauten:
+
+    ULL
+    RRDDD
+    LURDL
+    UUUUD
+
+ - Du beginnst bei "5" und gehst nach oben (zu "2"), nach links (zu "1") und nach links
+   (Das geht nicht, somit bleibst du auf der "1"), also ist die erste Taste die "1".
+ - Ausgehend von der vorherigen Taste ("1") bewegst du dich zweimal nach rechts (bis "3")
+   und dann dreimal nach unten (wobei du nach zwei Zügen bei "9" anhältst und den dritten ignorierst),
+   sodass du bei 9 landest.
+ - Von "9" aus bewegst du dich weiter nach links, oben, rechts, unten und nach links und landest bei 8.
+ - Schließlich bewegst du dich viermal nach oben (wobei du bei "2" anhältst),
+   dann einmal nach unten und bei der 5 landest.
+
+In diesem Beispiel lautet der Badezimmercode also 1985.
+
+Die Eingabe für das Rätsel sind die Anweisungen aus dem Dokument, das du an der Rezeption gefunden hast.
+
+
+Wie lautet der Code für die Toilette?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

@@ -49,24 +49,24 @@ und der Boss hat 13 Trefferpunkte und 8 Schaden:
     -- Spielerzug --
     - Spieler hat 10 Trefferpunkte, 0 Rüstung, 250 Mana
     - Der Boss hat 13 Trefferpunkte
-    - Der Spieler zaubert Gift.
+    Der Spieler zaubert Gift.
 
     -- Bosszug --
     - Der Spieler hat 10 Trefferpunkte, 0 Rüstung, 77 Mana
     - Der Boss hat 13 Trefferpunkte
-    - Gift verursacht 3 Schaden; sein Timer ist jetzt 5.
-    - Der Boss greift mit 8 Schaden an.
+    Gift verursacht 3 Schaden; sein Timer ist jetzt 5.
+    Der Boss greift mit 8 Schaden an.
 
     -- Spielerzug --
     - Der Spieler hat 2 Trefferpunkte, 0 Rüstung, 77 Mana
     - Der Boss hat 10 Trefferpunkte
-    - Gift fügt 3 Schaden zu; sein Timer ist jetzt 4.
-    - Der Spieler zaubert Magisches Geschoss, das 4 Schaden verursacht.
+    Gift fügt 3 Schaden zu; sein Timer ist jetzt 4.
+    Der Spieler zaubert Magisches Geschoss, das 4 Schaden verursacht.
 
     -- Bosszug --
     - Der Spieler hat 2 Trefferpunkte, 0 Rüstung, 24 Mana
     - Der Boss hat 3 Trefferpunkte
-    - Gift richtet 3 Schaden an. Dies tötet den Boss, und der Spieler gewinnt.
+    Gift richtet 3 Schaden an. Dies tötet den Boss, und der Spieler gewinnt.
 
 
 Nehmen wir nun die gleichen Ausgangsbedingungen an, nur dass der Boss stattdessen 14 Trefferpunkte hat:

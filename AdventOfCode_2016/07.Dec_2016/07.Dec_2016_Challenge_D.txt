@@ -1,0 +1,27 @@
+
+--- Tag 7: Internetprotokoll Version 7 ---
+
+Während du im lokalen Netzwerk des EBHQ herumschnüffelst, stellst du eine Liste von IP-Adressen zusammen
+(natürlich IPv7; IPv6 ist viel zu begrenzt). Du würdest gerne herausfinden, welche
+IPs TLS (Transport-Layer-Snooping) unterstützen.
+
+Eine IP unterstützt TLS, wenn sie eine Autonomous Bridge Bypass Annotation (ABBA) hat.
+Eine ABBA ist eine beliebige Vier-Zeichen-Sequenz, die aus einem Paar von zwei verschiedenen Zeichen besteht,
+gefolgt von der Umkehrung dieses Paares, z. B. xyyx oder abba.
+Allerdings, darf die IP auch keine ABBA innerhalb von Hypernet-Sequenzen enthalten,
+die in eckigen Klammern enthalten sind.
+
+
+Zum Beispiel:
+
+ - abba[mnop]qrst unterstützt TLS (abba außerhalb eckiger Klammern).
+ - abcd[bddb]xyyx unterstützt kein TLS (bddb steht innerhalb eckiger Klammern, obwohl xyyx außerhalb eckiger Klammern steht).
+ - aaaa[qwer]tyui unterstützt kein TLS (aaaa ist ungültig; die inneren Zeichen müssen unterschiedlich sein).
+ - ioxxoj[asdfgh]zxcvbn unterstützt TLS (oxxo steht außerhalb eckiger Klammern, obwohl es in einer größeren Zeichenfolge steht).
+
+
+Wie viele IPs in deiner Rätseleingabe unterstützen TLS?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

@@ -1,0 +1,33 @@
+
+--- Tag 5: Wie wäre es mit einer schönen Partie Schach? ---
+
+Du bist mit einer Sicherheitstür konfrontiert, die von Osterhasen-Ingenieuren,
+die anscheinend den Großteil ihres Sicherheitswissens durch das Ansehen von Hackerfilmen, erworben wurde.
+
+Das achtstellige Passwort für die Tür wird zeichenweise generiert
+ein Zeichen nach dem anderen, indem der MD5-Hash aus einer Tür-ID (INPUT)
+und einem aufsteigenden ganzzahligen Index (beginnend mit 0).
+
+Ein Hash gibt das nächste Zeichen im Kennwort an, wenn seine hexadezimale
+Darstellung mit fünf Nullen beginnt. Wenn dies der Fall ist, ist das sechste Zeichen
+im Hash das nächste Zeichen des Kennworts.
+
+
+Beispiel: Die Tür-ID lautet abc:
+
+ - Der erste Index, der einen Hash-Wert ergibt, der mit fünf Nullen beginnt, ist 3231929,
+    den wir durch Hashing von abc3231929 finden; das sechste Zeichen des Hashes, und damit
+    das erste Zeichen des Kennworts, ist 1.
+ - 5017308 ergibt den nächsten interessanten Hash, der mit 000008f82 beginnt...,
+    Das zweite Zeichen des Kennworts ist also 8.
+ - Das dritte Mal, dass ein Hash mit fünf Nullen beginnt, ist für abc5278568,
+    wobei das Zeichen f entdeckt wird.
+
+In diesem Beispiel lautet das Kennwort nach insgesamt achtmaligem Durchlaufen dieser Suche 18f47a30.
+
+
+Wie lautet das Kennwort angesichts der aktuellen Tür-ID?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

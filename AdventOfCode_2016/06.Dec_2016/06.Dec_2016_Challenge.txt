@@ -39,4 +39,3 @@ Given the recording in your puzzle input, what is the error-corrected version of
 
 ------------------------------------------------------------------------------------------------------------------------
 --- Part Two ---
-

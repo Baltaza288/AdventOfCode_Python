@@ -1,0 +1,45 @@
+
+--- Tag 14: Einmal-Kennwort ---
+
+Um während dieser Mission sicher mit dem Weihnachtsmann kommunizieren zu können,
+benutzt du ein Einmal-Kennwort, das du mit einem vorher vereinbarten Algorithmus erzeugt hast.
+Leider sind dir die Schlüssel in deinem One-Time-Pad ausgegangen, sodass du neue generieren musst.
+
+Um Schlüssel zu erzeugen, erhältst du zunächst einen Strom zufälliger Daten, indem du den MD5-Wert eines
+vorbereiteten Salts (INPUT) und eines aufsteigenden ganzzahligen Indexes
+(beginnend mit 0 und in Dezimalzahlen dargestellt) kombinierst. Der resultierende MD5-Hash sollte
+als Zeichenkette aus klein geschriebenen hexadezimalen Ziffern dargestellt werden.
+
+Allerdings sind nicht alle diese MD5-Hashes Schlüssel, und du benötigst 64 neue Schlüssel für dein One-Time-Pad.
+Ein Hash ist nur dann ein Schlüssel, wenn folgende Kriterien gewährleistet sind:
+
+ - Er enthält drei gleiche Zeichen in einer Reihe, z. B. 777.
+   Berücksichtige nur die erste derartige Dreiergruppe in einem Hash.
+ - Einer der nächsten 1000 Hashes im Datenstrom enthält dasselbe Zeichen fünfmal hintereinander, z. B. 77777.
+
+Die Berücksichtigung künftiger Hashes für Fünffach-Sequenzen führt nicht dazu, dass diese Hashes
+übersprungen werden; stattdessen wird unabhängig davon, ob der aktuelle Hash ein Schlüssel ist, immer mit der
+Prüfung auf Schlüssel mit dem nächsten Hash fortgesetzt.
+
+
+Zum Beispiel, wenn der vorher vereinbarte Salt abc ist:
+
+ - Der erste Index, der ein Tripel ergibt, ist 18, denn der MD5-Hash von
+    abc18 ist ...cc38887a5.... Der Index 18 zählt jedoch nicht als Schlüssel
+    für dein One-Time-Pad, da keiner der nächsten tausend Hashes
+    (Index 19 bis Index 1018) 88888 enthält.
+ - Der nächste Index, der ein Tripel ergibt, ist 39; der Hash von abc39 enthält eee.
+    Es ist auch der erste Schlüssel: einer der nächsten tausend Hashes (der bei Index 816)
+    enthält eeeee.
+ - Keines der nächsten sechs Tripel ist ein Schlüssel, wohl aber das übernächste, das bei Index 92 steht:
+    Es enthält 999 und Index 200 enthält 99999.
+ - Schließlich erfüllt der Index 22728 alle Kriterien für die Erzeugung des 64. Schlüssels.
+
+Bei unserem Beispielsalz von abc ergibt der Index 22728 also den 64. Schlüssel.
+
+
+Welcher Index ergibt den 64. One-Time-Pad-Schlüssel, wenn man den tatsächliche Salt in der Rätseleingabe verwendet?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

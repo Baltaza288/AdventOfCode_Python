@@ -1,0 +1,51 @@
+
+--- Tag 12: Leonardos Einschienenbahn ---
+
+Endlich erreicht man das oberste Stockwerk dieses Gebäudes: ein Garten mit einer schrägen Glasdecke.
+Es sieht so aus, als gäbe es keine Sterne mehr zu holen.
+
+Während du auf einer Bank inmitten von Tigerlilien sitzt, gelingt es dir, einige der Dateien zu entschlüsseln,
+die du von den Servern im Erdgeschoss extrahiert hast.
+
+Diesen Dokumenten zufolge ist das Osterhasen-Hauptquartier nicht nur dieses Gebäude - es ist eine Ansammlung
+von Gebäuden in der näheren Umgebung. Sie sind alle durch eine Einschienenbahn miteinander verbunden, und es gibt
+ein weiteres Gebäude nicht weit von hier! Da es Nacht ist, ist die Einschienenbahn derzeit leider nicht in Betrieb.
+
+Du stellst eine Fernverbindung zu den Kontrollsystemen der Einschienenbahn her und musst feststellen,
+dass die Startsequenz ein Passwort erwartet.
+Die Logik zur Überprüfung des Passworts (INPUT) ist leicht zu extrahieren, aber der Code, den sie verwendet,
+ist seltsam: Es ist ein Assembunny-Code, der für den neuen Computer, den du gerade zusammengebaut hast.
+Du musst den Code ausführen und das Passwort herausfinden.
+
+Der Assembunny-Code, den du extrahiert hast, arbeitet mit vier Registern (a, b, c und d), die bei 0 beginnen
+und eine beliebige ganze Zahl enthalten können. Er scheint jedoch nur wenige Anweisungen zu verwenden:
+
+ - cpy x y kopiert x (entweder eine ganze Zahl oder den Wert eines Registers) in das Register y.
+ - inc x erhöht den Wert des Registers x um eins.
+ - dec x senkt den Wert von Register x um eins.
+ - jnz x y springt zu einer Anweisung, die y entfernt ist (positiv bedeutet vorwärts; negativ bedeutet rückwärts),
+    aber nur, wenn x nicht Null ist.
+
+Die Anweisung jnz bewegt sich relativ zu sich selbst: Ein Offset von -1 würde an der
+vorherigen Anweisung fortfahren, während ein Offset von 2 die nächste Anweisung überspringt.
+
+
+Zum Beispiel:
+
+    cpy 41 a
+    inc a
+    inc a
+    dec a
+    jnz a 2
+    dez a
+
+Der obige Code würde das Register a auf 41 setzen, seinen Wert um 2 erhöhen, seinen Wert um 1 verringern,
+und dann das letzte dez a überspringen (da a nicht Null ist, wird es durch jnz a 2 übersprungen),
+sodass Register a auf 42. Wenn Sie die letzte Anweisung überschreiten, hält das Programm an.
+
+
+Welcher Wert steht nach der Ausführung des Assembunny-Codes in der Rätseleingabe noch im Register a?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

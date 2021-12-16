@@ -1,0 +1,23 @@
+
+--- Tag 3: Quadrate mit drei Seiten ---
+
+Jetzt, wo du klar denken kannst, gehst du tiefer in das Labyrinth aus
+Fluren und Büromöbeln, die diesen Teil des Osterhasen-Hauptquartiers ausmachen.
+Dies muss eine Abteilung für Grafikdesign sein, denn die Wände sind mit Spezifikationen für Dreiecke bedeckt.
+
+Oder doch nicht?
+
+Das Design-Dokument gibt die Seitenlängen jedes Dreiecks an, das es beschreibt,
+aber... 5 10 25? Einige von ihnen sind keine Dreiecke. Du kannst nicht anders, als die
+die unmöglichen zu markieren.
+
+In einem gültigen Dreieck muss die Summe zweier beliebiger Seiten größer sein als
+die verbleibende Seite. Das obige "Dreieck" ist zum Beispiel unmöglich,
+denn 5 + 10 ist nicht größer als 25.
+
+
+Wie viele der aufgelisteten Dreiecke sind in deiner Rätseleingabe möglich?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

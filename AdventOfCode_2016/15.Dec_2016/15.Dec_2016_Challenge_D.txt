@@ -1,0 +1,54 @@
+
+--- Tag 15: Timing ist alles ---
+
+Die Hallen öffnen sich zu einem inneren Platz mit einer großen kinetischen Skulptur.
+Die Skulptur befindet sich in einem versiegelten Gehäuse und scheint aus einer Reihe von identischen
+kugelförmigen Kapseln, die nach oben getragen werden und durch das Labyrinth der sich drehenden Teile.
+
+Ein Teil der Skulptur ist sogar interaktiv! Wenn ein Knopf gedrückt wird, wird eine Kapsel
+fallen und versucht, durch Schlitze in einer Reihe von rotierenden Scheiben zu fallen, um schließlich
+durch ein kleines Loch am Boden zu fallen und aus der Skulptur herauszukommen. Wenn einer der
+Schlitze nicht mit der Kapsel übereinstimmen, prallt die Kapsel von der
+Scheibe ab und fliegt davon. Man fühlt sich gezwungen, eine dieser Kapseln zu bekommen.
+
+Die Scheiben halten jede Sekunde in ihrer Bewegung inne und sind unterschiedlich groß; sie scheinen
+eine feste Anzahl von Positionen zu haben, an denen sie anhalten. Du beschließt, die
+Position mit dem Schlitz 0 zu nennen und für jede weitere Position, die sie erreicht, hoch zuzählen.
+
+Außerdem sind die Scheiben so angeordnet, dass nach dem Drücken des Knopfes eine Sekunde vergeht,
+bevor die erste Scheibe erreicht wird, und eine Sekunde vergeht, wenn die Kapsel
+von einer Scheibe auf die darunter liegende übergeht. Wenn du also den Knopf zum Zeitpunkt = 100 drückst,
+erreicht die Kapsel die oberste Scheibe zum Zeitpunkt = 101, die zweite Scheibe zum Zeitpunkt = 102, die dritte Scheibe
+bei Zeit=103 und so weiter.
+
+Der Knopf lässt eine Kapsel nur zu einer ganzzahligen Zeit fallen - Bruchteile von Sekunden sind nicht erlaubt.
+
+
+Nehmen wir zum Beispiel an, dass du zum Zeitpunkt 0 die folgende Anordnung siehst:
+
+    Scheibe Nr. 1 hat 5 Positionen; zum Zeitpunkt 0 befindet sie sich auf Position 4.
+    Scheibe Nr. 2 hat 2 Positionen; zum Zeitpunkt 0 befindet sie sich an Position 1.
+
+Wenn du den Knopf genau zum Zeitpunkt 0 drückst, beginnt die Kapsel zu fallen; sie würde
+die erste Scheibe zum Zeitpunkt 1 erreichen. Da sich die erste Scheibe zum Zeitpunkt=0 an Position 4 befand,
+hat sie sich zum Zeitpunkt 1 um eine Position weiterbewegt.
+Da es sich um eine Scheibe mit fünf Positionen handelt,
+ist die nächste Position 0 und die Kapsel fällt durch den Schlitz.
+
+Dann, zum Zeitpunkt = 2, erreicht die Kapsel die zweite Scheibe. Die zweite Scheibe hat sich zu diesem Zeitpunkt
+zwei Positionen vorwärts getickt: Sie begann an Position 1, ging dann weiter zu Position 0,
+und landet schließlich wieder bei Position 1. Da es nur einen Schlitz an Position 0 gibt, prallt die Kapsel ab.
+
+Wartet man jedoch mit dem Drücken des Knopfes bis Zeit=5, dann ist die Kapsel bei jeder Scheibe angekommen,
+die erste Scheibe 5+1 = 6 Mal vorwärts getickt (bis zur Position 0), und die zweite Scheibe
+5+2 = 7 Mal vorwärts getickt (ebenfalls bis zur Position 0). In diesem Fall würde die Kapsel
+durch die Scheiben fallen und aus der Maschine kommen.
+
+In deiner Situation gibt es jedoch mehr als zwei Scheiben. Du hast deren Positionen in deiner Rätseleingabe notiert.
+
+
+Wann musst du zum ersten Mal den Knopf drücken, um eine Kapsel zu erhalten?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

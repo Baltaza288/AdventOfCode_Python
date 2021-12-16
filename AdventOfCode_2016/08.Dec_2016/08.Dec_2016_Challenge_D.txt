@@ -1,0 +1,65 @@
+
+--- Tag 8: Zwei-Faktor-Authentifizierung ---
+
+Du stößt auf eine Tür, von der du nur annehmen kannst, dass es sich um eine Implementierung
+einer Zwei-Faktor-Authentifizierung handelt, die du nach einem langen Spiel mit dem Anforderungstelefon vermutest.
+
+Um die Tür zu passieren, musst du zunächst eine Schlüsselkarte durchziehen
+(kein Problem; es lag eine auf einem Schreibtisch in der Nähe).
+Danach wird auf einem kleinen Bildschirm ein Code angezeigt, den man auf einem Tastenfeld eintippt.
+Anschließend wird die Tür vermutlich aufgeschlossen.
+
+Leider ist der Bildschirm zertrümmert worden. Nach ein paar Minuten hast du alles auseinandergenommen
+zerlegt und herausgefunden, wie es funktioniert. Jetzt musst du nur noch herausfinden, was der Bildschirm
+angezeigt hätte.
+
+Auf dem Magnetstreifen der Karte, die du durchzogen hast,
+sind eine Reihe von Anweisungen für den Bildschirm verschlüsselt.
+Diese Anweisungen sind deine Rätseleingabe. Der Bildschirm ist 50 Pixel breit und 6 Pixel hoch,
+und ist in der Lage, drei etwas merkwürdige Operationen auszuführen:
+
+ - rect AxB schaltet alle Pixel in einem Rechteck oben links auf dem Bildschirm ein, das A breit und B hoch ist.
+ - rotate row y=A by B verschiebt alle Pixel in Reihe A (0 ist die oberste Reihe) um B Pixel nach rechts.
+    Pixel, die am rechten Ende wegfallen würden, erscheinen am linken Ende der Reihe.
+ - rotate column x=A by B verschiebt alle Pixel in Spalte A (0 ist die linke Spalte) nach unten
+    um B Pixel. Pixel, die von unten nach oben fallen würden, erscheinen am oberen Ende der Spalte.
+
+
+Hier ist zum Beispiel eine einfache Sequenz auf einem kleineren Bildschirm:
+
+ - rect 3x2 erzeugt ein kleines Rechteck in der linken oberen Ecke:
+
+    ###....
+    ###....
+    .......
+
+ - rotate column x=1 by 1 rotiert die zweite Spalte um ein Pixel nach unten:
+
+    #.#....
+    ###....
+    .#.....
+
+ - rotate row y=0 by 4 dreht die oberste Zeile um vier Pixel nach rechts:
+
+    ....#.#
+    ###....
+    .#.....
+
+ - rotate column x=1 by 1 wiederum dreht die zweite Spalte um ein Pixel nach unten,
+    wodurch das untere Pixel wieder nach oben wandert:
+
+    .#..#.#
+    #.#....
+    .#.....
+
+Wie du sehen kannst, ist diese Anzeigetechnologie extrem leistungsfähig und wird bald
+den Markt für Bildschirme mit winzigen Codes dominieren. Das ist es, wovon die Werbung
+auf der Rückseite des Displays dich zu überzeugen versucht.
+
+
+Es scheint eine Zwischenprüfung der vom Display verwendeten Spannung zu geben:
+Wenn der Bildschirm nach dem Durchziehen der Karte funktionieren würde, wie viele Pixel müssten dann leuchten?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

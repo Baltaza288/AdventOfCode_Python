@@ -1,0 +1,39 @@
+
+--- Tag 1: Keine Zeit für ein Taxi ---
+
+Der Schlitten des Weihnachtsmanns wird von einer hochpräzisen Uhr gesteuert
+und der Oszillator der Uhr wird von Sternen gesteuert.
+Leider wurden die Sterne gestohlen ... vom Osterhasen. Um Weihnachten zu retten,
+muss der Weihnachtsmann bis zum 25. Dezember alle fünfzig Sterne zurückholen.
+
+Sammle Sterne, indem du Rätsel löst. An jedem Tag des Adventskalenders stehen zwei Rätsel zur Verfügung.
+Das zweite Rätsel wird freigeschaltet, wenn du das erste gelöst hast.
+Für jedes Rätsel gibt es einen Stern. Viel Glück!
+
+Du wirst in der Nähe des Hauptquartiers des Osterhasen in einer Stadt aus der Luft abgesetzt.
+"In der Nähe" ist leider das, was man am ehesten erreichen kann - die Anweisungen
+auf dem Osterhasen-Rekrutierungsdokument, das die Elfen abgefangen haben, beginnen hier,
+und niemand hatte Zeit, sie weiter auszuarbeiten.
+
+Das Dokument besagt, dass du bei den angegebenen Koordinaten starten sollst
+(wo du gerade gelandet bist) und dich nach Norden orientierst. Befolge dann die vorgegebene Reihenfolge:
+Dreh dich entweder um 90 Grad nach links (L) oder nach rechts (R) und gehe dann
+die angegebene Anzahl von Blöcken vorwärts, um an einer neuen Kreuzung zu enden.
+
+Du hast keine Zeit, solche lächerlichen Anweisungen zu Fuß zu befolgen,
+also nimmst du dir einen Moment Zeit und planst deinen Weg.
+Wie weit ist der kürzeste Weg zum Ziel wenn du nur auf dem Straßennetz der Stadt laufen kannst?
+
+
+Zum Beispiel:
+
+ - Wenn du R2, L3 folgst, bist du 2 Häuserblocks östlich und 3 Häuserblocks nördlich, also 5 Häuserblocks entfernt.
+ - R2, R2, R2 führt Sie 2 Häuserblocks nach Süden von Ihrer Ausgangsposition, also 2 Häuserblocks entfernt.
+ - Mit R5, L5, R5, R3 bist du 12 Blöcke entfernt.
+
+
+Wie viele Häuserblocks ist das Hauptquartier des Osterhasen entfernt?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

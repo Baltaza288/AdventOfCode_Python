@@ -1,0 +1,73 @@
+
+--- Tag 16: Drachenprüfsumme ---
+
+Du bist mit dem Scannen dieses Teils des Netzwerks fertig, aber du hast Spuren deiner Anwesenheit hinterlassen.
+Du musst einige Festplatten mit zufällig aussehenden Daten überschreiben, um deine Spuren zu verwischen und
+das lokale Sicherheitssystem mit einer neuen Prüfsumme für diese Festplatten aktualisieren.
+
+Damit die Daten unverdächtig sind, müssen sie bestimmte Eigenschaften haben; rein zufällige
+Daten werden als Manipulationen erkannt. Um geeignete Zufallsdaten zu erzeugen, müsst du
+eine modifizierte Drachenkurve verwenden.
+
+Beginne mit einem geeigneten Ausgangszustand (INPUT). Solange du noch nicht genug Daten hast,
+um die Platte zu füllen, wiederhole die folgenden Schritte:
+
+ - Nenne die Daten, die du zu diesem Zeitpunkt hast, "a".
+ - Erstelle eine Kopie von "a"; nenne diese Kopie "b".
+ - Kehre die Reihenfolge der Zeichen in "b" um.
+ - Ersetze in "b" alle 0 durch 1 und alle 1en durch 0.
+ - Die resultierenden Daten sind "a", dann eine einzelne 0, dann "b".
+
+
+Beispiel:
+
+Nach einem einzigen Schritt dieses Prozesses,
+ - 1 wird zu 100.
+ - 0 wird zu 001.
+ - 11111 wird zu 11111000000.
+ - 111100001010 wird zu 1111000010100101011110000.
+
+Wiederhole diese Schritte, bis du genügend Daten hast, um den gewünschten Datenträger zu füllen.
+
+Nachdem die Daten erzeugt wurden, musst du auch eine Prüfsumme über diese Daten erstellen.
+Berechne die Prüfsumme nur für die Daten, die auf den Datenträger passen, auch wenn du
+mehr Daten als im vorherigen Schritt erzeugt hast.
+
+Die Prüfsumme für bestimmte Daten wird erstellt, indem jedes nicht überlappende Paar von Zeichen in den Eingabedaten.
+Wenn die beiden Zeichen übereinstimmen (00 oder 11), ist das nächste Prüfsummenzeichen eine 1.
+Zeichen eine 1. Stimmen die Zeichen nicht überein (01 oder 10), ist das nächste Prüfsummenzeichen eine 0.
+Dies sollte eine neue Zeichenfolge ergeben, die genau halb so lang ist wie das Original.
+Wenn die Länge der Prüfsumme gerade ist, wiederhole den Vorgang, bis du eine Prüfsumme
+mit einer ungeraden Länge erhältst.
+
+Nehmen wir zum Beispiel an, wir wollen einen Datenträger der Länge 12 füllen, und wenn wir schließlich eine
+Zeichenkette mit mindestens 12 Zeichen Länge erzeugt, sind die ersten 12 Zeichen 110010110100.
+Um die Prüfsumme zu bilden:
+
+ - Betrachte jedes Paar: 11, 00, 10, 11, 01, 00.
+ - Diese sind gleich, gleich, verschieden, gleich, verschieden, gleich und ergeben 110101.
+ - Die resultierende Zeichenkette hat die Länge 6, was gerade ist, also wiederholen wir den Vorgang.
+ - Die Paare sind 11 (gleich), 01 (verschieden), 01 (verschieden).
+ - Dies ergibt die Prüfsumme 100, die eine ungerade Länge hat, also hören wir auf.
+
+Die Prüfsumme für 110010110100 ist also 100.
+
+Kombiniert man all diese Schritte miteinander, so kann man eine Platte der Länge
+20 mit einem Anfangszustand von 10000 füllen:
+
+ - Da 10000 zu kurz ist, verwenden wir zunächst die modifizierte Drachenkurve, um sie länger zu machen.
+ - Nach einer Runde wird daraus 10000011110 (11 Zeichen), immer noch zu kurz.
+ - Nach zwei Runden wird daraus 10000011110010000111110 (23 Zeichen), was ausreichend ist.
+ - Da wir nur 20 brauchen, aber 23 haben, streichen wir alle bis auf die ersten 20 Zeichen: 10000011110010000111.
+ - Als nächstes beginnen wir mit der Berechnung der Prüfsumme; nach einer Runde haben wir 0111110101, was 10 Zeichen lang ist (gerade), also machen wir weiter.
+ - Nach zwei Runden haben wir 01100, was 5 Zeichen lang ist (ungerade), also sind wir fertig.
+
+In diesem Beispiel würde die korrekte Prüfsumme also 01100 lauten.
+
+
+Die erste Scheibe, die du füllen musst, hat die Länge 272. Ausgehend vom Ausgangszustand
+in deiner Rätseleingabe, wie lautet die korrekte Prüfsumme?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
