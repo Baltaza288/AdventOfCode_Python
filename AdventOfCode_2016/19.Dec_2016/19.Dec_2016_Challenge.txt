@@ -30,4 +30,3 @@ With the number of Elves given in your puzzle input, which Elf gets all the pres
 
 ------------------------------------------------------------------------------------------------------------------------
 --- Part Two ---
-

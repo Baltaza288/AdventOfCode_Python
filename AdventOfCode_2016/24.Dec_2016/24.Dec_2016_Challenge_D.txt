@@ -1,0 +1,45 @@
+
+--- Tag 24: Luftschacht-Höhlenforschung ---
+
+Endlich bist du fündig geworden; die Türen, die den Zugang zum Dach ermöglichen, sind fest verschlossen,
+und alle Steuerungen und die dazugehörige Elektronik sind unzugänglich. Du kannst sie einfach nicht erreichen.
+
+Der Roboter, der die Luftkanäle reinigt, kann es jedoch.
+
+Er ist kein sehr schneller kleiner Roboter, aber du konfigurierst ihn so um, dass er mit einigen
+der freiliegenden Drähte, die durch das HLK-System verlegt wurden.
+Wenn du ihn an jede dieser Stellen leitest, könntest du die Sicherheitskontrollen aushebeln.
+
+Du extrahierst die Leitungsführung für diesen Bereich aus einigen erworbenen Plänen und erstellst
+eine Karte, auf der die relevanten Stellen markiert sind (INPUT). 0 ist dein aktueller Standort,
+von dem aus sich der Reinigungsroboter auf den Weg macht. Die anderen Zahlen sind (in keiner bestimmten Reihenfolge) die
+Orte, die der Roboter jeweils mindestens einmal besuchen muss. Wände sind mit # gekennzeichnet und offene Passagen
+Zahlen verhalten sich wie offene Durchgänge.
+
+
+Nehmen wir zum Beispiel an, du hast eine Karte wie die folgende:
+
+    ###########
+    #0.1.....2#
+    #.#######.#
+    #4.......3#
+    ###########
+
+Um alle Punkte von Interesse so schnell wie möglich zu erreichen, würde der Roboter den folgenden Weg nehmen:
+
+ - 0 bis 4 (2 Schritte)
+ - 4 bis 1 (4 Schritte; er kann sich nicht diagonal bewegen)
+ - 1 bis 2 (6 Schritte)
+ - 2 bis 3 (2 Schritte)
+
+Da der Roboter nicht sehr schnell ist, musst du für ihn den kürzesten Weg finden. Dieser Weg ist die
+der am wenigsten Schritte benötigt (im obigen Beispiel insgesamt 14), um bei 0 zu beginnen und dann
+jeden anderen Ort mindestens einmal zu besuchen.
+
+
+Wie viele Schritte sind bei der aktuellen Karte erforderlich,
+um von 0 aus jede auf der Karte markierte Zahl, die nicht 0 ist, mindestens einmal zu besuchen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

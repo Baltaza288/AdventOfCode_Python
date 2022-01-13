@@ -1,0 +1,48 @@
+
+--- Tag 25: Uhrensignal ---
+
+Du öffnest die Tür und findest dich auf dem Dach wieder. Die Stadt breitet sich meilenweit vor dir aus.
+
+Es bleibt nicht mehr viel Zeit - es ist schon Weihnachten, aber du bist nicht in der Nähe des
+Nordpols, viel zu weit weg, um die Sterne rechtzeitig zum Schlitten zu bringen.
+
+Aber vielleicht kann die riesige Antenne hier oben eine Lösung bieten. Schließlich braucht der Schlitten
+nicht unbedingt die Sterne, sondern die Zeitdaten, die sie liefern, und du hast zufällig
+einen riesigen Signalgenerator genau hier.
+
+Du schließt die Sterne, die du hast, an deinen Prototyp-Computer an, verbindest ihn mit der Antenne,
+und beginnst die Übertragung.
+
+Doch nichts passiert.
+
+Du rufst die Servicenummer an, die auf der Seite der Antenne aufgedruckt ist, und erklärst schnell
+die Situation. "Ich weiß nicht genau, was für ein Gerät Sie da angeschlossen haben", sagt
+sagt er, "aber Sie brauchen ein Taktsignal".
+Sie versuchen dir zu erklären, dass es sich um ein Signal für eine Uhr handelt.
+
+"Nein, nein, ein Taktsignal - Zeitinformationen, damit der Antennencomputer weiß,
+wie er die Daten lesen soll, die Sie ihm schicken. Ein endloses, abwechselndes Muster von
+0, 1, 0, 1, 0, 1, 0, 1, 0, 1...." Er bricht ab.
+
+Du fragst, ob die Antenne ein Taktsignal mit der Frequenz verarbeiten kann, die du
+für die Daten von den Sternen verwenden musst. "Das kann sie auf keinen Fall! Die einzige Antenne,
+die dazu in der Lage ist, befindet sich auf einer streng geheimen Osterhasenanlage, und
+Sie sind definitiv nicht..." Du legst den Hörer auf.
+
+Du hast den Assembunny-Code für die Erzeugung des Taktsignals der Antenne extrahiert (INPUT).
+Er scheint größtenteils mit dem Code kompatibel zu sein, an dem du erst kürzlich gearbeitet hast.
+
+Dieser Antennencode, der ein Signalgenerator ist, verwendet eine zusätzliche Anweisung:
+
+ - out x überträgt x (entweder eine Ganzzahl oder den Wert eines Registers) als nächsten Wert für das Taktsignal.
+
+Der Code nimmt einen Wert (über das Register a) an, der das zu erzeugende Signal beschreibt,
+aber du bist nicht sicher, wie es verwendet wird. Du musst die Eingabe zur Erzeugung des
+richtigen Signals durch Experimentieren erzeugen.
+
+Welches ist die kleinste positive ganze Zahl, die verwendet werden kann, um Register a zu initialisieren und
+den Code veranlassen, ein Taktsignal von 0, 1, 0, 1... auszugeben, das sich ewig wiederholt?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

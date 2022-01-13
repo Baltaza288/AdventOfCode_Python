@@ -1,0 +1,79 @@
+
+--- Tag 18: Wie ein Schurke ---
+
+Als du diesen Raum betrittst, hörst du ein lautes Klicken!
+Einige der Kacheln im Boden hier scheinen Druckplatten für Fallen zu sein und die Falle,
+die du gerade ausgelöst hast, hat kein ... was auch immer sie dir antun wollte.
+Du bezweifelst, dass du beim nächsten Mal so viel Glück haben wirst.
+
+Bei näherer Betrachtung scheinen die Fallen und Sicherheitsplatten in diesem Raum einem Muster zu folgen.
+Die Kacheln sind in Reihen angeordnet, die alle gleich breit sind.
+Du notierst dir die sicheren Kacheln (.) und Fallen (^) in der ersten Reihe (INPUT).
+
+Der Typ des Steins (gefährlich oder sicher) in jeder Reihe basiert auf den Typen der Steine an der gleichen Position,
+und auf beiden Seiten dieser Position, in der vorherigen Reihe.
+(Wenn eine der beiden Seiten von einem der beiden Enden der Reihe entfernt ist,
+gilt sie als "sicher", weil in der Wand keine Falle eingebaut ist.)
+
+Angenommen, du kennst die erste Reihe (mit den durch Buchstaben markierten Feldern) und möchtest
+die nächste Reihe (mit den durch Zahlen markierten Feldern) bestimmen:
+
+    ABCDE
+    12345
+
+Der Typ der Kachel 2 basiert auf den Typen der Kacheln A, B und C; der Typ der Kachel 5 basiert auf den Kacheln D und E,
+und einer imaginären "sicheren" Kachel. Nennen wir diese drei Kacheln aus der vorigen Reihe die linke, mittlere,
+und rechte Spielsteine. Ein neues Plättchen ist nur dann eine Falle, wenn eine der folgenden Situationen vorliegt:
+
+ - Das linke und das mittlere Plättchen sind Fallen, aber das rechte Plättchen ist keine.
+ - Das mittlere und das rechte Plättchen sind Fallen, aber das linke Plättchen ist keine.
+ - Nur das linke Plättchen ist eine Falle.
+ - Nur das rechte Plättchen ist eine Falle.
+
+In jeder anderen Situation ist das neue Plättchen sicher.
+
+Dann kannst du, beginnend mit der Reihe ..^^., die nächste Reihe bestimmen,
+indem du diese Regeln auf jedes neue Plättchen anwendest:
+
+ - Das am weitesten links stehende Zeichen in der nächsten Reihe gilt als links (nicht existent, also "sicher"),
+    Mitte (das erste ., was "sicher" bedeutet) und rechts (das zweite ., ebenfalls "sicher") der
+    vorherigen Reihe. Da alle Fallenregeln eine Falle in mindestens einem der
+    voraussetzen, ist das erste Feld in dieser neuen Reihe ebenfalls sicher, ...
+ - Das zweite Zeichen in der nächsten Reihe berücksichtigt seine linken (.), mittleren (.) und rechten (^)
+    Kacheln aus der vorherigen Reihe. Dies entspricht der vierten Regel: Nur das rechte Feld ist eine Falle.
+    Daher ist das nächste Feld in dieser neuen Reihe eine Falle, ^.
+ - Das dritte Zeichen ist .^^, das der zweiten Fallenregel entspricht: das mittlere und das
+    rechte Kachel sind Fallen, die linke Kachel jedoch nicht. Daher ist auch dieses Feld eine Falle, ^.
+ - Die letzten beiden Zeichen in dieser neuen Reihe entsprechen der ersten bzw. dritten Regel,
+    und sind daher beide ebenfalls Fallen, ^.
+
+Nach diesen Schritten kennen wir nun die nächste Reihe von Kacheln im Raum: .^^^^. Dann fahren wir fort
+zur nächsten Reihe, wobei wir die gleichen Regeln anwenden, und erhalten ^^..^.
+Nachdem wir zwei neue Reihen ermittelt haben, sieht unsere Karte wie folgt aus:
+
+    ..^^.
+    .^^^^
+    ^^..^
+
+Hier ist ein größeres Beispiel mit zehn Kacheln pro Reihe und zehn Reihen:
+
+    .^^.^.^^^^
+    ^^^...^..^
+    ^.^^.^.^^.
+    ..^^...^^^
+    .^^^^.^^.^
+    ^^..^.^^..
+    ^^^^..^^^.
+    ^..^^^^.^^
+    .^^^..^.^^
+    ^^.^^^..^^
+
+In zehn Reihen hat dieses größere Beispiel 38 sichere Kacheln.
+
+
+Ausgehend von der Karte in deiner Rätseleingabe, in insgesamt 40 Reihen
+(einschließlich der Startreihe), wie viele sichere Spielsteine gibt es?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

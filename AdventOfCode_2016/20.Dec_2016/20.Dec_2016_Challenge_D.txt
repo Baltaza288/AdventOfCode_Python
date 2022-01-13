@@ -1,0 +1,31 @@
+
+--- Tag 20: Firewall-Regeln ---
+
+Du möchtest hier einen kleinen versteckten Computer einrichten, um später wieder
+in das Netzwerk zu gelangen. Die Unternehmens-Firewall erlaubt jedoch nur die Kommunikation
+mit bestimmten externen IP-Adressen.
+
+Du hast die Liste der gesperrten IP-Adressen von der Firewall abgerufen, aber die Liste scheint
+unübersichtlich und schlecht gepflegt zu sein, und es ist nicht klar, welche IPs erlaubt sind.
+Außerdem ist sie nicht in Dezimal-Schreibweise, sondern als einfache 32-Bit-Ganzzahlen geschrieben,
+die jeden Wert von 0 bis einschließlich 4294967295 haben können.
+
+
+Nehmen wir zum Beispiel an, dass nur die Werte 0 bis 9 gültig sind, und dass du
+die folgende Blackist abrufst:
+
+    5-8
+    0-2
+    4-7
+
+Die Blacklist gibt Bereiche von IPs an (einschließlich des Start- und Endwertes)
+die nicht erlaubt sind. Dann sind die einzigen IPs, die diese Firewall zulässt, 3 und 9,
+da dies die einzigen Nummern sind, die in keinem Bereich liegen.
+
+
+Ausgehend der Liste der gesperrten IPs, die du von der Firewall erhalten hast (INPUT):
+Welches ist die niedrigste IP, die nicht blockiert wird?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

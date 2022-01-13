@@ -1,0 +1,64 @@
+
+--- Tag 23: Safe knacken ---
+
+Dies ist eine der obersten Etagen des schönsten Turms im OHHQ. Das private Büro des Osterhasen,
+mit einem Safe, der hinter einem Gemälde versteckt ist und wer würde nicht einen
+Stern in einem Safe hinter einem Gemälde verstecken?
+
+Der Safe hat einen digitalen Bildschirm und eine Tastatur für die Codeeingabe. Auf einem Klebezettel,
+neben dem Bildschirm ist ein Hinweis auf das Passwort angebracht: "Eier".
+Das Gemälde zeigt ein großes Kaninchen, das einige Eier färbt.
+Du siehst 7 Eier.
+
+Als du den Code eingeben willst, erscheint jedoch nichts auf dem Display.
+Stattdessen zerbricht das Tastenfeld in deinen Händen, da es offenbar zertrümmert wurde.
+Dahinter ist eine Art Buchse - eine, die zu einem Anschluss in deinem Prototyp-Computer passt!
+Du ziehst das zertrümmerte Tastenfeld auseinander und den Logikschaltkreis heraus
+und verbindest deinen Computer mit dem Tresor.
+
+Jetzt musst du nur noch herausfinden, welche Ausgabe die Tastatur an den Safe gesendet hätte.
+Du extrahierst den Assembunny-Code aus dem Logikchip (INPUT).
+Der Code sieht so aus, als ob er fast dieselbe Architektur und denselben Befehlssatz verwendet wie der
+Einschienenbahn-Computer verwendet hat! Du solltest in der Lage sein, denselben Assembunny-Interpreter zu verwenden
+wie du dort verwendet hast, allerdings mit einer neuen Anweisung:
+
+tgl x schaltet die Anweisung x weg (auf Anweisungen zeigen, wie es jnz tut:
+positiv bedeutet vorwärts, negativ bedeutet rückwärts):
+
+ - Bei Anweisungen mit einem Argument wird inc zu dec, und alle anderen Anweisungen mit einem Argument werden zu inc.
+ - Bei Anweisungen mit zwei Argumenten wird jnz zu cpy, und alle anderen Anweisungen mit zwei Argumenten werden zu jnz.
+ - Die Argumente einer umgeschalteten Anweisung sind davon nicht betroffen.
+ - Wenn versucht wird, eine Anweisung außerhalb des Programms umzuschalten, geschieht nichts.
+ - Wenn das Umschalten eine ungültige Anweisung erzeugt (wie cpy 1 2) und später versucht wird
+    diese Anweisung auszuführen, wird sie stattdessen übersprungen.
+ - Wenn tgl sich selbst umschaltet (wenn z. B. a gleich 0 ist, würde tgl a sich selbst anvisieren und zu inc a werden),
+    wird die resultierende Anweisung nicht ausgeführt, bis sie das nächste Mal erreicht wird.
+
+
+Ein Beispiel für dieses Programm:
+
+    cpy 2 a
+    tgl a
+    tgl a
+    tgl a
+    cpy 1 a
+    dez a
+    dez a
+
+ - cpy 2 a initialisiert das Register a auf 2.
+ - Das erste tgl a schaltet eine Anweisung a (2) weg, wodurch das dritte tgl a in inc a geändert wird.
+ - Das zweite tgl a ändert ebenfalls eine Anweisung 2 weg, wodurch cpy 1 a in jnz 1 a geändert wird.
+ - Die vierte Zeile, die jetzt inc a ist, erhöht a auf 3.
+ - Die fünfte Zeile schließlich, die jetzt jnz 1 a heißt, springt eine (3) Anweisung weiter und überspringt die dec a-Anweisungen.
+
+In diesem Beispiel ist der Endwert im Register a 3.
+
+Der Rest der Elektronik scheint die Tastatureingabe (die Anzahl der Eier, 7)
+in das Register a, führt den Code aus und sendet dann den im Register a verbliebenen Wert an den Safe.
+
+
+Welcher Wert soll an den Tresor gesendet werden?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

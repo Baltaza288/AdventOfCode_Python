@@ -1,0 +1,58 @@
+
+--- Tag 21: Verwürfelte Buchstaben und Hash ---
+
+Das Computersystem, in das du einbrichst, verwendet eine seltsame Verschlüsselungsfunktion, um seine Passwörter zu speichern.
+Es sollte kein großes Problem sein, ein eigenes verschlüsseltes Passwort zu erstellen, das du dem System hinzufügen kannst.
+Du müssest nur den Scrambler implementieren.
+
+Die Verschlüsselungsfunktion besteht aus einer Reihe von Operationen (INPUT).
+Beginne mit dem zu verschlüsselnden Kennwort und wende jede Operation nacheinander auf die Zeichenkette an.
+
+Die einzelnen Operationen verhalten sich wie folgt:
+
+ - Tausche Position X mit Position Y bedeutet, dass die Buchstaben an den Indizes X und Y
+    (von 0 an gerechnet) vertauscht werden sollen.
+ - Buchstabe X mit Buchstabe Y vertauschen bedeutet, dass die Buchstaben X und Y vertauscht werden sollen
+    (unabhängig davon, wo sie in der Zeichenkette erscheinen).
+ - rotate left/right X steps bedeutet, dass die gesamte Zeichenfolge gedreht werden soll;
+    Eine Rechtsdrehung würde beispielsweise aus abcd ein dabc machen.
+ - rotate based on position of letter X bedeutet, dass die gesamte Zeichenfolge
+    nach rechts gedreht werden soll, und zwar auf der Grundlage des Index des Buchstabens X (von 0 an gerechnet),
+    der bestimmt wird, bevor diese Anweisung irgendeine Drehung durchführt.
+    Sobald der Index bestimmt ist, wird die Zeichenkette einmal nach rechts plus eine Anzahl von Malen,
+    die diesem Index entspricht, plus ein weiteres Mal, wenn der Index mindestens 4 war.
+ - Umkehrung der Positionen X bis Y bedeutet, dass die Spanne der Buchstaben bei den Indizes X bis Y
+    (einschließlich der Buchstaben bei X und Y) der Reihe nach umgedreht werden soll.
+ - move position X to position Y bedeutet, dass der Buchstabe mit dem Index X
+    aus der Zeichenkette entfernt und dann so eingefügt werden soll, dass er am Ende bei Index Y steht.
+
+
+Angenommen, du beginnst mit abcde und führst die folgenden Operationen durch:
+
+ - Swap Position 4 mit Position 0 vertauscht den ersten und den letzten Buchstaben und erzeugt die
+    Eingabe für den nächsten Schritt, ebcda.
+ - Tausche Buchstabe d mit Buchstabe b tauscht die Positionen von d und b: edcba.
+ - reverse positions 0 bis 4 kehrt die gesamte Zeichenkette um und ergibt abcde.
+ - rotate left 1 step verschiebt alle Buchstaben um eine Position nach links, wodurch der erste Buchstabe
+    an das Ende der Zeichenkette umbricht: bcdea.
+ - move position 1 to position 4 entfernt den Buchstaben an Position 1 (c) und fügt ihn dann
+    an Position 4 (dem Ende der Zeichenkette) ein: bdeac.
+ - move position 3 to position 0 entfernt den Buchstaben an Position 3 (a) und fügt ihn dann
+    an Position 0 (am Anfang der Zeichenkette) ein: abdec.
+ - rotate basierend auf der Position des Buchstabens b findet den Index des Buchstabens b (1) und rotiert dann
+    die Zeichenkette einmal plus so viele Male wie dieser Index (2) nach rechts: ecabd.
+ - rotate basierend auf der Position des Buchstabens d findet den Index des Buchstabens d (4), rotiert dann die
+    Zeichenkette einmal nach rechts, plus eine Anzahl von Malen, die diesem Index entspricht,
+    plus ein zusätzliches Mal, weil der Index mindestens 4 war, also insgesamt 6 Rechtsdrehungen: decab.
+
+Nach diesen Schritten ist das resultierende verschlüsselte Kennwort decab.
+
+Jetzt musst du nur noch ein neues verschlüsseltes Kennwort generieren, anschließend kannst du auf das System zugreifen.
+
+
+Wie lautet das Ergebnis der Verschlüsselung von abcdefgh,
+wenn du die Liste der Verschlüsselungsoperationen in deinem Rätsel eingibst?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

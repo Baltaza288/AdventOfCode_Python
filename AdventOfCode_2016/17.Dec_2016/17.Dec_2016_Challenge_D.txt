@@ -1,0 +1,63 @@
+
+--- Tag 17: Zwei Schritte vorwärts ---
+
+Du versuchst, in einen sicheren Tresorraum einzudringen, der durch ein 4x4-Raster aus kleinen
+Räumen, die durch Türen verbunden sind. Du beginnst im Raum oben links (markiert mit S).
+Du kannst den Tresorraum (markiert mit V) betreten, sobald du den Raum unten rechts erreichst:
+
+    #########
+    #S| | | #
+    #-#-#-#-#
+    # | | | #
+    #-#-#-#-#
+    # | | | #
+    #-#-#-#-#
+    # | | |
+    ####### V
+
+Feste Wände sind mit # gekennzeichnet, Türen mit - oder |.
+
+Die Türen in deinem aktuellen Raum sind entweder offen oder geschlossen (und verriegelt), basierend auf
+dem hexadezimalen MD5-Hash eines Passcodes (INPUT), gefolgt von einer
+Sequenz von Großbuchstaben, die den bisher zurückgelegten Weg darstellen
+(U für oben, D für unten, L für links und R für rechts).
+
+Nur die ersten vier Zeichen der Raute werden verwendet; sie stehen jeweils für
+die Türen nach oben, unten, links und rechts von deiner aktuellen Position. Jedes b, c, d, e oder f
+bedeutet, dass die entsprechende Tür offen ist; jedes andere Zeichen (eine Zahl oder ein a)
+bedeutet, dass die entsprechende Tür geschlossen und verriegelt ist.
+
+Um in den Tresorraum zu gelangen, musst du nur den Raum unten rechts erreichen.
+Das Erreichen dieses Raums öffnet den Tresorraum und alle Türen im Labyrinth.
+
+Angenommen, der Passcode lautet hijkl. Du hast zunächst keine Schritte gemacht,
+und so ist dein Weg leer. Du findest einfach nur den MD5-Hash von hijkl allein. Die ersten vier
+Zeichen dieses Hashes sind ced9, was bedeutet, dass oben offen ist (c), unten offen (e),
+links ist offen (d), und rechts ist geschlossen und gesperrt (9). Da du in der linken oberen Ecke beginnst,
+gibt es keine "oberen" oder "linken" Türen, die offen sein könnten, also ist deine einzige Wahl "unten".
+
+Nachdem du nur einen Schritt (nach unten, oder D) gegangen bist, findest du die Raute von hijklD. Dies ergibt f2bc,
+was anzeigt, dass du wieder nach oben, links (aber das ist eine Wand) oder rechts gehen kannst. Nach rechts zu gehen bedeutet
+hijklDR zu hashen, um 5745 zu erhalten - alle Türen geschlossen und verriegelt. Es lohnt sich jedoch, stattdessen nach oben zu gehen:
+Auch wenn es dich in den Raum zurückbringt, in dem du angefangen hast, wäre dein Weg dann 'DU',
+wodurch sich eine andere Reihe von Türen öffnet.
+
+Wenn man 'DU' geht (und dann hijklDU hascht, um 528e zu erhalten), ist nur die rechte Tür offen.
+Nach DUR sind alle Türen verschlossen. (Glücklicherweise ist dein eigentlicher Passcode nicht hijkl).
+
+Die Passwörter, die von der Osterhasen-Tresor-Sicherheit verwendet werden, ermöglichen den Zugang zum Tresor,
+wenn du den richtigen Pfad kennst.
+
+
+Zum Beispiel:
+
+ - Wenn dein Passcode ihgpwlah wäre, wäre der kürzeste Weg DDRRRD.
+ - Mit kglvqrro wäre der kürzeste Weg DDUDRLRRUDRD.
+ - Bei ulqzkmiv wäre der kürzeste Weg DRURDRUDDLLDLUURRDULRLDUUDDDRR.
+
+
+Was ist der kürzeste Weg (der tatsächliche Weg, nicht nur die Länge), um den Tresor zu erreichen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

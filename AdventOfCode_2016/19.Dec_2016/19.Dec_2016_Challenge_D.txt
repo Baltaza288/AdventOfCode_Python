@@ -1,0 +1,32 @@
+
+--- Tag 19: Ein Elefant namens Joseph ---
+
+Die Elfen kontaktieren dich über einen hochsicheren Notfallkanal. Zurück am Nordpol,
+sind die Elfen sind damit beschäftigt, die Partys der Weißen Elefanten falsch zu verstehen.
+
+Jeder Elf bringt ein Geschenk mit. Sie sitzen alle in einem Kreis, beginnend mit Position 1 nummeriert.
+Dann, beginnend mit dem ersten Elfen, klauen sie abwechselnd alle Geschenke von dem
+Elfen zu ihrer Linken. Ein Elf, der keine Geschenke hat, wird aus dem Kreis entfernt und ist nicht an der Reihe.
+
+
+Zum Beispiel mit fünf Elfen (nummeriert von 1 bis 5):
+
+      1
+    5   2
+     4 3
+ - Elfe 1 nimmt das Geschenk von Elfe 2.
+ - Elfe 2 hat keine Geschenke und wird übersprungen.
+ - Elfe 3 nimmt das Geschenk von Elfe 4.
+ - Elfe 4 hat keine Geschenke und wird auch übersprungen.
+ - Elfe 5 nimmt die beiden Geschenke von Elfe 1.
+ - Weder Elfe 1 noch Elfe 2 haben Geschenke, also werden beide übersprungen.
+ - Elfe 3 nimmt die drei Geschenke von Elfe 5.
+
+Bei fünf Elfen bekommt also die Elfe, die an Position 3 sitzt, alle Geschenke.
+
+
+Welcher Elf bekommt bei der Anzahl der Elfen, die du in deinem Rätsel angegeben hast, alle Geschenke?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

@@ -1,0 +1,35 @@
+
+--- Tag 22: Grid-Computing ---
+
+Du erhältst Zugang zu einem massiven Speichercluster, der in einem Grid angeordnet ist.
+jeder Speicherknoten ist nur mit den vier direkt benachbarten Knoten verbunden
+(drei, wenn der Knoten an einer Kante liegt. Zwei, wenn er sich in einer Ecke befindet).
+
+Du kannst nur auf dem Knoten /dev/grid/node-x0-y0 direkt auf Daten zugreifen, du kannst allerdings
+einige begrenzte Aktionen auf den anderen Knoten durchführen:
+
+Du kannst die Festplattennutzung aller Knoten abfragen (über df). Das Ergebnis dieser Aktion ist in der Eingabe des Puzzles enthalten.
+Du kannst einen Knoten anweisen, alle seine Daten auf einen benachbarten Knoten zu verschieben (nicht zu kopieren)
+(wenn der Zielknoten genug Platz hat, um die Daten zu empfangen).
+Der sendende Knoten ist nach diesem Vorgang leer.
+Die Knoten werden nach ihrer Position benannt: der Knoten mit dem Namen node-x10-y10 ist benachbart zu den Knoten
+node-x9-y10, node-x11-y10, node-x10-y9, und node-x10-y11.
+
+Bevor du beginnst, musst du die Anordnung der Daten auf diesen Knoten verstehen.
+Auch wenn du Daten nur zwischen direkt verbundenen Knoten verschieben kannst, wirst du
+viele der Daten neu anordnen, um auf die benötigten Daten zugreifen zu können.
+Deshalb musst du dir überlegen, wie du die Daten verschieben kannst.
+
+Zu diesem Zweck musst du die Anzahl der möglichen Knotenpaare zählen. Ein brauchbares Paar ist
+zwei beliebige Knoten (A,B), unabhängig davon, ob sie direkt miteinander verbunden sind, sodass:
+
+ - Knoten A ist nicht leer (sein Used ist nicht Null).
+ - Die Knoten A und B sind nicht derselbe Knoten.
+ - Die Daten auf Knoten A (sein Used) würden auf Knoten B (sein Avail) passen.
+
+
+Wie viele sinnvolle Knotenpaare gibt es?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
