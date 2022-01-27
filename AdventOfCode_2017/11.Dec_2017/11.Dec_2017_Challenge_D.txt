@@ -1,0 +1,37 @@
+
+--- Tag 11: Hex Ed ---
+
+Kaum hast du die Brücke überquert und die andere Seite des Flusses erreicht, kommt ein
+Programm auf dich zukommt, offensichtlich in Not. "Es geht um meinen Kindprozess", sagt sie,
+"Er hat sich in einem unendlichen Gatter verirrt!"
+
+Zum Glück für sie hast du viel Erfahrung mit unendlichen Gatter.
+
+Dein Pech ist, dass es sich um ein Hex-Gitter handelt.
+
+Die Sechsecke ("Hex-Felder") in diesem Gatter sind so ausgerichtet, dass benachbarte Hex-Felder
+im Norden, Nordosten, Südosten, Süden, Südwesten und Nordwesten zu finden sind:
+
+      \ n  /
+    nw +--+ ne
+      /    \
+    -+      +-
+      \    /
+    sw +--+ se
+      / s  \
+
+Du hast den Weg, den der Kindprozess genommen hat. Ausgehend davon, wo er begonnen hat, musst du
+die kleinste Anzahl von Schritten bestimmen, die erforderlich sind, um ihn zu erreichen. (Ein "Schritt" bedeutet
+sich von dem Feld, in dem man sich befindet, zu einem beliebigen benachbarten Feld zu bewegen.)
+
+
+Zum Beispiel:
+
+ - ne,ne,ne ist 3 Schritte entfernt.
+ - ne,ne,sw,sw ist 0 Schritte entfernt (zurück, wo du angefangen hast).
+ - ne,ne,s,s ist 2 Schritte entfernt (se,se).
+ - se,sw,se,sw,sw ist 3 Schritte entfernt (s,s,sw).
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

@@ -1,0 +1,38 @@
+
+--- Tag 3: Spiralspeicher ---
+
+Du stößt auf eine experimentelle neue Art von Speicher,
+der auf einem unendlichen zweidimensionalen Gitter gespeichert ist.
+
+Jedes Quadrat des Gitters ist spiralförmig angeordnet,
+beginnend an der Stelle mit der Nummer 1 beginnt und dann spiralförmig nach außen aufsteigend gezählt wird.
+Die ersten Quadrate sind zum Beispiel folgendermaßen angeordnet:
+
+    17 16 15 14 13
+    18 5 4 3 12
+    19 6 1 2 11
+    20 7 8 9 10
+    21 22 23---> ...
+
+Obwohl dies sehr platzsparend ist (es werden keine Quadrate übersprungen),
+müssen angeforderte Daten von Programmen zurück zum Feld 1
+(dem Ort des einzigen Zugriffsports für dieses Speichersystem)
+die sich nur nach oben, unten, links oder rechts bewegen können.
+Sie nehmen immer den kürzesten Weg: die Manhattan Entfernung zwischen dem Ort der Daten und Feld 1.
+
+
+Beispiel:
+
+ - Die Daten von Feld 1 werden 0 Schritte weit transportiert, da sie sich am Zugriffsanschluss befinden.
+ - Die Daten von Feld 12 werden 3 Schritte transportiert, z. B.: nach unten, links, links.
+ - Daten aus dem Feld 23 werden nur 2 Schritte befördert: zweimal nach oben.
+ - Die Daten aus dem Feld 1024 müssen 31 Schritte befördert werden.
+
+
+Wie viele Schritte sind erforderlich, um die Daten von dem in der
+Rätseleingabe identifizierten Quadrat bis zum Zugang zu transportieren?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

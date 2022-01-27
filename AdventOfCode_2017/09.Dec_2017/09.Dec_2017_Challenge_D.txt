@@ -1,0 +1,68 @@
+
+--- Tag 9: Stromverarbeitung ---
+
+Ein großer Bach versperrt deinen Weg. Die Einheimischen sagen,
+dass es im Moment nicht sicher ist den Bach zu überqueren, weil er voller Müll ist.
+Du schaust auf den Bach hinunter, der kein Wasser ist, und entdeckst, dass es ein Strom von Zeichen ist.
+
+Du bleibst eine Weile sitzen und nimmst einen Teil des Baches auf (INPUT). Die Zeichen
+stellen Gruppen dar - Sequenzen, die mit { beginnen und mit } enden. Innerhalb einer Gruppe gibt es
+null oder mehr andere Dinge, die durch Kommas getrennt sind: entweder eine andere Gruppe oder Müll.
+Da Gruppen andere Gruppen enthalten können, schließt eine } nur die zuletzt geöffnete, nicht geschlossene
+Gruppe - das heißt, sie sind verschachtelbar. Deine Rätseleingabe stellt eine einzige große Gruppe
+die ihrerseits viele kleinere Gruppen dar.
+
+Manchmal findest du anstelle einer Gruppe auch Ausschuss. Ausschuss beginnt mit < und endet mit >.
+Zwischen diesen spitzen Klammern kann fast jedes Zeichen stehen, auch
+{ und }. Innerhalb vom Ausschuss hat < keine besondere Bedeutung.
+
+In einem vergeblichen Versuch, den Ausschuss zu bereinigen, hat ein Programm einige der
+Zeichen darin mit !: innerhalb vom Ausschuss, jedes Zeichen, das nach ! sollen
+ignoriert werden, einschließlich <, > und sogar ein weiteres !.
+
+Du siehst keine Zeichen, die von diesen Regeln abweichen. Außerhalb des Ausschuss
+findest du wohlgeformte Gruppen, und Ausschuss endet immer gemäß den obigen Regeln.
+
+Hier sind einige in sich geschlossene Ausschuss-Stücke:
+
+ - <>, Ausschuss leeren.
+ - <zufällige Zeichen>, Ausschuss mit zufälligen Zeichen.
+ - <<<<>, weil die zusätzlichen < ignoriert werden.
+ - <{!>}>, weil das erste > wegfällt.
+ - <!!>, weil das zweite ! ignoriert wird, was es dem > ermöglicht, den Ausschuss zu beenden.
+ - <!!!>>, weil das zweite ! und das erste > ignoriert werden.
+ - <{o"i!a,<{i<a>, mit dem ersten > endet.
+
+Hier sind einige Beispiele für ganze Sequenzen und die Anzahl der darin enthaltenen Gruppen:
+
+ - {}, 1 Gruppe.
+ - {{{}}}, 3 Gruppen.
+ - {{},{}}, auch 3 Gruppen.
+ - {{{},{},{{}}}}, 6 Gruppen.
+ - {<{},{},{{}}>}, 1 Gruppe (die nur Ausschuss enthält).
+ - {<a>,<a>,<a>,<a>}, 1 Gruppe.
+ - {{<a>},{<a>},{<a>},{<a>}}, 5 Gruppen.
+ - {{<!>},{<!>},{<!>},{<a>}}, 2 Gruppen (da alle außer dem letzten > gestrichen sind).
+
+Dein Ziel ist es, die Gesamtpunktzahl für alle Gruppen in deiner Eingabe zu finden.
+Jeder Gruppe wird eine Punktzahl zugeordnet, die um eins höher ist als die Punktzahl der Gruppe,
+die sie unmittelbar enthält.
+
+(Die äußerste Gruppe erhält die Punktzahl 1.)
+
+ - {}, Punktzahl 1.
+ - {{{}}}, Punktzahl 1 + 2 + 3 = 6.
+ - {{},{}}, Punktzahl 1 + 2 + 2 = 5.
+ - {{{},{},{{}}}}, Punktzahl 1 + 2 + 3 + 3 + 3 + 4 = 16.
+ - {<a>,<a>,<a>,<a>}, Punktzahl 1.
+ - {{<ab>},{<ab>},{<ab>},{<ab>}}, Punktzahl 1 + 2 + 2 + 2 + 2 = 9.
+ - {{<!!>},{<!!>},{<!!>},{<!!>}}, Punktzahl 1 + 2 + 2 + 2 + 2 = 9.
+ - {{<a!>},{<a!>},{<a!>},{<ab>}}, Punktzahl 1 + 2 = 3.
+
+
+Wie lautet die Gesamtpunktzahl für alle Gruppen in deiner Eingabe?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

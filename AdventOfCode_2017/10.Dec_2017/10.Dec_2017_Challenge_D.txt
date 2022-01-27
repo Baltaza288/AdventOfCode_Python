@@ -1,0 +1,74 @@
+
+--- Tag 10: Knotenraster ---
+
+Du stößt auf einige Programme,
+die versuchen, eine Software-Emulation eines Hash zu implementieren, der auf Knotenverknüpfung basiert.
+Der Hash, den diese Programme implementieren, ist nicht sehr stark, aber du beschließt, ihnen trotzdem zu helfen.
+Du notierst dir, dass du die Elfen später daran erinnern musst,
+dass sie nicht ihre eigenen kryptografischen Funktionen erfinden sollen.
+
+Diese Hash-Funktion simuliert das Binden eines Knotens in einem Kreis aus 256 Zeichen.
+Ausgehend von der zu verschlüsselnden Eingabe wählt die Funktion wiederholt einen Bereich der Zeichenkette aus, bringt
+die Enden zusammen und verdreht die Spanne um die Hälfte, um die Reihenfolge der Markierungen
+umzukehren. Nachdem dies viele Male geschehen ist,
+wird die Reihenfolge der Markierungen verwendet, um den resultierenden Hash zu bilden.
+
+      4--5   pinch   4  5           4   1
+     /    \  5,0,1  / \/ \  twist  / \ / \
+    3      0  -->  3      0  -->  3   X   0
+     \    /         \ /\ /         \ / \ /
+      2--1           2  1           2   5
+
+Um dies zu erreichen, beginne mit einer Liste von Zahlen von 0 bis 255, einer aktuellen Position, die mit
+0 beginnt (das erste Element in der Liste), eine Sprunggröße (die bei 0 beginnt) und eine Folge von
+Längen (INPUT). Folgendes gilt für jede Länge:
+
+ - Kehre die Reihenfolge der Elemente dieser Länge in der Liste um, beginnend mit dem Element
+   an der aktuellen Position.
+ - Verschiebe die aktuelle Position um diese Länge plus die Sprunggröße nach vorne.
+ - Erhöhe die Sprunggröße um eins.
+
+Die Liste ist kreisförmig. Wenn die aktuelle Position und die Länge versuchen, Elemente
+über das Ende der Liste hinaus umzukehren, werden so viele zusätzliche Elemente vom Anfang der Liste verwendet, wie
+sie vom Anfang der Liste benötigt.
+Wenn die aktuelle Position über das Ende der Liste hinausgeht, wird der Vorgang an den Anfang der Liste verlagert.
+Längen, die größer sind als die Größe der Liste, sind ungültig.
+
+
+Hier ist ein Beispiel mit einer kleineren Liste:
+
+Angenommen, wir hätten nur eine kreisförmige Liste mit fünf Elementen,
+0, 1, 2, 3, 4, und wir bekämen die Eingabelängen 3, 4, 1, 5.
+
+ - Die Liste beginnt als [0] 1 2 3 4 (wobei eckige Klammern die
+    aktuelle Position darstellt).
+ - Die erste Länge, 3, wählt ([0] 1 2) 3 4 (wobei die Klammern die
+    umzukehrende Teilliste darstellt).
+ - Nach Umkehrung dieses Abschnitts (0 1 2 in 2 1 0) erhalten wir ([2] 1 0) 3 4.
+ - Dann rückt die aktuelle Position um die Länge 3 weiter, plus die Überspringung vor
+    Größe, 0: 2 1 0 [3] 4. Schließlich erhöht sich die Skip-Größe auf 1.
+ - Die zweite Länge, 4, wählt einen Abschnitt, der umbricht: 2 1) 0 ([3] 4.
+ - Die Teilliste 3 4 2 1 wird umgedreht und bildet 1 2 4 3: 4 3) 0 ([1] 2.
+ - Die aktuelle Position rückt um die Länge plus die Sprunggröße, also insgesamt
+    um 5 Stellen weiter, was dazu führt, dass sie sich nicht bewegt, weil sie umbricht: 4 3 0 [1] 2. Die Skip
+    Größe erhöht sich auf 2.
+ - Die dritte Länge, 1, wählt eine Teilliste mit einem einzigen Element aus, sodass die Umkehrung
+    keine Auswirkung hat.
+ - Die aktuelle Position rückt um die Länge (1) plus die Sprunggröße (2) vor:
+    4 [3] 0 1 2. Die Sprunggröße erhöht sich auf 3.
+ - Die vierte Länge, 5, wählt jedes Element, beginnend mit dem zweiten, aus:
+    4) ([3] 0 1 2. Die Umkehrung dieser Teilliste (3 0 1 2 4 in 4 2 1 0 3) ergibt: 3) ([4] 2 1 0.
+ - Schließlich rückt die aktuelle Position um 8 vor: 3 4 2 1 [0].
+    Die Sprunggröße erhöht sich auf 4.
+
+In diesem Beispiel sind die ersten beiden Zahlen in der Liste 3 und 4; zur Überprüfung des
+Prozesses, kannst du sie miteinander multiplizieren, um 12 zu erhalten.
+
+
+Du solltest jedoch stattdessen die Standard-Listengröße von 256 (mit den Werten 0 bis 255) und die
+Reihenfolge der Längen in deiner Rätseleingabe verwenden.
+Was ist das Ergebnis der Multiplikation der ersten beiden Zahlen in der Liste?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

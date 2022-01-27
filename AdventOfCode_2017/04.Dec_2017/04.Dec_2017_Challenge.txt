@@ -20,4 +20,3 @@ The system's full passphrase list is available as your puzzle input. How many pa
 
 ------------------------------------------------------------------------------------------------------------------------
 --- Part Two ---
-

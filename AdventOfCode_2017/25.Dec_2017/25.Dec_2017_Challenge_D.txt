@@ -1,0 +1,101 @@
+
+--- Tag 25: Das Stillstandsproblem ---
+
+Folgt man den verschlungenen Gängen tiefer und tiefer in die CPU,
+erreichst du schließlich den Kern des Computers. Hier, in der weitläufigen
+zentralen Kammer findest du einen großen Apparat, der den ganzen Raum ausfüllt,
+Nanometer über deinem Kopf schwebt.
+
+Du hattest dich CPUs immer als laute, chaotische Orte vorgestellt,
+die vor Aktivität nur so strotzen. Stattdessen ist der Raum ruhig, unbeweglich,
+und dunkel.
+
+Plötzlich erschrecken du und der Garbage Collector der CPU sich gegenseitig.
+"Es kommt nicht oft vor, dass wir hier Besucher haben", sagt er. Du erkundigst dich
+nach der stillstehenden Maschine.
+
+"Sie ist vor Millisekunden stehen geblieben; ich weiß nicht, warum. Ich bin ein Müllmann,
+kein Arzt." Du fragst, wofür die Maschine da ist.
+
+"Die Programme heutzutage kennen ihren Ursprung nicht mehr. Das ist die Turing-Maschine!
+Sie sorgt dafür, dass der ganze Computer funktioniert." Du versuchst zu erklären, dass
+Turing-Maschinen lediglich Modelle für Berechnungen sind, aber er unterbricht dich.
+"Nein, sehen Sie, das ist genau das, was sie Sie glauben machen wollen. Letztendlich,
+steckt in jeder CPU eine Turing-Maschine, die das ganze Ding steuert!
+Zu schade, dass diese hier kaputt ist. Wir sind dem Untergang geweiht!"
+
+Du fragst, wie du helfen kannst. "Nun, leider ist der einzige Weg,
+den Computer wieder zum Laufen zu bringen, eine ganz neue Turing-Maschine
+von Grund auf neu zu bauen, aber das kannst du nicht..." Er bemerkt deinen Gesichtsausdruck,
+wirft dir einen neugierigen Blick zu, zuckt mit den Schultern und kehrt wieder den Boden.
+
+Du findest die Blaupausen der Turing-Maschine (INPUT) auf einem Tablet
+in einem nahe gelegenen Schutthaufen. Als du wieder zu der kaputten Turing-Maschine
+Maschine zurückgehst, inspizierst du ihre Teile:
+
+ - Ein Band, das 0 enthält und unendlich oft nach links und rechts wiederholt wird.
+ - Ein Cursor, der sich entlang des Bandes nach links oder rechts bewegen kann und
+    Werte an seiner aktuellen Position lesen oder schreiben kann.
+ - Eine Reihe von Zuständen, die jeweils Regeln darüber enthalten,
+    was auf der Grundlage des aktuellen Wertes unter dem Cursor zu tun ist.
+
+Jeder Steckplatz auf dem Band hat zwei mögliche Werte: 0 (der Anfangswert für alle Slots) und 1.
+Je nachdem, ob der Cursor auf eine 0 oder eine 1 zeigt, gibt der aktuelle Status an,
+welcher Wert an der aktuellen Position des Cursors zu schreiben ist
+und ob der Cursor um einen Slot nach links oder rechts zu verschieben ist.
+Außerdem gibt er an, welcher Zustand als Nächstes zu verwenden ist.
+
+
+Nehmen wir zum Beispiel an, du hast den folgenden Entwurf gefunden:
+
+    Beginnen Sie im Zustand A.
+    Führen Sie nach 6 Schritten eine Diagnose-Prüfsumme durch.
+
+    Im Zustand A:
+      Wenn der aktuelle Wert 0 ist:
+        - Schreiben Sie den Wert 1.
+        - Einen Slot nach rechts verschieben.
+        - Weiter mit Zustand B.
+      Wenn der aktuelle Wert 1 ist:
+        - Schreiben Sie den Wert 0.
+        - Verschiebe einen Slot nach links.
+        - Weiter mit Zustand B.
+
+    Im Zustand B:
+      Wenn der aktuelle Wert 0 ist:
+        - Schreiben Sie den Wert 1.
+        - Verschiebe einen Slot nach links.
+        - Weiter mit Zustand A.
+      Wenn der aktuelle Wert 1 ist:
+        - Schreiben Sie den Wert 1.
+        - Verschiebe einen Slot nach rechts.
+        - Weiter mit Zustand A.
+
+Führe es aus, bis die Anzahl der Schritte, die erforderlich sind,
+damit die aufgelisteten Diagnose-Prüfsummen mit der folgenden
+Bandkonfigurationen, übereinstimmt (mit dem in eckigen Klammern markierten Cursor):
+
+    ... 0 0 0 [0] 0 0 ... (Zustand A auszuführen)
+    ... 0 0 0 1 [0] 0 ... (nach 1 Schritt;   Zustand B ausführen)
+    ... 0 0 0 [1] 1 0 ... (nach 2 Schritten; Zustand A ausführen)
+    ... 0 0 [0] 0 1 0 ... (nach 3 Schritten; Zustand B ausführen)
+    ... 0 [0] 1 0 1 0 ... (nach 4 Schritten; Zustand A ausführen)
+    ... 0 1 [1] 0 1 0 ... (nach 5 Schritten; Zustand B ausführen)
+    ... 0 1 1 [0] 1 0 ... (nach 6 Schritten; Zustand A ausführen)
+
+Die CPU kann bestätigen, dass die Turing-Maschine funktioniert, indem sie
+eine diagnostische Prüfsumme nach einer bestimmten Anzahl von Schritten
+(die im Bauplan angegeben ist) überprüft. Sobald die angegebene Anzahl von Schritten
+ausgeführt wurden, sollte die Turing-Maschine eine Pause einlegen.
+Sobald sie dies tut, zähle, wie oft die Zahl 1 auf dem Band erscheint.
+Im obigen Beispiel ist die Diagnose-Prüfsumme 3.
+
+Erzeuge die Turing-Maschine neu und speichere den Computer!
+
+
+Wie lautet die diagnostische Prüfsumme, wenn sie wieder funktioniert?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

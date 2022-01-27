@@ -1,0 +1,62 @@
+
+--- Tag 17: Spinlock ---
+
+Plötzlich bemerkst du in der Ferne etwas, das aussieht wie ein gewaltiger,
+pixeliger Wirbelsturm. Ein tödlicher Spinlock. Dieser Spinlock verbraucht nicht nur
+Rechenleistung, sondern auch Speicher. Riesige, digitale Berge werden
+aus dem Boden gerissen und von dem Wirbel verschlungen.
+
+Wenn du nicht schnell handelst, wird die Reparatur dieses Druckers das geringste deiner Probleme sein.
+
+Der Algorithmus dieses Spinlocks ist einfach, aber effizient und verschlingt schnell
+alles auf seinem Weg. Er beginnt mit einem kreisförmigen Puffer, der nur
+den Wert 0 enthält, den er als die aktuelle Position markiert. Dann schreitet er vorwärts
+durch den Ringpuffer eine bestimmte Anzahl von Schritten (INPUT)
+bevor er den ersten neuen Wert, 1, nach dem Wert einfügt, bei dem er angehalten hat.
+Der eingefügte Wert wird die aktuelle Position. Dann geht er
+von dort aus die gleiche Anzahl von Schritten vorwärts und fügt an der Stelle, an der er anhält, den
+zweiten neuen Wert, 2, ein und verwendet diesen wieder als neue aktuelle Position.
+
+Er wiederholt diesen Prozess des vorwärts Schreitens, des Einfügens eines neuen Wertes,
+und verwendet die Position des eingefügten Wertes als neue aktuelle Position
+insgesamt 2017 Mal, wobei 2017 als letzte Operation eingefügt wird, und endet
+mit einer Gesamtzahl von 2018 Werten (einschließlich 0) im Ringpuffer.
+
+Beispiel:
+
+Wenn der Spinlock beispielsweise 3 Schritte pro Einfügung macht,
+würde sich der Ringpuffer wie folgt entwickeln
+(mit Klammern um die aktuelle Position nach jeder Iteration des Algorithmus zu markieren):
+
+ - (0), der Ausgangszustand vor allen Einfügungen.
+ - 0 (1): Der Spinlock schreitet dreimal vorwärts (0, 0, 0) und fügt dann
+    den ersten Wert, 1, nach ihm ein. 1 wird die aktuelle Position.
+ - 0 (2) 1: Der Spinlock schreitet dreimal vorwärts (0, 1, 0) und fügt dann
+    den zweiten Wert, 2, dahinter ein. 2 wird die aktuelle Position.
+ - 0 2 (3) 1: Der Spinlock schreitet dreimal vorwärts (1, 0, 2) und fügt danach
+    den dritten Wert, 3, nach ihm ein. 3 wird die aktuelle Position.
+
+Und so weiter:
+
+ - 0 2 (4) 3 1
+ - 0 (5) 2 4 3 1
+ - 0 5 2 4 3 (6) 1
+ - 0 5 (7) 2 4 3 6 1
+ - 0 5 7 2 4 3 (8) 6 1
+ - 0 (9) 5 7 2 4 3 8 6 1
+
+Schließlich, nach 2017 Einfügungen, sieht der Abschnitt des Ringpuffers
+in der Nähe der letzten Einfügung wie folgt aus:
+
+    1512 1134 151 (2017) 638 1513 851
+
+Als du den Wert identifizieren kannst, der letztendlich nach
+dem letzten geschriebenen Wert (2017) steht, kannst du den Spinlock kurzschließen.
+In diesem Beispiel wäre das der Wert 638.
+
+
+Wie lautet der Wert nach 2017 in Ihrem abgeschlossenen Ringpuffer?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

@@ -1,0 +1,40 @@
+
+--- Tag 8: Ich habe gehört, dass du Register magst ---
+
+Du erhältst ein Signal, direkt von der CPU. Aufgrund deiner kürzlichen Hilfe bei
+Sprungbefehlen, möchte sie, dass du ihr hilfst, das Ergebnis einer Reihe von ungewöhnlichen
+Registeranweisungen zu erfassen.
+
+Jede Anweisung besteht aus mehreren Teilen: das zu ändernde Register, die Angabe,
+ob der Wert des Registers erhöht oder verringert werden soll,
+der Betrag, um den es erhöht oder verringert werden soll und einer Bedingung.
+Wenn die Bedingung nicht erfüllt ist, wird die Anweisung übersprungen, ohne das Register zu ändern.
+
+Die Register beginnen alle bei 0. Die Anweisungen sehen wie folgt aus:
+
+    b inc 5 if a > 1
+    a inc 1 if b < 5
+    c dec -10 if a >= 1
+    c inc -20 if c == 10
+
+Diese Anweisungen würden wie folgt verarbeitet werden:
+
+ - Da a bei 0 beginnt, ist es nicht größer als 1, und daher wird b nicht verändert.
+ - a wird um 1 erhöht (auf 1), weil b kleiner als 5 ist (es ist 0).
+ - c wird um -10 (auf 10) verringert, weil a jetzt größer oder gleich 1 ist (es ist 1).
+ - c wird um -20 (auf -10) erhöht, weil c gleich 10 ist.
+
+Nach diesem Vorgang ist der größte Wert in jedem Register 1.
+
+Du kannst auch <= (kleiner oder gleich) oder != (nicht gleich) finden.
+Wie auch immer, die CPU nicht die Bandbreite, um dir zu sagen, wie alle Register heißen,
+und überlässt es dir, dies zu bestimmen.
+
+
+Welches ist der größte Wert in einem beliebigen Register,
+nachdem du die Anweisungen in deiner Rätsel-Eingabe ausgeführt hast?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

@@ -1,0 +1,46 @@
+
+--- Tag 19: Eine Reihe von Röhren ---
+
+Irgendwie ist ein Netzwerkpaket verloren gegangen und hier gelandet. Es versucht, einem
+Routing-Diagramm zu folgen (INPUT), aber es ist verwirrt, wohin es gehen soll.
+
+Sein Startpunkt liegt etwas abseits vom oberen Rand des Diagramms.
+Linien (gezeichnet mit |, - und +) zeigen den Weg, den es nehmen muss.
+Es muss diesem Weg folgen, bis das Paket das untere Ende erreicht.
+
+Manchmal überkreuzen sich die Linien. In diesen Fällen
+muss es in der gleichen Richtung weitergehen und nur dann
+links oder rechts abbiegen, wenn es keine andere Möglichkeit gibt.
+Hinzu kommt, hat jemand Buchstaben auf der Linie hinterlassen, ändern diese auch nicht die
+Richtung, aber das Paket kann sie benutzen, um zu wissen, wo es war.
+
+Beispiel:
+
+         |
+         |  +--+
+         A  |  C
+     F---|----E|--+
+         |  |  |  D
+         +B-+  +--+
+
+In diesem Diagramm muss das Paket den folgenden Weg nehmen:
+
+ - Ausgehend von der einzigen Linie, die den oberen Teil des Diagramms berührt,
+    muss es nach unten gehen, durch A hindurch und weiter zum ersten +.
+ - Dann geht es nach rechts, nach oben und nach rechts, wobei es B durchquert.
+ - Weiter nach unten (C sammeln), nach rechts und nach oben (D sammeln).
+ - Schließlich gehst du den ganzen Weg nach links durch E und hältst bei F an.
+
+Wenn du dem Weg bis zum Ende folgst, sind die Buchstaben, die es auf seinem Weg sieht, ABCDEF.
+
+Das Päckchen schaut zu dir auf und hofft, dass du ihm helfen kannst, den Weg zu finden.
+
+
+Welche Buchstaben wird es sehen (in der Reihenfolge, in der es sie sehen würde), wenn es
+dem Weg folgt? (Das Routing-Diagramm ist sehr breit; stelle sicher,
+dass du es ohne Zeilenumbruch betrachtest.)
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

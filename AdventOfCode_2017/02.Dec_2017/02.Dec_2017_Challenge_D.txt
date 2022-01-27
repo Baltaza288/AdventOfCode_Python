@@ -1,0 +1,32 @@
+
+--- Tag 2: Korruptionsprüfsumme ---
+
+Als du durch die Tür gehst, schreit eine leuchtende humanoide Gestalt in deine Richtung. "Du da!
+Dein Zustand scheint untätig zu sein. Komm und hilf uns, die Korruption in dieser Tabelle zu reparieren!
+Wenn wir noch eine Millisekunde brauchen, müssen wir einen Sanduhr-Cursor einblenden!"
+
+Das Arbeitsblatt besteht aus Zeilen mit scheinbar zufälligen Zahlen. Um sicherzustellen, dass der Wiederherstellungs-
+Prozess auf dem richtigen Weg ist, musst du die Prüfsumme der Tabelle berechnen.
+Bestimme für jede Zeile die Differenz zwischen dem größten und dem kleinsten Wert!
+Die Prüfsumme ist die Summe all dieser Differenzen.
+
+
+Nehmen wir als Beispiel die folgende Kalkulationstabelle:
+
+    5 1 9 5
+    7 5 3
+    2 4 6 8
+
+ - Der größte und der kleinste Wert der ersten Zeile sind 9 und 1, und ihre Differenz ist 8.
+ - Der größte und der kleinste Wert der zweiten Zeile sind 7 und 3, und ihre Differenz ist 4.
+ - Die Differenz in der dritten Zeile beträgt 6.
+
+In diesem Beispiel wäre die Prüfsumme des Arbeitsblatts 8 + 4 + 6 = 18.
+
+
+Wie lautet die Prüfsumme für das Arbeitsblatt in deiner Rätseleingabe?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

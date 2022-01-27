@@ -1,0 +1,131 @@
+
+--- Tag 22: Sporifica-Virus ---
+
+Die Diagnostik zeigt, dass der lokale Grid-Computing-Cluster
+mit dem Sporifica-Virus kontaminiert wurde. Der Grid-Computing-Cluster ist
+ein scheinbar unendliches zweidimensionales Gitter von Rechenknoten. Jeder Knoten
+ist entweder sauber oder mit dem Virus infiziert.
+
+Um eine Überlastung der Knoten zu verhindern (was sie für den Virus unbrauchbar machen würde)
+oder von den Systemadministratoren entdeckt zu werden, bewegt sich genau ein
+Virenträger durch das Netzwerk und infiziert oder säubert dabei die Knoten
+die er passiert. Der Virenträger befindet sich immer auf einem einzigen Knoten im
+Netzwerk und merkt sich die Richtung, in die er schaut.
+
+Um eine Entdeckung zu vermeiden, arbeitet der Virenträger in Bursts. In jedem Burst
+wacht er auf, erledigt einige Aufgaben und geht dann wieder schlafen. Die folgenden
+Schritte werden alle nacheinander einmal pro Burst ausgeführt:
+
+ - Wenn der aktuelle Knoten infiziert ist, dreht er sich nach rechts. Andernfalls,
+    dreht er sich nach links. (Die Drehung erfolgt an Ort und Stelle; der aktuelle Knoten
+    ändert sich nicht.)
+ - Wenn der aktuelle Knoten sauber ist, wird er infiziert. Andernfalls,
+    wird er gereinigt. (Dies geschieht, nachdem der Knoten für die
+    Richtungswechsel berücksichtigt wurde.)
+ - Der Virusträger bewegt sich um einen Knoten in der Richtung weiter, in die er gerade blickt.
+
+Die Diagnostik hat auch eine Karte des Infektionsstatus des Knotens (INPUT).
+Saubere Knoten werden als .. angezeigt, infizierte Knoten werden als # dargestellt.
+Diese Karte zeigt nur das Zentrum des Gitters.
+Es gibt viele weitere Knoten jenseits der gezeigten,
+aber keiner von ihnen ist derzeit infiziert.
+
+Der Virenträger beginnt in der Mitte der Karte mit Blickrichtung nach oben.
+
+
+Angenommen, du erhältst eine Karte wie diese:
+
+    ..#
+    #..
+    ...
+
+Dann sieht die Mitte des unendlichen Rasters wie folgt aus,
+wobei die Position des Virusträgers mit [ ] markiert ist:
+
+    . . . . . . . . .
+    . . . . . . . . .
+    . . . . . . . . .
+    . . . . . # . . .
+    . . . #[.]. . . .
+    . . . . . . . . .
+    . . . . . . . . .
+    . . . . . . . . .
+
+Der Virenträger befindet sich auf einem sauberen Knoten, also dreht er sich nach links,
+infiziert den Knoten und bewegt sich nach links:
+
+    . . . . . . . . .
+    . . . . . . . . .
+    . . . . . . . . .
+    . . . . . # . . .
+    . . .[#]# . . . .
+    . . . . . . . . .
+    . . . . . . . . .
+    . . . . . . . . .
+
+Der Virusträger befindet sich auf einem infizierten Knoten, also dreht er sich nach rechts,
+säubert den Knoten und bewegt sich nach oben:
+
+    . . . . . . . . .
+    . . . . . . . . .
+    . . . . . . . . .
+    . . .[.]. # . . .
+    . . . . # . . . .
+    . . . . . . . . .
+    . . . . . . . . .
+    . . . . . . . . .
+
+Viermal hintereinander findet der Virusträger einen sauberen,
+infiziert ihn, dreht sich nach links und bewegt sich vorwärts, bis er an
+an der gleichen Stelle und immer noch mit Blickrichtung nach oben:
+
+    . . . . . . . . .
+    . . . . . . . . .
+    . . . . . . . . .
+    . . #[#]. # . . .
+    . . # # # . . . .
+    . . . . . . . . .
+    . . . . . . . . .
+    . . . . . . . . .
+
+Auf demselben Knoten wie zuvor wird nun eine Infektion festgestellt,
+was ihn veranlasst, sich nach rechts zu drehen, den Knoten zu säubern und weiterzugehen:
+
+    . . . . . . . . .
+    . . . . . . . . .
+    . . . . . . . . .
+    . . # .[.]# . . .
+    . . # # # . . . .
+    . . . . . . . . .
+    . . . . . . . . .
+    . . . . . . . . .
+
+Nach den oben genannten Aktionen fanden insgesamt 7 Ausbrüche von Aktivität
+stattgefunden. Davon haben 5 Aktivitätsausbrüche eine Infektion verursacht.
+
+Nach insgesamt 70 sieht das Gitter wie folgt aus, wobei der
+Virusträger nach oben blickt:
+
+    . . . . . # # . .
+    . . . . # . . # .
+    . . . # . . . . #
+    . . # . #[.]. . #
+    . . # . # . . # .
+    . . . . . # # . .
+    . . . . . . . . .
+    . . . . . . . . .
+
+Zu diesem Zeitpunkt haben 41 Aktivitätsausbrüche eine Infektion verursacht
+(die meisten dieser Knoten wurden jedoch inzwischen bereinigt).
+
+Nach einer Gesamtzahl von 10.000 Aktivitätsausbrüchen haben 5587 Ausbrüche
+eine Infektion verursacht.
+
+
+Wie viele Bursts haben bei deiner aktuellen Karte nach 10.000 Bursts
+einen Knoten zu infizieren? (Zähle nicht die Knoten, die bereits infiziert sind.)
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

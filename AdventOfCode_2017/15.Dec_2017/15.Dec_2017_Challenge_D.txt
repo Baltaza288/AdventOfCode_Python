@@ -1,0 +1,65 @@
+
+--- Tag 15: Duellierende Generatoren ---
+
+Hier triffst du auf ein Paar duellierender Generatoren. Die Generatoren,
+genannt Generator A und Generator B, versuchen, sich auf eine
+Zahlenfolge zu einigen. Einer der Generatoren funktioniert jedoch nicht richtig,
+und so stimmen die Zahlenfolgen nicht immer überein.
+
+Während sie das tun, wartet ein Richter darauf, dass jeder von ihnen seinen nächsten Wert erzeugt.
+Er vergleicht die niedrigsten 16 Bits beider Werte und
+verfolgt, wie oft diese Teile der Werte übereinstimmen.
+
+Die Generatoren arbeiten beide nach demselben Prinzip. Zur Erzeugung seines
+nächsten Wertes nimmt ein Generator den vorherigen Wert, den er erzeugt hat,
+multipliziert ihn mit einem Faktor (Generator A verwendet 16807; Generator B verwendet 48271),
+und behält dann den Rest, der sich aus der Division dieses Produkts durch 2147483647 ergibt.
+Dieser Rest ist der Wert, den der Generator als nächstes erzeugt.
+
+Um den ersten Wert jedes Generators zu berechnen, verwendet er stattdessen einen
+bestimmten Startwert als "vorherigen Wert" (INPUT).
+
+Nehmen wir zum Beispiel an, dass Generator A als Startwert 65 und Generator B 8921 verwendet.
+Die ersten fünf Paare von generierten Werte sind:
+
+    --Gen. A-- --Gen. B--
+       1092455 430625591
+    1181022009 1233683848
+     245556042 1431495498
+    1744312007 137874439
+    1352636452 285222916
+
+In binärer Form lauten diese Paare (wobei der Wert von Generator A in jedem Paar an erster Stelle steht):
+
+    00000000000100001010101101100111
+    00011001101010101101001100110111
+
+    01000110011001001111011100111001
+    01001001100010001000010110001000
+
+    00001110101000101110001101001010
+    01010101010100101110001101001010
+
+    01100111111110000001011011000111
+    00001000001101111100110000000111
+
+    01010000100111111001100000100100
+    00010001000000000010100000000100
+
+Hier kannst du sehen, dass die niedrigsten (hier ganz rechts) 16 Bits
+des dritten Wertes mit dem ersten Wert übereinstimmen:
+1110001101001010
+
+Wegen dieser einen Übereinstimmung, hätte der Richter nach der Verarbeitung dieser fünf Paare
+nur 1 zu seiner Gesamtzahl hinzugefügt.
+
+Um eine aussagekräftige Stichprobe zu erhalten, würde der Richter gerne
+40 Millionen Paare. (Im obigen Beispiel würde der Richter schließlich
+insgesamt 588 Paare finden, die in ihren niedrigsten 16 Bits übereinstimmen.)
+
+
+Wie weit muss der Richter bei 40 Millionen Paaren zählen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

@@ -1,0 +1,51 @@
+
+--- Tag 6: Speicherneuzuweisung ---
+
+Ein Debugger-Programm hat hier ein Problem: Es versucht, eine Routine zur Neuzuweisung von Speicher
+zu reparieren, aber es bleibt in einer Endlosschleife stecken.
+
+In diesem Bereich gibt es sechzehn Speicherbänke. Jede Speicherbank kann eine beliebige
+Anzahl von Blöcken enthalten. Das Ziel der Neuzuweisungsroutine ist es, die Blöcke
+zwischen den Speicherbänken auszugleichen.
+
+Die Umverteilungsroutine arbeitet in Zyklen. In jedem Zyklus findet sie die Speicherbank
+Bank mit den meisten Blöcken (bei Gleichstand gewinnt die Speicherbank mit der niedrigsten Nummer) und
+verteilt diese Blöcke neu auf die Bänke. Zu diesem Zweck entfernt sie alle
+Blöcke aus der ausgewählten Bank, geht dann zur nächsten (nach Index) Speicherbank und
+fügt einen der Blöcke ein. Dies geschieht so lange, bis keine Blöcke mehr vorhanden sind.
+Wenn er die letzte Speicherbank erreicht, kehrt er zur ersten zurück.
+
+Der Debugger würde gerne wissen, wie viele Umverteilungen durchgeführt werden können, bevor eine
+Block-in-Bank-Konfiguration erzeugt wird, die schon einmal gesehen wurde.
+
+
+Stell dir zum Beispiel ein Szenario mit nur vier Speicherbänken vor:
+
+ - Die Bänke beginnen mit 0, 2, 7 und 0 Blöcken. Die dritte Bank hat
+    die meisten Blöcke und wird daher für die Umverteilung ausgewählt.
+ - Beginnend mit der nächsten Bank (der vierten Bank) und dann weiter mit
+    der ersten Bank, der zweiten Bank usw. werden die 7 Blöcke auf die Speicherbänke verteilt.
+    Die vierte, erste und zweite Bank erhalten jeweils zwei
+    Blöcke, und die dritte Bank erhält einen Block zurück. Das Endergebnis sieht
+    wie folgt aus: 2 4 1 2.
+ - Als Nächstes wird die zweite Bank ausgewählt, da sie die meisten Blöcke (vier) enthält.
+    Da es vier Speicherbänke gibt, erhält jede einen Block. Das Ergebnis ist: 3 1 2 3.
+ - Nun gibt es einen Gleichstand zwischen der ersten und der vierten Speicherbank, die beide
+    drei Blöcke haben. Die erste Bank gewinnt den Gleichstand, und ihre drei Blöcke werden
+    gleichmäßig auf die anderen drei Bänke verteilt, sodass sie keine Blöcke mehr hat: 0 2 3 4.
+ - Die vierte Bank wird ausgewählt, und ihre vier Blöcke werden so verteilt, dass jede
+    der vier Banken einen erhält: 1 3 4 1.
+ - Die dritte Bank wird gewählt, und das Gleiche geschieht: 2 4 1 2.
+
+An diesem Punkt haben wir einen Zustand erreicht, der schon einmal existierte: 2 4 1 2
+Die Endlosschleife wird nach dem fünften Umverteilung-Zyklus beendet, sodass die
+Antwort in diesem Beispiel ist 5.
+
+
+Wie viele Umverteilung-Zyklen müssen angesichts der anfänglichen Blockanzahl in deinem Rätsel
+abgeschlossen werden, bevor eine Konfiguration erzeugt wird, die schon einmal existierte?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

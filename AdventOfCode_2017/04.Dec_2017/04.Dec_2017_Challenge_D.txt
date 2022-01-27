@@ -1,0 +1,25 @@
+
+--- Tag 4: Hoch-Entropie-Passphrasen ---
+
+Es wurde eine neue Systemrichtlinie eingeführt, die für alle Konten die Verwendung einer
+Passphrase anstelle eines einfachen Passworts zu verwenden. Eine Passphrase besteht aus einer Reihe von
+Wörtern (Kleinbuchstaben), die durch Leerzeichen getrennt sind.
+
+Um die Sicherheit zu gewährleisten, darf eine gültige Passphrase keine doppelten Wörter enthalten.
+
+
+Zum Beispiel:
+
+ - aa bb cc dd ee ist gültig.
+ - aa bb cc dd aa ist nicht gültig - das Wort aa kommt mehr als einmal vor.
+ - aa bb cc dd aaa ist gültig - aa und aaa zählen als verschiedene Wörter.
+
+
+Die vollständige Liste der Passphrasen des Systems ist als INPUT für dein Rätsel verfügbar.
+
+Wie viele Passphrasen sind gültig?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

@@ -1,0 +1,194 @@
+
+--- Tag 13: Paketscanner ---
+
+Du musst eine riesige Firewall durchqueren. Die Firewall besteht aus mehreren Schichten,
+jede mit einem Sicherheitsscanner, der sich zwischen den Schichten hin und her bewegt.
+Um erfolgreich zu sein, darfst du nicht vom Scanner entdeckt werden.
+
+Als du die Firewall kurz studierst, kannst du die Tiefe jeder Ebene und die Reichweite des Scanners innerhalb der Ebene
+festhalten (INPUT). Jede Schicht hat eine Dicke von genau 1. Eine Ebene mit der Tiefe 0
+beginnt direkt innerhalb der Firewall. Eine Schicht mit der Tiefe 1 würde unmittelbar danach beginnen.
+
+
+Nehmen wir zum Beispiel an, du hast Folgendes aufgezeichnet:
+
+    0: 3
+    1: 2
+    4: 4
+    6: 4
+
+Dies bedeutet, dass es eine Schicht direkt innerhalb der Firewall gibt (mit Bereich 3),
+eine zweite Schicht unmittelbar danach (mit Bereich 2),
+eine dritte Schicht, die in Tiefe 4 beginnt (mit Bereich 4)
+und eine vierte Schicht, die in Tiefe 6 beginnt (ebenfalls mit Bereich 4).
+Visuell könnte es so aussehen:
+
+     0   1   2   3   4   5   6
+    [ ] [ ] ... ... [ ] ... [ ]
+    [ ] [ ]         [ ]     [ ]
+    [ ]             [ ]     [ ]
+                    [ ]     [ ]
+
+Innerhalb jeder Schicht bewegt sich ein Sicherheitsscanner innerhalb seines Bereichs hin und her.
+Jeder Sicherheitsscanner beginnt oben und bewegt sich nach unten, bis er den Boden erreicht.
+Danach bewegt er sich wieder nach oben, bis er den oberen Bereich erreicht und wiederholt dies.
+Ein Sicherheitsscanner braucht eine Nanosekunde, um sich einen Schritt zu bewegen.
+Zeichnet man die Scanner als S, sehen die ersten paar Nanosekunden wie folgt aus:
+
+
+    Nanosekunde 0:
+     0   1   2   3   4   5   6
+    [S] [S] ... ... [S] ... [S]
+    [ ] [ ]         [ ]     [ ]
+    [ ]             [ ]     [ ]
+                    [ ]     [ ]
+
+    Nanosekunde 1:
+     0   1   2   3   4   5   6
+    [ ] [ ] ... ... [ ] ... [ ]
+    [S] [S]         [S]     [S]
+    [ ]             [ ]     [ ]
+                    [ ]     [ ]
+
+    Nanosekunde 2:
+     0   1   2   3   4   5   6
+    [ ] [S] ... ... [ ] ... [ ]
+    [ ] [ ]         [ ]     [ ]
+    [S]             [S]     [S]
+                    [ ]     [ ]
+
+    Nanosekunde 3:
+     0   1   2   3   4   5   6
+    [ ] [ ] ... ... [ ] ... [ ]
+    [S] [S]         [ ]     [ ]
+    [ ]             [ ]     [ ]
+                    [S]     [S]
+
+Dein Plan ist es, sich an ein Paket anzuhängen, das im Begriff ist, die Firewall zu passieren.
+Das Paket reist entlang der Oberseite jeder Schicht.
+Jede Nanosekunde bewegt sich das Paket eine Schicht weiter (seine erste Bewegung führt es in die Schicht 0),
+danach bewegen sich die Scanner einen Schritt weiter.
+Wenn sich ein Scanner auf der obersten Ebene befindet und dein Paket diese betritt, bist du gefangen.
+Wenn sich ein Scanner an die Spitze seiner Schicht bewegt, während du dich dort befindest,
+bist du nicht gefangen: Der Scanner hat keine Zeit dich zu bemerken, bevor du die Ebene verlässt.
+Wenn du dies in der obigen Konfiguration tust und deine aktuelle Position
+mit Klammern markierst, würde dein Durchgang durch die Firewall wie folgt aussehen:
+
+    Anfangszustand:
+     0   1   2   3   4   5   6
+    [S] [S] ... ... [S] ... [S]
+    [ ] [ ]         [ ]     [ ]
+    [ ]             [ ]     [ ]
+                    [ ]     [ ]
+
+    Nanosekunde 0:
+     0   1   2   3   4   5   6
+    (S) [S] ... ... [S] ... [S]
+    [ ] [ ]         [ ]     [ ]
+    [ ]             [ ]     [ ]
+                    [ ]     [ ]
+
+     0   1   2   3   4   5   6
+    ( ) [ ] ... ... [ ] ... [ ]
+    [S] [S]         [S]     [S]
+    [ ]             [ ]     [ ]
+                    [ ]     [ ]
+
+
+    Nanosekunde 1:
+     0   1   2   3   4   5   6
+    [ ] ( ) ... ... [ ] ... [ ]
+    [S] [S]         [S]     [S]
+    [ ]             [ ]     [ ]
+                    [ ]     [ ]
+
+     0   1   2   3   4   5   6
+    [ ] (S) ... ... [ ] ... [ ]
+    [ ] [ ]         [ ]     [ ]
+    [S]             [S]     [S]
+                    [ ]     [ ]
+
+
+    Nanosekunde 2:
+     0   1   2   3   4   5   6
+    [ ] [S] (.) ... [ ] ... [ ]
+    [ ] [ ]         [ ]     [ ]
+    [S]             [S]     [S]
+                    [ ]     [ ]
+
+     0   1   2   3   4   5   6
+    [ ] [ ] (.) ... [ ] ... [ ]
+    [S] [S]         [ ]     [ ]
+    [ ]             [ ]     [ ]
+                    [S]     [S]
+
+
+    Nanosekunde 3:
+     0   1   2   3   4   5   6
+    [ ] [ ] ... (.) [ ] ... [ ]
+    [S] [S]         [ ]     [ ]
+    [ ]             [ ]     [ ]
+                    [S]     [S]
+
+     0   1   2   3   4   5   6
+    [S] [S] ... (.) [ ] ... [ ]
+    [ ] [ ]         [ ]     [ ]
+    [ ]             [S]     [S]
+                    [ ]     [ ]
+
+
+    Nanosekunde 4:
+     0   1   2   3   4   5   6
+    [S] [S] ... ... ( ) ... [ ]
+    [ ] [ ]         [ ]     [ ]
+    [ ]             [S]     [S]
+                    [ ]     [ ]
+
+     0   1   2   3   4   5   6
+    [ ] [ ] ... ... ( ) ... [ ]
+    [S] [S]         [S]     [S]
+    [ ]             [ ]     [ ]
+                    [ ]     [ ]
+
+
+    Nanosekunde 5:
+     0   1   2   3   4   5   6
+    [ ] [ ] ... ... [ ] (.) [ ]
+    [S] [S]         [S]     [S]
+    [ ]             [ ]     [ ]
+                    [ ]     [ ]
+
+     0   1   2   3   4   5   6
+    [ ] [S] ... ... [S] (.) [S]
+    [ ] [ ]         [ ]     [ ]
+    [S]             [ ]     [ ]
+                    [ ]     [ ]
+
+
+    Nanosekunde 6:
+     0   1   2   3   4   5   6
+    [ ] [S] ... ... [S] ... (S)
+    [ ] [ ]         [ ]     [ ]
+    [S]             [ ]     [ ]
+                    [ ]     [ ]
+
+     0   1   2   3   4   5   6
+    [ ] [ ] ... ... [ ] ... ( )
+    [S] [S]         [S]     [S]
+    [ ]             [ ]     [ ]
+                    [ ]     [ ]
+
+In dieser Situation bist du in den Schichten 0 und 6 gefangen, weil der Scanner oben war, als du ihn betratest.
+Du bist nicht in Schicht 1 gefangen, da der Scanner in die oberste Schicht wechselte, als du bereits dort warst.
+
+Der Schweregrad, in einer Ebene erwischt zu werden, ist gleich der Tiefe multipliziert mit der Reichweite der Ebene.
+(Ebenen, in denen Sie nicht erwischt werden, werden ignoriert.) Der Schweregrad der gesamten Reise ist die Summe
+dieser Werte. Im obigen Beispiel ist der Schweregrad der Auslösung 0*3 + 6*4 = 24.
+
+
+Anhand der Details der Firewall, die du aufgezeichnet hast und du sofort aufbrichst,
+wie hoch ist der Schweregrad deiner gesamten Reise?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

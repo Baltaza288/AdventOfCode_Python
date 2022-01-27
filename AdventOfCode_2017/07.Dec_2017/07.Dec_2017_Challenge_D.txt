@@ -1,0 +1,69 @@
+
+--- Tag 7: Rekursiver Zirkus ---
+
+Während du weiter durch die Schaltkreise des Computers wanderst, stößt du auf einen Turm
+von Programmen, die sich selbst in Schwierigkeiten gebracht haben. Ein rekursiver
+Algorithmus ist aus dem Ruder gelaufen, und jetzt balancieren sie in einem großen Turm.
+
+Ein Programm am unteren Ende stützt den gesamten Turm. Es hält eine große Scheibe in der Hand,
+und auf der Scheibe balancieren mehrere weitere Untertürme. An der Unterseite dieser
+Untertürme, die auf der untersten Scheibe stehen, sind andere Programme, die jeweils ihre eigene Scheibe halten
+eigene Scheibe halten, und so weiter. Ganz oben auf diesen Sub-Sub-Sub-...-Türmen stehen viele Programme,
+die einfach nur die Scheibe unter ihnen im Gleichgewicht halten, aber keine eigene Scheibe haben.
+
+Du bietest deine Hilfe an, aber zuerst musst du die Struktur dieser Türme verstehen.
+Du bittest jedes Programm, seinen Namen, sein Gewicht und (wenn es eine Scheibe hält)
+die Namen der Programme, die sich direkt über ihnen befinden und auf dieser Scheibe balancieren.
+Du schreibst diese Informationen auf (INPUT). Leider machst du das in deiner Panik nicht.
+Wenn du fertig bist, weißt du nicht mehr, welches Programm welche Informationen geliefert hat.
+
+
+Wenn deine Liste zum Beispiel wie folgt, aussieht:
+
+    pbga (66)
+    xhth (57)
+    ebii (61)
+    havc (66)
+    ktlj (57)
+    fwft (72) -> ktlj, cntj, xhth
+    qoyq (66)
+    padx (45) -> pbga, havc, qoyq
+    tknk (41) -> ugml, padx, fwft
+    jptl (61)
+    ugml (68) -> gyxo, ebii, jptl
+    gyxo (61)
+    cntj (57)
+
+...dann könnte man die Struktur der Türme wie folgt nachbilden:
+
+                    gyxo
+                  /
+             ugml - ebii
+           / \
+          | jptl
+          |
+          | pbga
+         / /
+    tknk --- padx - havc
+         \ \
+          | qoyq
+          |
+          | ktlj
+           \ /
+             fwft - cntj
+                  \
+                    xhth
+
+In diesem Beispiel befindet sich tknk am unteren Ende des Turms (das unterste Programm) und hält
+ugml, padx und fwft auf. Diese Programme halten ihrerseits andere Programme hoch; in diesem
+Beispiel hält keines dieser Programme andere Programme aufrecht, sie sind alle die Spitzen
+ihrer eigenen Türme. (Der eigentliche Turm, der vor dir balanciert, ist viel größer.)
+
+
+Bevor du ihnen helfen kannst, musst du sicherstellen, dass deine Informationen korrekt sind.
+Wie lautet der Name des unteren Programms?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

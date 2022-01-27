@@ -1,0 +1,48 @@
+
+--- Tag 5: Ein Labyrinth aus verwinkelten Trampolinen, alle gleich ---
+
+Eine dringende Unterbrechung trifft von der CPU ein: Sie ist in einem Labyrinth von Sprunganweisungen gefangen,
+und bittet alle Programme mit freien Zyklen um Hilfe, um den Ausgang zu finden.
+
+Die Nachricht enthält eine Liste mit den Offsets für jeden Sprung. Die Sprünge sind relativ:
+-1 springt zur vorherigen Anweisung, und 2 überspringt die nächste Anweisung.
+Beginne mit der ersten Anweisung in der Liste.
+Ziel ist es, den Sprüngen zu folgen, bis einer aus der Liste herausführt.
+
+Außerdem sind diese Anweisungen etwas seltsam:
+Nach jedem Sprung erhöht sich der Offset dieser Anweisung um 1.
+Wenn du also auf einen Offset von 3 stößt, würdest du dich drei Befehle vorwärts bewegen,
+den Offset allerdings in eine 4 ändern.
+
+
+Betrachte zum Beispiel die folgende Liste von Sprung-Offsets:
+
+    0
+    3
+    0
+    1
+    -3
+
+Positive Sprünge ("vorwärts") bewegen sich nach unten; negative Sprünge bewegen sich nach oben. Zur besseren Lesbarkeit
+werden diese Versatzwerte in diesem Beispiel alle in eine Zeile geschrieben, wobei die aktuelle
+Anweisung in Klammern angegeben. Die folgenden Schritte werden durchgeführt, bevor ein
+Ausgang gefunden wird:
+
+ - (0) 3 0 1 -3 - bevor wir irgendeinen Schritt gemacht haben.
+ - (1) 3 0 1 -3 - Sprung mit Offset 0 (d.h. überhaupt nicht springen). Zum Glück,
+    wird die Anweisung dann auf 1 hochgezählt.
+ - 2 (3) 0 1 -3 - einen Schritt vorwärts machen wegen der Anweisung, die wir gerade geändert haben.
+    Die erste Anweisung wird wieder inkrementiert, jetzt auf 2.
+ - 2 4 0 1 (-3) - springe bis zum Ende; lasse eine 4 zurück.
+ - 2 (4) 0 1 -2 - zurückgehen zu dem Punkt, an dem wir gerade waren; -3 zu -2 inkrementieren.
+ - 2 5 0 1 -2 - springe 4 Schritte vorwärts und entkomme dem Labyrinth.
+
+In diesem Beispiel wird der Ausgang in 5 Schritten erreicht.
+
+
+Wie viele Schritte braucht man, um den Ausgang zu erreichen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

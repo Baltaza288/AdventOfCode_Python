@@ -1,0 +1,34 @@
+
+--- Tag 23: Koprozessor-Ausbruch ---
+
+Du beschließt, direkt zur CPU zu gehen und den Drucker von dort aus zu reparieren.
+Als du dich näherst, findest du einen experimentellen Coprozessor, der so viel Code ausführt,
+dass die lokalen Programme befürchten, er werde anhalten und Feuer fangen.
+Dies würde zu ernsthaften Problemen für den Rest des Computers führen,
+also überlegst du, was du tun könntest.
+
+Der Code, den er ausführt, scheint eine Variante des Codes zu sein, den du
+kürzlich auf dem Tablet gesehen hast. Die allgemeine Funktionalität scheint sehr ähnlich zu sein,
+aber einige der Anweisungen sind anders:
+
+ - set X Y setzt das Register X auf den Wert von Y.
+ - sub X Y verringert das Register X um den Wert von Y.
+ - mul X Y setzt das Register X auf das Ergebnis der Multiplikation des Wertes
+    des Registers X mit dem Wert von Y.
+ - jnz X Y springt mit einem Offset des Wertes von Y, aber nur, wenn der
+    Wert von X nicht Null ist. (Bei einem Offset von 2 wird die nächste Anweisung übersprungen,
+    ein Offset von -1 springt zur vorherigen Anweisung usw.)
+
+Es werden nur die oben aufgeführten Anweisungen verwendet. Die acht Register hier,
+a bis h genannt, beginnen alle bei 0.
+
+Der Koprozessor befindet sich derzeit in einer Art Debug-Modus,
+der das Testen ermöglicht, aber verhindert, dass er irgendeine sinnvolle Arbeit verrichtet.
+
+
+Wie oft wird die Anweisung mul aufgerufen, wenn du das Programm ausführst (INPUT)?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

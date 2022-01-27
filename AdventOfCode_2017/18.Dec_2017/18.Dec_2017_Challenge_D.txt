@@ -1,0 +1,73 @@
+
+--- Tag 18: Duett ---
+
+Du entdeckst eine Tafel mit einem seltsamen Assemblercode, der mit
+einfach "Duet". Anstatt die Soundkarte damit zu belästigen, beschließt du
+den Code selbst auszuführen. Leider siehst du keine Dokumentation,
+also musst du selbst herausfinden, was die Anweisungen bedeuten.
+
+Es scheint, dass die Assemblierung auf eine Reihe von Registern wirken soll,
+die jeweils mit einem einzigen Buchstaben benannt sind und die jeweils eine
+Ganzzahl aufnehmen können. Du nimmst an, dass jedes Register mit einem Wert von 0 beginnen sollte.
+
+Es gibt nicht so viele Anweisungen, also sollte es nicht schwer sein,
+herauszufinden, was sie tun.
+
+Du findest Folgendes heraus:
+
+ - snd X spielt einen Ton mit einer Frequenz, die dem Wert X entspricht.
+ - set X Y setzt das Register X auf den Wert Y.
+ - add X Y erhöht das Register X um den Wert Y.
+ - mul X Y setzt das Register X auf das Ergebnis der Multiplikation des Wertes
+    von Register X mit dem Wert Y.
+ - mod X Y setzt das Register X auf den Rest der Division des Wertes
+    Register X enthaltenen Wertes durch den Wert Y (d.h. X wird zum Ergebnis von X modulo Y).
+ - rcv X stellt die Frequenz des zuletzt gespielten Tons wieder her,
+    aber nur, wenn der Wert X nicht Null ist. (Wenn er Null ist, bewirkt der Befehl nichts.)
+ - jgz X Y springt mit einem Offset des Wertes Y, aber nur, wenn
+    der Wert X größer als Null ist. (Ein Offset von 2 überspringt
+    die nächste Anweisung, ein Offset von -1 springt zur vorherigen
+    Anweisung, und so weiter.)
+
+Viele der Anweisungen können entweder ein Register (einen einzelnen Buchstaben)
+oder eine Zahl beinhalten.
+Der Wert eines Registers ist die Ganzzahl.
+
+Nach jeder Sprunganweisung fährt das Programm mit der Anweisung
+fort, zu der gesprungen wurde. Nach jeder anderen Anweisung fährt das Programm
+mit der nächsten Anweisung fort. Das Fortsetzen (oder Springen) an einem Ende
+des Programms wird es beendet.
+
+
+Beispiel:
+
+    set a 1
+    add a 2
+    mul a a
+    mod a 5
+    snd a
+    set a 0
+    rcv a
+    jgz a -1
+    set a 1
+    jgz a -2
+
+ - Die ersten vier Anweisungen setzen a auf 1, addieren 2 dazu, quadrieren es,
+    und setzen es dann auf sich selbst modulo 5, was einen Wert von 4 ergibt.
+ - Dann wird ein Ton mit der Frequenz 4 (dem Wert von a) abgespielt.
+ - Danach wird a auf 0 gesetzt, wodurch die nachfolgenden Anweisungen rcv und jgz
+    übersprungen werden (rcv, weil a 0 ist, und jgz, weil a nicht größer als 0 ist).
+ - Schließlich wird a auf 1 gesetzt, wodurch die nächste jgz-Anweisung aktiviert wird,
+    und springt zwei Anweisungen zurück zu einem weiteren Sprung, der wiederum zum rcv springt,
+    der schließlich die Wiederherstellungsoperation auslöst.
+
+Zum Zeitpunkt der Ausführung des Wiederherstellungsvorgangs beträgt die Frequenz des zuletzt gespielten Tons 4.
+
+
+Wie hoch ist der Wert der wiederhergestellten Frequenz (der Wert des zuletzt
+gespielten Tons), wenn zum ersten Mal eine rcv-Anweisung mit einem Wert ungleich Null ausgeführt wird?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

@@ -1,0 +1,56 @@
+--- Tag 20: Partikelschwarm ---
+
+Plötzlich meldet sich die GPU bei dir und bittet um Hilfe. Jemand hat sie gebeten
+zu viele Partikel zu simulieren, und sie wird nicht in der Lage sein, sie alle rechtzeitig fertigzustellen,
+um das nächste Bild mit dieser Rate zu rendern.
+
+Sie überträgt dir einen Puffer (INPUT), in dem alle Partikel
+auflistet sind (beginnend mit Partikel 0, dann Partikel 1, Partikel 2 und so weiter).
+Für jedes Teilchen werden die X-, Y- und Z-Koordinaten für die Position (p),
+die Geschwindigkeit (v) und die Beschleunigung (a) des Teilchens, jeweils im Format <X,Y,Z> angegeben.
+
+Bei jedem Tick werden alle Partikel gleichzeitig aktualisiert.
+Die Eigenschaften eines Partikels werden in der folgenden Reihenfolge aktualisiert:
+
+ - Erhöhung der X-Geschwindigkeit um die X-Beschleunigung.
+ - Erhöhung der Y-Geschwindigkeit um die Y-Beschleunigung.
+ - Erhöhung der Z-Geschwindigkeit um die Z-Beschleunigung.
+ - Erhöhung der X-Position um die X-Beschleunigung.
+ - Erhöhung der Y-Position um die Y-Beschleunigung.
+ - Erhöhung der Z-Position um die Z-Beschleunigung.
+
+Aufgrund der scheinbar schwachen Logik der Z-Pufferung möchte die GPU wissen,
+welches Teilchen langfristig am nächsten an der Position <0,0,0> bleiben wird.
+Dies wird anhand der Manhattan-Distanz gemessen, die in diesem Fall
+einfach die Summe der absoluten Werte der Partikel-Positionen in
+X-, Y- und Z-Position ist.
+
+
+Nehmen wir zum Beispiel an, dass du nur zwei Teilchen hast,
+die sich beide, der Einfachheit halber, vollständig auf der X-Achse bleiben.
+Zeichnet man die aktuellen Zustände der Teilchen 0 und 1 (in dieser Reihenfolge)
+mit einer angrenzenden Zahlenreihe und Diagramm der aktuellen X-Positionen (in Klammern),
+ergibt sich Folgendes:
+
+    p=< 3,0,0>, v=< 2,0,0>, a=<-1,0,0>    -4 -3 -2 -1  0  1  2  3  4
+    p=< 4,0,0>, v=< 0,0,0>, a=<-2,0,0>                         (0)(1)
+
+    p=< 4,0,0>, v=< 1,0,0>, a=<-1,0,0>    -4 -3 -2 -1  0  1  2  3  4
+    p=< 2,0,0>, v=<-2,0,0>, a=<-2,0,0>                      (1)   (0)
+
+    p=< 4,0,0>, v=< 0,0,0>, a=<-1,0,0>    -4 -3 -2 -1  0  1  2  3  4
+    p=<-2,0,0>, v=<-4,0,0>, a=<-2,0,0>          (1)               (0)
+
+    p=< 3,0,0>, v=<-1,0,0>, a=<-1,0,0>    -4 -3 -2 -1  0  1  2  3  4
+    p=<-8,0,0>, v=<-6,0,0>, a=<-2,0,0>                         (0)
+
+An diesem Punkt wird das Teilchen 1 niemals näher an <0,0,0> sein als das Teilchen 0,
+und daher wird Teilchen 0 auf lange Sicht am nächsten bleiben.
+
+
+Welches Teilchen wird langfristig am nächsten an der Position <0,0,0> bleiben?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

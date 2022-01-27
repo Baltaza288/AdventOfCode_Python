@@ -1,0 +1,65 @@
+
+--- Tag 24: Elektromagnetischer Graben ---
+
+Die CPU selbst ist ein großes, schwarzes Gebäude, umgeben von einer bodenlosen Grube.
+Riesige Metallrohre erstrecken sich von der Seite des Gebäudes aus
+und führen in regelmäßigen Abständen nach unten hinunter in die Leere.
+Es gibt keine Möglichkeit, sie zu durchqueren, aber du musst hinein gelangen.
+
+Das geht natürlich nur, indem man eine Brücke aus den magnetischen Bauteilen baut, die in der Nähe herumliegen.
+
+Jedes Bauteil hat zwei Öffnungen, eine an jedem Ende. Die Anschlüsse gibt es
+verschiedenen Typen, und nur passende Typen können miteinander verbunden werden.
+Du inventarisierst die Bauteile nach ihren Anschlusstypen (INPUT).
+Jeder Anschluss wird durch die Anzahl der Stifte identifiziert
+mehr Pins bedeuten eine stärkere Verbindung für deine Brücke.
+Ein 3/7-Bauteil hat zum Beispiel einen Typ-3-Anschluss auf der einen Seite,
+und einen Typ-7-Anschluss auf der anderen Seite.
+
+Deine Seite des Pits ist metallisch; eine perfekte Oberfläche für den Anschluss einen magnetischen Null-Pin-Anschluss.
+Aus diesem Grund muss der erste Anschluss, den du benutzt vom Typ 0 sein.
+Es spielt keine Rolle, mit welcher Art von Anschluss du endest.
+Dein Ziel ist nur, die Brücke so stark wie möglich zu machen.
+
+Die Stärke einer Brücke ergibt sich aus der Summe der Port-Typen in jeder Komponente.
+Wenn deine Brücke zum Beispiel aus folgenden Komponenten besteht
+0/3, 3/7 und 7/4, hat deine Brücke eine Stärke von 0+3 + 3+7 + 7+4 = 24.
+
+Nehmen wir zum Beispiel an, du hättest die folgenden Komponenten:
+
+    0/2
+    2/2
+    2/3
+    3/4
+    3/5
+    0/1
+    10/1
+    9/10
+
+Mit ihnen könntest du die folgenden gültigen Brücken bauen:
+
+ - 0/1
+ - 0/1--10/1
+ - 0/1--10/1--9/10
+ - 0/2
+ - 0/2--2/3
+ - 0/2--2/3--3/4
+ - 0/2--2/3--3/5
+ - 0/2--2/2
+ - 0/2--2/2--2/3
+ - 0/2--2/2--2/3--3/4
+ - 0/2--2/2--2/3--3/5
+
+(Beachte, dass, wie 10/1 zeigt, die Reihenfolge der Ports innerhalb einer Komponente
+keine Rolle spielt. Du darfst jedoch jeden Port einer Komponente nur einmal verwenden).
+
+Von diesen Brücken ist die stärkste 0/1--10/1--9/10;
+Sie hat eine Stärke von 0+1 + 1+10 + 10+9 = 31.
+
+
+Wie stark ist die stärkste Brücke, die du mit den dir zur Verfügung stehenden Bauteilen kannst?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

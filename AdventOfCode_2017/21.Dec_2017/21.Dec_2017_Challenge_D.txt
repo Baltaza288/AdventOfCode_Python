@@ -1,0 +1,115 @@
+
+--- Tag 21: Fraktale Kunst ---
+
+Du findest ein Programm, das versucht, ein Kunstwerk zu erzeugen.
+Es benutzt einen seltsamen Prozess, bei dem es darum geht, die Details eines Bildes
+durch eine Reihe von Regeln zu erzeugen.
+
+Das Bild besteht aus einem zweidimensionalen quadratischen Gitter aus Pixeln
+die entweder an (#) oder aus (.) sind.
+Das Programm beginnt immer mit diesem Muster:
+
+    .#.
+    ..#
+    ###
+
+Da das Muster sowohl 3 Pixel breit als auch 3 Pixel hoch ist, hat es eine Größe von 3.
+
+Dann wiederholt das Programm den folgenden Prozess:
+
+ - Wenn die Größe gleichmäßig durch 2 teilbar ist, werden die Pixel zu
+    2x2-Quadrate und wandelt jedes 2x2-Quadrat in ein 3x3-Quadrat um, indem es
+    die entsprechenden Erweiterungsregeln einhält.
+ - Wenn die Größe gleichmäßig durch 3 teilbar ist, zerlege die Pixel
+    in 3x3-Quadrate und wandle jedes 3x3-Quadrat in ein 4x4-Quadrat um
+    indem du die entsprechende Erweiterungsregeln befolgst.
+
+Da jedes Pixelquadrat durch ein größeres ersetzt wird, gewinnt das Bild Pixel und damit an Größe.
+
+Das Buch des Künstlers mit den Vergrößerungsregeln ist in der Nähe (INPUT).
+Es scheinen jedoch Regeln zu fehlen. Der Künstler erklärt, dass man manchmal,
+man das Eingabemuster drehen oder spiegeln muss, um eine Übereinstimmung zu finden.
+Jedes Muster ist prägnant geschrieben:
+Die Zeilen sind als einzelne Einheiten aufgeführt, von oben nach unten geordnet und durch Schrägstriche getrennt.
+
+
+Zum Beispiel entsprechen die folgenden Regeln den nebenstehenden Mustern:
+
+    ../.#  =  ..
+              .#
+
+                    .#.
+    .#./..#/###  =  ..#
+                    ###
+
+                            #..#
+    #..#/..../#..#/.##.  =  ....
+                            #..#
+                            .##.
+
+    Drehe und spiegele bei der Suche nach einer zu verwendenden Regel das Muster nach Bedarf.
+    Zum Beispiel entsprechen alle folgenden Muster der gleichen Regel:
+
+    .#.   .#.   #..   ###
+    ..#   #..   #.#   ..#
+    ###   ###   ##.   .#.
+
+Angenommen, das Buch enthält die folgenden zwei Regeln:
+
+    ../.# => ##./#../...
+    .#./..#/### => #..#/..../..../#..#
+
+Wie zuvor beginnt das Programm mit diesem Muster:
+
+    .#.
+    ..#
+    ###
+
+Die Größe des Gitters (3) ist nicht durch 2 teilbar, aber sie ist durch 3 teilbar.
+Es teilt sich gleichmäßig in ein einziges Quadrat; das Quadrat entspricht der zweiten Regel,
+die ergibt:
+
+    #..#
+    ....
+    ....
+    #..#
+
+Die Größe dieses erweiterten Gitters (4) ist gleichmäßig durch 2 teilbar, so dass die
+Regel verwendet wird. Es ist gleichmäßig in vier Quadrate unterteilt:
+
+    #.|.#
+    ..|..
+    --+--
+    ..|..
+    #.|.#
+
+Jedes dieser Quadrate entspricht der gleichen Regel (../.# => ##./#../...), drei davon
+die gespiegelt und gedreht werden müssen, um mit der Regel übereinzustimmen. Die Ausgabe
+für die Regel ist in allen vier Fällen die gleiche:
+
+    ##.|##.
+    #..|#..
+    ...|...
+    ---+---
+    ##.|##.
+    #..|#..
+    ...|...
+
+Schließlich werden die Quadrate zu einem neuen Gitter zusammengefügt:
+
+    ##.##.
+    #..#..
+    ......
+    ##.##.
+    #..#..
+    ......
+
+Nach 2 Iterationen enthält das Gitter also 12 Pixel, die eingeschaltet sind.
+
+
+Wie viele Pixel bleiben nach 5 Iterationen an?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

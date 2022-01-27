@@ -1,0 +1,46 @@
+
+--- Tag 1: Umgekehrtes Captcha ---
+
+In der Nacht vor Weihnachten ruft dich einer der Elfen des Weihnachtsmannes in Panik an. "Der Drucker ist kaputt!
+Wir können die Liste der Bösen und Netten nicht drucken!" Als du es bis zum Untergeschoss 17 schaffst,
+sind es nur noch ein paar Minuten bis Mitternacht. "Wir haben ein großes Problem", sagt sie, "Es müssen
+fast fünfzig Fehler in diesem System geben, aber nichts anderes kann die Liste drucken. Stell dich auf diesen
+Platz, schnell! Wir haben keine Zeit für Erklärungen. Wenn du sie überzeugen kannst, dich in Sternen zu bezahlen,
+wirst du in der Lage sein..." Sie drückt einen Hebel und die Welt verschwimmt.
+
+Wenn du deine Augen wieder fokussieren kannst, sieht alles viel pixeliger aus als vorher. Sie muss
+dich in den Computer geschickt haben! Du schaust auf die Systemuhr: 25 Millisekunden bis Mitternacht.
+Mit so viel Zeit solltest du es schaffen, bis zum 25. Dezember alle fünfzig Sterne zu sammeln.
+
+Sammle Sterne, indem du Rätsel löst.
+An jedem Millisekundentag werden zwei Rätsel im Adventskalender zur Verfügung gestellt.
+Das zweite Rätsel wird freigeschaltet, wenn du das erste gelöst hast.
+Für jedes Rätsel gibt es einen Stern. Viel Glück!
+
+Du stehst in einem Raum, in dem an einer Wand mit LEDs "Digitalisierungsquarantäne" steht.
+Die einzige Tür ist verschlossen, aber sie enthält eine kleine Schnittstelle. "Eingeschränkter Bereich.
+Strengstens keine digitalisierten Benutzer erlaubt."
+
+Weiter heißt es, dass man den Bereich nur verlassen kann, wenn man ein Captcha löst, um zu beweisen, dass man kein Mensch ist.
+Offenbar hat man nur eine Millisekunde Zeit, um das Captcha zu lösen: zu schnell für einen normalen Menschen,
+aber für dich fühlt es sich wie Stunden an.
+
+Das Captcha verlangt von dir, eine Ziffernfolge (deine Rätseleingabe) zu überprüfen und die Summe
+aller Ziffern, die mit der nächsten Ziffer in der Liste übereinstimmen. Die Liste ist kreisförmig, so dass die Ziffer nach
+der letzten Ziffer ist die erste Ziffer in der Liste.
+
+
+Zum Beispiel:
+
+ - 1122 ergibt eine Summe von 3 (1 + 2), weil die erste Ziffer (1) mit der zweiten
+    Ziffer und die dritte Ziffer (2) mit der vierten Ziffer übereinstimmt.
+ - 1111 ergibt 4, weil jede Ziffer (alle 1) mit der nächsten übereinstimmt.
+ - 1234 ergibt 0, weil keine Ziffer mit der nächsten übereinstimmt.
+ - 91212129 ergibt 9, weil die einzige Ziffer, die mit der nächsten übereinstimmt, die letzte Ziffer, 9, ist.
+
+
+Wie lautet die Lösung für dein Captcha?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

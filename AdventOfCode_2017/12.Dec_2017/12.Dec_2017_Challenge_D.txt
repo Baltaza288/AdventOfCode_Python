@@ -1,0 +1,51 @@
+
+--- Tag 12: Digitaler Klempner ---
+
+Bei einem Spaziergang entlang der Speicherbänke des Stroms findest du ein kleines Dorf,
+das ein kleines Durcheinander erlebt: Einige Programme können nicht miteinander kommunizieren.
+
+Die Programme in diesem Dorf kommunizieren über ein festes System von Leitungen.
+Nachrichten werden zwischen den Programmen über Pipes ausgetauscht,
+aber die meisten Programme sind nicht direkt miteinander verbunden.
+Stattdessen leiten die Programme Nachrichten untereinander weiter, bis die
+Nachricht den vorgesehenen Empfänger erreicht.
+
+Aus irgendeinem Grund erreichen jedoch einige dieser Nachrichten nicht den vorgesehenen Empfänger
+und die Programme vermuten, dass einige Pipes fehlen.
+Sie möchten, dass du das untersuchst.
+
+Du gehst durch das Dorf und notierst dir die IDs jedes Programms und die IDs, mit denen
+es direkt kommunizieren kann (INPUT). Jedes Programm hat ein oder mehrere Programme
+mit denen es kommunizieren kann, und diese Leitungen sind bidirektional.
+Wenn 8 mit 11 kommunizieren kann, kann 11 auch mit 8 kommunizieren.
+
+Du musst herausfinden, wie viele Programme sich in der Gruppe befinden, die die Programm-ID 0 enthält.
+
+
+Nehmen wir an, du gehst wie ein Handlungsreisender von Tür zu Tür und notierst die folgende Liste:
+
+    0 <-> 2
+    1 <-> 1
+    2 <-> 0, 3, 4
+    3 <-> 2, 4
+    4 <-> 2, 3, 6
+    5 <-> 6
+    6 <-> 4, 5
+
+In diesem Beispiel befinden sich die folgenden Programme in der Gruppe, die die Programm-ID 0 enthält:
+
+ - Programm 0 per Definition.
+ - Programm 2, das direkt mit Programm 0 verbunden ist.
+ - Programm 3 über Programm 2.
+ - Programm 4 über Programm 2.
+ - Programm 5 über die Programme 6, dann 4, dann 2.
+ - Programm 6 über die Programme 4, dann 2.
+
+Es befinden sich also insgesamt 6 Programme in dieser Gruppe; alle außer Programm 1, das über eine Leitung mit sich selbst verbunden ist.
+
+
+Wie viele Programme befinden sich in der Gruppe, die die Programm-ID 0 enthält?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---

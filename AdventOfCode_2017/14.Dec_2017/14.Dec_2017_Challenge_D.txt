@@ -1,0 +1,58 @@
+
+--- Tag 14: Festplatten-Defragmentierung ---
+
+Plötzlich aktiviert ein geplanter Auftrag die Defragmentierung des Systems.
+Wäre die Situation anders, würdest du dir das vielleicht eine Weile ansehen,
+aber heute hast du einfach nicht die Zeit dazu. Es verschlingt
+wertvolle Systemressourcen, die anderweitig benötigt werden, und so ist die einzige
+Option, ihr zu helfen die Aufgabe so schnell wie möglich zu erledigen.
+
+Die betreffende Festplatte besteht aus einem 128x128-Gitter.
+Jedes Quadrat des Gitters ist entweder frei oder belegt.
+Auf dieser Platte wird der Zustand des Gitters
+durch die Bits in einer Folge von Knoten-Hashes verfolgt.
+
+Es werden insgesamt 128 Knoten-Hashes berechnet, die jeweils einer Zeile im Gitter entsprechen.
+Jeder Hash enthält 128 Bits, die einzelnen Gitterquadraten entsprechen.
+Jedes Bit eines Hashes zeigt an, ob dieses Quadrat frei (0) oder benutzt (1) ist.
+
+Die Hash-Eingaben sind eine Schlüsselfolge (INPUT), ein Bindestrich,
+und eine Zahl von 0 bis 127, die der Zeile entspricht.
+
+Beispiel:
+
+Wenn deine Schlüsselzeichenfolge flqrgnkx wäre,
+bestünde die erste Zeile aus den Bits des Knoten-Hashes von flqrgnkx-0,
+die zweite Zeile aus den Bits des Knoten-Hashes von flqrgnkx-1,
+und so weiter bis zur letzten Zeile, flqrgnkx-127.
+
+Die Ausgabe eines Knoten-Hashes wird traditionell durch 32 Hexadezimalziffern dargestellt.
+Jede dieser Ziffern entspricht 4 Bits, insgesamt also 4 * 32 = 128 Bits.
+Um in Bits zu konvertieren, wandele jede Hexadezimalziffer in ihren entsprechenden Binärwert um,
+das hohe Bit zuerst: 0 wird 0000, 1 wird 0001, e wird 1110, f wird 1111, und so weiter.
+Ein Hash, der mit a0c2017... in Hexadezimal beginnt,
+würde mit 10100000110000100000000101110000... im Binärformat beginnen.
+
+Wenn man diesen Prozess fortsetzt, sehen die ersten 8 Zeilen und Spalten für den Schlüssel flqrgnkx
+sehen wie folgt aus, wobei # für verwendete und . für freie Quadrate steht:
+
+    ##.#.#..-->
+    .#.#.#.#
+    ....#.#.
+    #.#.##.#
+    .##.#...
+    ##..#..#
+    .#...#..
+    ##.#.##.-->
+    |      |
+    V      V
+
+In diesem Beispiel werden 8108 Quadrate auf dem gesamten 128x128-Raster verwendet.
+
+
+Wie viele Quadrate werden bei deiner aktuellen Zeichenfolge verwendet?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Teil zwei ---
+
