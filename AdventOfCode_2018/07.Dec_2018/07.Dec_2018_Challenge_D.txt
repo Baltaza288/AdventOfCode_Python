@@ -1,0 +1,70 @@
+
+--- Tag 7: Die Summe seiner Teile ---
+
+Du findest dich an einer schneebedeckten Küste wieder.
+Offenbar bist du ein wenig vom Kurs abgekommen. Die Region ist zu hügelig, um den
+Nordpol zu sehen, aber du entdeckst ein paar Elfen, die anscheinend
+versuchen, etwas auszupacken, das an Land gespült wurde. Es ist ziemlich kalt draußen,
+also beschließt du, ein Paradoxon zu riskieren, indem du sie nach dem Weg fragst.
+
+"Oh, seid ihr der Suchtrupp?" Irgendwie kannst du verstehen, was auch immer du da hörst.
+Elfen aus dem Jahr 1018 sprechen, wie du annimmst, altnordisches Elbisch.
+Könnte das Gerät an deinem Handgelenk auch ein Übersetzer sein? "Diese Kleidung
+sehen nicht sehr warm aus, nimm das." Sie reichen dir einen schweren Mantel.
+
+"Wir müssen den Weg zurück zum Nordpol finden, aber wir haben im Moment höhere Prioritäten.
+Ob du es glaubst oder nicht, diese Kiste enthält etwas,
+das alle Transportprobleme des Weihnachtsmanns lösen wird -
+zumindest sieht es auf den Bildern in der Anleitung so aus."
+Es sieht nicht so aus, als könnten sie die Sprache lesen, in der sie geschrieben ist, aber du kannst es:
+"Schlitten-Bausatz. Etwas Montage erforderlich."
+
+"'Schlitten'? Was für ein wunderbarer Name! Du musst uns helfen, diesen 'Schlitten' zusammenzubauen.
+Aufgeregt fangen sie an, weitere Teile aus der Schachtel zu holen.
+
+In der Anleitung sind eine Reihe von Schritten und Anforderungen festgelegt, welche
+abgeschlossen sein müssen, bevor die anderen beginnen können (INPUT).
+Jeder Schritt wird mit einem einzelnen Buchstaben bezeichnet.
+Angenommen, du hast die folgenden Anweisungen:
+
+    Schritt C muss beendet sein, bevor Schritt A beginnen kann.
+    Schritt C muss beendet sein, bevor Schritt F beginnen kann.
+    Schritt A muss beendet sein, bevor Schritt B beginnen kann.
+    Schritt A muss beendet sein, bevor Schritt D beginnen kann.
+    Schritt B muss beendet sein, bevor Schritt E beginnen kann.
+    Schritt D muss beendet sein, bevor Schritt E beginnen kann.
+    Schritt F muss abgeschlossen sein, bevor mit Schritt E begonnen werden kann.
+
+Visuell sehen diese Anforderungen wie folgt aus:
+
+      -->A----->B---
+     /    \         \
+    C      -->D----->E
+     \              /
+      ---->F------>
+
+Dein erstes Ziel ist es, die Reihenfolge zu bestimmen, in der die Schritte
+abgeschlossen werden. Wenn mehr als ein Schritt fertig ist, wähle den Schritt, der
+alphabetisch an erster Stelle steht. In diesem Beispiel würden die Schritte
+wie folgt abgeschlossen werden:
+
+ - Da nur C verfügbar ist, wird dieser Schritt zuerst ausgeführt.
+ - Als Nächstes sind sowohl A als auch F verfügbar. A steht alphabetisch an erster Stelle,
+    also wird es als nächstes erledigt.
+ - Dann sind, obwohl F schon vorher verfügbar war, die Schritte B und D
+    jetzt auch verfügbar, B ist der erste der drei alphabetischen Schritte.
+ - Danach sind nur noch D und F verfügbar. E ist nicht verfügbar,
+    weil nur einige seiner Voraussetzungen erfüllt sind. Deshalb,
+    D wird als nächstes vervollständigt.
+ - F ist die einzige Möglichkeit, also wird es als nächstes erledigt.
+ - Schließlich wird E vervollständigt.
+
+In diesem Beispiel ist die richtige Reihenfolge also CABDFE.
+
+
+In welcher Reihenfolge sollten die Schritte in deiner Anleitung ausgeführt werden?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

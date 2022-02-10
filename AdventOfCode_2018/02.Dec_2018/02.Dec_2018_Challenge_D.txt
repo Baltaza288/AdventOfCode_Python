@@ -1,0 +1,53 @@
+
+--- Tag 2: Bestandsverwaltungssystem ---
+
+Du hörst auf, durch die Zeit zu fallen, holst Luft und schaust auf den Bildschirm des Geräts.
+"Ziel erreicht. Aktuelles Jahr: 1518. Aktueller Standort: Nordpol-Versorgungsschrank 83N10."
+Du hast es geschafft! Jetzt gilt es, die Anomalien zu finden.
+
+Außerhalb des Versorgungsschranks hörst du Schritte und eine Stimme.
+"...Ich bin mir auch nicht sicher. Aber jetzt, wo so viele Leute Schornsteine haben,
+könnte er vielleicht über diesen Weg hereinschleichen?"
+Eine andere Stimme antwortet: "Eigentlich haben wir an einer neuen Art von Anzug gearbeitet,
+mit dem er durch solche engen Räume passen würde. Aber ich habe gehört,
+dass sie vor ein paar Tagen den Prototyp verloren haben, den Stoff, die
+Pläne, einfach alles! Niemand im Team scheint sich noch an wichtige
+Details des Projekts erinnern!"
+
+"Hatten sie nicht genug Stoff, um mehrere Kisten im Lager zu füllen?
+Sie wurden zusammen gelagert, somit sollten die Kisten-IDs ähnlich sein.
+Es würde ewig dauern, das Lagerhaus nach zwei ähnlichen Kisten zu durchsuchen..."
+Sie gehen zu weit weg, um noch mehr zu hören.
+
+Spät in der Nacht schleichst du dich in das Lagerhaus - wer weiß, was für Paradoxien
+du auslösen könntest, wenn du entdeckt würdest - und benutzt dein schickes Gerät am Handgelenk,
+um schnell alle Kisten zu scannen und eine Liste der wahrscheinlichen Kandidaten zu erstellen (INPUT).
+
+Um sicherzugehen, dass du nichts übersehen hast, scannst du die Kisten mit den wahrscheinlichen Kandidaten erneut,
+Du zählst die Kästchen mit einer ID, die genau zwei Buchstaben enthält.
+Anschließend zählst du separat die Kästchen mit genau drei Buchstaben.
+Du multiplizierst diese beiden Zählungen miteinander, um eine rudimentäre Prüfsumme zu erhalten und
+mit dem, was dein Gerät vorhersagt.
+
+
+Wenn du zum Beispiel die folgenden Box-IDs siehst:
+
+ - abcdef enthält keine Buchstaben, die genau zwei- oder dreimal vorkommen.
+ - bababc enthält zwei a und drei b, zählt also für beide.
+ - abbcde enthält zwei b, aber kein Buchstabe kommt genau dreimal vor.
+ - abcccd enthält drei c, aber kein Buchstabe kommt genau zwei Mal vor.
+ - aabcdd enthält zwei a und zwei d, aber es zählt nur einmal.
+ - abcdee enthält zwei e.
+ - ababab enthält drei a und drei b, zählt aber nur einmal.
+
+Von diesen Box-IDs enthalten vier einen Buchstaben, der genau zweimal vorkommt,
+und drei von ihnen enthalten einen Buchstaben, der genau dreimal vorkommt.
+Multipliziert man diese Zahlen miteinander, ergibt sich eine Prüfsumme von 4 * 3 = 12.
+
+
+Wie lautet die Prüfsumme für deine Liste der Box-IDs?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

@@ -1,0 +1,225 @@
+
+--- Tag 24: Immunsystem-Simulator 20XX ---
+
+Nach einem seltsamen Brummen tauchst du wieder in der Hütte des Mannes auf.
+Er scheint erleichtert zu sein, seinen Freund zu sehen, merkt aber schnell,
+dass das kleine Rentier sich eine Art Erkältung eingefangen hat, während es auf Erkundungstour war.
+
+Der korpulente Mann erklärt, dass das Immunsystem dieses Rentiers nicht mit
+dem Immunsystem eines normalen Rentiers zu vergleichen ist.
+
+Das Immunsystem und die Infektion haben jeweils eine Armee, die aus mehreren Gruppen besteht.
+Jede Gruppe besteht aus einer oder mehreren identischen Einheiten.
+Die Armeen kämpfen immer wieder bis nur noch eine Armee über Einheiten verfügt.
+
+Die Einheiten innerhalb einer Gruppe haben alle die gleichen Trefferpunkte
+(die Menge an Schaden, die eine Einheit erleiden kann, bevor sie zerstört wird),
+Angriffsschaden (die Menge an Schaden, die jede Einheit verursacht),
+eine Angriffsart, eine Initiative (Einheiten mit höherer Initiative greifen zuerst an und gewinnen Gleichstände),
+und manchmal Schwächen oder Immunitäten.
+
+Hier ein Beispiel für eine Gruppe:
+
+    18 Einheiten mit jeweils 729 Trefferpunkten (schwach gegen Feuer, immun gegen Kälte und Hiebwaffen)
+     mit einem Angriff, der bei Initiative 10 8 Strahlenschaden verursacht
+
+Jede Gruppe hat auch eine effektive Stärke: Anzahl der Einheiten in dieser Gruppe multipliziert
+mit ihrem Angriffsschaden. Die obige Gruppe hat eine Effektivkraft von 18 * 8 = 144.
+Gruppen haben niemals null oder negative Einheiten. Stattdessen wird die Gruppe aus dem Kampf entfernt.
+
+Jeder Kampf besteht aus zwei Phasen: Zielwahl und Angriff.
+
+In der Zielwahlphase versucht jede Gruppe, ein Ziel zu wählen.
+Die Gruppen wählen ihre Ziele in abnehmender Reihenfolge ihrer effektiven Stärke aus.
+Bei Gleichstand wählt die Gruppe mit der höheren Initiative zuerst aus.
+Die angreifende Gruppe wählt die Gruppe in der gegnerischen Armee, der sie den größten Schaden zufügen würde
+(unter Berücksichtigung von Schwächen und Immunitäten, aber ohne zu berücksichtigen,
+ob die verteidigende Gruppe über genügend Einheiten verfügt, um tatsächlich den gesamten Schaden zu erhalten).
+
+Wenn eine angreifende Gruppe zwei verteidigende Gruppen in Betracht zieht,
+denen sie den gleichen Schaden zufügen würde,
+entscheidet sie sich für die verteidigende Gruppe mit der größten effektiven Stärke.
+Wenn es immer noch einen Gleichstand gibt, wählt sie die verteidigende Gruppe mit der höchsten Initiative.
+Falls sie keiner verteidigenden Gruppe Schaden zufügen kann, wählt sie kein Ziel.
+Verteidigende Gruppen können nur von einer angreifenden Gruppe als Ziel gewählt werden.
+
+Während der Angriffsphase fügt jede Gruppe dem von ihr ausgewählten Ziel Schaden zu, sofern vorhanden.
+Die Gruppen greifen in abnehmender Reihenfolge ihrer Initiative an, unabhängig davon, ob sie Teil
+der Infektion oder des Immunsystems sind (Wenn eine Gruppe keine Einheiten enthält, kann sie nicht angreifen).
+
+Der Schaden, den eine angreifende Gruppe einer verteidigenden Gruppe zufügt,
+hängt von der Angriffsart der angreifenden Gruppe und den Immunitäten und Schwächen der verteidigenden Gruppe ab.
+Standardmäßig, würde eine angreifende Gruppe Schaden in Höhe ihres effektivsten Schadens
+gegen die verteidigende Gruppe austeilen.
+Ist die verteidigende Gruppe jedoch immun gegen die Angriffsart der angreifenden Gruppe,
+erleidet die verteidigende Gruppe keinen Schaden.
+Ist die verteidigende Gruppe schwach gegen die Angriffsart der angreifenden Gruppe,
+erleidet die verteidigende Gruppe stattdessen doppelten Schaden.
+
+Die verteidigende Gruppe verliert nur ganze Einheiten durch Schaden.
+Der Schaden wird immer so zugefügt, dass er möglichst viele Einheiten tötet
+und jeder verbleibende Schaden an einer Einheit, der sie nicht sofort tötet, wird ignoriert.
+
+
+Beispiel:
+
+Wenn eine verteidigende Gruppe aus 10 Einheiten mit je 10 Trefferpunkten besteht und 75 Schaden erleidet, verliert sie
+genau 7 Einheiten und hat noch 3 Einheiten mit voller Gesundheit.
+
+Ist der Kampf beendet und haben beide Armeen noch Einheiten, beginnt ein neuer Kampf.
+Der Kampf endet erst, wenn eine Armee alle ihre Einheiten verloren hat.
+
+
+Betrachten wir zum Beispiel die folgenden Armeen:
+
+    Immunsystem:
+      Einheiten:   17
+      TP/ Einheit: 5390
+      Immunität:   ---
+      Schwäche:    Strahlung, Prügel
+      Attacke:     4507 Feuerschaden
+      Initiative:  2
+
+      Einheiten:   989
+      TP/ Einheit: 1274
+      Immunität:   Feuer
+      Schwäche:    Hieb- und Stichschaden
+      Attacke:     25 Hiebschaden
+      Initiative:  3
+
+    Infektion:
+      Einheiten:   801
+      TP/ Einheit: 4706
+      Immunität:   ---
+      Schwäche:    Strahlung
+      Attacke:     116 Knüppelschaden
+      Initiative:  1
+
+      Einheiten:   4485
+      TP/ Einheit: 2961
+      Immunität:   Strahlung
+      Schwäche:    Feuer, Kälte
+      Attacke:     12 Hiebschaden
+      Initiative:  4
+
+Wenn diese Armeen in den Kampf eintreten, kommt es zu folgenden Kämpfen,
+einschließlich Details während der Zielwahl- und Angriffsphase:
+
+    Immunsystem:
+    Gruppe 1 enthält 17 Einheiten
+    Gruppe 2 enthält 989 Einheiten
+    Infektion:
+    Gruppe 1 enthält 801 Einheiten
+    Gruppe 2 enthält 4485 Einheiten
+
+    Infektionsgruppe 1 würde der verteidigenden Gruppe 1 185832 Schaden zufügen
+    Infektionsgruppe 1 würde der verteidigenden Gruppe 2 185832 Schaden zufügen
+    Infektion Gruppe 2 würde der verteidigenden Gruppe 2 107640 Schaden zufügen
+    Immunsystem Gruppe 1 würde der verteidigenden Gruppe 1 76619 Schaden zufügen
+    Immunsystem Gruppe 1 würde der verteidigenden Gruppe 2 153238 Schaden zufügen
+    Immunsystem Gruppe 2 würde der verteidigenden Gruppe 1 24725 Schaden zufügen
+
+    Infektionsgruppe 2 greift die verteidigende Gruppe 2 an und tötet 84 Einheiten
+    Gruppe 2 des Immunsystems greift die verteidigende Gruppe 1 an und tötet 4 Einheiten
+    Gruppe 1 des Immunsystems greift die verteidigende Gruppe 2 an und tötet 51 Einheiten.
+    Infektionsgruppe 1 greift die verteidigende Gruppe 1 an und tötet 17 Einheiten
+    Immunsystem:
+     Gruppe 2 enthält 905 Einheiten
+    Infektion:
+     Gruppe 1 enthält 797 Einheiten
+     Gruppe 2 enthält 4434 Einheiten
+
+    Die Infektionsgruppe 1 würde der verteidigenden Gruppe 2 184904 Schaden zufügen
+    Immunsystem Gruppe 2 würde der verteidigenden Gruppe 1 22625 Schaden zufügen
+    Immunsystem Gruppe 2 würde der verteidigenden Gruppe 2 22625 Schaden zufügen
+
+    Immunsystem Gruppe 2 greift die verteidigende Gruppe 1 an und tötet 4 Einheiten
+    Infektionsgruppe 1 greift die verteidigende Gruppe 2 an und tötet 144 Einheiten
+    Immunsystem:
+     Gruppe 2 enthält 761 Einheiten
+    Infektion:
+     Gruppe 1 enthält 793 Einheiten
+     Gruppe 2 enthält 4434 Einheiten
+
+    Die Infektionsgruppe 1 würde der verteidigenden Gruppe 2 183976 Schaden zufügen
+    Immunsystem Gruppe 2 würde der verteidigenden Gruppe 1 19025 Schaden zufügen
+    Immunsystem Gruppe 2 würde der verteidigenden Gruppe 2 19025 Schaden zufügen
+
+    Immunsystem Gruppe 2 greift die verteidigende Gruppe 1 an und tötet 4 Einheiten
+    Infektionsgruppe 1 greift die verteidigende Gruppe 2 an und tötet 143 Einheiten
+    Immunsystem:
+     Gruppe 2 enthält 618 Einheiten
+    Infektion:
+     Gruppe 1 enthält 789 Einheiten
+     Gruppe 2 enthält 4434 Einheiten
+
+    Die Infektionsgruppe 1 würde der verteidigenden Gruppe 2 183048 Schaden zufügen
+    Immunsystem Gruppe 2 würde der verteidigenden Gruppe 1 15450 Schaden zufügen
+    Immunsystem Gruppe 2 würde der verteidigenden Gruppe 2 15450 Schaden zufügen
+
+    Immunsystem Gruppe 2 greift die verteidigende Gruppe 1 an und tötet 3 Einheiten
+    Infektionsgruppe 1 greift die verteidigende Gruppe 2 an und tötet 143 Einheiten
+    Immunsystem:
+     Gruppe 2 enthält 475 Einheiten
+    Infektion:
+     Gruppe 1 enthält 786 Einheiten
+     Gruppe 2 enthält 4434 Einheiten
+
+    Die Infektionsgruppe 1 würde der verteidigenden Gruppe 2 182352 Schaden zufügen
+    Immunsystem Gruppe 2 würde der verteidigenden Gruppe 1 11875 Schaden zufügen
+    Immunsystem Gruppe 2 würde der verteidigenden Gruppe 2 11875 Schaden zufügen
+
+    Immunsystem Gruppe 2 greift die verteidigende Gruppe 1 an und tötet 2 Einheiten
+    Infektionsgruppe 1 greift die verteidigende Gruppe 2 an und tötet 142 Einheiten
+    Immunsystem:
+     Gruppe 2 enthält 333 Einheiten
+    Infektion:
+     Gruppe 1 enthält 784 Einheiten
+     Gruppe 2 enthält 4434 Einheiten
+
+    Die Infektionsgruppe 1 würde der verteidigenden Gruppe 2 181888 Schaden zufügen
+    Immunsystem Gruppe 2 würde der verteidigenden Gruppe 1 8325 Schaden zufügen
+    Immunsystem Gruppe 2 würde der verteidigenden Gruppe 2 8325 Schaden zufügen
+
+    Immunsystem Gruppe 2 greift die verteidigende Gruppe 1 an und tötet 1 Einheit
+    Infektionsgruppe 1 greift die verteidigende Gruppe 2 an und tötet 142 Einheiten
+    Immunsystem:
+     Gruppe 2 enthält 191 Einheiten
+    Infektion:
+     Gruppe 1 enthält 783 Einheiten
+     Gruppe 2 enthält 4434 Einheiten
+
+    Die Infektionsgruppe 1 würde der verteidigenden Gruppe 2 181656 Schaden zufügen
+    Immunsystem Gruppe 2 würde der verteidigenden Gruppe 1 4775 Schaden zufügen
+    Immunsystem Gruppe 2 würde der verteidigenden Gruppe 2 4775 Schaden zufügen
+
+    Immunsystem Gruppe 2 greift die verteidigende Gruppe 1 an und tötet 1 Einheit
+    Infektionsgruppe 1 greift die verteidigende Gruppe 2 an und tötet 142 Einheiten
+    Immunsystem:
+     Gruppe 2 enthält 49 Einheiten
+    Infektion:
+     Gruppe 1 enthält 782 Einheiten
+     Gruppe 2 enthält 4434 Einheiten
+
+    Die Infektionsgruppe 1 würde der verteidigenden Gruppe 2 181424 Schaden zufügen
+    Immunsystem Gruppe 2 würde der verteidigenden Gruppe 1 1225 Schaden zufügen
+    Immunsystem Gruppe 2 würde der verteidigenden Gruppe 2 1225 Schaden zufügen
+
+    Immunsystem Gruppe 2 greift die verteidigende Gruppe 1 an und tötet 0 Einheiten
+    Infektionsgruppe 1 greift die verteidigende Gruppe 2 an und tötet 49 Einheiten
+    Immunsystem:
+     Es bleiben keine Gruppen übrig.
+    Infektion:
+     Gruppe 1 enthält 782 Einheiten
+     Gruppe 2 enthält 4434 Einheiten
+
+Im obigen Beispiel hat die siegreiche Armee am Ende 782 + 4434 = 5216 Einheiten.
+
+
+Du scannst den Zustand des Rentiers (INPUT). Der weißbärtige Mann sieht nervös aus.
+Wie viele Einheiten würde die siegreiche Armee haben?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

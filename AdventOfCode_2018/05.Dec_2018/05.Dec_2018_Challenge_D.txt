@@ -1,0 +1,43 @@
+
+--- Tag 5: Alchemistische Reduktion ---
+
+Du hast es geschafft, dich in das Labor zur Herstellung des Anzugprototyps einzuschleichen.
+Die Elfen machen gute Fortschritte, haben aber noch Probleme mit der Größenreduktion des Anzugs.
+
+Die allerneueste alchemistische Technologie aus dem Jahr 1518 könnte das Problem zwar lösen,
+aber du kannst es besser.
+Du scannst die chemische Zusammensetzung des Anzugmaterials und stellst fest, dass es aus
+extrem langen Polymeren besteht (eines davon ist als Eingabe für das Rätsel verfügbar).
+
+Das Polymer besteht aus kleineren Einheiten, die, wenn sie ausgelöst werden,
+miteinander reagieren, sodass zwei benachbarte Einheiten des gleichen Typs
+und entgegengesetzter Polarität zerstört werden. Die Typen der Einheiten werden
+durch Buchstaben dargestellt. Die Polarität der Einheiten wird durch Großschreibung dargestellt.
+Zum Beispiel sind r und R Einheiten desselben Typs, aber mit entgegengesetzter Polarität.
+Polarität, während r und s völlig unterschiedliche Typen sind und nicht reagieren.
+
+
+Beispiel:
+
+ - In aA reagieren a und A und lassen nichts zurück.
+ - In abBA vernichtet sich bB selbst und hinterlässt aA. Wie oben zerstört sich dies dann selbst und hinterlässt nichts.
+ - In abAB sind keine zwei benachbarten Einheiten vom gleichen Typ, sodass nichts passiert.
+ - In aabAAB sind zwar aa und AA vom gleichen Typ, allerdings stimmen ihre Polaritäten überein, sodass nichts passiert.
+
+Betrachten wir nun ein größeres Beispiel, dabAcCaCBAcCcaDA:
+
+    dabAcCaCBAcCcaDA Das erste "cC" wird entfernt.
+    dabAaCBAcCcaDA Dadurch entsteht 'Aa', das entfernt wird.
+    dabCBAcCcaDA Es werden entweder 'cC' oder 'Cc' entfernt (das Ergebnis ist dasselbe).
+    dabCBAcaDA Es können keine weiteren Aktionen durchgeführt werden.
+    Nach allen möglichen Reaktionen enthält das resultierende Polymer 10 Einheiten.
+
+
+Wie viele Einheiten verbleiben nach der vollständigen Reaktion des von dir gescannten Polymers?
+(Hinweis: Bei diesem und anderen Rätseln ist die Eingabe sehr groß; wenn du deine Eingabe kopierst und
+einfügst, vergewissern dich, dass du das Ganze erhältst).
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

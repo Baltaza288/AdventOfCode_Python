@@ -1,0 +1,99 @@
+
+--- Tag 19: Mit dem Strom schwimmen ---
+
+Da die Elfen mit dem Bau der Nordpol-Basis gut vorangekommen sind, wendest du deine
+sich wieder dem Verständnis der inneren Funktionsweise der Programmierung des Geräts zu.
+
+Du kannst nicht umhin zu bemerken, dass die Opcodes des Geräts keine Flusskontrolle enthalten
+wie etwa Sprungbefehle. In der Bedienungsanleitung des Geräts heißt es dazu weiter:
+
+"In Programmen, in denen eine Flusskontrolle erforderlich ist,
+kann der Befehlszeiger an ein Register gebunden werden,
+sodass er an ein Register gebunden werden und damit direkt manipuliert werden kann.
+Auf diese Weise können setr/seti als absolute Sprünge funktionieren,
+addr/addi als relative Sprünge und andere Opcodes können wirklich faszinierende Effekte hervorrufen."
+
+Dieser Mechanismus wird durch eine Deklaration wie #ip 1 erreicht, die das Register 1 so modifiziert,
+dass das Programm bei Zugriffen auf dieses Register indirekt auf den Befehlszeiger Zeiger selbst.
+Um diese Art der Bindung zu kompensieren, gibt es jetzt sechs Register (nummeriert von 0 bis 5).
+Die fünf, die nicht an den Befehlszeiger gebunden sind, verhalten sich normal.
+Ansonsten gelten die gleichen Regeln wie beim letzten Mal, als du mit diesem Gerät gearbeitet hast.
+
+Wenn der Befehlszeiger an ein Register gebunden ist,
+wird sein Wert in dieses Register geschrieben bevor der Befehl ausgeführt wird.
+Der Wert dieses Registers wird unmittelbar nach der Ausführung jedes Befehls in den Befehlszeiger zurückgeschrieben.
+Danach wird zur nächsten Anweisung übergegangen, indem dem Befehlszeiger eine Eins hinzugefügt wird,
+auch wenn der Wert im Befehlszeiger gerade durch einen Befehl aktualisiert wurde.
+(Aus diesem Grund müssen Anweisungen den Befehlszeiger auf den Befehl vor dem Befehl setzen,
+der als nächstes ausgeführt werden soll.)
+
+Der Befehlszeiger ist während des ersten Befehls 0, während des zweiten Befehls 1,
+und so weiter. Wenn der Befehlszeiger das Gerät jemals dazu veranlasst,
+eine Anweisung außerhalb der im Programm definierten Anweisungen zu laden,
+wird das Programm stattdessen sofort angehalten. Der Befehlszeiger beginnt bei 0.
+
+Es stellt sich heraus, dass sich diese neue Information bereits als nützlich erweist:
+Die CPU im Gerät ist nicht sehr leistungsfähig, und ein Hintergrundprozess nimmt die meiste
+seiner Zeit in Anspruch. Du überträgst die Deklarationen und Anweisungen des Hintergrundprozesses
+in eine Datei (INPUT), wobei du auf die Namen der Opcodes und nicht die Nummern achtest.
+
+Nehmen wir an, du hast das folgende Programm:
+
+    #ip 0
+    seti 5 0 1
+    seti 6 0 2
+    addi 0 1 0
+    addr 1 2 3
+    setr 1 0 0
+    seti 8 0 4
+    seti 9 0 5
+
+Bei der Ausführung werden die folgenden Anweisungen ausgeführt.
+Jede Zeile enthält den Wert des Befehlszeigers zum Zeitpunkt des Befehlsbeginns,
+die Werte der sechs Register vor der Ausführung des Befehls
+(in eckigen Klammern), die Anweisung selbst und die Werte der sechs
+Register nach der Ausführung des Befehls (ebenfalls in eckigen Klammern).
+
+    ip=0 [0, 0, 0, 0, 0, 0] seti 5 0 1 [0, 5, 0, 0, 0, 0, 0]
+    ip=1 [1, 5, 0, 0, 0, 0] seti 6 0 2 [1, 5, 6, 0, 0, 0]
+    ip=2 [2, 5, 6, 0, 0, 0] addi 0 1 0 [3, 5, 6, 0, 0, 0]
+    ip=4 [4, 5, 6, 0, 0, 0] setr 1 0 0 [5, 5, 6, 0, 0, 0]
+    ip=6 [6, 5, 6, 0, 0, 0] seti 9 0 5 [6, 5, 6, 0, 0, 9]
+
+Im Einzelnen treten bei der Ausführung dieses Programms die folgenden Ereignisse auf:
+
+ - Die erste Zeile (#ip 0) zeigt an, dass der Befehlszeiger in diesem Programm
+    an das Register 0 gebunden werden soll. Dies ist keine Anweisung,
+    und daher ändert sich der Wert des Befehlszeigers nicht während der
+    Verarbeitung dieser Zeile.
+ - Der Befehlszeiger enthält den Wert 0, und so wird der erste Befehl
+    ausgeführt (seti 5 0 1). Er aktualisiert das Register 0 auf den aktuellen Wert des Befehlszeigers
+    Zeigerwert (0), setzt Register 1 auf 5, setzt den Befehlszeiger
+    auf den Wert von Register 0 (was keine Auswirkungen hat, da der Befehl
+    Register 0 nicht verändert hat), und fügt dann dem Befehlszeiger eine Eins hinzu.
+ - Der Befehlszeiger enthält 1, und so wird der zweite Befehl ausgeführt,
+    seti 6 0 2, wird ausgeführt. Diese Anweisung ist der vorherigen sehr ähnlich
+    vor ihr: 6 wird in Register 2 gespeichert, und der Befehlszeiger
+    wird mit dem Wert 2 belassen.
+ - Der Befehlszeiger ist 2, der auf den Befehl addi 0 1 0 zeigt.
+    Dies ist wie ein relativer Sprung: Der Wert des Befehlszeigers, 2,
+    wird in das Register 0 geladen. addi findet dann das Ergebnis der Addition des Wertes
+    in Register 0 und dem Wert 1 und speichert das Ergebnis, 3, wieder in Register 0.
+    Das Register 0 wird dann zurück in den Befehlszeiger kopiert, was dazu führt, dass
+    dadurch um 1 größer wird, als es sonst der Fall gewesen wäre, und die nächste Anweisung übersprungen wird
+    (Adresse 1 2 3) vollständig überspringt. Schließlich wird 1 zum Befehlszeiger hinzugefügt.
+ - Der Befehlszeiger ist 4, also wird der Befehl setr 1 0 0 ausgeführt. Dies ist wie
+    ein absoluter Sprung: Er kopiert den Wert in Register 1, 5, in Register 0,
+    was dazu führt, dass er im Befehlszeiger landet. Der Anweisungszeiger wird
+    dann inkrementiert, sodass er bei 6 steht.
+ - Der Befehlszeiger ist 6, also speichert der Befehl seti 9 0 5 die Zahl 9 im Register 5.
+    Der Befehlszeiger wird inkrementiert, sodass er außerhalb des Programms steht,
+    und das Programm wird beendet.
+
+
+Welcher Wert verbleibt im Register 0, wenn der Hintergrundprozess beendet wird?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

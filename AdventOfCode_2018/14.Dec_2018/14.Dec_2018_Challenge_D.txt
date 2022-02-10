@@ -1,0 +1,77 @@
+
+--- Tag 14: Schokoladentafeln ---
+
+Endlich hast du die Gelegenheit, all die Produkte zu betrachten, die sich hier bewegen.
+Schokolade, Zimt, Minze, Chilischoten, Muskatnuss, Vanille... die Elfen
+müssen diese Pflanzen anbauen, um heiße Schokolade zu machen!
+Als dir das klar wird, hörst du in der Ferne ein Gespräch.
+Als du der Sache nachgehst, entdeckst du zwei Elfen in etwas, das aussieht wie eine behelfsmäßige unterirdische
+Küche/Laboratorium aussieht.
+
+Die Elfen versuchen, das ultimative Rezept für heiße Schokolade zu entwickeln.
+Sie führen sogar eine Anzeigetafel, welche die Qualität (0-9) für jedes Rezept anzeigt.
+
+Nur zwei Rezepte stehen auf der Tafel: Das erste Rezept hat eine Punktzahl von 3, das zweite von 7.
+Jeder der beiden Elfen hat ein aktuelles Rezept:
+Die erste Elfe beginnt mit dem ersten Rezept, die zweite Elfe beginnt mit dem zweiten Rezept.
+
+Um neue Rezepte zu erstellen, kombinieren die beiden Elfen ihre aktuellen Rezepte.
+So entstehen neue Rezepte aus den Ziffern der Summe der aktuellen
+der Punkte der aktuellen Rezepte. Bei den aktuellen Rezepten mit den Werten 3 und 7 ist ihre Summe 10.
+So würden zwei neue Rezepte entstehen: das erste mit Punktzahl 1 und das zweite mit der Punktzahl 0.
+Wären die Punktzahlen der aktuellen Rezepte 2 und 3 wären,
+würde die Summe 5 nur ein Rezept (mit der Punktzahl 5) erstellen.
+
+Die neuen Rezepte werden in der Reihenfolge, in der sie erstellt werden, am Ende der Anzeigetafel dargestellt.
+Nach der ersten Runde lautet die Anzeigetafel also 3, 7, 1, 0.
+
+Nachdem alle neuen Rezepte auf der Anzeigetafel hinzugefügt wurden, wählt jeder Elf ein neues aktuelles Rezept.
+Dazu geht der Elf auf der Anzeigetafel vorwärts eine Anzahl von Rezepten,
+die 1 plus der Punktzahl des aktuellen Rezepts entspricht.
+Nach der ersten Runde rückt der erste Elf also 1 + 3 = 4 Mal vor,
+der zweite Elf rückt 1 + 7 = 8 Mal vor.
+Wählen sie keine Rezepte aus, kehren sie zum Anfang zurück.
+Nach der ersten Runde, drehen beide Elfen eine Runde, bis sie auf demselben Rezept landen, das sie am Anfang hatten.
+Im Allgemeinen werden sie zu verschiedenen Rezepten wechseln.
+
+Zeichne die erste Elfe als Klammern und die zweite Elfe als eckige Klammern,
+setze diesen Prozess fort:
+
+    (3)[7]
+    (3)[7] 1  0
+     3  7  1 [0](1) 0
+     3  7  1  0 [1] 0 (1)
+    (3) 7  1  0  1  0 [1] 2
+     3  7  1  0 (1) 0  1  2 [4]
+     3  7  1 [0] 1  0 (1) 2  4  5
+     3  7  1  0 [1] 0  1  2 (4) 5  1
+     3 (7) 1  0  1  0 [1] 2  4  5  1  5
+     3  7  1  0  1  0  1  2 [4](5) 1  5  8
+     3 (7) 1  0  1  0  1  2  4  5  1  5  8 [9]
+     3  7  1  0  1  0  1 [2] 4 (5) 1  5  8  9  1  6
+     3  7  1  0  1  0  1  2  4  5 [1] 5  8  9  1 (6) 7
+     3  7  1  0 (1) 0  1  2  4  5  1  5 [8] 9  1  6  7  7
+     3  7 [1] 0  1  0 (1) 2  4  5  1  5  8  9  1  6  7  7  9
+     3  7  1  0 [1] 0  1  2 (4) 5  1  5  8  9  1  6  7  7  9  2
+
+Die Elfen glauben, dass sich ihre Fähigkeiten nach der Herstellung einiger Rezepte verbessern werden (INPUT).
+Das kann aber ewig dauern. Du kannst das erheblich beschleunigen,
+indem du die Punktzahlen der zehn folgenden Rezepte ermitteln.
+
+
+Ein Beispiel:
+
+ -  Falls die Elfen glauben, dass ihre Fähigkeit nach der Herstellung von 9 Rezepten verbessern wird,
+    ergäben sich, für die 10 Rezepte nach den ersten neun Versuchen, die Zahlen 5158916779
+ -  Nach 5 Versuchen würde die Punktzahl der nächsten zehn Rezepte 0124515891 betragen.
+ -  Nach 18 Versuchen wären die Punktzahlen der nächsten zehn 9251071085.
+ -  Nach 2018 Versuchen wäre die Punktzahl der nächsten zehn Personen 5941429882.
+
+
+Wie hoch sind die Punktzahlen der zehn Rezepte unmittelbar nach der Anzahl der
+Rezepten in deiner Rätseleingabe?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

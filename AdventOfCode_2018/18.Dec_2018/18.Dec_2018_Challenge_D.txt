@@ -1,0 +1,181 @@
+
+--- Tag 18: Siedler des Nordpols ---
+
+Am Rande des Bauprojekts der Nordpol-Basis sind viele Elfen dabei, Holz zu sammeln.
+
+Das Holzsammelgebiet ist 50 mal 50 Hektar groß; jeder Hektar kann entweder einen Acker (.),
+Bäume (|) oder ein Holzlager (#) sein. Du machst einen Scan des Gebiets (INPUT).
+
+Hier ist seltsame Magie am Werk: Jede Minute sieht die Landschaft völlig anders aus.
+In genau einer Minute kann sich ein Acker mit Bäumen füllen, ein bewaldeter Hektar kann
+in einen Holzplatz umgewandelt werden, oder ein Holzplatz kann zu einen Acker
+(das Holz wurde für andere Projekte verwendet).
+
+Die Veränderung eines jeden Hektars richtet sich ausschließlich nach dem Inhalt dieses Hektars sowie
+der Anzahl der angrenzenden Äcker, bewaldeten oder als Holzlager genutzten Flächen
+zu Beginn einer jeden Minute. Hier bedeutet "angrenzend" jedes der acht Hektar
+die diesen Hektar umgeben. (Flächen an den Rändern des Holzsammelgebiets
+können weniger als acht angrenzende Hektar haben; die fehlenden Hektar werden nicht mitgezählt.)
+
+Im Besonderen:
+
+ - Ein Acker wird mit Bäumen aufgefüllt, wenn drei oder mehr benachbarte
+    Hektar Bäume enthalten. Ansonsten passiert nichts.
+ - Ein mit Bäumen gefüllter Hektar wird zu einem Holzlagerplatz, wenn drei oder
+    mehr angrenzende Ackerflächen Holzlagerplätze waren. Andernfalls geschieht nichts.
+ - Ein Hektar, der einen Holzplatz enthielt, bleibt ein Holzplatz, wenn er
+    an mindestens einen anderen Holzplatz und mindestens eine Fläche mit Bäumen
+    Hektar mit Bäumen. Andernfalls wird sie offen.
+
+Diese Änderungen erfolgen für alle Flächen gleichzeitig, wobei jede dieser Änderungen
+mit dem Zustand aller Flächen zu Beginn der Minute und
+bis zum Ende derselben Minute in ihre neue Form übergehen.
+Änderungen, die während der Minute stattfinden, beeinflussen sich gegenseitig nicht.
+
+
+Nehmen wir zum Beispiel an, das Holzsammelgebiet ist stattdessen nur
+10 mal 10 Hektar mit dieser Anfangskonfiguration:
+
+    Anfangszustand:
+    .#.#...|#.
+    .....#|##|
+    .|..|...#.
+    ..|#.....#
+    #.#|||#|#|
+    ...#.||...
+    .|....|...
+    ||...#|.#|
+    |.||||..|.
+    ...#.|..|.
+
+    Nach 1 Minute:
+    .......##.
+    ......|###
+    .|..|...#.
+    ..|#||...#
+    ..##||.|#|
+    ...#||||..
+    ||...|||..
+    |||||.||.|
+    ||||||||||
+    ....||..|.
+
+    Nach 2 Minuten:
+    .......#..
+    ......|#..
+    .|.|||....
+    ..##|||..#
+    ..###|||#|
+    ...#|||||.
+    |||||||||.
+    ||||||||||
+    ||||||||||
+    .|||||||||
+
+    Nach 3 Minuten:
+    .......#..
+    ....|||#..
+    .|.||||...
+    ..###|||.#
+    ...##|||#|
+    .||##|||||
+    ||||||||||
+    ||||||||||
+    ||||||||||
+    ||||||||||
+
+    Nach 4 Minuten:
+    .....|.#..
+    ...||||#..
+    .|.#||||..
+    ..###||||#
+    ...###||#|
+    |||##|||||
+    ||||||||||
+    ||||||||||
+    ||||||||||
+    ||||||||||
+
+    Nach 5 Minuten:
+    ....|||#..
+    ...||||#..
+    .|.##||||.
+    ..####|||#
+    .|.###||#|
+    |||###||||
+    ||||||||||
+    ||||||||||
+    ||||||||||
+    ||||||||||
+
+    Nach 6 Minuten:
+    ...||||#..
+    ...||||#..
+    .|.###|||.
+    ..#.##|||#
+    |||#.##|#|
+    |||###||||
+    ||||#|||||
+    ||||||||||
+    ||||||||||
+    ||||||||||
+
+    Nach 7 Minuten:
+    ...||||#..
+    ..||#|##..
+    .|.####||.
+    ||#..##||#
+    ||##.##|#|
+    |||####|||
+    |||###||||
+    ||||||||||
+    ||||||||||
+    ||||||||||
+
+    Nach 8 Minuten:
+    ..||||##..
+    ..|#####..
+    |||#####|.
+    ||#...##|#
+    ||##..###|
+    ||##.###||
+    |||####|||
+    ||||#|||||
+    ||||||||||
+    ||||||||||
+
+    Nach 9 Minuten:
+    ..||###...
+    .||#####..
+    ||##...##.
+    ||#....###
+    |##....##|
+    ||##..###|
+    ||######||
+    |||###||||
+    ||||||||||
+    ||||||||||
+
+    Nach 10 Minuten:
+    .||##.....
+    ||###.....
+    ||##......
+    |##.....##
+    |##.....##
+    |##....##|
+    ||##.####|
+    ||#####|||
+    ||||#|||||
+    ||||||||||
+
+Nach 10 Minuten gibt es 37 bewaldete Hektar und 31 Holzfällerhöfe. Multipliziert man die
+Anzahl der bewaldeten Hektar mit der Anzahl der Holzlagerplätze ergibt den Gesamtressourcenwert
+Wert nach zehn Minuten: 37 * 31 = 1147.
+
+
+Wie hoch ist der Gesamtwert der Ressourcen im Holzsammelgebiet nach 10 Minuten?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

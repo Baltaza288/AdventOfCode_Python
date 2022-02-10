@@ -1,0 +1,102 @@
+
+--- Tag 22: Modus Labyrinth ---
+
+Das ist sie, deine letzte Station: das Jahr -483. Es schneit und ist dunkel draußen.
+Das einzige Licht, das du sehen kannst, kommt von einer kleinen Hütte in der Ferne.
+Du machst dich auf den Weg dorthin und klopfst an die Tür.
+
+Ein korpulenter Mann mit einem langen, weißen Bart öffnet die Tür und bittet dich herein.
+Für jemanden, der im Jahr -483 in der Nähe des Nordpols lebt, bekommt er wohl nicht viel Besuch,
+allerdings zeigt er sich nicht überrascht, dich zu sehen. Stattdessen bietet er dir Milch und Kekse an.
+
+Nachdem ihr euch eine Weile unterhalten haben, bittet er dich um einen Gefallen.
+Sein Freund ist seit ein paar Stunden nicht zurückgekommen und er ist sich nicht sicher, wo er ist.
+Du scannst die Gegend und entdeckst du ein Lebenszeichen in einem Höhlensystem in der Nähe.
+Sein Freund muss dort Schutz gesucht haben. Der Mann fragt, ob du dorthin gehen kannst, um seinen Freund zu holen.
+
+Die Höhle ist in quadratische Bereiche unterteilt, die entweder überwiegend felsig, eng oder feucht sind.
+Jede Region nimmt genau eine Koordinate im Format X,Y ein, wobei X und Y ganze Zahlen sind.
+
+Der Scan (INPUT) ist nicht sehr detailliert:
+Er zeigt nur die Tiefe des Höhlensystems und die Koordinaten des Ziels. Er verrät jedoch nicht
+den Typ der einzelnen Regionen. Der Eingang der Höhle liegt bei 0,0.
+
+Der Mann erklärt, dass es aufgrund der ungewöhnlichen Geologie in diesem Gebiet eine Methode gibt,
+um den Typ jeder Region anhand ihres Erosionsgrades zu bestimmen.
+Der Erosionsgrad einer Region kann anhand ihres geologischen Index bestimmt werden.
+Der geologische Index kann anhand der ersten zutreffenden Regel aus der folgenden Liste bestimmt werden:
+
+ - Die Region bei 0,0 (der Höhleneingang) hat einen geologischen Index von 0.
+ - Die Region an den Koordinaten des Ziels hat einen geologischen Index von 0.
+ - Wenn die Y-Koordinate der Region 0 ist, ist der geologische Index ihre X-Koordinate
+    mal 16807.
+ - Wenn die X-Koordinate der Region 0 ist, ist der geologische Index ihre Y-Koordinate
+    mal 48271.
+ - Andernfalls ist der geologische Index der Region das Ergebnis der Multiplikation
+    der Erosionsstufen der Regionen X-1,Y und X,Y-1.
+
+Der Erosionsgrad einer Region ist ihr geologischer Index plus die Tiefe des Höhlensystems,
+alles modulo 20183. Dann:
+
+ - Wenn der Erosionsgrad modulo 3 0 ist, ist die Region felsig.
+ - Wenn der Erosionsgrad modulo 3 gleich 1 ist, ist der Typ der Region feucht.
+ - Wenn der Erosionsgrad modulo 3 gleich 2 ist, ist der Typ der Region eng.
+
+
+Angenommen, die Tiefe des Höhlensystems beträgt 510 und die Koordinaten des Ziels
+sind 10,10. Mit % als Modulo-Operator würde die Höhle wie folgt aussehen:
+
+ - Bei 0,0 ist der geologische Index 0. Der Erosionsgrad ist (0 + 510) % 20183 = 510.
+    Der Typ ist 510 % 3 = 0, felsig.
+ - Bei 1,0, da die Y-Koordinate 0 ist, beträgt der geologische Index 1 * 16807 = 16807.
+    Der Erosionsgrad ist (16807 + 510) % 20183 = 17317. Der Typ ist 17317 % 3 = 1, nass.
+ - Bei 0,1 beträgt der geologische Index 1 * 48271 = 48271, da die X-Koordinate 0 ist.
+    Der Erosionsgrad ist (48271 + 510) % 20183 = 8415. Der Typ ist 8415 % 3 = 0, felsig.
+ - Bei 1,1 ist keine der beiden Koordinaten 0 und es ist nicht die Koordinate des
+    des Ziels, so dass der geologische Index das Erosionsniveau von 0,1 (8415)
+    mal dem Erosionsgrad von 1,0 (17317), 8415 * 17317 = 145722555.
+    Der Erosionsgrad ist (145722555 + 510) % 20183 = 1805. Der Typ ist
+    1805 % 3 = 2, schmal.
+ - Bei 10,10 ist der geologische Index 0, da es sich um die Koordinaten des Ziels handelt.
+    Der Erosionsgrad beträgt (0 + 510) % 20183 = 510. Der Typ
+    ist 510 % 3 = 0, felsig.
+
+Gezeichnet würde das Höhlensystem wie folgt aussehen. felsig als ., feucht als =, eng als |,
+die Mündung als M, das Ziel als T markiert. Start bei 0,0 in der linken oberen Ecke,
+X nach rechts ansteigend und Y nach unten ansteigend:
+
+    M=.|=.|.|=.|=|=.
+    .|=|=|||..|.=...
+    .==|....||=..|==
+    =.|....|.==.|==.
+    =|..==...=.|==..
+    =||.=.=||=|=..|=
+    |.=.===|||..=..|
+    |..==||=.|==|===
+    .=..===..=|.|||.
+    .======|||=|=.|=
+    .===|=|===T===||
+    =|||...|==..|=.|
+    =.=|=.=..=.||==|
+    ||=|=...|==.=|==
+    |=.=||===.|||===
+    ||.|==.|.|.||=||
+
+Bevor du das Gebiet betrittst, solltest du die Risikostufe des Gebiets bestimmen.
+Für das Quadrat, das eine obere linke Ecke der Region 0,0 und eine
+rechten unteren Ecke des Bereichs, der das Ziel enthält, addiere die
+Risikostufe jeder einzelnen Region: 0 für felsige Regionen, 1 für feuchte
+Regionen und 2 für enge Regionen.
+
+Da im obigen Höhlensystem die Öffnung bei 0,0 und das Ziel bei 10,10 liegt,
+addiert sich der Risikograd aller Regionen mit einer X-Koordinate
+von 0 bis 10 und einer Y-Koordinate von 0 bis 10 ergibt die Summe 114.
+
+
+Wie hoch ist die Gesamtrisikostufe für das kleinste Rechteck, das die Koordinaten 0,0
+und die Koordinaten des Ziels umfasst?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

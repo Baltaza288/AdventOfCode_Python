@@ -1,0 +1,367 @@
+
+--- Tag 15: Getränkebanditen ---
+
+Nachdem die Elfen ihre heiße Schokolade perfektioniert haben, haben sie ein neues Problem:
+Die Goblins, die in diesen Höhlen leben, werden alles tun, um sie zu stehlen.
+Es sieht so aus, als ob sie auf einen Kampf aus sind.
+
+Du scannst das Gebiet und erstellst eine Karte mit den Wänden (#), der offenen Höhle (.),
+und der Ausgangsposition aller Kobolde (G) und Elfen (E) (deine Rätseleingabe).
+
+Der Kampf läuft in Runden ab; in jeder Runde ist jede noch lebende Einheit
+eine Runde, wobei sie alle ihre Aktionen abwickelt, bevor die nächste Einheit an der Reihe ist.
+In ihrem Zug versucht jede Einheit, sich in Reichweite eines Gegners zu bewegen (wenn sie es nicht schon ist)
+und dann anzugreifen (wenn sie in Reichweite ist).
+
+Alle Einheiten sind sehr diszipliniert und halten sich immer an sehr strenge Kampfregeln.
+Einheiten bewegen sich niemals diagonal oder greifen diagonal an, da dies unehrenhaft wäre.
+Wenn mehrere Möglichkeiten gleichwertig sind, werden Gleichstände in der Reihenfolge des Lesens aufgelöst:
+von oben nach unten, dann von links nach rechts. Zum Beispiel ist die Reihenfolge, in der die Einheiten
+Einheiten in einer Runde an der Reihe sind, ist die Lesereihenfolge ihrer Startpositionen
+in dieser Runde, unabhängig von der Art der Einheit oder davon, ob sich andere Einheiten
+nachdem die Runde begonnen hat.
+
+
+Zum Beispiel:
+
+    Diese Einheiten:    werden zu diesen Einheiten:
+
+    #######             #######
+    #.G.E.#             #.1.2.#
+    #E.G.E#             #3.4.5#
+    #.G.E.#             #.6.7.#
+    #######             #######
+
+Jede Einheit beginnt ihren Zug mit der Identifizierung aller möglichen Ziele (feindliche Einheiten).
+Wenn keine Ziele mehr übrig sind, endet der Kampf.
+
+Dann identifiziert die Einheit alle offenen Felder (.), die in Reichweite des Ziels liegen.
+Dies sind die Felder, die an ein beliebiges Ziel angrenzen (unmittelbar oben, unten,
+links oder rechts) an ein beliebiges Ziel angrenzen und die nicht bereits von einer Mauer oder
+einer anderen Einheit besetzt sind. Es kann aber auch sein, dass sich die Einheit bereits in Reichweite eines Ziels befindet.
+Befindet sich die Einheit nicht bereits in Reichweite eines Ziels und gibt es keine freien Felder
+die sich in Reichweite eines Ziels befinden, beendet die Einheit ihren Zug.
+
+Befindet sich die Einheit bereits in Reichweite eines Ziels, bewegt sie sich nicht, sondern setzt
+ihren Zug mit einem Angriff fort. Andernfalls, da sie sich nicht in Reichweite eines Ziels befindet, bewegt sie sich.
+
+Um sich zu bewegen, betrachtet die Einheit zunächst die Felder, die in Reichweite sind, und bestimmt
+welches dieser Felder sie mit den wenigsten Schritten erreichen kann. Ein Schritt ist eine einzelne
+Bewegung auf ein beliebiges angrenzendes (unmittelbar nach oben, unten, links oder rechts) offenes (.) Feld.
+Einheiten können sich nicht in Mauern oder andere Einheiten hineinbewegen. Die Einheit tut dies unter Berücksichtigung
+die aktuellen Positionen der Einheiten und macht keine Vorhersagen darüber, wo die Einheiten
+später sein werden. Wenn die Einheit keines der in Reichweite befindlichen Felder erreichen kann (einen offenen Weg dorthin findet)
+die in Reichweite sind, beendet sie ihren Zug. Wenn mehrere Felder in Reichweite sind und gleich viele
+erreicht werden können, wird das Feld gewählt, das in der Lesereihenfolge zuerst
+Reihenfolge ist, gewählt.
+
+Beispiel:
+
+    Zielfelder:      In Reichweite:     Erreichbar:    Am nächsten:     Ausgewählt:
+    #######          #######            #######        #######          #######
+    #E..G.#          #E.?G?#            #E.@G.#        #E.!G.#          #E.+G.#
+    #...#.#   -->    #.?.#?#     -->    #.@.#.#  -->   #.!.#.#    -->   #...#.#
+    #.G.#G#          #?G?#G#            #@G@#G#        #!G.#G#          #.G.#G#
+    #######          #######            #######        #######          #######
+
+In dem obigen Szenario hat der Elf drei Ziele (die drei Kobolde):
+
+ - Jeder der Kobolde hat offene, benachbarte Felder, die sich in Reichweite befinden (markiert
+    mit einem ? auf der Karte).
+ - Von diesen Feldern sind vier erreichbar (markiert mit @); die beiden anderen (rechts)
+    müssten durch eine Wand oder eine Einheit hindurch bewegt werden, um sie zu erreichen.
+ - Drei dieser erreichbaren Felder liegen am nächsten und erfordern die wenigsten Schritte
+    (nur 2) zu erreichen (markiert !).
+ - Von diesen wird das Feld gewählt, das in der Lesereihenfolge an erster Stelle steht (+).
+
+Die Einheit geht dann einen Schritt auf das gewählte Feld zu, und zwar auf dem kürzesten
+Weg zu diesem Feld. Wenn mehrere Schritte die Einheit gleichermaßen näher an ihr Ziel bringen würden
+Ziel bringen würden, wählt die Einheit den Schritt, der in der Lesereihenfolge an erster Stelle steht.
+(Dazu muss man wissen, wann es mehr als einen kürzesten Weg gibt, so dass man
+der erste Schritt jedes dieser Wege berücksichtigt werden kann.)
+
+Beispiel:
+
+    In Reichweite:     Am nächsten:      Ausgewählt:       Entfernung:     Schritt:
+    #######            #######           #######           #######         #######
+    #.E...#            #.E...#           #.E...#           #4E212#         #..E..#
+    #...?.#     -->    #...!.#   -->     #...+.#    -->    #32101#   -->   #.....#
+    #..?G?#            #..!G.#           #...G.#           #432G2#         #...G.#
+    #######            #######           #######           #######         #######
+
+Der Elf sieht drei Quadrate in Reichweite eines Ziels (?), von denen zwei am nächsten sind (!),
+und so wird das erste in der Lesereihenfolge gewählt (+). Unter "Entfernung" wird jedes offene Feld
+die Entfernung zum Zielfeld angegeben; die beiden Felder, auf die
+zu denen der Elf in diesem Zug ziehen könnte (nach unten und nach rechts), sind beide gleich gut
+und würden die Elfe 2 Schritte von der Reichweite des Kobolds entfernt lassen. Da der Schritt
+der in der Lesereihenfolge der erste ist, gewählt wird, bewegt sich die Elfe ein Feld nach rechts.
+
+Hier ist ein größeres Beispiel für Bewegung:
+
+    Ursprünglich:
+    #########
+    #G..G..G#
+    #.......#
+    #.......#
+    #G..E..G#
+    #.......#
+    #.......#
+    #G..G..G#
+    #########
+
+    Nach 1 Runde:
+    #########
+    #.G...G.#
+    #...G...#
+    #...E..G#
+    #.G.....#
+    #.......#
+    #G..G..G#
+    #.......#
+    #########
+
+    Nach 2 Runde:
+    #########
+    #..G.G..#
+    #...G...#
+    #.G.E.G.#
+    #.......#
+    #G..G..G#
+    #.......#
+    #.......#
+    #########
+
+    Nach 3 Runde:
+    #########
+    #.......#
+    #..GGG..#
+    #..GEG..#
+    #G..G...#
+    #......G#
+    #.......#
+    #.......#
+    #########
+
+Sobald die Kobolde und Elfen die obigen Positionen erreicht haben, sind sie alle entweder
+in Reichweite eines Ziels oder können kein Feld in Reichweite eines Ziels finden,
+und so kann sich keine der Einheiten bewegen, bis eine Einheit stirbt.
+
+Nach der Bewegung (oder wenn die Einheit ihren Zug in Reichweite eines Ziels begonnen hat), greift die Einheit an.
+
+Um anzugreifen, bestimmt die Einheit zunächst alle Ziele, die sich in ihrer Reichweite befinden
+sind, indem sie sich in unmittelbarer Nähe befinden. Wenn es keine solchen Ziele gibt,
+beendet die Einheit ihren Zug. Andernfalls wird das benachbarte Ziel mit den wenigsten Trefferpunkten
+Ziel mit den wenigsten Trefferpunkten ausgewählt; bei Gleichstand wird das benachbarte Ziel mit den wenigsten Trefferpunkten
+das in der Lesereihenfolge an erster Stelle steht, ausgewählt.
+
+Die Einheit fügt dem gewählten Ziel Schaden in Höhe ihrer Angriffskraft zu,
+und reduziert seine Trefferpunkte um diesen Betrag. Wenn dadurch seine Trefferpunkte
+auf 0 oder weniger, stirbt das gewählte Ziel: sein Feld wird zu . und es
+nimmt keine weiteren Züge.
+
+Jede Einheit, ob Goblin oder Elf, hat 3 Angriffskraft und beginnt mit 200 Trefferpunkten.
+
+
+Nehmen wir zum Beispiel an, dass der einzige Elf angreifen will:
+
+           HP:            HP:
+    G....  9       G....  9
+    ..G..  4       ..G..  4
+    ..EG.  2  -->  ..E..
+    ..G..  2       ..G..  2
+    ...G.  1       ...G.  1
+
+Die Spalte "HP" zeigt die Trefferpunkte des Goblins auf der linken Seite in der
+entsprechenden Zeile. Die Elfe befindet sich in Reichweite von drei Zielen: dem Kobold über
+(mit 4 Trefferpunkten), der Kobold rechts von ihm (mit 2 Trefferpunkten),
+und der Kobold unter ihm (ebenfalls mit 2 Trefferpunkten). Da drei Ziele
+in Reichweite sind, werden die Ziele mit den niedrigsten Trefferpunkten ausgewählt: die beiden
+Goblins mit je 2 Trefferpunkten (einer rechts vom Elfen und einer unter
+der Elfe). Von diesen wird der Kobold ausgewählt, der in der Ablesereihenfolge an erster Stelle steht (der Kobold rechts
+des Elfen) wird ausgewählt. Die Trefferpunkte des ausgewählten Goblins (2) werden reduziert
+durch die Angriffskraft des Elfen (3) reduziert, wodurch seine Trefferpunkte auf -1 sinken und er getötet wird.
+
+Nach dem Angriff endet der Zug der Einheit. Unabhängig davon, wie der Zug der Einheit
+endet, ist die nächste Einheit in der Runde an der Reihe. Wenn alle Einheiten
+in dieser Runde an der Reihe waren, endet die Runde und eine neue Runde beginnt.
+
+Die Elfen scheinen in der Unterzahl zu sein. Ihr müsst den Ausgang der Schlacht bestimmen
+der Schlacht: die Anzahl der abgeschlossenen Runden (ohne die
+der Runde, in der der Kampf endet) multipliziert mit der Summe der Trefferpunkte
+aller verbleibenden Einheiten zum Zeitpunkt des Kampfendes. (Das Gefecht endet nur, wenn
+eine Einheit während ihres Zuges keine Ziele findet.)
+
+Unten sehen Sie ein komplettes Beispiel eines Kampfes. Neben jeder Karte sind die Trefferpunkte der Einheiten in jeder Zeile
+von links nach rechts aufgelistet.
+
+    Ursprünglich:
+    #######
+    #.G...#   G(200)
+    #...EG#   E(200), G(200)
+    #.#.#G#   G(200)
+    #..G#E#   G(200), E(200)
+    #.....#
+    #######
+
+    Nach 1 Runde:
+    #######
+    #..G..#   G(200)
+    #...EG#   E(197), G(197)
+    #.#G#G#   G(200), G(197)
+    #...#E#   E(197)
+    #.....#
+    #######
+
+    Nach 2 Runden:
+    #######
+    #...G.#   G(200)
+    #..GEG#   G(200), E(188), G(194)
+    #.#.#G#   G(194)
+    #...#E#   E(194)
+    #.....#
+    #######
+
+    Es kommt zum Kampf. Schließlich stirbt der oberste Elf:
+
+    Nach 23 Runden:
+    #######
+    #...G.#   G(200)
+    #..G.G#   G(200), G(131)
+    #.#.#G#   G(131)
+    #...#E#   E(131)
+    #.....#
+    #######
+
+    Nach 24 Runden:
+    #######
+    #..G..#   G(200)
+    #...G.#   G(131)
+    #.#G#G#   G(200), G(128)
+    #...#E#   E(128)
+    #.....#
+    #######
+
+    Nach 25 Runden:
+    #######
+    #.G...#   G(200)
+    #..G..#   G(131)
+    #.#.#G#   G(125)
+    #..G#E#   G(200), E(125)
+    #.....#
+    #######
+
+    Nach 26 Runden:
+    #######
+    #G....#   G(200)
+    #.G...#   G(131)
+    #.#.#G#   G(122)
+    #...#E#   E(122)
+    #..G..#   G(200)
+    #######
+
+    Nach 27 Runden:
+    #######
+    #G....#   G(200)
+    #.G...#   G(131)
+    #.#.#G#   G(119)
+    #...#E#   E(119)
+    #...G.#   G(200)
+    #######
+
+    Nach 28 Runden:
+    #######
+    #G....#   G(200)
+    #.G...#   G(131)
+    #.#.#G#   G(116)
+    #...#E#   E(113)
+    #....G#   G(200)
+    #######
+
+    Es kommt zu weiteren Kämpfen; schließlich stirbt der untere Elf:
+
+    Nach 47 Runden:
+    #######
+    #G....#   G(200)
+    #.G...#   G(131)
+    #.#.#G#   G(59)
+    #...#.#
+    #....G#   G(200)
+    #######
+
+Bevor die 48. Runde beendet werden kann, stellt der Kobold oben links fest, dass es
+keine Ziele mehr gibt und der Kampf endet. Die Anzahl der vollen
+Runden, die abgeschlossen wurden, ist 47, und die Summe der Trefferpunkte
+verbleibenden Einheiten beträgt 200+131+59+200 = 590.
+Daraus ergibt sich das Ergebnis der Schlacht 47 * 590 = 27730.
+
+Hier sind ein paar Beispiele für zusammengefasste Kämpfe:
+
+    #######       #######
+    #G..#E#       #...#E#   E(200)
+    #E#E.E#       #E#...#   E(197)
+    #G.##.#  -->  #.E##.#   E(185)
+    #...#E#       #E..#E#   E(200), E(200)
+    #...E.#       #.....#
+    #######       #######
+
+    Der Kampf endet nach 37 vollen Runden
+    Die Elfen gewinnen mit insgesamt 982 verbleibenden Trefferpunkten
+    Ergebnis: 37 * 982 = 36334
+
+   #######       #######
+    #E..EG#       #.E.E.#   E(164), E(197)
+    #.#G.E#       #.#E..#   E(200)
+    #E.##E#  -->  #E.##.#   E(98)
+    #G..#.#       #.E.#.#   E(200)
+    #..E#.#       #...#.#
+    #######       #######
+
+    Der Kampf endet nach 46 vollen Runden
+    Die Elfen gewinnen mit insgesamt 859 Trefferpunkten
+    Ergebnis: 46 * 859 = 39514
+
+    #######       #######
+    #E.G#.#       #G.G#.#   G(200), G(98)
+    #.#G..#       #.#G..#   G(200)
+    #G.#.G#  -->  #..#..#
+    #G..#.#       #...#G#   G(95)
+    #...E.#       #...G.#   G(200)
+    #######       #######
+
+    Der Kampf endet nach 35 vollen Runden
+    Die Goblins gewinnen mit insgesamt 793 verbleibenden Trefferpunkten
+    Ergebnis: 35 * 793 = 27755
+
+    #######       #######
+    #.E...#       #.....#
+    #.#..G#       #.#G..#   G(200)
+    #.###.#  -->  #.###.#
+    #E#G#G#       #.#.#.#
+    #...#G#       #G.G#G#   G(98), G(38), G(200)
+    #######       #######
+
+    Der Kampf endet nach 54 vollen Runden
+    Die Goblins gewinnen mit insgesamt 536 verbleibenden Trefferpunkten
+    Ergebnis: 54 * 536 = 28944
+
+    #########       #########
+    #G......#       #.G.....#   G(137)
+    #.E.#...#       #G.G#...#   G(200), G(200)
+    #..##..G#       #.G##...#   G(200)
+    #...##..#  -->  #...##..#
+    #...#...#       #.G.#...#   G(200)
+    #.G...G.#       #.......#
+    #.....G.#       #.......#
+    #########       #########
+
+    Der Kampf endet nach 20 vollen Runden
+    Die Goblins gewinnen mit insgesamt 937 verbleibenden Trefferpunkten
+    Ergebnis: 20 * 937 = 18740
+
+
+Was ist das Ergebnis des Kampfes, den du in deinem Rätsel beschrieben hast?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

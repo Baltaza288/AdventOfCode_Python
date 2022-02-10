@@ -1,0 +1,196 @@
+
+--- Tag 20: Eine regelmäßige Karte ---
+
+Während du dich mit Befehlszeigern beschäftigt hast, haben die Elfen beträchtliche Fortschritte gemacht.
+Als du aufblickst, entdeckst du, dass das Bauprojekt der Nordpol-Basis dich vollständig umgeben hat.
+
+Der Bereich, in dem du dich befindest, besteht ausschließlich aus Räumen und Türen.
+Die Räume sind in einem Raster angeordnet und sind nur dann mit benachbarten Räumen verbunden,
+wenn eine Tür zwischen ihnen vorhanden ist.
+
+Zeichne zum Beispiel Räume als . , Wände als # , Türen als | oder - , deine aktuelle
+Position als X und wo oben ist, könnte der Bereich, in dem du dich befindest, so aussehen:
+
+    #####
+    #.|.#
+    #-###
+    #.|X#
+    #####
+
+Du erregst die Aufmerksamkeit eines vorbeigehenden Bauelfen und bittest ihn um eine Karte.
+"Ich habe keine Zeit, eine Karte von diesem Ort zu zeichnen - er ist riesig.
+Stattdessen kann ich dir den Weg zu jedem Raum in dieser Anlage zeigen!"
+Er schreibt eine Wegbeschreibung auf ein Stück Pergament und rennt davon.
+Im obigen Beispiel, könnten die Anweisungen ^WNE$ sein, ein regulärer Ausdruck oder "regex"
+(INPUT).
+
+Der Regex entspricht Routen (wie WNE für "West, Nord, Ost"),
+die dich von deinem aktuellen Raum durch verschiedene Türen in der Einrichtung führen.
+Zusammengefasst, führen die Routen mindestens einmal durch jede Tür in der Einrichtung.
+Wenn du all diese Routen aufzeichnest, kannst du eine richtige Karte erstellen und
+den Weg finden.
+
+^ und $ stehen am Anfang und am Ende der Regex. Sie bedeuten nur,
+dass die Regex auf nichts außerhalb der von ihr beschriebenen Routen passt.
+(Genauer gesagt, ^ passt zum Anfang der Route und $ passt zum Ende der Route).
+Diese Zeichen werden an keiner anderen Stelle in der Regex erscheinen.
+
+Der Rest der Regex passt auf verschiedene Sequenzen der Zeichen N (Norden),
+S (Süden), E (Osten) und W (Westen). Im obigen Beispiel entspricht ^WNE$ nur eine Route, WNE,
+was bedeutet, dass du dich von deiner aktuellen Position aus nach Westen,
+dann nach Norden und dann nach Osten bewegen musst. Buchstabenfolgen wie diese passen immer genau auf die
+exakte Route in der gleichen Reihenfolge.
+
+Manchmal kann die Route verzweigen. Eine Verzweigung wird durch eine Liste von Optionen angegeben,
+die durch Pipes (|) getrennt und in Klammern eingeschlossen. So enthält ^N(E|W)N$ eine Verzweigung:
+nach Norden, entweder nach Osten oder nach Westen, bevor du deine Route beendest,
+indem du erneut nach Norden gehst.
+Indem man die möglichen Routen nach der Verzweigung verfolgt, kannst du feststellen,
+wo sich die Türen und damit die Räume in der Einrichtung befinden.
+
+Betrachte zum Beispiel diese Regex: ^ENWWW(NEEE|SSE(EE|N))$
+
+Dieser Regex beginnt mit ENWWW, was bedeutet, dass du von deiner aktuellen Position aus zunächst nach Osten,
+Norden und dann dreimal nach Westen gehen musst.
+Danach gibt es eine Verzweigung.
+
+Dies alles, was du bisher über die Karte weißt, wobei Türen, bei denen du dir nicht sicher bist, mit einem ? markiert sind:
+
+    #?#?#?#?#
+    ?.|.|.|.?
+    #?#?#?#-#
+        ?X|.?
+        #?#?#
+
+Nach diesem Punkt gibt es (NEEE|SSE(EE|N)). Dies gibt dir genau zwei Möglichkeiten: NEEE und SSE(EE|N).
+Wenn man NEEE folgt, sieht die Karte nun so aus:
+
+    #?#?#?#?#
+    ?.|.|.|.?
+    #-#?#?#?#
+    ?.|.|.|.?
+    #?#?#?#-#
+        ?X|.?
+        #?#?#
+
+Jetzt bleibt nur noch SSE(EE|N) übrig. Da es sich in der gleichen Klammergruppe Gruppe wie NEEE steht,
+beginnt es im selben Raum, in dem NEEE begann. Sie besagt, dass es von diesem Punkt aus Türen gibt,
+die es einem ermöglichen zweimal nach Süden und dann nach Osten zu gehen.
+Dies führt zu einer weiteren Verzweigung.
+Mit dieser kann man sich entweder zweimal nach Osten oder einmal nach Norden bewegen.
+Diese Information füllt den Rest der Türen aus:
+
+    #?#?#?#?#
+    ?.|.|.|.?
+    #-#?#?#?#
+    ?.|.|.|.?
+    #-#?#?#-#
+    ?.?.?X|.?
+    #-#-#?#?#
+    ?.|.|.|.?
+    #?#?#?#?#
+
+Wenn man alle möglichen Wege verfolgt hat, weiß man, dass die verbleibenden unbekannten
+Teile alle Wände sind, was eine fertige Karte der Einrichtung ergibt:
+
+    #########
+    #.|.|.|.#
+    #-#######
+    #.|.|.|.#
+    #-#####-#
+    #.#.#X|.#
+    #-#-#####
+    #.|.|.|.#
+    #########
+
+Manchmal kann eine Liste von Optionen eine leere Option enthalten, wie (NEWS|WNSE|).
+Das bedeutet, dass Routen an dieser Stelle die Optionen in Klammern effektiv überspringen und sofort weitermachen.
+Betrachte zum Beispiel diesen Regex und die entsprechende Karte:
+
+    ^ENNWSWW(NEWS|)SSSEEN(WNSE|)EE(SWEN|)NNN$
+
+    ###########
+    #.|.#.|.#.#
+    #-###-#-#-#
+    #.|.|.#.#.#
+    #-#####-#-#
+    #.#.#X|.#.#
+    #-#-#####-#
+    #.#.|.|.|.#
+    #-###-###-#
+    #.|.|.#.|.#
+    ###########
+
+Dieser Regex hat eine Hauptroute, die an drei Stellen optional zusätzliche Umwege einschließen kann und gültig ist:
+(NEWS|), (WNSE|), und (SWEN|).
+Unabhängig davon, welche Option gewählt wird, wird die Route an der Stelle fortgesetzt,
+an der sie nach diesen Schritten verlassen wird.
+Diese Regex passt also zum Beispiel auf alle der folgenden Routen (und weitere, die hier nicht aufgeführt sind):
+
+ - ENNWSWWSSSEENEENNN
+ - ENNWSWWNEWSSSSEENEENNN
+ - ENNWSWWNEWSSSSEENEESWENNNN
+ - ENNWSWWSSSEENWNSEEENNN
+
+Wenn man den verschiedenen Routen folgt, auf die der Regex passt,
+erhält man eine vollständige Karte aller Türen und Räume in der Einrichtung.
+
+
+Um ein Gefühl für die Größe dieser Einrichtung zu bekommen, möchtest du feststellen,
+welcher Raum am weitesten von dir entfernt ist: Du möchtest insbesondere den Raum finden,
+bei dem der kürzeste Weg zu diesem Raum durch die meisten Türen führen würde.
+
+ - Im ersten Beispiel (^WNE$) wäre dies die nordöstliche Ecke
+    3 Türen entfernt.
+ - Im zweiten Beispiel (^ENWWW(NEEE|SSE(EE|N))$) wäre dies die
+    Süd-Ost-Ecke, 10 Türen entfernt.
+ - Im dritten Beispiel (^ENNWSWW(NEWS|)SSSEEN(WNSE|)EE(SWEN|)NNN$),
+    wäre dies die nordöstliche Ecke, 18 Türen entfernt.
+
+
+Hier sind noch ein paar weitere Beispiele:
+
+    Regex: ^ESSWWN(E|NNENN(EESS(WNSE|)SSS|WWWSSSSE(SW|NNNE)))$
+    Der am weitesten entfernte Raum erfordert das Passieren von 23 Türen
+
+    #############
+    #.|.|.|.|.|.#
+    #-#####-###-#
+    #.#.|.#.#.#.#
+    #-#-###-#-#-#
+    #.#.#.|.#.|.#
+    #-#-#-#####-#
+    #.#.#.#X|.#.#
+    #-#-#-###-#-#
+    #.|.#.|.#.#.#
+    ###-#-###-#-#
+    #.|.#.|.|.#.#
+    #############
+
+
+    Regex: ^WSSEESWWWNW(S|NENNEEEENN(ESSSSW(NWSW|SSEN)|WSWWN(E|WWS(E|SS))))$
+    Der am weitesten entfernte Raum erfordert das Passieren von 31 Türen
+
+    ###############
+    #.|.|.|.#.|.|.#
+    #-###-###-#-#-#
+    #.|.#.|.|.#.#.#
+    #-#########-#-#
+    #.#.|.|.|.|.#.#
+    #-#-#########-#
+    #.#.#.|X#.|.#.#
+    ###-#-###-#-#-#
+    #.|.#.#.|.#.|.#
+    #-###-#####-###
+    #.|.#.|.|.#.#.#
+    #-#-#####-#-#-#
+    #.#.|.|.|.#.|.#
+    ###############
+
+
+Durch wie viele Türen musst du mindestens gehen, um diesen Raum zu erreichen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

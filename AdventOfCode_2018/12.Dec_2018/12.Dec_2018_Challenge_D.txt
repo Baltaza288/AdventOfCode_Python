@@ -1,0 +1,113 @@
+
+--- Tag 12: Unterirdische Nachhaltigkeit ---
+
+Das Jahr 518 ist wesentlich unterirdischer, als in den Geschichtsbücher
+angedeutet. Entweder das, oder du bist in einem riesigen Höhlennetzwerk unter
+dem Nordpol.
+
+Nachdem du dich ein wenig umgesehen hast, entdeckst du einen langen Tunnel der eine
+Reihe von kleinen Töpfen enthält, so weit du links und rechts sehen kannst.
+Ein paar davon enthalten Pflanzen, welche jemand versucht, in diesen geothermisch
+beheizten Höhlen zu züchten.
+
+Die Töpfe sind nummeriert, wobei 0 vor dir steht. Auf der linken Seite sind die Töpfe
+mit -1, -2, -3 und so weiter nummeriert. Nach rechts sind sie mit 1, 2, 3....
+Deine Rätsel-Eingabe (INPUT) enthält eine Liste der Töpfe von 0 bis rechts und die Angabe,
+ob sie derzeit eine Pflanze enthalten (#) oder keine Pflanze enthalten (.).
+Wenn dein Anfangszustand zum Beispiel wie Folgt aussieht: #..##....
+Bedeutet dies, dass die Töpfe 0, 3 und 4 derzeit Pflanzen enthalten.
+
+Deine Rätsel-Eingabe enthält auch einige Notizen, die du auf einem Tisch in der Nähe finden:
+Jemand hat versucht, herauszufinden, wie sich die Pflanzen auf die Töpfe in der Nähe auswirken.
+Aus den Notizen geht hervor, dass für jede Pflanzengeneration in einem bestimmten
+Topf eine Pflanze befindet oder nicht. Je nachdem, ob dieser Topf (und die beiden
+Töpfe links und rechts davon) in der letzten Generation eine Pflanze beinhalteten.
+Diese werden LLCRR => N geschrieben, wobei L die Töpfe auf der linken Seite sind, C der aktuelle Topf ist,
+R die Töpfe auf der rechten Seite sind und N angibt, ob der aktuelle
+Topf in der nächsten Generation eine Pflanze haben wird.
+
+Beispiel:
+
+ - Eine Notiz wie ..#.. => . bedeutet, dass ein Topf, der eine Pflanze enthält, aber
+    keine Pflanzen innerhalb von zwei Töpfen enthält, in der nächsten Generation keine Pflanze
+    beinhalten wird.
+ - Ein Hinweis wie ##.## => . bedeutet, dass ein leerer Topf mit zwei Pflanzen auf jeder
+    in der nächsten Generation leer bleiben wird.
+ - Ein Hinweis wie .##.# => # bedeutet, dass ein Topf in einer bestimmten Generation eine Pflanze hat,
+    wenn in der vorangegangenen Generation Pflanzen in diesem Topf und in dem Topf unmittelbar
+    links und zwei Töpfe weiter rechts Pflanzen waren, aber nicht in den Töpfen direkt
+    rechts und zwei links davon.
+
+Es ist nicht klar, wofür diese Pflanzen sind, aber du bist dir sicher, dass sie wichtig sind.
+Du möchtest also sicherstellen, dass die aktuelle Konfiguration der Pflanzen nachhaltig ist,
+indem du bestimmst, was nach 20 Generationen geschehen wird.
+
+
+Nehmen wir zum Beispiel die folgende Eingabe an:
+
+    Anfangszustand: #..#.#..##......###...###
+
+    ...## => #
+    ..#.. => #
+    .#... => #
+    .#.#. => #
+    .#.## => #
+    .##.. => #
+    .#### => #
+    #.#.# => #
+    #.### => #
+    ##.#. => #
+    ##.## => #
+    ###.. => #
+    ###.# => #
+    ####. => #
+
+Der Kürze halber werden in diesem Beispiel nur die Kombinationen aufgeführt, welche
+eine Pflanze produzieren. (Deine Eingabe umfasst alle möglichen Kombinationen.)
+Die nächsten 20 Generationen sehen dann wie folgt aus:
+
+                     1         2         3
+           0         0         0         0
+     0: ...#..#.#..##......###...###...........
+     1: ...#...#....#.....#..#..#..#...........
+     2: ...##..##...##....#..#..#..##..........
+     3: ..#.#...#..#.#....#..#..#...#..........
+     4: ...#.#..#...#.#...#..#..##..##.........
+     5: ....#...##...#.#..#..#...#...#.........
+     6: ....##.#.#....#...#..##..##..##........
+     7: ...#..###.#...##..#...#...#...#........
+     8: ...#....##.#.#.#..##..##..##..##.......
+     9: ...##..#..#####....#...#...#...#.......
+    10: ..#.#..#...#.##....##..##..##..##......
+    11: ...#...##...#.#...#.#...#...#...#......
+    12: ...##.#.#....#.#...#.#..##..##..##.....
+    13: ..#..###.#....#.#...#....#...#...#.....
+    14: ..#....##.#....#.#..##...##..##..##....
+    15: ..##..#..#.#....#....#..#.#...#...#....
+    16: .#.#..#...#.#...##...#...#.#..##..##...
+    17: ..#...##...#.#.#.#...##...#....#...#...
+    18: ..##.#.#....#####.#.#.#...##...##..##..
+    19: .#..###.#..#.#.#######.#.#.#..#.#...#..
+    20: .#....##....#####...#######....#.#..##.
+
+Die Generation wird auf der linken Seite dargestellt, wobei 0 der Ausgangszustand ist.
+Die Topf-Nummern sind oben dargestellt, wobei 0 den mittleren Topf bezeichnet,
+negativ nummerierte Töpfe erstrecken sich nach links, und positive Töpfe erstrecken sich zur
+rechten Seite. Denke daran, dass der Ausgangszustand bei Topf 0 beginnt.
+
+Nach einer Generation sind nur noch sieben Pflanzen übrig. Diejenige in Topf 0 entsprach
+der Regel, die nach ..#.. sucht, die in Topf 4 entspricht der Regel, die nach
+für .#.#., Topf 9 entsprach .##.., und so weiter.
+
+In diesem Beispiel enthalten die mit # gekennzeichneten Töpfe nach 20 Generationen Pflanzen,
+Die am weitesten links stehende Pflanze ist Topf -2, die am weitesten rechts stehende Pflanze ist
+Topf 34. Addiert man alle Zahlen der Töpfe mit Pflanzen nach der 20.
+Generation ergibt 325.
+
+
+Wie hoch ist die Summe der Anzahl aller Töpfe, die eine Pflanze enthalten, nach 20 Generationen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

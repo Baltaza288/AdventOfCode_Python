@@ -1,0 +1,202 @@
+
+--- Tag 13: Minenwagen-Wahnsinn ---
+
+Eine Ernte dieser Größe erfordert eine umfangreiche Logistik für den Transport der Produkte,
+Erde, Dünger und so weiter. Die Elfen sind sehr damit beschäftigt, Dinge in Karren zu schieben
+auf einer Art rudimentärem Schienensystem, das sie sich ausgedacht haben.
+
+Da Karren- und Schienensysteme erst in 1000 Jahren in den Geschichtsbüchern auftauchen
+scheinen sich die Elfen das nach und nach ausgedacht zu haben.
+Sie haben noch nicht einmal herausgefunden, wie sie Zusammenstöße vermeiden können.
+
+Du zeichnest die Wege auf (INPUT) und siehst, wo du helfen kannst.
+
+Strecken bestehen aus geraden Wegen (| und -), Kurven (/ und \) und Kreuzungen (+).
+Kurven verbinden genau zwei rechtwinklige Streckenabschnitte; dies ist zum Beispiel
+eine geschlossene Schleife:
+
+    /----\
+    |    |
+    |    |
+    \----/
+
+Schnittpunkte entstehen, wenn sich zwei senkrechte Wege kreuzen. An einer Kreuzung,
+kann ein Wagen nach links oder rechts abbiegen oder geradeaus weiterfahren.
+Hier sind zwei Schleifen, die durch zwei Kreuzungen verbunden sind:
+
+    /-----\
+    |     |
+    |  /--+--\
+    |  |  |  |
+    \--+--/  |
+       |     |
+       \-----/
+
+Auf den Gleisen befinden sich auch mehrere Wagen. Die Wagen zeigen immer entweder
+nach oben (^), unten (v), links (<) oder rechts (>).
+(Auf deiner anfänglichen Karte, ist der Weg unter jedem Wagen ein gerader Pfad,
+der in die Richtung der Wagen ausgerichtet ist.)
+
+Jedes Mal, wenn ein Wagen die Möglichkeit zum Abbiegen hat (wenn er an eine beliebige Kreuzung kommt),
+biegt er beim ersten Mal links ab, fährt beim zweiten Mal geradeaus,
+biegt das dritte Mal rechts ab und wiederholt dann dieses Prozedere, indem er das vierte Mal links,
+das fünfte Mal geradeaus und so weiter fährt.
+Dieser Vorgang ist unabhängig von der jeweiligen Kreuzung, an der der Wagen angekommen ist.
+Das heißt, der Wagen hat kein Gedächtnis für einzelne Kreuzungen.
+
+Alle Wagen bewegen sich mit der gleichen Geschwindigkeit.
+Sie bewegen sich abwechselnd einen Schritt nach dem anderen.
+Sie tun dies auf der Grundlage ihrer aktuellen Position:
+Die Wagen in der obersten Reihe bewegen sich zuerst (von links nach rechts),
+dann bewegen sich die Wagen in der zweiten Reihe (wieder von links nach rechts),
+dann die Wagen in der dritten Reihe und so weiter.
+Sobald sich jeder Wagen einen Schritt bewegt hat, wird der Vorgang wiederholt.
+Jede dieser Schleifen wird als Tick bezeichnet.
+
+
+Nehmen wir zum Beispiel an, dass sich zwei Wagen auf einer geraden Strecke befinden:
+
+    |  |  |  |  |
+    v  |  |  |  |
+    |  v  v  |  |
+    |  |  |  v  X
+    |  |  ^  ^  |
+    ^  ^  |  |  |
+    |  |  |  |  |
+
+Zuerst bewegt sich der obere Wagen.
+Er ist nach unten gerichtet (v), also bewegt er sich ein Feld nach unten.
+Zweitens: Der untere Wagen bewegt sich. Er zeigt nach oben (^),
+also bewegt er sich ein Feld nach oben. Da sich alle Wagen bewegt haben, endet der erste Tick.
+Dann wiederholt sich der Vorgang, beginnend mit dem ersten Wagen.
+Der erste Wagen bewegt sich nach unten, dann bewegt sich der zweite Wagen nach oben - direkt in
+den ersten Wagen und stößt mit ihm zusammen! (Der Ort des Zusammenstoßes ist mit einem X markiert.)
+Somit ist der zweite und letzte Tick beendet.
+
+Hier ist ein längeres Beispiel:
+
+    /->-\
+    |   |  /----\
+    | /-+--+-\  |
+    | | |  | v  |
+    \-+-/  \-+--/
+      \------/
+
+    /-->\
+    |   |  /----\
+    | /-+--+-\  |
+    | | |  | |  |
+    \-+-/  \->--/
+      \------/
+
+    /---v
+    |   |  /----\
+    | /-+--+-\  |
+    | | |  | |  |
+    \-+-/  \-+>-/
+      \------/
+
+    /---\
+    |   v  /----\
+    | /-+--+-\  |
+    | | |  | |  |
+    \-+-/  \-+->/
+      \------/
+
+    /---\
+    |   |  /----\
+    | /->--+-\  |
+    | | |  | |  |
+    \-+-/  \-+--^
+      \------/
+
+    /---\
+    |   |  /----\
+    | /-+>-+-\  |
+    | | |  | |  ^
+    \-+-/  \-+--/
+      \------/
+
+    /---\
+    |   |  /----\
+    | /-+->+-\  ^
+    | | |  | |  |
+    \-+-/  \-+--/
+      \------/
+
+    /---\
+    |   |  /----<
+    | /-+-->-\  |
+    | | |  | |  |
+    \-+-/  \-+--/
+      \------/
+
+    /---\
+    |   |  /---<\
+    | /-+--+>\  |
+    | | |  | |  |
+    \-+-/  \-+--/
+      \------/
+
+    /---\
+    |   |  /--<-\
+    | /-+--+-v  |
+    | | |  | |  |
+    \-+-/  \-+--/
+      \------/
+
+    /---\
+    |   |  /-<--\
+    | /-+--+-\  |
+    | | |  | v  |
+    \-+-/  \-+--/
+      \------/
+
+    /---\
+    |   |  /<---\
+    | /-+--+-\  |
+    | | |  | |  |
+    \-+-/  \-<--/
+      \------/
+
+    /---\
+    |   |  v----\
+    | /-+--+-\  |
+    | | |  | |  |
+    \-+-/  \<+--/
+      \------/
+
+    /---\
+    |   |  /----\
+    | /-+--v-\  |
+    | | |  | |  |
+    \-+-/  ^-+--/
+      \------/
+
+    /---\
+    |   |  /----\
+    | /-+--+-\  |
+    | | |  X |  |
+    \-+-/  \-+--/
+      \------/
+
+Nachdem sie eine Zeit lang ihren jeweiligen Wegen gefolgt sind, kollidieren die Wagen.
+Um Kollisionen zu vermeiden, möchtest du den Ort des ersten Absturzes erfahren.
+Die Orte werden in X,Y Koordinaten angegeben, wobei die am weitesten links liegende Spalte X=0
+und die am weitesten oben liegende Zeile Y=0 ist:
+
+               111
+     0123456789012
+    0/---\
+    1|   |  /----\
+    2| /-+--+-\  |
+    3| | |  X |  |
+    4\-+-/  \-+--/
+    5  \------/
+
+In diesem Beispiel ist die Position des ersten Absturzes 7,3.
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

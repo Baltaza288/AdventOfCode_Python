@@ -1,0 +1,78 @@
+
+--- Tag 6: Chronologische Koordinaten ---
+
+Das Gerät an deinem Handgelenk piept mehrmals und wieder einmal
+hast du das Gefühl als ob du fällst.
+
+"Situation kritisch", meldet das Gerät. "Ziel unbestimmt.
+Chronische Interferenz entdeckt. Bitte geben Sie neue Zielkoordinaten an."
+
+Das Gerät erstellt eine Liste von Koordinaten (INPUT).
+Handelt es sich um Orte, die es für sicher oder gefährlich hält? Es empfiehlt dir
+Seite 729 des Handbuchs zu lesen. Die Elfen haben dir kein Handbuch gegeben.
+
+Wenn sie gefährlich sind, kannst du die Gefahr vielleicht minimieren,
+indem du die Koordinate findest, die den größten Abstand zu den anderen Punkten hat.
+
+Bestimme die Fläche um jede Koordinate, indem du nur den Manhattan-Abstand verwendest.
+Finde die richtige Koordinate, indem du die Anzahl der ganzzahligen X,Y- Punkte zählst,
+die am nächsten zu dieser Koordinate liegen (und nicht in gleicher Entfernung zu
+einer anderen Koordinate).
+
+Ziel ist es, die größte Fläche zu finden, die nicht unendlich ist.
+
+
+Betrachte zum Beispiel die folgende Liste von Koordinaten:
+
+    1, 1
+    1, 6
+    8, 3
+    3, 4
+    5, 5
+    8, 9
+
+Wenn wir diese Koordinaten A bis F nennen, können wir sie
+auf ein Gitter zeichnen, wobei 0,0 oben links steht:
+
+    ..........
+    .A........
+    ..........
+    ........C.
+    ...D......
+    .....E....
+    .B........
+    ..........
+    ..........
+    ........F.
+
+Diese Ansicht ist ein Ausschnitt - das eigentliche Gitter erstreckt sich unendlich in
+alle Richtungen. Mithilfe der Manhattan-Distanz kann für jeden Ort
+die nächstgelegene Koordinate jedes Ortes bestimmt werden, hier in Kleinbuchstaben dargestellt:
+
+    aaaaa.cccc
+    aAaaa.cccc
+    aaaddecccc
+    aadddeccCc
+    ..dDdeeccc
+    bb.deEeecc
+    bBb.eeee..
+    bbb.eeefff
+    bbb.eeffff
+    bbb.ffffFf
+
+Die mit . gekennzeichneten Orte sind von zwei oder mehr Koordinaten gleich weit entfernt,
+und zählen daher nicht als nächstgelegene Koordinaten.
+
+In diesem Beispiel sind die Flächen der Koordinaten A, B, C und F unendlich -
+auch wenn sie hier nicht gezeigt werden, erstrecken sich ihre Flächen für immer außerhalb des sichtbaren Gitters.
+Die Flächen der Koordinaten D und E sind jedoch endlich: D ist am nächsten an 9
+Orten und E an 17 Orten am nächsten (jeweils einschließlich des Koordinatenorts
+selbst). Daher ist in diesem Beispiel die größte Fläche 17.
+
+
+Wie groß ist die größte Fläche, die nicht unendlich ist?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

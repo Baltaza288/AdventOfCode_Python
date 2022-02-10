@@ -1,0 +1,87 @@
+
+--- Tag 4: Rückmeldungs-Aufzeichnung ---
+
+Du hast dich in einen weiteren Vorratsschrank geschlichen - dieses Mal ist er
+gegenüber dem Labor zur Herstellung von Anzugprototypen. Du musst dich hineinschleichen
+und die Probleme mit dem Anzug beheben, aber vor dem Labor ist eine Wache stationiert,
+somit ist dies der einzige Weg, den du sicher gehen kannst.
+
+Als du den Schrank nach etwas durchsuchst, das dir helfen könnte, entdeckst du,
+dass du nicht die erste Person bist, die sich reinschleichen will.
+Der Verkleidung der Wände zu beurteilen, hat jemand in den letzten Monaten
+jeden Tag ab Mitternacht eine Stunde damit verbracht heimlich diesen Wachposten beobachtet!
+Sie hat nur die ID einer Wache aufgeschrieben, die in dieser Nacht Dienst hat -
+die Elfen scheinen beschlossen zu haben, dass eine Wache für die Nachtschicht ausreicht
+und auch wann sie auf ihrem Posten eingeschlafen oder aufgewacht sind (INPUT).
+
+Betrachte zum Beispiel die folgenden Aufzeichnungen, die bereits in chronologischer Reihenfolge geordnet wurden:
+
+    [1518-11-01 00:00] Wache Nr. 10 beginnt ihre Schicht
+    [1518-11-01 00:05] schläft ein
+    [1518-11-01 00:25] wacht auf
+    [1518-11-01 00:30] schläft ein
+    [1518-11-01 00:55] wacht auf
+    [1518-11-01 23:58] Wache #99 beginnt Schicht
+    [1518-11-02 00:40] schläft ein
+    [1518-11-02 00:50] wacht auf
+    [1518-11-03 00:05] Wache #10 beginnt Schicht
+    [1518-11-03 00:24] schläft ein
+    [1518-11-03 00:29] wacht auf
+    [1518-11-04 00:02] Wache #99 beginnt Schicht
+    [1518-11-04 00:36] schläft ein
+    [1518-11-04 00:46] wacht auf
+    [1518-11-05 00:03] Wache #99 beginnt Schicht
+    [1518-11-05 00:45] schläft ein
+    [1518-11-05 00:55] wacht auf
+
+Die Zeitstempel werden im Format [Jahr-Monat-Tag Stunde-Minute] geschrieben.
+Die Wache ist immer diejenige, deren Schicht zuletzt begonnen hat.
+Da alle Schlaf-/Wachzeiten in die Mitternachtsstunde (00:00 - 00:59) fallen,
+ist nur der Minutenanteil (00 - 59) für diese Ereignisse relevant.
+
+Optisch zeigen diese Aufzeichnungen, dass das Wachpersonal zu diesen Zeiten schläft:
+
+    Date   ID   Minute
+                000000000011111111112222222222333333333344444444445555555555
+                012345678901234567890123456789012345678901234567890123456789
+    11-01  #10  .....####################.....#########################.....
+    11-02  #99  ........................................##########..........
+    11-03  #10  ........................#####...............................
+    11-04  #99  ....................................##########..............
+    11-05  #99  .............................................##########.....
+
+Die Spalten zeigen den betreffenden Monatstag, die ID des diensthabenden Wachmanns und die Minuten.
+Die Minuten zeigen den Zeitraum, in denen der Wachmann innerhalb der Mitternachtsstunde schlief.
+(Die erste Zeile Minutenspalte zeigt die Zehnerstellen, die zweite Zeile die Einerstellen)
+Wachsam wird als . angezeigt, und schlafend wird als # angezeigt.
+
+Beachte, dass Wachen in der Minute, in der sie einschlafen, als schlafend zählen
+und als wach gelten sie in der Minute, in der sie aufwachen.
+Zum Beispiel, da Wächter #10 am 1518-11-01 um 00:25 Uhr aufwacht, wird Minute 25
+als wach markiert.
+
+Wenn du herausfinden kannst, welche Wache zu einer bestimmten Zeit am ehesten schläft,
+hast du die beste Chance dich einzuschleichen.
+Du hast zwei Strategien, um die beste Kombination aus Wache und Minute zu finden.
+
+Strategie 1: Finde die Wache, die die meisten Minuten geschlafen hat.
+Wie viele Minuten verbringt diese Wache am meisten schlafend?
+
+Im obigen Beispiel hat die Wache Nr. 10 die meisten Minuten geschlafen, nämlich insgesamt
+50 Minuten (20+25+5), während Wache Nr. 99 nur insgesamt
+30 Minuten schlief (10+10+10).
+Wache #10 schlief am meisten in Minute 24 (an zwei Tagen, während jede andere Minute, in der die Wache schlief, nur
+an einem Tag registriert wurde).
+
+In diesem Beispiel wurden die Einträge in chronologischer Reihenfolge aufgelistet.
+Deine Einträge befinden sich in der Reihenfolge, in der du sie gefunden hast.
+Du musst sie ordnen bevor du sie ausgewertet kannst.
+
+
+Wie lautet die ID der von dir gewählten Wache multipliziert mit der Minute
+die du gewählt hast? (Im obigen Beispiel wäre die Antwort 10 * 24 = 240).
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

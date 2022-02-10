@@ -1,0 +1,81 @@
+
+--- Tag 11: Chronal Charge ---
+
+Du beobachtest, wie die Elfen und ihr Schlitten in der Ferne verschwinden, während sie
+zum Nordpol fahren.
+
+Eigentlich bist du derjenige, der verschwindet. Das Gefühl des Fallens kehrt zurück.
+
+Die Warnleuchte für niedrigen Treibstoffstand leuchtet auf deinem am Handgelenk getragenen Gerät auf.
+Als du es einmal antippst, wird ein Hologramm der Situation projiziert:
+ein 300x300 Raster von Brennstoffzellen und ihren aktuellen Energieständen, einige davon negativ.
+Du bist nicht sicher, was negative Energie im Kontext von Zeitreisen bedeutet, aber es
+kann nicht gut sein.
+
+Jede Brennstoffzelle hat eine Koordinate zwischen 1 und 300 sowohl in der X-
+(horizontal) und Y-Achse (vertikal). In X,Y-Notation hat die Zelle oben links
+Zelle 1,1 und die obere rechte Zelle 300,1.
+
+Über die Schnittstelle kannst du ein beliebiges 3x3-Quadrat von Brennstoffzellen auswählen. Um das
+Ziel zu erreichen, entscheidest du dich, das 3x3-Quadrat mit der größten Gesamtleistung zu wählen.
+
+Die Leistung einer bestimmten Brennstoffzelle lässt sich mit dem folgenden Verfahren ermitteln:
+
+ - Ermittele die Rack-ID der Brennstoffzelle, d. h. ihre X-Koordinate plus 10.
+ - Beginne mit einem Leistungspegel, der der Rack-ID mal der Y-Koordinate entspricht.
+ - Erhöhe die Leistungsstufe um den Wert der Seriennummer des Racks (INPUT).
+ - Setze die Leistungsstufe auf sich selbst multipliziert mit der Rack-ID.
+ - Behalte nur die Hunderterstelle des Leistungspegels (so wird 12345 zu 3; Zahlen ohne Hunderterstelle werden zu 0).
+ - Ziehe 5 von der Leistungsstufe ab.
+
+
+Beispiel: Um die Leistungsstufe der Brennstoffzelle bei 3,5 in einem Netz mit der Seriennummer 8 zu ermitteln:
+
+Die Rack-ID ist 3 + 10 = 13.
+Die Leistungsstufe beginnt bei 13 * 5 = 65.
+Addiert man die Seriennummer, erhält man 65 + 8 = 73.
+Die Multiplikation mit der Rack-ID ergibt 73 * 13 = 949.
+Die Hunderterstelle von 949 ist 9.
+Durch Subtraktion von 5 ergibt sich 9 - 5 = 4.
+Die Leistungsstufe dieser Brennstoffzelle ist also 4.
+
+Hier sind einige weitere Beispiele für Leistungsstufen:
+
+ - Brennstoffzelle bei 122,79, Seriennummer des Netzes 57: Leistungsstufe -5.
+ - Brennstoffzelle bei 217,196, Gitter-Seriennummer 39: Leistungsstufe 0.
+ - Brennstoffzelle bei 101,153, Seriennummer des Gitters 71: Leistungsstufe 4.
+
+Dein Ziel ist es, das 3x3-Quadrat zu finden, das die größte Gesamtleistung hat.
+Das Quadrat muss vollständig innerhalb des 300x300-Gitters liegen.
+Identifiziere dieses Quadrat anhand der X,Y-Koordinate der Brennstoffzelle oben links.
+
+
+Beispiel:
+
+Für das Gitter mit der Seriennummer 18 hat das größte 3x3-Quadrat eine linke obere
+Ecke von 33,45 (mit einer Gesamtleistung von 29); diese Brennstoffzellen erscheinen
+in der Mitte dieses 5x5-Bereichs:
+
+    -2 -4 4 4 4
+    -4 4 4 4 -5
+     4 3 3 4 -4
+     1 1 2 4 -3
+    -1 0 2 -5 -2
+
+Für das Gitter mit der laufenden Nummer 42 ist das größte 3x3-Quadrat oben links 21,61
+(mit einer Gesamtpotenz von 30). Sie liegen in der Mitte dieser Region:
+
+    -3 4 2 2 2
+    -4 4 3 3 4
+    -5 3 3 4 -4
+     4 3 3 4 -3
+     3 3 3 -5 -1
+
+
+Was ist die X,Y-Koordinate der linken oberen Brennstoffzelle des 3x3-Quadrats
+mit der größten Gesamtleistung?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

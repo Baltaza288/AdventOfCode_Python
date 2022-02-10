@@ -1,0 +1,123 @@
+
+--- Tag 16: Chronologische Klassifizierung ---
+
+Als du siehst, wie die Elfen ihre heiße Schokolade erfolgreich verteidigen,
+gehst du dazu über, durch die Zeit zu fallen. Das wird zu einem Problem werden.
+
+Wenn du jemals in deine eigene Zeit zurückkehren willst, musst du verstehen,
+wie dieses Gerät an deinem Handgelenk funktioniert. Du hast noch eine Weile Zeit, bis du dein nächstes Ziel erreichst.
+Mit ein bisschen Ausprobieren gelingt es dir, auf dem winzigen Bildschirm des Geräts ein
+Programmierhandbuch aufzurufen.
+
+Dem Handbuch zufolge verfügt das Gerät über vier Register (nummeriert von 0 bis 3)
+die durch Befehle mit einem von 16 Opcodes manipuliert werden können.
+Die Register beginnen mit dem Wert 0.
+
+Jede Anweisung besteht aus vier Werten: einem Opcode, zwei Eingängen (mit den Bezeichnungen A und B),
+und einem Ausgang (mit der Bezeichnung C), in dieser Reihenfolge.
+Der Opcode gibt das Verhalten des Befehls an Anweisung und wie die Eingaben interpretiert werden.
+Der Ausgang C, wird immer als ein Register behandelt.
+
+Wenn in den folgenden Opcode-Beschreibungen "Wert A" steht,
+bedeutet dies, dass die als A angegebene Zahl wörtlich zu nehmen ist. (Dies wird auch "unmittelbarer" Wert genannt.)
+Wenn es heißt "Register A", bedeutet dies, dass die als A angegebene Zahl verwendet werden soll
+um aus dem Register mit dieser Nummer zu lesen (oder zu schreiben).
+Wenn also der Opcode addi das Register A und den Wert B addiert und das Ergebnis in Register C gespeichert werden.
+Wenn die Anweisung addi 0 7 3 ausgeführt wird, würde 7 zu dem in Register 0 enthaltenen Wert
+addieren und die Summe in Register 3 speichern.
+Die Register 0, 1 oder 2 werden dabei nicht verändert.
+
+Viele Opcodes ähneln sich, abgesehen davon, wie sie ihre Argumente interpretieren.
+Die Opcodes lassen sich in sieben allgemeine Kategorien einteilen:
+
+Addition:
+
+ - addr (add register) speichert in Register C das Ergebnis der Addition von Register A und Register B.
+ - addi (add immediate) speichert in das Register C das Ergebnis der Addition von Register A und Wert B.
+
+Multiplikation:
+
+ - mulr (multiply register) speichert in das Register C das Ergebnis der Multiplikation von Register A und Register B.
+ - muli (multiply immediate) speichert in das Register C das Ergebnis der Multiplikation von Register A und Wert B.
+
+Bitweises UND:
+
+ -  banr (bitweises UND-Register) speichert in Register C
+    das Ergebnis der bitweisen UND-Verknüpfung von Register A und Register B.
+ -  bani (bitwise AND immediate) speichert in Register C
+    das Ergebnis des bitweisen UNDs von Register A und Wert B.
+
+Bitweises ODER:
+
+ -  borr (bitweises ODER-Register) speichert in Register C
+    das Ergebnis des bitweisen ODERs von Register A und Register B.
+ -  bori (bitweises ODER unmittelbar) speichert in Register C
+    das Ergebnis des bitweisen ODERs von Register A und Wert B.
+
+Zuweisung:
+
+ - setr (set register) kopiert den Inhalt von Register A in Register C. (Eingang B wird ignoriert.)
+ - seti (set immediate) speichert den Wert A in Register C (Die Eingabe B wird ignoriert).
+
+Größer-als-Tests:
+
+ -  gtir (greater-than immediate/register) setzt das Register C auf 1,
+    wenn der Wert A größer ist als das Register B. Andernfalls wird das Register C auf 0 gesetzt.
+ -  gtri (greater-than register/immediate) setzt das Register C auf 1,
+    wenn das Register A größer ist als der Wert B. Andernfalls wird das Register C auf 0 gesetzt.
+ -  gtrr (Größer-als-Register/Register) setzt Register C auf 1,
+    wenn Register A größer ist als das Register B. Andernfalls wird das Register C auf 0 gesetzt.
+
+Gleichheitsprüfung:
+
+ -  eqir (equal immediate/register) setzt das Register C auf 1,
+    wenn der Wert A gleich dem Register B ist. Andernfalls wird das Register C auf 0 gesetzt.
+ -  eqri (equal register/immediate) setzt Register C auf 1,
+    wenn Register A gleich dem Wert B ist. Andernfalls wird das Register C auf 0 gesetzt.
+ -  eqrr (equal register/register) setzt das Register C auf 1,
+    wenn das Register A gleich dem Register B ist. Andernfalls wird das Register C auf 0 gesetzt.
+
+Leider gibt das Handbuch zwar den Namen jedes Opcodes an, nicht aber die Nummer.
+Du kannst jedoch die CPU beobachten, um den Inhalt der Register vor und nach der Ausführung der Befehle zu sehen,
+um zu versuchen, die Nummern dadurch herauszufinden.
+Jeder Opcode hat eine Nummer von 0 bis 15, aber das Handbuch sagt nicht, welcher welcher ist.
+Nehmen wir zum Beispiel an, du erfasst folgendes Beispiel:
+
+    Vorher:     [3, 2, 1, 1]
+    9 2 1 2
+    Nachher:    [3, 2, 2, 1]
+
+Dieses Beispiel zeigt die Auswirkung der Anweisung 9 2 1 2 auf die Register.
+Bevor die Anweisung ausgeführt wird, hat Register 0 den Wert 3, Register 1 den Wert 2
+und die Register 2 und 3 haben den Wert 1.
+Nach Ausführung des Befehls wird der Wert von Register 2 auf 2 gesetzt.
+
+Die Anweisung selbst, 9 2 1 2, bedeutet, dass der Opcode 9 ausgeführt wurde mit
+A=2, B=1, und C=2. Opcode 9 könnte jeder der 16 oben aufgeführten Opcodes sein,
+aber nur drei von ihnen verhalten sich so, dass sie das im Beispiel gezeigte Ergebnis verursachen würden
+im Beispiel:
+
+ - Opcode 9 könnte mulr sein: Register 2 (das den Wert 1 hat) mal
+    Register 1 (das den Wert 2 hat) ergibt 2, was mit dem
+    Wert, der im Ausgangsregister 2 gespeichert ist.
+ - Opcode 9 könnte addi sein: Register 2 (das den Wert 1 hat) plus
+    Wert 1 ergibt 2, was dem im Ausgangsregister 2 gespeicherten Wert entspricht.
+    Register 2 gespeichert ist.
+ - Opcode 9 könnte seti sein: Der Wert 2 entspricht dem Wert, der im
+    Ausgangsregister, Register 2, gespeicherten Wert; die für B angegebene Zahl ist unerheblich.
+
+Keiner der anderen Opcodes führt zu dem im Beispiel gezeigten Ergebnis.
+Aus diesem Grund verhält sich das obige Beispiel wie drei Opcodes.
+
+Du sammelst viele dieser Beispiele (der erste Teil deiner Rätseleingabe).
+Das Handbuch enthält auch ein kleines Testprogramm
+(der zweite Teil deiner Rätseleingabe) - dies kannst du vorerst ignorieren.
+
+
+Ignoriere die Opcode-Nummern. Wie viele Proben in deiner Rätseleingabe verhalten sich
+wie drei oder mehr Opcodes?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

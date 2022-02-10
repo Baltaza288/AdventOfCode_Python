@@ -1,0 +1,63 @@
+
+--- Tag 23: Experimentelle Notfall-Teleportation ---
+
+Mit deiner Taschenlampe durchsuchst du die Dunkelheit der Felsenhöhle
+und entdeckst schließlich den Freund des Mannes: ein kleines Rentier.
+
+Du bist dir nicht sicher, wie es so weit in diese Höhle gekommen ist.
+Es sieht krank aus - zu krank, um zu laufen - und zu schwer für dich, um es den ganzen Weg zurückzutragen.
+Schlitten werden natürlich erst in 1500 Jahren erfunden werden.
+
+Die einzige Möglichkeit ist die experimentelle Notfall-Teleportation.
+
+Du drückst den Knopf "Experimentelle Notfall-Teleportation" auf dem Gerät
+und bestätigst bei nicht weniger als 18 verschiedenen Warnmeldungen auch "Ich akzeptiere das Risiko".
+Sofort setzt das Gerät Hunderte von winzigen Nanorobotern ein, die in der Höhle herumfliegen
+und sich offenbar zu einer ganz bestimmten Formation zusammenfinden.
+Das Gerät listet die X,Y,Z-Position (pos) für jeden Nanobot sowie seinen
+Signalradius (r) auf seinem winzigen Bildschirm (INPUT).
+
+Jeder Nanobot kann Signale an jede ganzzahlige Koordinate senden, die sich in einer
+Entfernung von ihm befindet, die kleiner oder gleich seinem Signalradius ist (gemessen an der Manhattan-Distanz).
+
+Bevor du mit dem Teleportation-Vorgang beginnst, solltest du feststellen, welcher
+Nanobot der stärkste ist (d. h. der mit dem größten Signalradius)
+und dann für diesen Nanobot die Gesamtzahl der Nanobots, die sich in
+Reichweite befinden, einschließlich seiner selbst.
+
+
+Zum Beispiel, wenn die folgenden Nanobots gegeben sind:
+
+    pos=<0,0,0>, r=4
+    pos=<1,0,0>, r=1
+    pos=<4,0,0>, r=3
+    pos=<0,2,0>, r=1
+    pos=<0,5,0>, r=3
+    pos=<0,0,3>, r=1
+    pos=<1,1,1>, r=1
+    pos=<1,1,2>, r=1
+    pos=<1,3,1>, r=1
+
+Der stärkste Nanobot ist der erste (Position 0,0,0), weil sein
+Signalradius von 4 der größte ist. Anhand der Position dieses Nanobots und seines
+Signalradius sind die folgenden Nanobots innerhalb oder außerhalb der Reichweite:
+
+ - Der Nanobot an der Position 0,0,0 ist 0 Meter entfernt und befindet sich somit in Reichweite.
+ - Der Nanobot bei 1,0,0 ist 1 Meter entfernt und somit in Reichweite.
+ - Der Nanobot bei 4,0,0 ist 4 Meter entfernt und befindet sich somit in Reichweite.
+ - Der Nanobot bei 0,2,0 ist 2 Meter entfernt und somit in Reichweite.
+ - Der Nanobot bei 0,5,0 ist 5 Meter entfernt und befindet sich somit nicht in Reichweite.
+ - Der Nanobot bei 0,0,3 ist 3 Meter entfernt und damit in Reichweite.
+ - Der Nanobot bei 1,1,1 ist 3 Meter entfernt und befindet sich somit in Reichweite.
+ - Der Nanobot bei 1,1,2 ist 4 Meter entfernt und damit in Reichweite.
+ - Der Nanobot bei 1,3,1 ist 5 Meter entfernt und somit nicht in Reichweite.
+
+In diesem Beispiel befinden sich insgesamt 7 Nanobots in Reichweite des Nanobots mit dem größten Signalradius.
+
+
+Finde den Nanobot mit dem größten Signalradius. Wie viele Nanobots befinden sich in Reichweite seiner Signale?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

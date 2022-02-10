@@ -1,0 +1,125 @@
+
+--- Tag 25: Vierdimensionales Abenteuer ---
+
+Die Symptome des Rentiers verschlimmern sich, und weder du noch der weißbärtige Mann haben eine Lösung.
+Wenigstens hat das Rentier einen warmen Platz zum Ausruhen: ein kleines Bett, in dessen Nähe du sitzt.
+
+Als du nach unten greifst, schaut das Rentier zu dir auf und stößt, mit seiner Nase,
+versehentlich gegen eine Taste auf deinem Handgelenkgerät - eine Taste mit der Aufschrift "Hilfe".
+
+"Hallo und willkommen bei der Zeitreise-Hotline! Wenn Sie sich in Zeit und Raum verloren sind, drücken Sie die 1.
+Wenn Sie in einem Zeitparadoxon gefangen sind, drücken Sie die 2.
+Wenn Sie Hilfe bei der Pflege eines kranken Rentiers brauchen, drücken Sie die 3.
+Wenn Sie..."
+
+  Beep.
+
+Ein paar Sekunden später hörst du eine neue Stimme. "Hallo, bitte nennen Sie die Art Ihres Rentieres."
+Du versuchst, die Situation zu beschreiben.
+
+"Einen Moment, ich glaube, ich kann aus der Ferne einen Diagnose-Scan durchführen."
+Ein Lichtstrahl tritt aus dem Gerät aus und streicht ein paar Mal über das Rentier.
+
+"Okay, es sieht so aus, als hätte dein Rentier nur noch wenig magische Energie.
+Es sollte sich vollständig erholen, wenn wir das beheben können.
+Lass mich in deiner Zeitleiste nach einer Quelle suchen....
+Ich habe eine. Es gibt tatsächlich eine mächtige Quelle magischer Energie etwa 1000 Jahre
+vor euch, und auch ungefähr an eurer Position! Sieht aus wie... heiße Schokolade?
+Wie auch immer, ihr solltet in der Lage sein, dorthin zu reisen und welche zu holen. Vergesst nur nicht einen Becher!
+Gibt es sonst noch etwas, womit ich dir heute helfen kann?"
+
+Du erklärst, dass dein Gerät nicht in der Lage ist, in der Zeit vorwärts zu reisen.
+"Ich... verstehe. Das ist knifflig. Nun, nach diesen Informationen sollte dein Gerät
+die nötige Hardware haben, um ein kleines Portal zu öffnen und etwas heiße
+Schokolade zu dir zu schicken. Du wirst eine Liste von Fixpunkten in der Raumzeit brauchen.
+Ich übermittle sie dir jetzt."
+
+"Du musst nur dein Gerät auf die Konstellation der Fixpunkte ausrichten
+damit es sich am Zielort festsetzen und das Portal öffnen kann.
+Lass mich nachsehen wie viel heiße Schokolade diese Art von Rentieren braucht."
+
+"Hier steht, dass dein spezielles Rentier...
+Das kann nicht stimmen, hier steht, dass es nur ein einziges im Universum gibt!
+Aber DAS bedeutet, du bist..."
+Du beendest das Gespräch.
+
+Die Liste der Fixpunkte in der Raumzeit (INPUT) ist ein Satz von vierdimensionalen Koordinaten.
+Um dein Gerät auszurichten, die heiße Schokolade zu bekommen und das Rentier zu retten,
+musst du nur die Anzahl der Konstellationen der Punkte in der Liste finden.
+
+Zwei Punkte befinden sich in der gleichen Konstellation,
+wenn ihr Manhattan-Abstand nicht mehr als 3 beträgt oder wenn sie eine Kette von Punkten bilden können,
+die jeweils einen Manhattan-Abstand von nicht mehr als 3 vom letzten Punkt haben,
+zwischen den zwei von ihnen. (Das heißt, wenn ein Punkt nahe genug an einer Konstellation liegt,
+schließt er sich dieser Konstellation an.)
+
+
+Beispiel:
+
+     0,0,0,0
+     3,0,0,0
+     0,3,0,0
+     0,0,3,0
+     0,0,0,3
+     0,0,0,6
+     9,0,0,0
+    12,0,0,0
+
+In der obigen Liste bilden die ersten sechs Punkte eine einzige Konstellation:
+0,0,0,0 ist genau 3 Punkte von den nächsten vier entfernt, und der Punkt bei
+0,0,0,6 ist mit den anderen verbunden, indem er 3 von 0,0,0,3 entfernt ist,
+der sich bereits in der Konstellation befindet. Die beiden unteren Punkte, 9,0,0,0
+und 12,0,0,0 befinden sich in einer separaten Konstellation, weil kein Punkt nahe genug ist,
+um sie mit der ersten Konstellation zu verbinden.
+In der obigen Liste ist also die Anzahl der Konstellationen 2.
+(Wäre ein Punkt bei 6,0,0,0 vorhanden, würde er 3,0,0,0 und 9,0,0,0 verbinden,
+wodurch alle Punkte zu einer einzigen riesigen Konstellation würden.)
+
+In diesem Beispiel ist die Anzahl der Konstellationen 4:
+
+    -1,2,2,0
+    0,0,2,-2
+    0,0,0,-2
+    -1,2,0,0
+    -2,-2,-2,2
+    3,0,2,-1
+    -1,3,2,2
+    -1,0,-1,0
+    0,2,1,-2
+    3,0,0,0
+
+In diesem Fall ist es die 3:
+
+    1,-1,0,1
+    2,0,-1,0
+    3,2,-1,0
+    0,0,3,1
+    0,0,-1,-1
+    2,3,-2,0
+    -2,2,0,0
+    2,-2,0,-1
+    1,-1,0,-1
+    3,2,0,2
+
+In diesem Fall ist es schließlich die 8:
+
+    1,-1,-1,-2
+    -2,-2,0,1
+    0,2,1,3
+    -2,3,-2,1
+    0,2,3,-2
+    -1,-1,1,-2
+    0,-2,-1,0
+    -2,2,3,-1
+    1,2,2,0
+    -1,-2,0,-2
+
+Der korpulente Mann streicht sich nervös über seinen weißen Bart. Es ist Zeit für die die heiße Schokolade.
+
+
+Wie viele Sternbilder werden durch die Fixpunkte in der Raumzeit gebildet?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

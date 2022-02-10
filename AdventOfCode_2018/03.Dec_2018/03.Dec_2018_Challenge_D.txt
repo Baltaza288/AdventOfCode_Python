@@ -1,0 +1,67 @@
+
+--- Tag 3: Egal, wie man es schneidet ---
+
+Den Elfen ist es gelungen, den Prototyp-Stoff für den Anzug des Weihnachtsmanns ausfindig zu machen
+(dank jemandem, der mitten in der Nacht die Kisten-IDs an die Wand des Lagerhauses geschrieben hat).
+Unglücklicherweise, gibt es immer noch Anomalien -
+niemand kann sich darauf einigen, wie man den Stoff zuschneidet.
+
+Das ganze Stück Stoff, an dem sie arbeiten, ist ein sehr großes Quadrat -
+mindestens 1000 cm auf jeder Seite.
+
+Jeder Elf hat eine Behauptung darüber aufgestellt, welcher Bereich des Stoffes ideal,
+für den Anzug des Weihnachtsmanns, wäre. Alle Bedingungen haben eine ID und bestehen aus einem einzigen Rechteck
+dessen Kanten parallel zu den Stoffkanten verlaufen.
+Der Anspruch an jedes Rechteck ist wie folgt definiert:
+
+ - Die Anzahl der cm zwischen der linken Kante des Stoffes und der linken Kante des Rechtecks.
+ - Die Anzahl der cm zwischen der oberen Kante des Stoffes und der oberen Kante des Rechtecks.
+ - Die Breite des Rechtecks in cm.
+ - Die Höhe des Rechtecks in cm.
+
+Ein Anspruch wie #123 @ 3,2: 5x4 bedeutet, dass die Anspruchskennung 123 ein Rechteck angibt
+3 cm von der linken Kante, 2 cm von der oberen Kante, 5 cm breit und 4 cm hoch.
+Optisch werden die Quadratzentimeter des Stoffes beansprucht,
+die durch # dargestellt wird und ignoriert die Quadratzentimeter des Stoffes,
+die durch . dargestellt werden, wie die folgende Abbildung zeigt:
+
+    ...........
+    ...........
+    ...#####...
+    ...#####...
+    ...#####...
+    ...#####...
+    ...........
+    ...........
+    ...........
+
+Das Problem ist, dass sich viele der Ansprüche überschneiden, sodass zwei oder mehr Ansprüche
+einen Teil der gleichen Bereiche abdecken. Betrachte zum Beispiel die folgenden Ansprüche:
+
+    #1 @ 1,3: 4x4
+    #2 @ 3,1: 4x4
+    #3 @ 5,5: 2x2
+
+Visuell gesehen beanspruchen diese die folgenden Flächen:
+
+    ........
+    ...2222.
+    ...2222.
+    .11XX22.
+    .11XX22.
+    .111133.
+    .111133.
+    ........
+
+Die vier mit X markierten Quadratzentimeter werden sowohl von Anspruch 1 als auch von Anspruch 2 beansprucht.
+(Anspruch 3, liegt zwar neben den anderen, überschneidet sich aber mit keinem von ihnen.)
+
+Wenn die Elfen alle mit ihren eigenen Plänen fortfahren, wird keiner von ihnen genug Stoff haben.
+
+
+Wie viele Quadratzentimeter Stoff liegen innerhalb von zwei oder mehr Ansprüchen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

@@ -1,0 +1,55 @@
+
+--- Tag 8: Gedächtnismanöver ---
+
+Der Schlitten ist viel leichter zu ziehen, als man bei seinem Gewicht erwarten würde.
+Leider wissen weder du noch die Elfen, in welcher Richtung der Nordpol von hier aus liegt.
+
+Du überprüfst dein Gerät am Handgelenk auf etwas, das dir helfen könnte.
+Es scheint eine Art Navigationssystem zu haben!
+Das Aktivieren des Navigationssystems bringt weitere schlechte Nachrichten:
+"Das Navigationssystem kann nicht gestartet werden, da die Software-Lizenzdatei nicht gelesen werden kann."
+
+Die Lizenzdatei des Navigationssystems besteht aus einer Liste von Zahlen (INPUT).
+Die Zahlen definieren eine Datenstruktur, die, wenn sie verarbeitet wird, eine Art Baum erzeugt,
+der zur Berechnung der Lizenznummer benötigt wird.
+
+Der Baum besteht aus Knoten. Ein einzelner, äußerster Knoten bildet die
+Wurzel des Baums und enthält alle anderen Knoten des Baums
+(oder Knoten, die Knoten enthalten, und so weiter).
+
+Im Einzelnen besteht ein Knoten aus:
+
+ - Einer Überschrift, die immer genau zwei Zahlen umfasst:
+ - Die Anzahl der Kindknoten.
+ - Der Anzahl der Metadaten-Einträge.
+ - Null oder mehr Kindknoten (wie im Header angegeben).
+ - Einem oder mehreren Metadaten-Einträgen (wie in der Kopfzeile angegeben).
+
+Jeder Kindknoten ist selbst ein Knoten, der seinen eigenen Header, Kindknoten und Metadaten hat.
+
+
+Beispiel:
+
+    2 3 0 3 10 11 12 1 1 0 1 99 2 1 1 2
+    A----------------------------------
+        B----------- C-----------
+                         D-----
+
+In diesem Beispiel ist jeder Knoten des Baums mit einem Anfangsbuchstaben gekennzeichnet,
+um die Identifizierung zu erleichtern. In diesem Beispiel gibt es vier Knoten:
+
+ - A, der 2 Kindknoten (B, C) und 3 Metadateneinträge (1, 1, 2) hat.
+ - B, der 0 Kindknoten und 3 Metadateneinträge (10, 11, 12) hat.
+ - C, das 1 Kindknoten (D) und 1 Metadateneintrag (2) hat.
+ - D, der 0 untergeordnete Knoten und 1 Metadateneintrag (99) hat.
+
+Die erste Prüfung der Lizenzdatei besteht darin, einfach alle Metadaten-Einträge zu addieren.
+In diesem Beispiel ist die Summe 1+1+2+10+11+12+2+99=138.
+
+
+Wie hoch ist die Summe aller Metadaten-Einträge?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

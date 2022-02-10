@@ -1,0 +1,51 @@
+
+--- Tag 21: Chronale Umwandlung ---
+
+Du hättest aufpassen sollen, wo du hingehst, denn als du durch den neuen
+Nordpol-Stützpunkt gehst, stolperst du und fällst in ein sehr tiefes Loch!
+
+Kleiner Scherz. Du fällst wieder durch die Zeit.
+
+Wenn du dein Tempo beibehältst, solltest du alle zeitlichen
+Anomalien gelöst haben, wenn sich das Gerät das nächste Mal aktiviert.
+Da du sehr wenig Interesse daran hast, den Rest deines Lebens in 500-Jahres-Schritten durch die Geschichte zu reisen,
+musst du einen Weg finden, um in deine Gegenwart zurückzukehren.
+
+Nach ein wenig Recherche findest du zwei wichtige Fakten über das Verhalten des Geräts:
+
+Erstens stellst du fest, dass das Gerät so verdrahtet ist,
+dass es dich immer in 500-Jahres-Schritten zurückschickt.
+Dies zu ändern, ist wahrscheinlich nicht möglich.
+
+Zweitens entdeckst du das Aktivierungssystem (INPUT) für das Zeitreise-Modul.
+Derzeit scheint es ewig zu laufen, ohne anzuhalten.
+
+Wenn du das Aktivierungssystem dazu bringen kannst, zu einem bestimmten Zeitpunkt anzuhalten,
+könntest du vielleicht erreichen, dass das Gerät dich so weit in der Zeit zurückschickt,
+dass du einen Integer-Unterlauf in der Zeit selbst verursachst und in die aktuelle Zeit zurückspringst!
+
+Das Gerät führt das Programm wie im ersten und zweiten Teil des Handbuchs beschrieben aus.
+Handbuch Abschnitt zwei.
+
+Dein Ziel ist es, herauszufinden, wie das Programm funktioniert und es zum Anhalten zu bringen.
+Du kannst nur das Register 0 kontrollieren. Alle anderen Register beginnen wie üblich bei 0.
+
+Da Zeitreisen eine gefährliche Aktivität sind, beginnt das Aktivierungssystem mit einigen Anweisungen,
+die sicherstellen, dass bitweises UND (über bani) eine numerische Operation ausführt und nicht eine Operation,
+bei der die Eingaben als Zeichenketten interpretiert werden.
+Schlägt der Test fehl, tritt es in eine Endlosschleife ein und wiederholt den Test
+statt das Programm normal weiterlaufen zu lassen. Wenn der Test bestanden wird,
+fährt das Programm fort und geht davon aus, dass alle anderen bitweisen Operationen
+(banr, bori und borr) ihre Eingaben ebenfalls als Zahlen interpretieren.
+(Offensichtlich waren die Elfen, die dieses System geschrieben haben, besorgt,
+dass jemand einen Fehler einführen könnte, wenn er versucht, dieses System mit einer Skriptsprache zu emulieren.)
+
+
+Welches ist der kleinste nicht-negative ganzzahlige Wert für Register 0, der dazu führt,
+dass das Programm nach der Ausführung der wenigsten Anweisungen zum Stillstand bringt?
+(Die mehrfache Ausführung desselben Befehls zählt als mehrfach ausgeführte Befehle.)
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

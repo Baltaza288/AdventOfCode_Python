@@ -1,0 +1,54 @@
+
+--- Tag 1: Chronale Kalibrierung ---
+
+"Wir haben einige zeitliche Anomalien entdeckt", sagt einer der Weihnachtselfen in der
+Temporal Anomaly Research and Detection Instrument Station.
+Sie hörte sich ziemlich besorgt an, als sie dich hierher rief.
+"In Abständen von 500 Jahren Intervallen in die Vergangenheit hat jemand die Geschichte des Weihnachtsmanns verändert!"
+
+"Die gute Nachricht ist, dass sich die Änderungen erst in 25 Tagen auf unseren Zeitstrom auswirken werden.
+Wir haben ein Gerät" - sie befestigt etwas an deinem Handgelenk -
+"mit dem du die Änderungen ohne diese Verzögerung korrigieren kannst.
+Es ist so konfiguriert, dass es dich alle paar Tage 500 Jahre weiter in die Vergangenheit schickt.
+Das war das Beste, was wir in so kurzer Zeit tun konnten."
+
+"Die schlechte Nachricht ist, dass wir etwa fünfzig Anomalien in der Zeit feststellen.
+Das Gerät wird feste Anomalien mit Sternen anzeigen. Die andere schlechte Nachricht ist,
+dass wir nur ein Gerät haben und du die beste Person für diesen Job bist! Viel Glü..."
+Sie tippt auf eine Taste des Geräts und du hast plötzlich das Gefühl, dass du fällst.
+Um Weihnachten zu retten, musst du bis zum 25. Dezember alle fünfzig Sterne sammeln.
+
+Sammle Sterne, indem du Rätsel löst. An jedem Tag des Adventskalenders werden
+zwei Rätsel zur Verfügung gestellt. Das zweite Rätsel wird freigeschaltet,
+sobald du das erste gelöst hast. Für jedes Rätsel gibt es einen Stern. Viel Glück!
+
+Nachdem du ein paar Minuten lang das Gefühl hattest, zu fallen, schaust du auf den
+winzigen Bildschirm des Geräts. "Fehler: Gerät muss vor der ersten Verwendung kalibriert werden.
+Frequenzdrift festgestellt. Kann die Zielerfassung nicht beibehalten." Unter der Nachricht
+zeigt das Gerät eine Abfolge von Frequenzänderungen an (INPUT).
+Ein Wert wie +6 bedeutet, dass sich die aktuelle Frequenz um 6 erhöht; ein Wert wie -3
+bedeutet, dass die aktuelle Frequenz um 3 abnimmt.
+
+Wenn das Gerät zum Beispiel die Frequenzänderungen +1, -2, +3, +1 anzeigt,
+würden, ausgehend von einer Frequenz von Null, die folgenden Änderungen auftreten:
+
+ - Aktuelle Frequenz 0, Änderung um +1; resultierende Frequenz 1.
+ - Aktuelle Frequenz 1, Änderung um -2; resultierende Frequenz -1.
+ - Aktuelle Frequenz -1, Änderung um +3; resultierende Frequenz 2.
+ - Aktuelle Frequenz 2, Änderung um +1; resultierende Frequenz 3.
+
+In diesem Beispiel ist die resultierende Frequenz 3.
+
+Hier sind weitere Beispielsituationen:
+
+ - +1, +1, +1 ergibt 3
+ - +1, +1, -2 ergibt 0
+ -1, -2, -3 ergibt -6
+
+Ausgehend von einer Frequenz von Null, wie hoch ist die resultierende Frequenz
+nachdem alle Änderungen vorgenommen wurden?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
