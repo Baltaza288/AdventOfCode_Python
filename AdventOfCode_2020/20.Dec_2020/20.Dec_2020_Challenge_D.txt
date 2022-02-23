@@ -1,30 +1,35 @@
 
---- Day 20: Jurassic Jigsaw ---
+--- Tag 20: Jurassic Jigsaw ---
 
-The high-speed train leaves the forest and quickly carries you south. You can even see a desert in the distance!
-Since you have some spare time, you might as well see if there was anything interesting
-in the image the Mythical Information Bureau satellite captured.
+Der Hochgeschwindigkeitszug verlässt den Wald und bringt dich schnell nach Süden.
+In der Ferne kannst du sogar eine Wüste sehen!
+Da du etwas Zeit hast, könntest du auch nachsehen, ob es etwas Interessantes
+auf dem Bild zu finden ist, das der Satellit des Mythical Information Bureau aufgenommen hat.
 
-After decoding the satellite messages, you discover that the data actually contains many small images
-created by the satellite's camera array. The camera array consists of many cameras.
-Rather than produce a single square image, they produce many smaller square image tiles
-that need to be reassembled back into a single image.
+Nachdem du die Satellitennachrichten entschlüsselt hast, entdeckst du,
+dass die Daten tatsächlich viele kleine Bilder enthalten,
+die von der Kameraanordnung des Satelliten erstellt wurden. Das Kamera-Array besteht aus vielen Kameras.
+Anstatt ein einzelnes quadratisches Bild zu erzeugen,
+produzieren sie viele kleinere quadratische Bildkacheln,
+die wieder zu einem einzigen Bild zusammengesetzt werden müssen.
 
-Each camera in the camera array returns a single monochrome image tile with a random unique ID number.
-The tiles (your puzzle input) arrived in a random order.
+Jede Kamera im Kamera-Array liefert eine einzelne monochrome Bildkachel mit einer zufälligen eindeutigen ID-Nummer.
+Die Kacheln (INPUT) kamen in einer zufälligen Reihenfolge an.
 
-Worse yet, the camera array appears to be malfunctioning: each image tile has been rotated and flipped
-to a random orientation. Your first task is to reassemble the original image
-by orienting the tiles so they fit together.
+Schlimmer noch, die Kameraanordnung scheint eine Fehlfunktion zu haben:
+Jede Bildkachel in eine zufällige Richtung gedreht und gespiegelt.
+Deine erste Aufgabe ist es, das ursprüngliche Bild wieder zusammenzusetzen,
+indem du die Kacheln so ausrichtest, dass sie zusammenpassen.
 
-To show how the tiles should be reassembled, each tile's image data includes a border that should
-line up exactly with its adjacent tiles. All tiles have this border, and the border lines up exactly
-when the tiles are both oriented correctly. Tiles at the edge of the image also have this border,
-but the outermost edges won't line up with any other tiles.
+Um zu zeigen, wie die Kacheln wieder zusammengesetzt werden sollten,
+enthalten die Bilddaten jeder Kachel einen Rand, der genau mit den benachbarten Kacheln übereinstimmen sollte.
+Alle Kacheln haben diesen Rand und dieser stimmt genau überein, wenn die Kacheln beide korrekt ausgerichtet sind.
+Die Kacheln am Rand des Bildes haben ebenfalls einen solchen Rand,
+aber die äußersten Ränder werden nicht mit anderen Kacheln übereinstimmen.
 
-For example, suppose you have the following nine tiles:
+Nehmen wir zum Beispiel an, du hast die folgenden neun Kacheln:
 
-Tile 2311:
+Kachel 2311:
 ..##.#..#.
 ##..#.....
 #...##..#.
@@ -36,7 +41,7 @@ Tile 2311:
 ###...#.#.
 ..###..###
 
-Tile 1951:
+Kachel 1951:
 #.##...##.
 #.####...#
 .....#..##
@@ -48,7 +53,7 @@ Tile 1951:
 ..#.#..#.#
 #...##.#..
 
-Tile 1171:
+Kachel 1171:
 ####...##.
 #..##.#..#
 ##.#..#.#.
@@ -60,7 +65,7 @@ Tile 1171:
 ####..#...
 .....##...
 
-Tile 1427:
+Kachel 1427:
 ###.##.#..
 .#..#.##..
 .#.##.#..#
@@ -72,7 +77,7 @@ Tile 1427:
 ..#..###.#
 ..##.#..#.
 
-Tile 1489:
+Kachel 1489:
 ##.#.#....
 ..##...#..
 .##..##...
@@ -84,7 +89,7 @@ Tile 1489:
 ..##.##.##
 ###.##.#..
 
-Tile 2473:
+Kachel 2473:
 #....####.
 #..#.##...
 #.##..#...
@@ -96,7 +101,7 @@ Tile 2473:
 ##...##.#.
 ..###.#.#.
 
-Tile 2971:
+Kachel 2971:
 ..#.#....#
 #...###...
 #.#.###...
@@ -108,7 +113,7 @@ Tile 2971:
 ..#.#.###.
 ...#.#.#.#
 
-Tile 2729:
+Kachel 2729:
 ...#.#.#.#
 ####.#....
 ..#.#.....
@@ -120,7 +125,7 @@ Tile 2729:
 ##..#.##..
 #.##...##.
 
-Tile 3079:
+Kachel 3079:
 #.#.#####.
 .#..######
 ..#.......
@@ -132,8 +137,8 @@ Tile 3079:
 ..#.......
 ..#.###...
 
-By rotating, flipping, and rearranging them,
-you can find a square arrangement that causes all adjacent borders to line up:
+Indem man sie dreht, spiegelt und neu anordnet, kann man eine quadratische Anordnung finden,
+bei der alle benachbarten Ränder in einer Linie liegen:
 
 #...##.#.. ..###..### #.#.#####.
 ..#.#..#.# ###...#.#. .#..######
@@ -168,30 +173,32 @@ you can find a square arrangement that causes all adjacent borders to line up:
 #...###... ..##...#.. ...#..####
 ..#.#....# ##.#.#.... ...##.....
 
-For reference, the IDs of the above tiles are:
+Die IDs der oben genannten Kacheln lauten wie folgt:
 
-1951    2311    3079
-2729    1427    2473
-2971    1489    1171
+1951 2311 3079
+2729 1427 2473
+2971 1489 1171
 
-To check that you've assembled the image correctly, multiply the IDs of the four corner tiles together.
-If you do this with the assembled tiles from the example above, you get 1951 * 3079 * 2971 * 1171 = 20899048083289.
+Um zu überprüfen, ob du das Bild richtig zusammengesetzt hast, multipliziere die IDs der vier Eckkacheln miteinander.
+Wenn du dies mit den zusammengesetzten Kacheln aus dem obigen Beispiel tust,
+erhältst du 1951 * 3079 * 2971 * 1171 = 20899048083289.
 
-Assemble the tiles into an image.
+Füge die Kacheln zu einem Bild zusammen.
 
 
-What do you get if you multiply together the IDs of the four corner tiles?
+Was erhältst du, wenn du die IDs der vier Eckkacheln miteinander multiplizierst?
 
 
 ------------------------------------------------------------------------------------------------------------------------
---- Part Two ---
+--- Zweiter Teil ---
 
 
-Now, you're ready to check the image for sea monsters.
+Jetzt kannst du das Bild auf Seeungeheuer überprüfen.
 
-The borders of each tile are not part of the actual image; start by removing them.
+Die Ränder der einzelnen Kacheln sind nicht Teil des eigentlichen Bildes.
+Beginne damit, sie zu entfernen.
 
-In the example above, the tiles become:
+Im obigen Beispiel werden die Kacheln zu:
 
 .#.#..#. ##...#.# #..#####
 ###....# .#....#. .#......
@@ -220,7 +227,7 @@ In the example above, the tiles become:
 .#.###.. ##..##.. ####.##.
 ...###.. .##...#. ..#..###
 
-Remove the gaps to form the actual image:
+Entferne die Lücken, um das aktuelle Bild zu erstellen:
 
 .#.#..#.##...#.##..#####
 ###....#.#....#..#......
@@ -247,16 +254,18 @@ Remove the gaps to form the actual image:
 .#.###..##..##..####.##.
 ...###...##...#...#..###
 
-Now, you're ready to search for sea monsters! Because your image is monochrome, a sea monster will look like this:
+Jetzt kannst du dich auf die Suche nach Seeungeheuern machen!
+Da dein Bild monochrom ist, wird ein Seeungeheuer so aussehen:
 
                   #
 #    ##    ##    ###
  #  #  #  #  #  #
 
-When looking for this pattern in the image, the spaces can be anything; only the # need to match.
-Also, you might need to rotate or flip your image before it's oriented correctly to find sea monsters.
-In the above image, after flipping and rotating it to the appropriate orientation,
-there are two sea monsters (marked with O):
+Wenn du nach diesem Muster im Bild suchst, können die Leerzeichen beliebig sein.
+Nur die # müssen übereinstimmen. Es kann auch sein, dass du dein Bild drehen oder spiegeln musst,
+bevor es richtig ausgerichtet ist, um Seeungeheuer zu finden.
+Im obigen Bild sind nach dem Drehen und Spiegeln in der richtigen Ausrichtung
+gibt es zwei Seeungeheuer (markiert mit O):
 
 .####...#####..#...###..
 #####..#..#.#.####..#.#.
@@ -283,9 +292,9 @@ there are two sea monsters (marked with O):
 #...#.....#..##...###.##
 #..###....##.#...##.##.#
 
-Determine how rough the waters are in the sea monsters' habitat by counting
-the number of # that are not part of a sea monster.
-In the above example, the habitat's water roughness is 273.
+Bestimme, wie rau das Wasser im Lebensraum der Seeungeheuer ist, die Anzahl der # zählst,
+die nicht zu einem Seeungeheuer gehören.
+Im obigen Beispiel beträgt die Wasser-Rauheit des Lebensraums 273.
 
 
-How many # are not part of a sea monster?
+Wie viele # gehören nicht zu einem Seeungeheuer?

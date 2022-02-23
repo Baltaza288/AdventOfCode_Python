@@ -1,0 +1,106 @@
+
+--- Tag 16: Ticket-Übersetzung ---
+
+Als du zu einem weiteren Anschlussflug gehst, stellst du fest,
+dass du während einer der Etappen deiner umgeleiteten Reise mit einem Hochgeschwindigkeitszug fahren wirst.
+Das Zugticket, das man dir gegeben hat, ist jedoch in einer Sprache, die du nicht verstehst.
+Du solltest herausfinden, was darauf steht, bevor du nach dem nächsten Flug zum Bahnhof kommen.
+
+Leider kannst du die Worte auf der Fahrkarte nicht lesen. Du kannst jedoch die Zahlen lesen, und so findest du heraus,
+welche Felder diese Tickets haben müssen und welche Wertebereiche für diese Felder gültig sind.
+
+Du sammelst die Regeln für Fahrkartenfelder, die Zahlen auf deiner Fahrkarte und
+die Zahlen auf anderen Fahrkarten in der Nähe für dieselbe Zugverbindung in einem einzigen Dokument zusammen,
+auf das du Bezug nehmen kannst (INPUT).
+
+Die Regeln für Fahrkartenfelder geben eine Liste von Feldern an,
+die irgendwo auf der Fahrkarte vorhanden sind und die gültigen Wertebereiche für jedes Feld.
+Zum Beispiel bedeutet eine Regel wie class: 1-3 oder 5-7, dass eines der Felder in jeder Anfrage den Namen 'class'
+besitzt und einen beliebigen Wert in den Bereichen 1-3 oder 5-7 haben kann.
+
+Jede Anfrage wird durch eine einzige Zeile, mit durch Komma getrennten Werten, dargestellt.
+Die Werte sind die Zahlen auf der Anfrage in der Reihenfolge, in der sie erscheinen.
+Jede Anfrage hat das gleiche Format.
+
+Betrachten wir zum Beispiel diese Anfrage:
+
+.--------------------------------------------------------.
+| ????: 101 ?????: 102 ??????????: 103 ???: 104 |
+| |
+| ??: 301 ??: 302 ???????: 303 ??????? |
+| ??: 401 ??: 402 ???? ????: 403 ????????? |
+'--------------------------------------------------------'
+
+Hier steht ? für Text in einer Sprache, die du nicht verstehst.
+Diese Fahrkarte könnte als 101,102,103,104,301,302,303,401,402,403 dargestellt werden.
+Natürlich sind die tatsächlichen Fahrkarten, die du betrachtest, viel komplizierter.
+In jedem Fall hast du nur die Zahlen extrahiert, sodass die erste Zahl immer das gleiche spezifische Feld ist,
+die zweite Zahl ist immer ein anderes spezifisches Feld, und so weiter - du weißt nur nicht,
+was die einzelnen Positionen tatsächlich bedeuten!
+
+Bestimme zunächst, welche Tickets völlig ungültig sind. Dies sind Tickets, die Werte enthalten,
+die für kein Feld gültig sind. Ignoriere dein Ticket vorerst.
+
+Nehmen wir zum Beispiel an, du hast die folgenden Notizen:
+
+Klasse: 1-3 oder 5-7
+Reihe: 6-11 oder 33-44
+Sitzplatz: 13-40 oder 45-50
+
+Deine Fahrkarte:
+7,1,14
+
+benachbarte Tickets:
+7,3,47
+40,4,50
+55,2,20
+38,6,12
+
+Es spielt keine Rolle, welche Position welchem Feld entspricht.
+Du kannst ungültige Tickets in der Nähe identifizieren,
+indem du nur darauf achtest, ob die Tickets Werte enthalten, die für ein Feld ungültig sind.
+In diesem Beispiel sind die Werte auf der ersten nahe gelegenen Fahrkarte alle für mindestens ein Feld gültig.
+Dies gilt nicht für die anderen drei benachbarten Tickets: Die Werte 4, 55 und 12 sind für kein Feld gültig.
+Wenn man alle ungültigen Werte zusammenzählt, erhält man die Fehlerquote beim Scannen von Tickets: 4 + 55 + 12 = 71.
+
+
+Betrachte die Gültigkeit der in der Nähe gescannten Tickets.
+
+
+Wie hoch ist die Fehlerquote beim Scannen der Fahrscheine?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+
+Nachdem du nun festgestellt hast, welche Tickets ungültige Werte enthalten, verwirfst du diese Tickets vollständig.
+Verwende die verbleibenden gültigen Tickets, um festzustellen, welches Feld welches ist.
+
+Bestimme anhand der gültigen Bereiche für jedes Feld, in welcher Reihenfolge die Felder auf den Tickets erscheinen.
+Die Reihenfolge ist bei allen Fahrscheinen gleich:
+Wenn Sitzplatz das dritte Feld ist, ist es das dritte Feld auf jedem Fahrschein, einschließlich deiner Fahrkarte.
+
+Nehmen wir zum Beispiel an, du hast folgende Notizen:
+
+Klasse: 0-1 oder 4-19
+Reihe: 0-5 oder 8-19
+Sitzplatz: 0-13 oder 16-19
+
+Dein Ticket:
+11,12,13
+
+benachbarte Tickets:
+3,9,18
+15,1,5
+5,14,9
+
+Ausgehend von den benachbarten Tickets im obigen Beispiel muss die erste Position Reihe sein,
+die zweite Position muss die Klasse und die dritte Position der Sitzplatz sein.
+Daraus kannst du schließen, dass in deinem Ticket die Klasse 12, die Reihe 11 und der Sitzplatz 13 ist.
+
+Sobald du herausgefunden hast, welches Feld welches ist, suchst du die sechs Felder auf deinem Ticket,
+die mit dem Wort Abfahrt beginnen.
+
+
+Was erhältst du, wenn du diese sechs Werte miteinander multiplizierst?

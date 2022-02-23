@@ -1,0 +1,71 @@
+
+--- Tag 21: Allergen-Bewertung ---
+
+Du erreichst die letzte Haltestelle des Zuges, die deiner Urlaubsinsel am nächsten liegt, ohne dass du nass wirst.
+Hier gibt es nicht einmal Boote, aber das kann dich nicht aufhalten: Du baust ein Floß.
+Für die Reise brauchst du nur Lebensmittel für ein paar Tage.
+
+Da du die Landessprache nicht sprichst, kannst du keine Zutatenlisten lesen.
+Manchmal sind die Allergene jedoch in einer Sprache aufgeführt, die du verstehst.
+Du solltest in der Lage sein, anhand dieser Informationen festzustellen,
+welche Zutat welches Allergen enthält und herauszufinden,
+welche Lebensmittel du unbedenklich mit auf deine Reise nehmen kannst.
+
+Du beginnst damit, eine Liste von Lebensmitteln zusammenzustellen (INPUT).
+Jede Zeile enthält die Zutatenliste des jeweiligen Lebensmittels,
+gefolgt von einigen oder allen Allergenen, die das Lebensmittel enthält.
+
+Jedes Allergen ist in genau einer Zutat enthalten. Jede Zutat enthält null oder ein Allergen.
+Allergene sind nicht immer gekennzeichnet.
+Wenn sie aufgelistet sind (wie in (enthält Nüsse, Schalentiere) nach einer Zutatenliste), wird die Zutat,
+die jedes aufgeführte Allergen enthält, irgendwo in der entsprechenden Zutatenliste aufgeführt.
+Aber auch wenn ein Allergen nicht aufgeführt ist, kann die Zutat, die dieses Allergen enthält, noch vorhanden sein:
+Vielleicht wurde vergessen, sie anzugeben, oder sie wurde in einer Sprache angegeben, die du nicht kennst.
+
+Betrachte zum Beispiel die folgende Liste von Lebensmitteln:
+
+mxmxvkd kfcds sqjhc nhms (enthält Milchprodukte, Fisch)
+trh fvjkl sbzzf mxmxvkd (enthält Molkereiprodukte)
+sqjhc fvjkl (enthält Soja)
+sqjhc mxmxvkd sbzzf (enthält Fisch)
+
+Das erste Lebensmittel in der Liste hat vier Zutaten (in einer Sprache, die du nicht verstehst):
+mxmxvkd, kfcds, sqjhc und nhms.
+Das Lebensmittel könnte zwar andere Allergene enthalten, einige Allergene,
+die das Lebensmittel auf jeden Fall enthält, werden im Anschluss aufgeführt:
+Milchprodukte und Fisch.
+
+Der erste Schritt besteht darin, festzustellen,
+welche Zutaten unmöglich eines der Allergene in einem der Lebensmittel in deiner Liste sein kann.
+Im obigen Beispiel kann keine der Zutaten kfcds, nhms, sbzzf oder trh ein Allergen enthalten.
+Wenn man zählt, wie oft eine dieser Zutaten in einer Zutatenliste vorkommt, erhält man 5:
+Sie kommen alle jeweils einmal vor, außer sbzzf, das zweimal vorkommt.
+
+Bestimme, welche Zutaten unmöglich eines der Allergene in deiner Liste sein kann.
+
+
+Wie oft kommt eine dieser Zutaten vor?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+
+Nun, da du die inerten Zutaten isoliert hast, solltest du genug Informationen haben,
+um herauszufinden, welche Zutat welches Allergen enthält.
+
+Im obigen Beispiel:
+
+mxmxvkd enthält Milchprodukte.
+sqjhc enthält Fisch.
+fvjkl enthält Soja.
+
+Ordne die Zutaten alphabetisch nach ihrem Allergen und trenne sie durch Kommas
+um eine kanonische Liste gefährlicher Inhaltsstoffe zu erstellen.
+(Die kanonische Liste der gefährlichen Inhaltsstoffe sollte keine Leerzeichen enthalten).
+Im obigen Beispiel wäre dies mxmxvkd,sqjhc,fvjkl.
+
+Es ist an der Zeit, dein Floß mit Vorräten zu bestücken.
+
+
+Wie lautet deine kanonische Liste der gefährlichen Zutaten?

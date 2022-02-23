@@ -1,0 +1,106 @@
+
+--- Tag 6: Zollabfertigung ---
+
+Während sich dein Flug dem Regionalflughafen nähert, wo du in ein viel größeres Flugzeug umsteigen musst,
+werden die Zollerklärungsformulare an die Passagiere verteilt.
+
+Auf dem Formular wird eine Reihe von 26 Ja-oder-Nein-Fragen gestellt, die mit a bis z gekennzeichnet sind.
+Alles, was du tun musst, ist herauszufinden wie viele Fragen deine Gruppe mit "Ja" beantwortet hat.
+Da deine Gruppe nur aus dir besteht, dauert dies nicht sehr lange.
+
+Die Person, die neben dir sitzt, scheint jedoch eine Sprachbarriere zu haben und fragt, ob du ihr helfen könntest.
+Du schreibst für jede Person in ihrer Gruppe die Fragen auf, auf die sie mit "Ja" antworten, eine pro Zeile.
+
+Zum Beispiel:
+
+    abcx
+    abcy
+    abcz
+
+In dieser Gruppe gibt es 6 Fragen, die mit "ja" beantwortet wurden: a, b, c, x, y und z.
+Doppelte Antworten auf dieselbe Frage werden nicht extra gezählt.
+
+Eine weitere Gruppe bittet dich um Hilfe, dann eine weitere,
+und schließlich hast du Antworten von jeder Gruppe in dem Flugzeug gesammelt (INPUT).
+Die Antworten jeder Gruppe werden durch eine Leerzeile getrennt
+und innerhalb jeder Gruppe stehen die Antworten jeder Person in einer einzigen Zeile.
+
+
+Beispiel:
+
+    abc
+
+    a
+    b
+    c
+
+    ab
+    ac
+
+    a
+    a
+    a
+    a
+
+    b
+
+Diese Liste enthält die Antworten von fünf Gruppen:
+
+ - Die erste Gruppe enthält eine Person, die 3 Fragen mit "ja" beantwortet hat: a, b und c.
+ - Die zweite Gruppe enthält drei Personen, die zusammen 3 Fragen mit "ja" beantwortet haben: a, b und c.
+ - Die dritte Gruppe besteht aus zwei Personen, die zusammen 3 Fragen mit "ja" beantwortet haben: a, b und c.
+ - Die vierte Gruppe besteht aus vier Personen, die zusammen nur eine Frage mit "ja" beantwortet haben, nämlich a.
+ - Die letzte Gruppe besteht aus einer Person, die nur eine Frage mit "ja" beantwortet hat, nämlich b.
+
+In diesem Beispiel ist die Summe dieser Antworten 3 + 3 + 3 + 1 + 1 = 11.
+
+Zähle für jede Gruppe die Anzahl der Fragen, auf die jemand mit "Ja" geantwortet hat.
+
+
+Wie hoch ist die Summe dieser Zahlen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+Als du die Zollanmeldung der letzten Gruppe fertigstellst, stellst du fest,
+dass du ein Wort in der Anleitung falsch gelesen hast:
+
+Ihr müsst nicht die Fragen angeben, auf die jemand mit "ja" geantwortet hat, sondern die Fragen identifizieren,
+auf die alle mit "Ja" geantwortet haben!
+
+
+Nehmen wir das gleiche Beispiel wie oben:
+
+    abc
+
+    a
+    b
+    c
+
+    ab
+    ac
+
+    a
+    a
+    a
+    a
+
+    b
+
+Diese Liste enthält die Antworten von fünf Gruppen:
+
+ - In der ersten Gruppe haben alle (alle 1 Person) auf 3 Fragen mit "ja" geantwortet:
+    a, b, und c.
+ - In der zweiten Gruppe gibt es keine Frage, auf die alle mit "ja" geantwortet haben.
+ - In der dritten Gruppe haben alle nur 1 Frage mit "ja" beantwortet, nämlich a. Da einige
+    nicht mit "ja" auf b oder c geantwortet haben, werden sie nicht gezählt.
+ - In der vierten Gruppe haben alle nur eine Frage mit Ja beantwortet, nämlich a.
+ - In der fünften Gruppe haben alle (alle 1 Person) 1 Frage mit "ja" beantwortet, b.
+
+In diesem Beispiel ist die Summe dieser Antworten 3 + 0 + 1 + 1 + 1 = 6.
+
+Zähle für jede Gruppe die Anzahl der Fragen, auf die alle mit "Ja" geantwortet haben.
+
+
+Wie hoch ist die Summe dieser Zahlen?

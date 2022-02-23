@@ -1,0 +1,83 @@
+
+--- Tag 7: Handliche Haversäcke ---
+
+Du landest auf dem Regionalflughafen, rechtzeitig für deinen nächsten Flug.
+Es sieht sogar so aus Zeit zu haben, um etwas zu essen.
+Alle Flüge haben derzeit Verspätung aufgrund von Probleme bei der Gepäckabfertigung.
+
+Durch neue Luftfahrtvorschriften werden viele neue Regeln, was Taschen und deren Inhalt betrifft, durchgesetzt (INPUT).
+Taschen müssen farbcodiert sein und bestimmte Mengen von anderen farbcodierten Taschen enthalten.
+
+
+Nehmen wir zum Beispiel die folgenden Regeln:
+
+    Hell-rote Taschen enthalten 1 weiße Tasche, 2 matt gelbe Taschen.
+    Dunkel-orangefarbene Taschen enthalten 3 weiße Taschen, 4 matt gelbe Taschen.
+    Weiße Taschen enthalten 1 glänzend goldene Tasche.
+    Matt gelbe Taschen enthalten 2 glänzend-goldene Taschen, 9 blau-gestrichelte Taschen.
+    Glänzend-goldene Taschen enthalten 1 dunkel-olivfarbene Tasche, 2 leuchtend-pflaumenfarbene Taschen.
+    Dunkel-olivfarbene Taschen enthalten 3 blau-gestrichelte Taschen, 4 gepunktete schwarze Taschen.
+    Leuchtend-pflaumenfarbene Taschen enthalten 5 blau-gestrichelte Taschen, 6 gepunktet-schwarze Taschen.
+    Blau-gestrichelte Taschen enthalten keine anderen Taschen.
+    Gepunktet-schwarze Taschen enthalten keine anderen Taschen.
+
+Diese Regeln geben den erforderlichen Inhalt für 9 Beuteltypen an.
+In diesem Beispiel, ist jede blass-blaue Tasche leer,
+jede leuchtend-pflaumenfarbene Tasche enthält 11 Taschen (5 blass-blaue und 6 gepunktete schwarze), und so weiter.
+
+Du hast eine glänzend-goldene Tasche. Wenn du sie in mindestens einer anderen Tasche tragen möchtest,
+wie viele verschiedene Taschenfarben würden für die äußerste Tasche infrage kommen?
+(Mit anderen Worten: Wie viele Farben kann ein glänzend-goldener Beutel enthalten?)
+
+Nach den oben genannten Regeln hättest du folgende Möglichkeiten:
+
+ - Eine weiße Tasche, in die du direkt deine glänzend-goldene Tasche legen kannst.
+ - Eine matt-gelbe Tasche, die direkt deine glänzend-goldene Tasche aufnehmen kann, sowie einige andere Taschen.
+ - Eine dunkel-orangefarbene Tasche, in die die weißen und die matt-gelben Taschen passen,
+    in jede dieser Taschen könnte dann die glänzend-goldene Tasche passen.
+ - Ein hell-roter Beutel, in den weiße und matt-gelbe Taschen passen,
+    in jede dieser Taschen könnte dann die glänzend-goldene Tasche passen.
+
+In diesem Beispiel ist also die Anzahl der Taschenfarben, die mindestens eine goldglänzende Tasche enthalten können 4.
+
+
+Wie viele Taschenfarben können letztendlich mindestens eine glänzend-goldene Tasche enthalten?
+(Die Liste der Regeln ist ziemlich lang; vergewissere dich, dass du alle Regeln kennst!).
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+Heutzutage ist das Fliegen ziemlich teuer geworden - nicht wegen der Ticketpreise,
+sondern wegen der lächerlichen Anzahl von Taschen, die man kaufen muss!
+
+
+Betrachte noch einmal deine glänzend-goldene Tasche und die Regeln aus dem obigen Beispiel:
+
+    Die blau-gestrichelten Taschen enthalten 0 andere Taschen.
+    Gepunktet-schwarze Taschen enthalten 0 andere Taschen.
+    Leuchtend-pflaumenfarene Taschen enthalten 11 andere Taschen:
+      5 blau-gestrichelte Taschen und 6 gepunktet-schwarze Taschen.
+    Dunkel-olivfarbene Taschen enthalten 7 andere Taschen: 3 blau-gestrichelte Taschen und 4 gepunktet-schwarze Taschen.
+
+Eine einzige glänzend-goldene Tasche muss also 1 dunkel-olivfarbenen Taschen (und die 7 Taschen darin) enthalten
+plus 2 Taschen in leuchtend-pflaumenfarbe (und die 11 Taschen in jedem dieser Taschen):
+1 + 1*7 + 2 + 2*11 = 32 Taschen!
+
+Natürlich besteht die Möglichkeit, dass die tatsächlichen Regeln mehrere Ebenen tiefer gehen als diesem Beispiel.
+Zähle auf jeden Fall alle Taschen, auch wenn die Verschachtelung topologisch unpraktisch wird!
+
+Hier ist ein weiteres Beispiel:
+
+    glänzend-goldene Taschen enthalten 2 dunkel-rote Taschen.
+    dunkel-rote Taschen enthalten 2 dunkel-orange Taschen.
+    dunkel-orange Taschen enthalten 2 dunkel-gelbe Taschen.
+    dunkel-gelbe Taschen enthalten 2 dunkel-grüne Taschen.
+    dunkel-grüne Taschen enthalten 2 dunkel-blaue Taschen.
+    dunkel-blaue Taschen enthalten 2 dunkel-violette Taschen.
+    dunkel-violette Taschen enthalten keine anderen Taschen.
+
+In diesem Beispiel muss eine einzelne glänzend-goldene Tasche 126 andere Taschen enthalten.
+
+
+Wie viele einzelne Taschen befinden sich in einer glänzend-goldene Tasche?

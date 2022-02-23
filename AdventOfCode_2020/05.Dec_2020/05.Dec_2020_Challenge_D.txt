@@ -1,0 +1,75 @@
+
+--- Tag 5: Binäres Boarding ---
+
+Du steigst in das Flugzeug und entdeckst ein neues Problem: Du hast deine Bordkarte verloren!
+Du bist dir nicht sicher, welcher Sitz deiner ist, und alle Flugbegleiter sind mit der Flut von Menschen,
+die es plötzlich durch die Passkontrolle geschafft haben.
+
+Du schreibst ein schnelles Programm, um mit der Kamera deines Handys alle Bordkarten in der Nähe zu scannen.
+Vielleicht kannst du deinen Sitzplatz durch ein Ausschlussverfahren finden.
+
+Anstelle von Zonen oder Gruppen verwendet diese Fluggesellschaft eine binäre Raumaufteilung für die Sitzplatzvergabe.
+Ein Sitzplatz könnte wie FBFBBFFRLR angegeben werden, wobei F für "vorne" steht, B für "hinten",
+L für "links" und R für "rechts" steht.
+
+Die ersten 7 Zeichen sind entweder F oder B,
+diese geben genau eine der 128 Reihen auf der Ebene (nummeriert von 0 bis 127).
+Jeder Buchstabe gibt an, in welcher Hälfte einer Region der Sitzplatz liegt.
+Beginne mit der gesamten Liste der Reihen! Der erste Buchstabe gibt an,
+ob der Sitz vorne (0 bis 63) oder hinten (64 bis 127) ist. Der nächste Buchstabe gibt an,
+in welcher Hälfte der Region sich der Sitzplatz befindet, und so weiter, bis du nur noch genau eine Reihe übrig hast.
+
+
+Betrachte zum Beispiel nur die ersten sieben Zeichen von FBFBBFFRLR:
+
+ - Betrachte zunächst den gesamten Bereich, also die Reihen 0 bis 127.
+ - F bedeutet, dass du die untere Hälfte nimmst und die Reihen 0 bis 63 erhalten bleiben.
+ - B bedeutet, dass die obere Hälfte genommen wird, wobei die Reihen 32 bis 63 erhalten bleiben.
+ - F bedeutet, dass die untere Hälfte genommen wird, wobei die Reihen 32 bis 47 erhalten bleiben.
+ - B bedeutet, die obere Hälfte zu nutzen und somit die Zeilen 40 bis 47 zu behalten.
+ - B behält die Zeilen 44 bis 47.
+ - F die Zeilen 44 bis 45.
+ - Das letzte F gibt schließlich die untere der beiden Reihen an: Reihe 44
+
+Die letzten drei Zeichen sind entweder L oder R. Diese geben genau eine der 8 Sitzreihen
+im Flugzeug an (nummeriert von 0 bis 7). Der gleiche Prozess wie oben wird erneut durchgeführt,
+dieses Mal mit nur drei Schritten. L bedeutet, die linke Hälfte zu behalten, während R bedeutet,
+die rechte Hälfte zu behalten.
+
+Betrachte zum Beispiel nur die letzten 3 Zeichen von FBFBBFFRLR:
+
+ - Betrachte zunächst den gesamten Bereich, also die Sitze 0 bis 7.
+ - R bedeutet, dass die rechte Hälfte genommen wird, womit die Sitze 4 bis 7 erhalten bleiben.
+ - L bedeutet, dass die linke Hälfte genommen wird, somit bleiben die Sitze 4 bis 5 erhalten.
+ - Das abschließende R behält die rechte der beiden übrigen Sitze: Sitz 5.
+
+Die Dekodierung von FBFBBFFRLR zeigt also, dass es sich um den Platz in Reihe 44, Sitz 5 handelt.
+
+Jeder Sitzplatz hat auch eine eindeutige Sitzplatz-ID: Multipliziere die Zeile mit 8 und addiere dann die Sitznummer!
+In diesem Beispiel hat der Sitzplatz die ID 44 * 8 + 5 = 357.
+
+Hier sind einige andere Bordkarten:
+
+ - BFFFBBFRRR: Reihe 70, Sitz 7, Sitzplatz-ID 567.
+ - FFFBBBFRRR: Reihe 14, Sitz 7, Sitzplatz-ID 119.
+ - BBFFBBFRLL: Reihe 102, Sitz 4, Sitzplatz-ID 820.
+
+
+
+Was ist die höchste Sitzplatz-ID auf einer Bordkarte?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Teil 2 ---
+
+Ding! Die "Anschnallen"-Schilder haben sich eingeschaltet. Zeit, deinen Sitzplatz zu finden.
+
+Der Flug ist komplett ausgebucht, also sollte dein Sitzplatz die einzige fehlende Bordkarte in deiner Liste sein.
+Allerdings gibt es einen Haken: Einige der Plätze ganz vorne und hinten im Flugzeug gibt es nicht,
+also fehlen sie auch auf deiner Liste.
+
+Dein Sitzplatz befand sich jedoch weder ganz vorne noch ganz hinten, die Plätze mit den IDs +1 und -1
+sind in deiner Liste enthalten.
+
+
+Wie lautet die ID deines Sitzes?

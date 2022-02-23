@@ -1,0 +1,179 @@
+
+--- Tag 19: Monsternachrichten ---
+
+Du landest auf einem Flughafen, der von dichtem Wald umgeben ist.
+Während du zu deinem Hochgeschwindigkeitszug gehst, kontaktieren dich die Elfen vom Mythical Information Bureau erneut.
+Sie glauben, dass ihr Satellit ein Bild von einem Seeungeheuer aufgenommen hat!
+Leider gibt es Probleme mit der Verbindung zum Satelliten, und viele der Nachrichten,
+die vom Satelliten zurückgeschickt wurden, sind beschädigt.
+
+Sie haben dir eine Liste mit den Regeln, die gültige Nachrichten befolgen sollten
+und eine Liste der empfangenen Nachrichten geschickt die sie bisher gesammelt haben (INPUT).
+Die Regeln für gültige Nachrichten (INPUT, oberer Teil) sind nummeriert und bauen aufeinander auf.
+
+Zum Beispiel:
+
+0: 1 2
+1: "a"
+2: 1 3 | 3 1
+3: "b"
+
+Einige Regeln, wie z. B. 3: "b", entsprechen nur einem einzigen Zeichen (in diesem Fall b).
+
+Die übrigen Regeln listen die Unterregeln auf, die befolgt werden müssen.
+Zum Beispiel bedeutet die Regel 0: 1 2, dass der zu prüfende Text mit Regel 1 übereinstimmen muss,
+um Regel 0 zu entsprechen, und der Text nach dem Teil, der mit Regel 1 übereinstimmt,
+muss dann mit Regel 2 übereinstimmen.
+
+Einige der Regeln haben mehrere Listen von Unterregeln, die durch eine Pipe (|) getrennt sind.
+Dies bedeutet, dass mindestens eine Liste von Unterregeln übereinstimmen muss.
+(Diejenigen, die übereinstimmen, können bei jedem Auftreten der Regel anders sein.)
+
+Die Regel 2: 1 3 | 3 1 bedeutet zum Beispiel, dass der zu prüfende Text mit Regel 2,
+der zu prüfende Text mit Regel 1 gefolgt von Regel 3 übereinstimmen muss
+oder mit Regel 3 gefolgt von Regel 1 übereinstimmen muss.
+
+Glücklicherweise gibt es keine Schleifen in den Regeln, sodass die Liste der möglichen Übereinstimmungen endlich ist.
+Da Regel 1 auf a und Regel 3 auf b passt, passt Regel 2 entweder auf ab oder ba. Daher passt Regel 0 auf aab oder aba.
+
+Hier ist ein interessanteres Beispiel:
+
+0: 4 1 5
+1: 2 3 | 3 2
+2: 4 4 | 5 5
+3: 4 5 | 5 4
+4: "a"
+5: "b"
+
+Da Regel 4 auf "a" und Regel 5 auf "b" passt, passt Regel 2 auf zwei gleiche Buchstaben (aa oder bb),
+und Regel 3 passt auf zwei unterschiedliche Buchstaben (ab oder ba).
+
+Da Regel 1 auf die Regeln 2 und 3 jeweils einmal in beliebiger Reihenfolge passt,
+muss sie auf zwei Buchstabenpaare passen, ein Paar mit übereinstimmenden Buchstaben
+und ein Paar mit unterschiedlichen Buchstaben. Damit bleiben acht Möglichkeiten:
+aaab, aaba, bbab, bbba, abaa, abbb, baaa, oder babb.
+
+Regel 0 entspricht also a (Regel 4), dann einer der acht Möglichkeiten aus Regel 1, dann b (Regel 5):
+aaaabb, aaabab, abbabb, abbbab, aabaab, aabbbb, abaaab, oder ababbb.
+
+Die empfangenen Nachrichten (INPUT, unterer Teil) müssen mit den Regeln verglichen werden,
+damit du feststellen kannst, welche gültig und welche fehlerhaft sind.
+Zusammen mit den Regeln und den Nachrichten könnte dies wie folgt aussehen:
+
+0: 4 1 5
+1: 2 3 | 3 2
+2: 4 4 | 5 5
+3: 4 5 | 5 4
+4: "a"
+5: "b"
+
+ababbb
+bababa
+abbbab
+aaabbb
+aaaabbb
+
+Dein Ziel ist es, die Anzahl der Nachrichten zu ermitteln, die vollständig der Regel 0 entsprechen.
+Im obigen Beispiel passen ababbb und abbbab, aber bababa, aaabbb und aaaabbb passen nicht,
+Das ergibt die Antwort 2. Die gesamte Nachricht muss mit der gesamten Regel 0 übereinstimmen.
+Die Nachricht darf keine zusätzlichen nicht übereinstimmenden Zeichen enthalten.
+(Zum Beispiel könnte aaaabbb mit der obigen Regel 0 übereinstimmen,
+aber sie hat ein zusätzliches nicht übereinstimmendes b am Ende).
+
+
+Wie viele Nachrichten entsprechen vollständig der Regel 0?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Teil 2 ---
+
+
+Wenn du dir die Liste der Nachrichten ansiehst, stellst du fest,
+dass deine Übereinstimmungsregeln nicht ganz richtig sind.
+Um sie zu korrigieren, ersetzt du die Regeln 8: 42 und 11: 42 31 vollständig durch die folgenden:
+
+8: 42 | 42 8
+11: 42 31 | 42 11 31
+
+Diese kleine Änderung hat eine große Wirkung: Die Regeln enthalten nun Schleifen,
+und die Liste der Nachrichten, denen sie hypothetisch entsprechen könnten, ist unendlich.
+du musst herausfinden, wie sich diese Änderungen darauf auswirken, welche Nachrichten gültig sind.
+
+Glücklicherweise sind viele der Regeln von dieser Änderung nicht betroffen.
+Es könnte hilfreich sein, sich zunächst anzuschauen,
+welche Regeln immer auf denselben Satz von Werten passen und wie diese Regeln
+(insbesondere die Regeln 42 und 31) von den neuen Versionen der Regeln 8 und 11 verwendet werden.
+
+(Denke daran, dass du nur die Regeln behandeln musst, die du hast! Die Entwicklung einer Lösung,
+die jede beliebige hypothetische Kombination von Regeln verarbeiten kann, wäre wesentlich schwieriger).
+
+Ein Beispiel:
+
+42: 9 14  | 10 1
+ 9: 14 27 | 1 26
+10: 23 14 | 28 1
+ 1: "a"
+11: 42 31
+ 5: 1 14  | 15 1
+19: 14 1  | 14 14
+12: 24 14 | 19 1
+16: 15 1  | 14 14
+31: 14 17 | 1 13
+ 6: 14 14 | 1 14
+ 2: 1 24  | 14 4
+ 0: 8 11
+13: 14 3  | 1 12
+15: 1     | 14
+17: 14 2  | 1 7
+23: 25 1  | 22 14
+28: 16 1
+ 4: 1 1
+20: 14 14 | 1 15
+ 3: 5 14  | 16 1
+27: 1 6   | 14 18
+14: "b"
+21: 14 1  | 1 14
+25: 1 1   | 1 14
+22: 14 14
+ 8: 42
+26: 14 22 | 1 20
+18: 15 15
+ 7: 14 5  | 1 21
+24: 14 1
+
+abbbbbbbabbbaaaabbaabbbbababbbabbbbbbbbabaaaa
+bbabbbbaabaabba
+babbbbaabbbbbabbbbbbaabaaabaaa
+aaabbbbbbbbaaaababaababbabbabbabbababababaaa
+bbbbbbbaaaabbbbaaabbabaaa
+bbbabbbbaaaaaaaabbababaaababaababab
+ababaaaaaabaaab
+ababaaaaabbbaba
+baabbaaaabbaaaabbaababb
+abbbbabbbbaaaabbbbbbbbaaaababb
+aaaaabbaabbaaaababaa
+aaaabbaaaabbaaa
+aaaabbaabbaaaaabbbabbbaaabbaabaaa
+babaaabbbaaabaabbaabbaababaaab
+aabbbbbaabbbaaaaaabbbbbabbaaaabbaabba
+
+Ohne die Aktualisierung der Regeln 8 und 11 entsprechen diese Regeln nur drei Nachrichten:
+bbabbbbaabaabba, ababaaaaaabaaab, und ababaaaaabbbaba.
+
+Nach der Aktualisierung der Regeln 8 und 11 stimmen jedoch insgesamt 12 Nachrichten überein:
+
+bbabbbbaabaabba
+babbbbaabbbbbabbbbbbaabaaabaaa
+aaabbbbbbbbaaaababaababbabbabababababaaa
+bbbbbbbaaaabbbbaaabbabaaa
+bbbabbbbaaaaaaaabbababaaababaababab
+ababaaaaaabaaab
+ababaaaaabbbaba
+baabbaaaabbaaaabbaababb
+abbbbabbbbaaaabbbbbbbbaaaababb
+aaaaabbaabbaaaababaa
+aaaabbaabbaaaaabbbabbaaabbaabaaa
+aabbbbbaabbbaaaaaabbbbbabbaaaabbaabba
+
+
+Wie viele Nachrichten entsprechen nach der Aktualisierung der Regeln 8 und 11 vollständig der Regel 0?

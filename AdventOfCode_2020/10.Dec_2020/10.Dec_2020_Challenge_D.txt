@@ -1,0 +1,182 @@
+
+--- Tag 10: Adapter Array ---
+
+An den Datenport des Flugzeugs angeschlossen,
+entdeckst du Wettervorhersagen über einen massiven tropischen Sturm.
+Bevor du herausfinden kannst, ob er deine Urlaubspläne beeinträchtigen wird, schaltet sich dein Gerät plötzlich aus!
+
+Der Akku ist leer.
+
+Du musst es wieder einstecken. Es gibt nur ein Problem:
+Die Ladesteckdose in der Nähe deines Sitzes erzeugt den falschen Spannungswert.
+Da du immer vorbereitet sind, machst du eine Liste mit allen Spannungsadaptern in deiner Tasche.
+
+Jeder deiner Spannungsadapter ist für eine bestimmte Ausgangsspannung ausgelegt (INPUT).
+Jeder Adapter kann eine Eingangsspannung annehmen,
+die 1, 2 oder 3 Volt niedriger ist als seine Nennspannung und trotzdem seine Nennausgangsspannung erzeugen.
+
+Darüber hinaus verfügt dein Gerät über einen eingebauten Spannungsadapter,
+der 3 Volt mehr aushält, als der Adapter mit dem höchsten Nennwert in deiner Tasche.
+Wenn deine Adapterliste 3, 9 und 6 wäre, würde der eingebaute Adapter deines Geräts für 12 Volt ausgelegt.)
+
+Betrachte die Ladesteckdose in der Nähe deines Sitzes als eine Steckdose mit einer effektiven Spannung von 0.
+
+Da du etwas Zeit hast, kannst du auch alle deine Adapter testen.
+Du möchtest ja nicht am Urlaubsort ankommen und feststellen, dass du dein Gerät nicht einmal aufladen kannst!
+
+Wie ist die Verteilung der Spannungsunterschiede zwischen der Ladestation,
+den Adaptern und deinem Gerät, wenn du alle Adapter in deiner Tasche gleichzeitig verwendest?
+
+
+Nehmen wir zum Beispiel an, dass du in deiner Tasche Adapter mit den folgenden Spannungswerten hast:
+
+    16
+    10
+    15
+    5
+    1
+    11
+    7
+    19
+    6
+    12
+    4
+
+Mit diesen Adaptern wäre der in deinem Gerät eingebaute Spannungsadapter für 19 + 3 = 22 Volt ausgelegt,
+also 3 mehr als der Adapter mit dem höchsten Nennwert.
+
+Adapter können nur an eine Quelle angeschlossen werden, die 1 bis 3 Volt niedriger ist als die Nennspannung.
+Um alle Adapter zu verwenden, musst du sie so auswählen:
+
+ - Die Ladesteckdose hat einen effektiven Nennwert von 0 Volt, sodass die einzigen Adapter,
+    die direkt daran angeschlossen werden können, einen Spannungswert von
+    1, 2 oder 3 Volt haben. Von diesen Adaptern hast du nur einen, der für 1 Volt (Unterschied von 1).
+ - Von deinem Adapter mit 1 Volt Nennspannung ist die einzige Wahl der Adapter mit 4 Volt Nennspannung
+    (Unterschied von 3).
+ - Von dem Adapter mit 4 Volt sind die Adapter mit 5, 6 oder 7 Schocks eine gute Wahlmöglichkeiten.
+    Um jedoch keinen Adapter auszulassen, musst du den Adapter mit 5 Volt wählen (Differenz von 1).
+ - In ähnlicher Weise musst du als Nächstes den Adapter mit dem Wert 6 wählen
+    und dann den Adapter mit dem Wert 7 (mit einer Differenz von 1 und 1).
+ - Der einzige Adapter, der mit dem Adapter mit 7 Volt funktioniert, ist der Adapter mit
+    10 Volt (Differenz von 3).
+ - Ab 10 stehen 11 oder 12 zur Auswahl. Wähle 11 (Differenz von 1) und dann 12 (Unterschied von 1).
+ - Nach 12 gibt es nur noch einen gültigen Adapter mit einem Wert von 15 (Differenz von 3),
+    dann 16 (Unterschied von 1), dann 19 (Unterschied von 3).
+ - Schließlich ist der integrierte Adapter deines Geräts immer 3 höher als der höchsten Adapter,
+    sodass sein Wert 22 Volt beträgt (immer eine Differenz von 3).
+
+In diesem Beispiel gibt es bei Verwendung jedes Adapters 7 Unterschiede von 1 Volt
+und 5 Unterschiede von 3 Volt.
+
+Hier ist ein größeres Beispiel:
+
+    28
+    33
+    18
+    42
+    31
+    14
+    46
+    20
+    48
+    47
+    24
+    23
+    49
+    45
+    19
+    38
+    39
+    11
+    1
+    32
+    25
+    35
+    8
+    17
+    7
+    9
+    4
+    2
+    34
+    10
+    3
+
+In diesem größeren Beispiel gibt es in einer Kette, die alle Adapter verwendet, 22
+Unterschiede von 1 Volt und 10 Unterschiede von 3 Volt.
+
+Suche eine Kette, in der alle deine Adapter verwendet werden,
+um die Ladestation mit dem Adapter des Geräts verbindet
+und zähle die Spannungsunterschiede zwischen der Steckdose, den Adaptern und deinem Gerät.
+
+
+Wie hoch ist die Anzahl der 1-Volt-Unterschiede multipliziert mit der Anzahl der 3-Volt-Unterschiede?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Teil 2 ---
+
+Um festzustellen, ob du genügend Adapter hast, musst du herausfinden,
+wie viele verschiedene Möglichkeiten es gibt, sie anzuordnen.
+Jede Anordnung muss die Ladestation mit deinem Gerät verbinden.
+Die vorherigen Regeln darüber, wann Adapter erfolgreich angeschlossen werden können, gelten weiterhin.
+
+Das erste Beispiel oben (das mit 16, 10, 15 beginnt) unterstützt
+die folgenden Anordnungen:
+
+    (0), 1, 4, 5, 6, 7, 10, 11, 12, 15, 16, 19, (22)
+    (0), 1, 4, 5, 6, 7, 10, 12, 15, 16, 19, (22)
+    (0), 1, 4, 5, 7, 10, 11, 12, 15, 16, 19, (22)
+    (0), 1, 4, 5, 7, 10, 12, 15, 16, 19, (22)
+    (0), 1, 4, 6, 7, 10, 11, 12, 15, 16, 19, (22)
+    (0), 1, 4, 6, 7, 10, 12, 15, 16, 19, (22)
+    (0), 1, 4, 7, 10, 11, 12, 15, 16, 19, (22)
+    (0), 1, 4, 7, 10, 12, 15, 16, 19, (22)
+
+(Die Steckdose und der in deinem Gerät integrierte Adapter sind in Klammern angegeben).
+Mit den Adaptern aus dem ersten Beispiel ergibt sich eine Gesamtzahl von Anordnungen,
+die die Steckdose mit deinem Gerät verbinden, 8.
+
+Das zweite Beispiel oben (das, das mit 28, 33, 18 beginnt) hat
+viele Anordnungen. Hier sind einige davon:
+
+    (0), 1, 2, 3, 4, 7, 8, 9, 10, 11, 14, 17, 18, 19, 20, 23, 24, 25, 28, 31,
+    32, 33, 34, 35, 38, 39, 42, 45, 46, 47, 48, 49, (52)
+
+    (0), 1, 2, 3, 4, 7, 8, 9, 10, 11, 14, 17, 18, 19, 20, 23, 24, 25, 28, 31,
+    32, 33, 34, 35, 38, 39, 42, 45, 46, 47, 49, (52)
+
+    (0), 1, 2, 3, 4, 7, 8, 9, 10, 11, 14, 17, 18, 19, 20, 23, 24, 25, 28, 31,
+    32, 33, 34, 35, 38, 39, 42, 45, 46, 48, 49, (52)
+
+    (0), 1, 2, 3, 4, 7, 8, 9, 10, 11, 14, 17, 18, 19, 20, 23, 24, 25, 28, 31,
+    32, 33, 34, 35, 38, 39, 42, 45, 46, 49, (52)
+
+    (0), 1, 2, 3, 4, 7, 8, 9, 10, 11, 14, 17, 18, 19, 20, 23, 24, 25, 28, 31,
+    32, 33, 34, 35, 38, 39, 42, 45, 47, 48, 49, (52)
+
+    (0), 3, 4, 7, 10, 11, 14, 17, 20, 23, 25, 28, 31, 34, 35, 38, 39, 42, 45,
+    46, 48, 49, (52)
+
+    (0), 3, 4, 7, 10, 11, 14, 17, 20, 23, 25, 28, 31, 34, 35, 38, 39, 42, 45,
+    46, 49, (52)
+
+    (0), 3, 4, 7, 10, 11, 14, 17, 20, 23, 25, 28, 31, 34, 35, 38, 39, 42, 45,
+    47, 48, 49, (52)
+
+    (0), 3, 4, 7, 10, 11, 14, 17, 20, 23, 25, 28, 31, 34, 35, 38, 39, 42, 45,
+    47, 49, (52)
+
+    (0), 3, 4, 7, 10, 11, 14, 17, 20, 23, 25, 28, 31, 34, 35, 38, 39, 42, 45,
+    48, 49, (52)
+
+Insgesamt kann dieser Satz von Adaptern die Ladestation mit deinem Gerät verbinden
+in 19208 verschiedenen Anordnungen verbinden.
+
+Du schaust wieder auf deine Tasche und versuchst dich zu erinnern, warum du so viele Adapter mitgenommen hast.
+Es muss mehr als eine Billion gültige Möglichkeiten geben, sie anzuordnen!
+Es muss doch einen effizienten Weg geben, die Anordnungen zu zählen.
+
+
+Wie viele verschiedene Möglichkeiten gibt es, die Adapter so anzuordnen,
+dass sie um die Ladestation mit deinem Gerät zu verbinden?

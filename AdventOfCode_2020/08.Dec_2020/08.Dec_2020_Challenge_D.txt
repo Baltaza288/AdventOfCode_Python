@@ -1,0 +1,116 @@
+
+--- Tag 8: Handheld Stop ---
+
+Dein Flug erreicht die Reiseflughöhe ohne Zwischenfälle. Während du überlegst,
+ob du auf der Bordkarte nach einem der Getränke mit Schirmchen suchen sollst,
+wirst du von dem Kind neben dir unterbrochen.
+
+Seine Handheld-Spielkonsole lässt sich nicht einschalten! Das Kind fragt, ob du einen Blick darauf werfen könntest.
+
+Du grenzt das Problem auf eine seltsame Endlosschleife im Bootcode des Geräts ein (INPUT).
+Du solltest in der Lage sein, es zu beheben, aber zuerst musst du den Code isoliert auszuführen.
+
+Der Bootcode wird als Textdatei mit einer Anweisung pro Textzeile dargestellt.
+Jede Anweisung besteht aus einer Operation (acc, jmp, oder nop) und einem Argument
+(eine vorzeichenbehaftete Zahl wie +4 oder -20).
+
+ - acc erhöht oder verringert einen einzelnen globalen Wert, den sogenannten Akkumulator,
+    um den Wert der im Argument angegeben ist. Zum Beispiel würde acc +7 den Akkumulator um 7 erhöhen.
+    Der Akkumulator beginnt bei 0. Nach einer acc-Anweisung wird die unmittelbar folgende Anweisung ausgeführt.
+ - jmp springt zu einer neuen Anweisung relativ zu sich selbst.
+    Die nächste auszuführende Anweisung wird unter Verwendung des Arguments als Offset von der jmp-Anweisung gefunden
+    z.B. jmp +2 würde die nächste Anweisung überspringen, jmp +1 erreicht die nächste Anweisung
+    und jmp -20 würde dazu führen, dass die Anweisung 20 Zeilen weiter oben ausgeführt wird.
+ - nop steht für No OPeration - es tut nichts. Die Anweisung unmittelbar darunter wird als nächstes ausgeführt.
+
+
+Betrachte zum Beispiel das folgende Programm:
+
+    nop +0
+    acc +1
+    jmp +4
+    acc +3
+    jmp -3
+    acc -99
+    acc +1
+    jmp -4
+    acc +6
+
+Diese Anweisungen werden in dieser Reihenfolge besucht:
+
+    nop +0 | 1
+    acc +1 | 2, 8(!)
+    jmp +4 | 3
+    acc +3 | 6
+    jmp -3 | 7
+    acc -99 |
+    acc +1 | 4
+    jmp -4 | 5
+    acc +6 |
+
+Zunächst bewirkt das nop +0 nichts. Dann wird der Akkumulator von 0 auf 1 erhöht
+(acc +1) und jmp +4 setzt die nächste Anweisung auf einen anderen acc +1 am unteren Ende.
+Nachdem der Akkumulator von 1 auf 2 erhöht wurde, wird jmp -4 ausgeführt
+und die nächste Anweisung auf den einzigen Akkumulator +3 gesetzt.
+Der Akkumulator wird auf 5 gesetzt, und jmp -3 veranlasst das Programm wieder bei der ersten Akkumulation +1 beginnt.
+
+Dies ist eine Endlosschleife: Mit dieser Abfolge von Sprüngen wird das Programm ewig laufen.
+In dem Moment, in dem das Programm versucht, eine Anweisung ein zweites Mal auszuführen, weißt du,
+dass es niemals enden wird.
+
+Unmittelbar bevor das Programm eine Anweisung ein zweites Mal ausführen würde,
+ist der Wert im Akkumulator 5.
+
+Führe deine Kopie des Boot-Codes aus!
+Welchen Wert hat der Akkumulator unmittelbar bevor eine Anweisung ein zweites Mal ausgeführt wird?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+Nach einer sorgfältigen Analyse bist du der Meinung, dass genau eine Anweisung fehlerhaft ist.
+
+Irgendwo im Programm sollte entweder ein jmp ein nop sein, oder ein nop sollte ein jmp sein.
+Bei der Beschädigung dieses Boot-Codes wurden keine acc-Anweisungen beschädigt.
+
+Das Programm soll beendet werden, indem es versucht,
+eine Anweisung unmittelbar nach der letzten Anweisung in der Datei auszuführen.
+Wenn du genau einen jmp oder nop änderst, könntest du den Bootcode reparieren und dafür sorgen,
+dass er korrekt beendet wird.
+
+Betrachte zum Beispiel das gleiche Programm wie oben:
+
+    nop +0
+    acc +1
+    jmp +4
+    acc +3
+    jmp -3
+    acc -99
+    acc +1
+    jmp -4
+    acc +6
+
+Wenn du die erste Anweisung von nop +0 in jmp +0 änderst,
+würde dies zu einer Endlosschleife mit nur einer Anweisung, die diese Anweisung nie verlässt.
+
+Wenn du jedoch die vorletzte Anweisung änderst (von jmp -4 zu nop -4), wird das Programm beendet!
+Die Anweisungen werden in dieser Reihenfolge besucht:
+
+    nop +0 | 1
+    acc +1 | 2
+    jmp +4 | 3
+    acc +3 |
+    jmp -3 |
+    acc -99 |
+    acc +1 | 4
+    nop -4 | 5
+    acc +6 | 6
+
+Nach der letzten Anweisung (acc +6) endet das Programm, indem es versucht,
+die Anweisung unterhalb der letzten Anweisung in der Datei auszuführen.
+Mit dieser Änderung enthält der Akkumulator nach der Beendigung des Programms den Wert 8 (acc +1, acc +1, acc +6).
+
+Repariere das Programm so, dass es normal beendet wird, indem du genau einen jmp (zu nop) oder nop (zu jmp) änderst!
+
+
+Welchen Wert hat der Akkumulator nach Beendigung des Programms?

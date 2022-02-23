@@ -1,0 +1,93 @@
+
+--- Tag 3: Rodelflugbahn ---
+
+Nachdem die Probleme mit dem Rodel-Login gelöst sind, machst du dich auf den Weg zum Flughafen.
+Die Reise mit dem Schlitten ist zwar einfach, aber nicht sicher: Die Lenkung ist sehr eingeschränkt und
+die Gegend ist mit Bäumen bewachsen. Du musst herausfinden, welche Strecke die wenigsten Bäume besitzt.
+
+Aufgrund der örtlichen Geologie wachsen die Bäume in diesem Gebiet nur an ganzzahligen Koordinaten
+in einem Raster. Du erstellst eine Karte (INPUT) mit den offenen Quadraten (.) und Bäumen (#) die du sehen kannst.
+
+
+Zum Beispiel:
+
+    ..##.......
+    #...#...#..
+    .#....#..#.
+    ..#.#...#.#
+    .#...##..#.
+    ..#.##.....
+    .#.#.#....#
+    .#........#
+    #.##...#...
+    #...##....#
+    .#..#...#.#
+
+Das sind aber nicht die einzigen Bäume.
+In einem Bericht über die Genetik von Bäumen und Stabilität von Biomen hast du gelesen,
+dass sich das gleiche Muster auf der rechten Seite unendlich oft wiederholt:
+
+    ..##.........##.........##.........##.........##.........##.......  --->
+    #...#...#..#...#...#..#...#...#..#...#...#..#...#...#..#...#...#..
+    .#....#..#..#....#..#..#....#..#..#....#..#..#....#..#..#....#..#.
+    ..#.#...#.#..#.#...#.#..#.#...#.#..#.#...#.#..#.#...#.#..#.#...#.#
+    .#...##..#..#...##..#..#...##..#..#...##..#..#...##..#..#...##..#.
+    ..#.##.......#.##.......#.##.......#.##.......#.##.......#.##.....  --->
+    .#.#.#....#.#.#.#....#.#.#.#....#.#.#.#....#.#.#.#....#.#.#.#....#
+    .#........#.#........#.#........#.#........#.#........#.#........#
+    #.##...#...#.##...#...#.##...#...#.##...#...#.##...#...#.##...#...
+    #...##....##...##....##...##....##...##....##...##....##...##....#
+    .#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.#.#..#...#.# --->
+
+Du beginnst auf dem offenen Quadrat (.) in der oberen linken Ecke und musst die untere Reihe erreichen.
+
+Der Schlitten kann nur einigen bestimmten Gefällen folgen (du hast dich für ein billigeres Modell entschieden,
+das rationale Zahlen bevorzugt).
+Beginne damit, alle Bäume zu zählen, denen du begegnen würdest, wenn du immer 3 nach rechts und 1 nach unten fährst:
+
+Von deiner Ausgangsposition oben links überprüfst du die Position, die rechts 3 und unten 1 ist.
+Überprüfe dann die Position, die von dort aus rechts 3 und unten 1 ist, und so weiter,
+bis du die unterste Reihe der Karte erreichst.
+
+Die Stellen, die du im obigen Beispiel überprüfen würdest, sind hier mit O markiert, wenn es ein
+offener Platz und X, wo ein Baum stand:
+
+    ..##.........##.........##.........##.........##.........##.......  --->
+    #..O#...#..#...#...#..#...#...#..#...#...#..#...#...#..#...#...#..
+    .#....X..#..#....#..#..#....#..#..#....#..#..#....#..#..#....#..#.
+    ..#.#...#O#..#.#...#.#..#.#...#.#..#.#...#.#..#.#...#.#..#.#...#.#
+    .#...##..#..X...##..#..#...##..#..#...##..#..#...##..#..#...##..#.
+    ..#.##.......#.X#.......#.##.......#.##.......#.##.......#.##.....  --->
+    .#.#.#....#.#.#.#.O..#.#.#.#....#.#.#.#....#.#.#.#....#.#.#.#....#
+    .#........#.#........X.#........#.#........#.#........#.#........#
+    #.##...#...#.##...#...#.X#...#...#.##...#...#.##...#...#.##...#...
+    #...##....##...##....##...#X....##...##....##...##....##...##....#
+    .#..#...#.#.#..#...#.#.#..#...X.#.#..#...#.#.#..#...#.#.#..#...#.# --->
+
+In diesem Beispiel würdest du beim Durchqueren der Karte mit dieser Neigung auf 7 Bäume treffen.
+
+
+Wenn du in der linken oberen Ecke der Karte beginnst und einer Neigung von rechts 3
+und 1 nach unten, auf wie viele Bäume würdest du treffen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+Es ist an der Zeit, den Rest der Hänge zu überprüfen - du musst die Wahrscheinlichkeit eines plötzlichen
+Baumstopps minimieren.
+
+Bestimme die Anzahl der Bäume, auf die du treffen würdest, wenn du an jedem der folgenden Hänge,
+an der linken oberen Ecke beginnst und die Karte bis zum Boden durchläufst:
+
+ - Rechts 1, unten 1.
+ - Rechts 3, abwärts 1. (Dies ist der Hang, den du bereits überprüft hast.)
+ - Rechts 5, abwärts 1.
+ - Rechts 7, abwärts 1.
+ - Rechts 1, abwärts 2.
+
+Im obigen Beispiel würden diese Steigungen jeweils 2, 7, 3, 4 und 2 Bäume ergeben.
+Zusammen multipliziert ergeben sie die Antwort 336.
+
+
+Welches Ergebnis erhältst du, wenn du die Anzahl der Bäume an den einzelnen Hängen miteinander multiplizieren?

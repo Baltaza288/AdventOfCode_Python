@@ -1,0 +1,83 @@
+
+--- Tag 18: Operation Ordnung ---
+
+Du schaust aus dem Fenster und siehst, wie ein stark bewaldeter Kontinent langsam am Horizont auftaucht,
+du wirst von dem Kind unterbrochen, das neben dir sitzt.
+Es ist neugierig, ob du ihm bei seinen Mathe-Hausaufgaben helfen kannst.
+
+Leider scheint es so, als ob diese "Mathematik" anderen Regeln folgt, als die, die du kennst.
+
+Die Hausaufgaben (INPUT) bestehen aus einer Reihe von Ausdrücken, die sich aus Addition (+),
+Multiplikation (*), und Klammern ((...)) bestehen. Genau wie in der normalen Mathematik,
+zeigen Klammern an, dass erst der Ausdruck in der Klammer ausgewertet werden muss,
+bevor er von dem umgebenden Ausdruck verwendet werden kann.
+Bei der Addition wird immer noch die Summe der Zahlen auf beiden Seiten des Operators ermittelt,
+und bei der Multiplikation wird immer noch das Produkt ermittelt.
+
+Allerdings haben sich die Regeln für den Vorrang der Operatoren geändert.
+Anstatt die Multiplikation vor der Addition auszuwerten,
+haben die Operatoren den gleichen Vorrang und werden von links nach rechts ausgewertet,
+unabhängig von der Reihenfolge, in der sie erscheinen.
+
+Die Schritte zur Auswertung des Ausdrucks 1 + 2 * 3 + 4 * 5 + 6 lauten zum Beispiel wie folgt:
+
+1 + 2 * 3 + 4 * 5 + 6
+    3 * 3 + 4 * 5 + 6
+        9 + 4 * 5 + 6
+           13 * 5 + 6
+               65 + 6
+                   71
+
+Klammern können diese Reihenfolge außer Kraft setzen.
+Vorheriges Beispiel mit Klammern: 1 + (2 * 3) + (4 * (5 + 6)):
+
+1 + (2 * 3) + (4 * (5 + 6))
+1 +       6 + (4 * (5 + 6))
+          7 + (4 * (5 + 6))
+          7 + (4 * 11 )
+          7 + 44
+              51
+
+Hier noch ein paar weitere Beispiele:
+
+2 * 3 + (4 * 5) ergibt 26.
+5 + (8 * 3 + 9 + 3 * 4 * 3) ergibt 437.
+5 * 9 * (7 * 3 * 3 + 9 * 3 + (8 + 6 * 4)) ergibt 12240.
+((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2 ergibt 13632.
+
+Bevor du bei der Hausaufgabe helfen kannst, musst du sie selbst verstehen.
+Werte den Ausdruck in jeder Zeile der Hausaufgabe aus!
+
+
+Was ist die Summe der resultierenden Werte?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+
+Es gelingt dir, die Fragen des Kindes zu beantworten, und es beendet Teil 1 der Hausaufgabe.
+Als du zum nächsten Teil gerätst, kommst du nicht weiter: Mathe für Fortgeschrittene
+
+Nun haben Addition und Multiplikation unterschiedliche Prioritätsstufen, aber es sind nicht die, die du kennst.
+Stattdessen wird die Addition vor der Multiplikation ausgewertet.
+
+Die Schritte zur Auswertung des Ausdrucks 1 + 2 * 3 + 4 * 5 + 6 lauten jetzt zum Beispiel wie folgt:
+
+1 + 2 * 3 + 4 * 5 + 6
+    3 * 3 + 4 * 5 + 6
+        3 * 7 * 5 + 6
+        3 * 7 * 11
+           21 * 11
+               231
+
+Hier sind die anderen Beispiele von oben:
+
+1 + (2 * 3) + (4 * (5 + 6)) ergibt immer noch 51.
+2 * 3 + (4 * 5) ergibt 46.
+5 + (8 * 3 + 9 + 3 * 4 * 3) ergibt 1445.
+5 * 9 * (7 * 3 * 3 + 9 * 3 + (8 + 6 * 4)) ergibt 669060.
+((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2 ergibt 23340.
+
+
+Was erhältst du, wenn du die Ergebnisse der Auswertung der Hausaufgaben mit diesen neuen Regeln berechnest?

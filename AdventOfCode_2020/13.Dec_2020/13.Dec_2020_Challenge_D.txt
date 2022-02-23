@@ -1,0 +1,148 @@
+
+--- Tag 13: Shuttle-Suche ---
+
+Deine Fähre schafft es sicher zu einem nahe gelegenen Hafen, aber sie kommt nicht viel weiter.
+Als du anrufst, um ein anderes Schiff zu buchen, stellst du fest,
+dass von diesem Hafen aus keine Schiffe zu deiner Urlaubsinsel ablegen.
+Du musst vom Hafen zum nächstgelegenen Flughafen gelangen.
+
+Zum Glück gibt es einen Shuttlebus-Service, der dich vom Hafen zum Flughafen bringt.
+Jeder Bus hat eine ID-Nummer, die auch angibt, wie oft der Bus zum Flughafen fährt.
+
+Die Busfahrpläne werden auf der Grundlage eines Zeitstempels festgelegt, der die Anzahl der Minuten angibt,
+die seit einem festen Referenzpunkt in der Vergangenheit vergangen sind.
+Beim Zeitstempel 0 sind alle Busse gleichzeitig vom Seehafen abgefahren.
+Danach fährt jeder Bus zum Flughafen,
+dann zu verschiedenen anderen Orten und kehrt schließlich zum Seehafen zurück,
+um seine Reise für immer zu wiederholen.
+
+Die Zeit, die ein bestimmter Bus für diese Schleife benötigt, ist auch seine ID-Nummer:
+Der Bus mit der ID 5 verlässt den Hafen zu den Zeitpunkten 0, 5, 10, 15 usw.
+Der Bus mit der ID 11 fährt um 0, 11, 22, 33 usw. ab.
+Wenn du dort bist, wenn der Bus abfährt, kannst du mit diesem Bus zum Flughafen fahren!
+
+Deine Notizen (INPUT) bestehen aus zwei Zeilen.
+Die erste Zeile ist deine Schätzung des frühesten Zeitpunkts, zu dem du mit dem Bus abfahren könntest.
+Die zweite Zeile listet die Bus-IDs auf, die nach Angaben des Shuttle-Unternehmens in Betrieb sind.
+Einträge mit dem Zeichen x sind außer Betrieb, also ignorierst du sie.
+
+Um nach deiner Ankunft Zeit zu sparen, versuchst du herauszufinden,
+welchen Bus du am frühesten zum Flughafen nehmen kannst. (Es wird nur genau einen solchen Bus geben.)
+
+Angenommen, du hast die folgenden Notizen:
+
+939
+7,13,x,x,59,x,31,19
+
+In diesem Fall ist der früheste Zeitstempel,
+zu dem du abfahren könntest 939 und die in Betrieb befindlichen Bus-IDs sind 7, 13, 59, 31 und 19.
+In der Nähe des Zeitstempels 939 fahren diese Bus-IDs zu den mit D gekennzeichneten Zeiten ab:
+
+Zeit   Bus7   Bus13  Bus59  Bus31  Bus19
+929      .       .       .       .       .
+930      .       .       .       D       .
+931      D       .       .       .       D
+932      .       .       .       .       .
+933      .       .       .       .       .
+934      .       .       .       .       .
+935      .       .       .       .       .
+936      .       D       .       .       .
+937      .       .       .       .       .
+938      D       .       .       .       .
+939      .       .       .       .       .
+940      .       .       .       .       .
+941      .       .       .       .       .
+942      .       .       .       .       .
+943      .       .       .       .       .
+944      .       .       D       .       .
+945      D       .       .       .       .
+946      .       .       .       .       .
+947      .       .       .       .       .
+948      .       .       .       .       .
+949      .       D       .       .       .
+
+Der früheste Bus, den du nehmen könntest, ist der Bus ID 59.
+Er fährt erst zum Zeitstempel 944 ab, du musst also 944 - 939 = 5 Minuten warten, bevor er abfährt.
+Multipliziert man die Bus-ID mit der Anzahl der Minuten, die man warten müsste, erhält man 295.
+
+
+Wie lautet die ID des frühesten Busses, den du zum Flughafen nehmen kannst,
+multipliziert mit der Anzahl der Minuten, die du auf diesen Bus warten musst?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Teil 2 ---
+
+Das Shuttle-Unternehmen veranstaltet ein Gewinnspiel:
+Eine Goldmünze für jeden, der den frühesten Zeitstempel findet, sodass die erste Bus-ID
+zu dieser Zeit abfährt und jede weitere aufgelistete Bus-ID zu der darauf folgenden Minute abfährt.
+(Die erste Zeile in deiner Rätsel-Eingabe ist nicht mehr relevant.)
+
+Angenommen, du hast die gleiche Liste von Bus-IDs wie oben:
+
+7,13,x,x,59,x,31,19
+
+Ein x im Fahrplan bedeutet, dass es keine Einschränkungen für die Bus-IDs gibt, die zu dieser Zeit abfahren müssen.
+
+Das bedeutet, dass du nach dem frühesten Zeitstempel (genannt t) suchst:
+
+Bus-ID 7 fährt zum Zeitpunkt t ab.
+Bus-ID 13 fährt eine Minute nach dem Zeitstempel t ab.
+Es gibt keine Anforderungen oder Einschränkungen für Abfahrten zwei oder drei Minuten nach dem Zeitstempel t.
+Bus ID 59 fährt vier Minuten nach dem Zeitstempel t ab.
+Es gibt keine Anforderungen oder Einschränkungen für Abfahrten fünf Minuten nach dem Zeitstempel t.
+Die Buslinie ID 31 fährt sechs Minuten nach dem Zeitstempel t ab.
+Bus ID 19 fährt sieben Minuten nach dem Zeitstempel t ab.
+
+Die einzigen Busabfahrten, die von Bedeutung sind, sind die aufgelisteten Bus-IDs mit ihren spezifischen Offsets von t.
+Diese Bus-IDs können zu anderen Zeiten abfahren, und andere Bus-IDs können zu diesen Zeiten abfahren.
+In der obigen Liste zum Beispiel muss die Bus-ID 19 sieben Minuten nach dem Zeitstempel abfahren,
+zu dem die Bus-ID 7 abfährt, fährt die Bus-ID 7 immer auch ab mit der Bus-ID 19 sieben Minuten nach dem Zeitstempel t.
+
+In diesem Beispiel ist der früheste Zeitstempel, zu dem dies geschieht, 1068781:
+
+Zeit Bus 7 Bus 13 Bus 59 Bus 31 Bus 19
+1068773 . . . . .
+1068774 D . . . .
+1068775 . . . . .
+1068776 . . . . .
+1068777 . . . . .
+1068778 . . . . .
+1068779 .       . . . .
+1068780 .       . . . .
+1068781 D . . . .
+1068782 .       D . . .
+1068783 . . . . .
+1068784 . . . . .
+1068785 .       .       D . .
+1068786 . . . . .
+1068787 . . .       D .
+1068788 D . . .       D
+1068789 .       . . . .
+1068790 . . . . .
+1068791 . . . . .
+1068792 . . . . .
+1068793 . . . . .
+1068794 . . . . .
+1068795 D D . . .
+1068796 . . . . .
+1068797 . . . . .
+
+Im obigen Beispiel fährt die Busnummer 7 zum Zeitpunkt 1068788 (sieben Minuten nach t) ab.
+Das ist in Ordnung. Die einzige Anforderung an diese Minute ist,
+dass die Buslinie 19 zu diesem Zeitpunkt abfährt, und das tut sie.
+
+Hier sind einige weitere Beispiele:
+
+Der früheste Zeitstempel, der mit der Liste 17,x,13,19 übereinstimmt, ist 3417.
+67,7,59,61 tritt zum ersten Mal beim Zeitstempel 754018 auf.
+67,x,7,59,61 tritt zum ersten Mal beim Zeitstempel 779210 auf.
+67,7,x,59,61 tritt zum ersten Mal beim Zeitstempel 1261476 auf.
+1789,37,47,1889 tritt zum ersten Mal beim Zeitstempel 1202161486 auf.
+
+Aber bei so vielen Bus-IDs in deiner Liste wird der tatsächliche früheste Zeitstempel
+sicherlich größer als 100000000000000 sein!
+
+
+Was ist der früheste Zeitstempel, bei dem alle aufgelisteten Bus-IDs
+zu Zeitpunkten abfahren, die mit ihren Positionen in der Liste übereinstimmen?

@@ -1,0 +1,122 @@
+
+--- Tag 14: Andockdaten ---
+
+Als sich die Fähre dem Hafen nähert, bittet der Kapitän erneut um deine Hilfe.
+Das Computersystem, das diesen Hafen steuert, ist nicht mit dem Andockprogramm auf der Fähre kompatibel,
+daher werden die Andockparameter im Speicher des Andockprogramms nicht korrekt initialisiert.
+
+Nach einer kurzen Untersuchung stellst du fest, dass das Computersystem des Seehafens
+ein seltsames Bitmaskensystem in seinem Initialisierungsprogramm verwendet.
+Obwohl du den richtigen Decoderchip nicht zur Hand hast, kannst du ihn in Software emulieren!
+
+Das Initialisierungsprogramm (INPUT) kann entweder die Bitmaske aktualisieren oder einen Wert in den Speicher schreiben.
+Werte und Speicheradressen sind beide 36-Bit-Ganzzahlen ohne Vorzeichen.
+Ein Beispiel: Ignoriere die Bitmasken für einen Moment!
+Eine Zeile wie mem[8] = 11 würde den Wert 11 an die Speicheradresse 8 schreiben.
+
+Die Bitmaske wird immer als eine Folge von 36 Bits angegeben, wobei das höchstwertige Bit (das 2^35 entspricht)
+auf der linken Seite und dem niederwertigsten Bit (2^0, d. h. dem 1s-Bit) auf der rechten Seite.
+Die aktuelle Bitmaske wird auf Werte angewendet, unmittelbar bevor sie in den Speicher geschrieben werden:
+Eine 0 oder 1 überschreibt das entsprechende Bit des Wertes, während ein X das Bit des Wertes unverändert lässt.
+
+Betrachten wir zum Beispiel das folgende Programm:
+
+mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X
+mem[8] = 11
+mem[7] = 101
+mem[8] = 0
+
+Dieses Programm beginnt mit der Angabe einer Bitmaske (mask = ....).
+Die angegebene Maske überschreibt zwei Bits in jedem geschriebenen Wert:
+Das 2te-Bit wird mit 0 überschrieben, und das 64te-Bit wird mit 1 überschrieben.
+Das Programm versucht dann, den Wert 11 an die Speicheradresse 8 zu schreiben.
+
+Indem es alles auf einzelne Bits ausdehnt, wird die Maske wie folgt angewendet:
+
+Wert:     000000000000000000000000000000001011 (dezimal 11)
+Maske:    XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X
+Ergebnis: 000000000000000000000000000001001001 (dezimal 73)
+Aufgrund der Maske wird also der Wert 73 an die Speicheradresse 8 geschrieben.
+
+Dann versucht das Programm, 101 an die Adresse 7 zu schreiben:
+
+Wert:     000000000000000000000000000001100101 (dezimal 101)
+Maske:    XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X
+Ergebnis: 000000000000000000000000000001100101 (dezimal 101)
+Diesmal hat die Maske keine Wirkung, da die Bits, die sie überschrieben hat,
+bereits die Werte waren, die die Maske zu setzen versuchte.
+
+Schließlich versucht das Programm, 0 an Adresse 8 zu schreiben:
+
+Wert:     000000000000000000000000000000000000 (dezimal 0)
+Maske:    XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X
+Ergebnis: 000000000000000000000000000001000000 (dezimal 64)
+64 wird stattdessen an Adresse 8 geschrieben und überschreibt den Wert, der vorher dort stand.
+
+Um das Andockprogramm deiner Fähre zu initialisieren, benötigst du die Summe aller Werte,
+die sich nach Abschluss des Initialisierungsprogramms im Speicher befinden.
+Der gesamte 36-Bit-Adressraum beginnt an jeder Adresse mit dem Wert 0.
+Im obigen Beispiel sind nur zwei Werte im Speicher nicht Null -
+101 (an Adresse 7) und 64 (an Adresse 8) - was eine Summe von 165 ergibt.
+
+Führe das Initialisierungsprogramm aus.
+
+
+Wie hoch ist die Summe aller im Speicher verbliebenen Werte nach Beendigung des Programms?
+(Schneide die Summe nicht auf 36 Bits ab.)
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+
+Aus irgendeinem Grund kann das Computersystem des Seehafens
+immer noch nicht mit dem Anlegeprogramm deiner Fähre kommunizieren.
+Es muss die Version 2 des Decoder-Chips verwenden!
+
+Ein Decoder-Chip der Version 2 verändert die geschriebenen Werte überhaupt nicht.
+Stattdessen fungiert er als Decoder für die Speicheradresse.
+Unmittelbar bevor ein Wert in den Speicher geschrieben wird,
+ändert jedes Bit in der Bitmaske das entsprechende Bit der Zielspeicheradresse auf folgende Weise:
+
+Ist das Bit der Bitmaske gleich 0, bleibt das entsprechende Bit der Speicheradresse unverändert.
+Wenn das Bitmaskenbit 1 ist, wird das entsprechende Speicheradressbit mit 1 überschrieben.
+Wenn das Bitmaskenbit X ist, ist das entsprechende Speicheradressbit fließend.
+Ein Floating-Bit ist mit nichts verbunden und schwankt stattdessen unvorhersehbar.
+In der Praxis bedeutet dies, dass die Floating-Bits alle möglichen Werte annehmen können,
+was dazu führen kann, dass viele Speicheradressen auf einmal geschrieben werden!
+
+Betrachte zum Beispiel das folgende Programm:
+
+mask =  000000000000000000000000000000X1001X
+mem[42] = 100
+maske = 00000000000000000000000000000000X0XX
+mem[26] = 1
+
+Wenn dieses Programm auf die Speicheradresse 42 schreiben will, wendet es zunächst die Bitmaske an:
+
+Adresse: 000000000000000000000000000000101010 (dezimal 42)
+Maske:   000000000000000000000000000000X1001X
+result:  000000000000000000000000000000X1101X
+
+Nach Anwendung der Maske werden vier Bits überschrieben, von denen drei unterschiedlich sind und zwei fließend sind.
+Fließende Bits nehmen jede mögliche Kombination von Werten an.
+Bei zwei fließenden Bits werden vier tatsächliche Speicheradressen geschrieben:
+
+000000000000000000000000000000010000 (Dezimalzahl 16)
+000000000000000000000000000000010001 (Dezimalzahl 17)
+000000000000000000000000000000010010 (Dezimalwert 18)
+000000000000000000000000000000010011 (Dezimalwert 19)
+000000000000000000000000000000011000 (Dezimalzahl 24)
+000000000000000000000000000000011001 (Dezimalzahl 25)
+000000000000000000000000000000011010 (Dezimalzahl 26)
+000000000000000000000000000000011011 (dezimal 27)
+
+Der gesamte 36-Bit-Adressraum beginnt nach wie vor bei jeder Adresse mit dem Wert 0 initialisiert,
+und du benötigst immer noch die Summe aller Werte, die am Ende des Programms im Speicher verbleiben.
+In diesem Beispiel ist die Summe 208.
+
+Führe das Initialisierungsprogramm mit einem Emulator für einen Decoderchip der Version 2 aus.
+
+
+Wie hoch ist die Summe aller Werte, die nach Beendigung des Programms im Speicher verbleiben?

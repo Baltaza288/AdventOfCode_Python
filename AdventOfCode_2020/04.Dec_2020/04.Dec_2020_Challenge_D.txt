@@ -1,0 +1,149 @@
+
+--- Tag 4: Passbearbeitung ---
+
+Du kommst am Flughafen an und stellst fest,
+dass du deine North Pole Credentials statt deines Reisepasses mitgenommen hast.
+Obwohl diese Dokumente sehr ähnlich sind, werden Nordpol-Ausweise nicht von einem Land ausgestellt
+und sind daher in den meisten Ländern der Welt kein gültiges Reisedokument.
+
+Anscheinend bist du nicht der Einzige, der Probleme hat,
+denn es hat sich eine sehr lange Schlange vor den automatischen Pass-Scannern gebildet
+und die Verzögerung könnte deinen Reiseplan durcheinander bringen.
+Dank einer fragwürdigen Netzwerksicherheit kannst du vielleicht beide Probleme gleichzeitig lösen.
+
+Die automatischen Reisepass-Scanner sind langsam, weil sie Probleme haben zu erkennen,
+welche Pässe alle erforderlichen Felder enthalten.
+
+Die erwarteten Felder sind folgende:
+
+ - byr (Geburtsjahr)
+ - iyr (Ausstellungsjahr)
+ - eyr (Gültigkeitsjahr)
+ - hgt (Körpergröße)
+ - hcl (Haarfarbe)
+ - ecl (Augenfarbe)
+ - pid (Reisepass-ID)
+ - cid (Länderkennung)
+
+Die Passdaten werden in Batch-Dateien validiert (INPUT).
+Jeder Reisepass wird als eine Folge von Schlüssel dargestellt, die durch Leerzeichen oder Zeilenumbrüche getrennt sind.
+
+
+Hier ein Beispiel für eine Batch-Datei mit vier Pässen:
+
+    ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
+    byr:1937 iyr:2017 cid:147 hgt:183cm
+
+    iyr:2013 ecl:amb cid:350 eyr:2023 pid:028048884
+    hcl:#cfa07d byr:1929
+
+    hcl:#ae17e1 iyr:2013
+    eyr:2024
+    ecl:brn pid:760753108 byr:1931
+    hgt:179cm
+
+    hcl:#cfa07d eyr:2025 pid:166559648
+    iyr:2011 ecl:brn hgt:59in
+
+Der erste Reisepass ist gültig - alle acht Felder sind vorhanden.
+Der zweite Reisepass ist ungültig - es fehlt das Feld hgt (Körpergröße).
+
+Der dritte Pass ist interessant:
+Das einzige fehlende Feld ist cid,
+sodass es aussieht wie Daten von North Pole Credentials und nicht nach einem Reisepass!
+Sicherlich würde es niemanden stören, wenn du das System dazu bringst fehlende cid-Felder vorübergehend zu ignorieren.
+Behandle diesen "Reisepass" als gültig.
+
+Im vierten Reisepass fehlen zwei Felder, cid und byr. Das Fehlen der cid ist in Ordnung, aber das Fehlen eines anderen
+Feld ist nicht in Ordnung, also ist dieser Pass ungültig.
+
+Nach den oben genannten Regeln würde dein verbessertes System 2 gültige Pässe melden.
+
+
+Zähle die Anzahl der gültigen Pässe, d. h. derjenigen, die alle erforderlichen Felder enthalten!
+Behandle cid als optional!
+Wie viele Pässe sind in deiner Batch-Datei gültig?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Teil 2 ---
+
+Die Schlange bewegt sich jetzt schneller, aber du hörst zufällig,
+wie die Sicherheitskräfte am Flughafen darüber sprechen, dass Pässe mit ungültigen Daten durchkommen.
+Füge besser eine Datenüberprüfung hinzu, schnell!
+
+Du kannst das cid-Feld weiterhin ignorieren, aber für jedes andere Feld gibt es strenge Regeln darüber
+welche Werte für die automatische Validierung gültig sind:
+
+ - byr (Geburtsjahr) - vier Ziffern; mindestens 1920 und höchstens 2002.
+ - iyr (Ausgabejahr) - vier Ziffern; mindestens 2010 und höchstens 2020.
+ - eyr (Expiration Year) - vier Ziffern; mindestens 2020 und höchstens 2030.
+ - hgt (Höhe) - eine Zahl, gefolgt von cm oder in:
+ - Wenn cm, muss die Zahl mindestens 150 und höchstens 193 betragen.
+ - Wenn in, muss die Zahl mindestens 59 und darf höchstens 76 betragen.
+ - hcl (Haarfarbe) - ein #, gefolgt von genau sechs Zeichen 0-9 oder a-f.
+ - ecl (Augenfarbe) - genau eines von: amb blu brn gry grn hzl oth.
+ - pid (Passport ID) - eine neunstellige Zahl, einschließlich führender Nullen.
+ - cid (Länderkennung) - wird ignoriert, fehlt oder ist nicht vorhanden.
+
+Ihre Aufgabe ist es, die Pässe zu zählen, bei denen alle erforderlichen Felder vorhanden und gültig sind
+gemäß den oben genannten Regeln.
+
+Hier sind einige Beispielwerte:
+
+    byr gültig: 2002
+    byr ungültig: 2003
+
+    hgt gültig:   60in
+    hgt gültig:   190cm
+    Hgt ungültig: 190in
+    Hgt ungültig: 190
+
+    hcl gültig:   #123abc
+    hcl ungültig: #123abz
+    hcl ungültig: 123abc
+
+    ecl gültig: brn
+    ecl ungültig: wat
+
+    pid gültig:   000000001
+    pid ungültig: 0123456789
+
+Hier sind einige ungültige Pässe:
+
+    eyr:1972 cid:100
+    hcl:#18171d ecl:amb hgt:170 pid:186cm iyr:2018 byr:1926
+
+    iyr:2019
+    hcl:#602927 eyr:1967 hgt:170cm
+    ecl:grn pid:012533040 byr:1946
+
+    hcl:dab227 iyr:2012
+    ecl:brn hgt:182cm pid:021572410 eyr:2020 byr:1992 cid:277
+
+    hgt:59cm ecl:zzz
+    eyr:2038 hcl:74454a iyr:2023
+    pid:3556412378 byr:2007
+
+Hier sind einige gültige Pässe:
+
+    pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980
+    hcl:#623a2f
+
+    eyr:2029 ecl:blu cid:129 byr:1989
+    iyr:2014 pid:896056539 hcl:#a97842 hgt:165cm
+
+    hcl:#888785
+    hgt:164cm byr:2001 iyr:2015 cid:88
+    pid:545766238 ecl:hzl
+    eyr:2022
+
+    iyr:2010 hgt:158cm hcl:#b6652a
+    ecl:blu byr:1944 eyr:2021
+    pid:093154719
+
+Zähle die Anzahl der gültigen Pässe, d. h. der Pässe, die alle erforderlichen Felder mit gültigen Werten enthalten.
+Behandle cid weiterhin als optional.
+
+
+Wie viele Pässe in deiner Batch-Datei sind gültig?

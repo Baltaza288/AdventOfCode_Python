@@ -1,0 +1,132 @@
+
+--- Tag 23: Krabbenbecher ---
+
+Die kleine Krabbe fordert dich zu einem Spiel heraus!
+Die Krabbe wird ein paar Tassen durcheinander bringen, und du sollst vorhersagen, wo sie landen werden.
+
+Die Becher werden in einem Kreis angeordnet und im Uhrzeigersinn beschriftet (INPUT).
+Wenn deine Beschriftung zum Beispiel 32415 lautet, befinden sich fünf Becher im Kreis.
+Vom ersten Becher aus wird im Uhrzeigersinn um den Kreis herum gegangen,
+wären die Becher mit 3, 2, 4, 1, 5 und dann wieder mit 3 beschriftet.
+
+Bevor die Krabbe beginnt, wird sie den ersten Becher in deiner Liste als den aktuellen Becher bezeichnen.
+Die Krabbe wird dann 100 Züge machen.
+
+Bei jedem Zug führt die Krabbe die folgenden Aktionen aus:
+
+Die Krabbe nimmt die drei Becher auf, die sich unmittelbar im Uhrzeigersinn um den aktuellen Becher befinden.
+Sie werden aus dem Kreis entfernt. Der Abstand zwischen den Bechern wird nach Bedarf angepasst,
+um den Kreis zu erhalten. Die Krabbe wählt einen Zielbecher aus: den Becher mit einer Beschriftung,
+die gleich der Beschriftung des aktuellen Bechers minus eins ist. Wenn sie einen der Becher auswählen würde,
+der gerade aufgenommen wurde, subtrahiert die Krabbe so lange eine Zahl, bis sie einen Becher findet,
+der nicht gerade abgeholt wurde. Wenn zu irgendeinem Zeitpunkt dieses Prozesses der Wert
+unter den niedrigsten Wert auf dem Etikett eines Bechers fällt, wird der Wert auf den höchsten Wert umgeschlagen,
+geht sie stattdessen zum höchsten Wert auf dem Etikett eines Bechers über.
+Die Krabbe platziert die Becher, die sie gerade aufgenommen hat, so,
+dass sie sich unmittelbar im Uhrzeigersinn um den Zielbecher befinden.
+Sie behalten dabei die gleiche Reihenfolge wie beim Aufnehmen.
+Die Krabbe wählt einen neuen aktuellen Becher aus:
+den Becher, der sich unmittelbar im Uhrzeigersinn des aktuellen Bechers befindet.
+Nehmen wir zum Beispiel an, deine Becherbeschriftung wäre 389125467.
+Wenn die Krabbe nur 10 Züge machen würde, würden sich die folgenden Änderungen ergeben:
+
+-- Zug 1 --
+Becher: (3) 8 9 1 2 5 4 6 7
+aufheben: 8, 9, 1
+Ziel: 2
+
+-- Zug 2 --
+Becher: 3 (2) 8 9 1 5 4 6 7
+aufheben: 8, 9, 1
+Zielort: 7
+
+-- Zug 3 --
+Becher: 3 2 (5) 4 6 7 8 9 1
+aufheben: 4, 6, 7
+Ziel: 3
+
+-- bewegen 4 --
+Becher: 7 2 5 (8) 9 1 3 4 6
+aufheben: 9, 1, 3
+Ziel: 7
+
+-- Zug 5 --
+Becher: 3 2 5 8 (4) 6 7 9 1
+aufheben: 6, 7, 9
+Ziel: 3
+
+-- bewegen 6 --
+Becher: 9 2 5 8 4 (1) 3 6 7
+aufheben: 3, 6, 7
+Ziel: 9
+
+-- Zug 7 --
+Becher: 7 2 5 8 4 1 (9) 3 6
+aufheben: 3, 6, 7
+Ziel: 8
+
+-- Zug 8 --
+Becher: 8 3 6 7 4 1 9 (2) 5
+aufheben: 5, 8, 3
+Zielort: 1
+
+-- bewegen 9 --
+Becher: 7 4 1 5 8 3 9 2 (6)
+aufheben: 7, 4, 1
+Ziel: 5
+
+-- Zug 10 --
+Becher: (5) 7 4 1 8 3 9 2 6
+aufheben: 7, 4, 1
+Ziel: 3
+
+-- endgültig --
+Tassen: 5 (8) 3 7 4 1 9 2 6
+
+Im obigen Beispiel sind die Werte der Tassen die Bezeichnungen, wie sie im Uhrzeigersinn um den Kreis herum erscheinen.
+Der aktuelle Becher ist mit ( ) gekennzeichnet.
+
+In welcher Reihenfolge werden die Tassen stehen, nachdem die Krabbe fertig ist?
+Beginnend nach dem Becher mit der Bezeichnung 1,
+sammle die Etiketten der anderen Becher im Uhrzeigersinn zu einer einzigen Zeichenkette ohne zusätzliche Zeichen.
+Jede Zahl außer 1 sollte genau einmal vorkommen. Im obigen Beispiel sind nach 10 Zügen,
+die Becher im Uhrzeigersinn von 1 an mit 9, 2, 6, 5 und so weiter beschriftet, was 92658374 ergibt.
+Wenn die Krabbe alle 100 Züge absolvieren würde, wäre die Reihenfolge nach Becher 1 67384529.
+
+Simuliere mit Hilfe deiner Beschriftung 100 Züge.
+
+
+Wie lauten die Beschriftungen der Becher nach Becher 1?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+
+Du kannst nur vermuten, dass es sich um einen Übersetzungsfehler handelt,
+du sprichst nicht gerade fließend krabbisch und bist ziemlich überrascht,
+als die Krabbe anfängt, viele Becher in einem Kreis auf deinem Floß anzuordnen -
+insgesamt eine Million (1 000 000).
+
+Deine Beschriftung ist bei den ersten Bechern noch richtig.
+Danach, werden die restlichen Becher einfach aufsteigend nummeriert,
+beginnend mit der Nummer nach der höchsten Zahl in deiner Liste und fortlaufend bis eine Million erreicht ist.
+(Wäre deine Beschriftung zum Beispiel 54321, würden die Becher mit 5, 4, 3, 2, 1 nummeriert werden,
+und dann von 6 an hochzählen, bis eine Million erreicht ist).
+Auf diese Weise wird jede Zahl von eins bis eine Million genau einmal verwendet.
+
+Nachdem du herausgefunden hast, wo du den Fehler bei der Übersetzung der Krabbenzahlen gemacht hast,
+stellst du fest, dass die kleine Krabbe nicht nur 100 Züge machen wird, sondern zehn Millionen (10 000 000) Züge!
+
+Die Krabbe wird deine Sterne jeweils unter den beiden Bechern verstecken
+die sich unmittelbar im Uhrzeigersinn von Becher 1 befinden werden.
+Du kannst sie bekommen, wenn du vorhersagst,
+wie die Becher beschriftet sein werden, wenn die Krabbe fertig ist.
+
+Im obigen Beispiel (389125467) wäre das 934001 und dann 159792.
+Multipliziert man diese Zahlen miteinander, erhält man 149245887792.
+
+Bestimme, welche beiden Becher unmittelbar im Uhrzeigersinn von Becher 1 enden werden.
+
+
+Was erhältst du, wenn du ihre Etiketten miteinander multiplizierst?

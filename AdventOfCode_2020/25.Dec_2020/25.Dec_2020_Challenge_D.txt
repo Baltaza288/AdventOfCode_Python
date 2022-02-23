@@ -1,0 +1,96 @@
+
+--- Tag 25: Combo Breaker ---
+
+Endlich erreichst du den Check-in-Schalter. Leider sind die Registrierungssysteme derzeit offline,
+und sie können dich nicht einchecken. Als sie deinen Gesichtsausdruck bemerken, fügen sie schnell hinzu,
+dass der technische Support bereits auf dem Weg ist! Sie haben heute Morgen sogar alle Zimmerschlüssel erstellt.
+Sie können deinen Schlüssel jetzt mitnehmen und die Zimmerkaution hinterlegen,
+sobald das Registrierungssystem wieder online ist.
+
+Der Zimmerschlüssel ist eine kleine RFID-Karte. Dein Zimmer befindet sich im 25. Stock,
+allerdings sind die Aufzüge vorübergehend außer Betrieb,
+sodass du deine letzte Kraft aufwenden musst um überhaupt die Treppe hinaufzusteigen und durch die Flure zu gehen.
+Schließlich erreichst du die Tür zu deinem Zimmer. Du ziehst deine Karte durch und - piep - das Licht wird rot.
+
+Bei näherer Betrachtung der Karte entdeckst du eine Telefonnummer für den technischen Support.
+
+"Hallo! Wie können wir Ihnen helfen?" du erklärst die Situation.
+
+"Es scheint, dass die Karte nicht den richtigen Befehl zum Aufschließen der Tür sendet.
+Wenn Sie zurück zum Check-in-Schalter gehen, kann sie dort sicher jemand für Sie zurücksetzen."
+Während du noch nach Luft schnappst, beschreibst du den Zustand des Aufzugs und die genaue Anzahl der Treppen,
+die du gerade steigen musstest.
+
+"Aha! Nun, die einzige andere Möglichkeit wäre, den kryptografischen Handschlag zwischen der Karte und der Tür
+umzukehren und dann Ihre eigenen Befehle in den Datenstrom zu injizieren, aber das ist definitiv unmöglich."
+Du bedankst dich für ihre Zeit.
+
+Zum Leidwesen der Tür weißt du ein oder zwei Dinge über kryptografische Handshakes.
+
+Der von der Karte und der Tür verwendete Handshake beinhaltet eine Operation, die eine Subjektnummer umwandelt.
+Um eine Zahl umzuwandeln, beginnt man mit dem Wert 1. Anschließend wird mehrmals die Schleifengröße genannt,
+führe die folgenden Schritte aus:
+
+Setze den Wert auf sich selbst multipliziert mit der Subjektnummer.
+Setze den Wert auf den Rest nach der Teilung des Wertes durch 20201227.
+Die Karte verwendet immer eine bestimmte, geheime Schleifengröße, wenn sie eine Subjektnummer umwandelt.
+Die Tür verwendet immer eine andere, geheime Schleifengröße.
+
+Der kryptografische Handshake funktioniert folgendermaßen:
+
+Die Karte wandelt die Subjektnummer 7 gemäß der geheimen Schleifengröße der Karte um.
+Das Ergebnis wird als öffentlicher Schlüssel der Karte bezeichnet.
+Die Karte und die Tür verwenden das drahtlose RFID-Signal,
+um die beiden öffentlichen Schlüssel (INPUT) an das andere Gerät zu übertragen.
+Nun verfügt die Karte über den öffentlichen Schlüssel der Tür und die Tür über den öffentlichen Schlüssel der Karte.
+Da du das Signal abhören kannst, verfügst du über beide öffentlichen Schlüssel,
+aber nicht über die Schleifengröße des Geräts.
+Die Karte wandelt die Subjektnummer des öffentlichen Schlüssels der Tür entsprechend der Schleifengröße der Karte um.
+Das Ergebnis ist der Chiffrierschlüssel.
+Die Tür wandelt die Subjektnummer des öffentlichen Schlüssels der Karte entsprechend der Schleifengröße der Tür um.
+Das Ergebnis ist derselbe Chiffrierschlüssel, den die Karte berechnet hat.
+Wenn du beide öffentlichen Schlüssel verwendest, um die Schleifengröße jedes Geräts zu bestimmen,
+hast du genug Informationen, um den geheimen Chiffrierschlüssel zu berechnen,
+den die Karte und die Tür zur Kommunikation verwenden.
+Damit kannst du den Aufschließungsbefehl direkt an die Tür senden!
+
+Angenommen, du weißt, dass der öffentliche Schlüssel der Karte 5764801 lautet.
+Mit ein wenig Ausprobieren kannst du herausfinden, dass die Schleifengröße der Karte 8 sein muss,
+denn die Umwandlung der anfänglichen Subjektnummer von 7 mit einer Schleifengröße von 8 ergibt 5764801.
+
+Weiter angenommen, du weißt, dass der öffentliche Schlüssel der Tür 17807724 lautet.
+Mit dem gleichen Verfahren, kannst du feststellen, dass die Schleifengröße der Tür 11 ist,
+denn die Umwandlung der anfänglichen Subjektnummer von 7 mit einer Schleifengröße von 11 ergibt 17807724.
+
+An dieser Stelle kannst du die Schleifengröße eines der beiden Geräte
+mit dem öffentlichen Schlüssel des anderen Geräts verwenden, um den Chiffrierschlüssel zu berechnen.
+Die Umwandlung der Subjektnummer 17807724 (der öffentliche Schlüssel der Tür)
+mit einer Schleifengröße von 8 (die Schleifengröße der Karte) ergibt den Chiffrierschlüssel 14897079.
+Die Umwandlung der Subjektnummer 5764801 (der öffentliche Schlüssel der Karte) mit einer Schleifengröße von 11
+(die Schleifengröße der Tür) ergibt denselben Chiffrierschlüssel: 14897079.
+
+
+Welchen Verschlüsselungscode versucht der Handshake zu ermitteln?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Teil 2 ---
+
+
+Die Ampel wird grün und die Tür öffnet sich. Als du auf das Bett in deinem Zimmer fällst, geht dein Pager los!
+
+"Es ist ein Notfall!", erklärt der Elf, der dich anruft. "Die Softeis-Maschine in der Cafeteria
+im Untergeschoss 7 ist ausgefallen und du bist der Einzige, der weiß, wie man sie repariert!
+Wir haben bereits ein Rentier zu dir geschickt, um dich abzuholen."
+
+Du hörst das Geräusch von Hufen, die auf deinem Balkon landen.
+
+Das Rentier erkundet vorsichtig den Inhalt deines Zimmers, während du überlegst,
+wie du die 50 Sterne bezahlen willst, die du dem Resort schuldest, bevor du abreist.
+Als es bemerkt, dass du besorgt aussiehst, wandert das Rentier zu dir hinüber.
+Du siehst, dass es einen kleinen Beutel bei sich hat.
+
+"Entschuldigung für den Ärger", steht auf einem Zettel in dem Beutel. Auf dem Boden des Beutels befindet sich
+eine Goldmünze mit einem kleinen Bild eines Seesterns.
+
+Sieht aus, als hättest du am Ende nur 49 Sterne gebraucht.

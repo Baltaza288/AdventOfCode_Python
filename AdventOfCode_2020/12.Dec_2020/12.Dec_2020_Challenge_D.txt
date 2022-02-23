@@ -1,0 +1,102 @@
+
+--- Tag 12: Regenrisiko ---
+
+Die Fähre ist gut zur Insel vorgedrungen, aber der Sturm kam schneller, als alle erwartet hatten.
+Die Fähre muss Ausweichmanöver einleiten!
+
+Leider scheint der Navigationscomputer des Schiffes eine Fehlfunktion zu haben.
+Anstatt eine direkte Route in die Sicherheit anzugeben, hat er extrem umständliche Anweisungen gegeben.
+Als der Kapitän über die Lautsprecheranlage fragt, ob jemand helfen kann, meldest du dich schnell.
+
+Die Navigationsanweisungen (INPUT) bestehen aus einer Abfolge von Ein-Zeichen-Aktionen
+gepaart mit ganzzahligen Eingabewerten. Nachdem du sie einige Minuten lang angestarrt hast,
+weißt du, was sie wahrscheinlich bedeuten:
+
+Aktion N bedeutet, dass man sich um den angegebenen Wert nach Norden bewegt.
+Aktion S bedeutet, dass man sich um den angegebenen Wert nach Süden bewegt.
+Aktion E bedeutet, dass man sich um den angegebenen Wert nach Osten bewegt.
+Aktion W bedeutet, dass man sich um den angegebenen Wert nach Westen bewegt.
+Aktion L bedeutet, dass man sich um die angegebene Gradzahl nach links dreht.
+Aktion R bedeutet, dass man sich um die angegebene Gradzahl nach rechts dreht.
+Aktion F bedeutet, sich um den angegebenen Wert in die Richtung vorwärtszubewegen, in die das Schiff gerade blickt.
+
+Das Schiff startet mit Blickrichtung Osten. Nur die Aktionen L und R ändern die Richtung, in die das Schiff zeigt.
+(Das heißt, wenn das Schiff nach Osten ausgerichtet ist und die nächste Anweisung N10 lautet,
+würde sich das Schiff 10 Einheiten nach Norden bewegen, aber es würde sich immer noch nach Osten bewegen,
+wenn die folgende Aktion F wäre.)
+
+Zum Beispiel:
+
+F10
+N3
+F7
+R90
+F11
+
+Diese Befehle würden wie folgt gehandhabt werden:
+
+F10 würde das Schiff 10 Einheiten nach Osten bewegen (da das Schiff zu Beginn nach Osten ausgerichtet ist).
+ Aktuelle Position des Schiffes: Ost 10, Nord 0
+N3 würde das Schiff 3 Einheiten nach Norden bewegen.
+ Aktuelle Position des Schiffes: Ost 10, Nord 3
+F7 würde das Schiff um weitere 7 Einheiten nach Osten bewegen (da das Schiff immer noch nach Osten ausgerichtet ist).
+ Aktuelle Position des Schiffes: Ost 17, Nord 3
+R90 würde das Schiff um 90 Grad nach rechts drehen und nach Süden ausrichten.
+ Aktuelle Position des Schiffes: Ost 17, Nord 3
+F11 würde das Schiff 11 Einheiten nach Süden bewegen.
+ Aktuelle Position des Schiffes: Ost 17, Süd 8
+
+Am Ende dieser Anweisungen ist die Manhattan-Distanz des Schiffes
+(Summe der absoluten Werte seiner Ost/West-Position und seiner Nord/Süd-Position)
+von seiner Ausgangsposition 17 + 8 = 25.
+
+Finde heraus, wohin die Navigationsanweisungen führen.
+
+
+Wie groß ist die Manhattan-Distanz zwischen diesem Ort und der Ausgangsposition des Schiffes?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+Bevor du dem Kapitän das Ziel nennen kannst, stellst du fest,
+dass die eigentliche Bedeutung der Aktionen die ganze Zeit auf der Rückseite der Anweisungen stand.
+
+Fast alle Aktionen geben an, wie man einen Wegpunkt verschiebt, der relativ zur Schiffsposition ist:
+
+Aktion N bedeutet, dass der Wegpunkt um den angegebenen Wert nach Norden verschoben wird.
+Aktion S bedeutet, dass der Wegpunkt um den angegebenen Wert nach Süden verschoben wird.
+Aktion E bedeutet, dass der Wegpunkt um den angegebenen Wert nach Osten verschoben wird.
+Aktion W bedeutet, dass der Wegpunkt um den angegebenen Wert nach Westen verschoben wird.
+Aktion L bedeutet, dass der Wegpunkt um die angegebene Gradzahl nach links (gegen den Uhrzeigersinn)
+ um das Schiff gedreht wird.
+Aktion R bedeutet, dass der Wegpunkt um die angegebene Gradzahl nach rechts (im Uhrzeigersinn)
+ um das Schiff gedreht wird.
+Aktion F bedeutet, dass der Wegpunkt so oft vorwärts bewegt wird, wie es dem angegebenen Wert entspricht.
+
+Der Wegpunkt beginnt 10 Einheiten östlich und 1 Einheit nördlich relativ zum Schiff.
+Der Wegpunkt ist relativ zum Schiff, d.h. wenn sich das Schiff bewegt, bewegt sich der Wegpunkt mit.
+
+Ein Beispiel: Verwende die gleichen Anweisungen wie oben:
+
+F10 bewegt das Schiff 10 mal zum Wegpunkt (insgesamt 100 Einheiten nach Osten und 10 Einheiten nach Norden).
+ Aktuelle Position des Schiffes: 100 Ost und 10 Nord.
+ Der Wegpunkt bleibt 10 Einheiten östlich und 1 Einheit nördlich des Schiffes.
+N3 verschiebt den Wegpunkt um 3 Einheiten nach Norden auf 10 Einheiten Ost und 4 Einheiten Nord des Schiffes.
+ Aktuelle Position des Schiffes: Ost 100, Nord 10.
+F7 bewegt das Schiff 7 Mal zum Wegpunkt (insgesamt 70 Einheiten nach Osten und 28 Einheiten nach Norden),
+ Aktuelle Position des Schiffes: Ost 170, Nord 38
+ Aktuelle Position des Wegpunkts: 10 Einheiten östlich, 4 Einheiten nördlich des Schiffes
+R90 dreht den Wegpunkt um 90 Grad im Uhrzeigersinn um das Schiff,
+ Aktuelle Position des Schiffes: Ost 170, Nord 38
+ Aktuelle Position des Wegpunktes: 4 Einheiten östlich, 10 Einheiten südlich des Schiffes
+F11 bewegt das Schiff 11 Mal zum Wegpunkt (insgesamt 44 Einheiten nach Osten und 110 Einheiten nach Süden),
+ Aktuelle Position des Schiffes: Ost 214, Süd 72
+ Aktuelle Position des Wegpunktes: 4 Einheiten östlich, 10 Einheiten südlich des Schiffes.
+
+Nach diesen Operationen beträgt die Manhattan-Distanz des Schiffes von seiner Ausgangsposition 214 + 72 = 286.
+
+Finde heraus, wohin die Navigationsanweisungen tatsächlich führen.
+
+
+Wie groß ist die Manhattan-Entfernung zwischen diesem Ort und der Ausgangsposition des Schiffes?

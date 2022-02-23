@@ -1,0 +1,62 @@
+
+--- Tag 2: Passwort Philosophie ---
+
+Dein Flug geht in ein paar Tagen vom Flughafen an der Küste.
+Der einfachste Weg von hier zur Küste ist mit dem Schlitten.
+
+Der Ladenbesitzer des Nordpol-Rodelverleihs hat einen schlechten Tag.
+"Mit unseren Computern stimmt etwas nicht, wir können uns nicht einloggen!"
+Du fragst, ob du nachsehen kannst.
+
+Ihre Passwortdatenbank scheint ein wenig beschädigt zu sein:
+Einige der Passwörter wären nach der offiziellen Toboggan-Unternehmenspolitik,
+die in Kraft war, als sie gewählt wurden, nicht zulässig gewesen.
+
+Um das Problem zu beheben, haben sie eine Liste erstellt (INPUT) mit Passwörtern (gemäß der beschädigten Datenbank)
+und der Unternehmensrichtlinie, als dieses Passwort festgelegt wurde.
+
+
+Nehmen wir zum Beispiel an, du hast die folgende Liste:
+
+    1-3 a: abcde
+    1-3 b: cdefg
+    2-9 c: ccccccccccc
+
+Jede Zeile enthält die Kennwortrichtlinie und dann das Kennwort.
+Die Kennwortrichtlinie gibt an, wie oft ein bestimmter Buchstabe mindestens und höchstens vorkommen muss,
+damit das Kennwort gültig ist.
+1-3 a bedeutet zum Beispiel, dass im Kennwort der Buchstabe a mindestens 1 mal und höchstens 3 mal enthalten sein muss.
+
+In dem obigen Beispiel sind 2 Kennwörter gültig.
+Das mittlere Kennwort, cdefg, ist es nicht. Es enthält kein b, braucht aber mindestens 1.
+Das erste und das dritte Kennwort sind gültig: Sie enthalten ein a bzw. neun c, beide innerhalb der Grenzen ihrer
+jeweiligen Richtlinien.
+
+
+Wie viele Passwörter sind nach den jeweiligen Richtlinien gültig?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Teil 2 ---
+
+Obwohl du die Kennwörter anscheinend korrekt validiert hast, scheinen sie nicht dem zu entsprechen,
+was das offizielle Toboggan Corporate Authentication System erwartet.
+
+Der Ladenbesitzer merkt plötzlich, dass er gerade versehentlich die Passwortregeln
+aus seinem alten Job beim Schlittenverleih am Ende der Straße erklärt hat!
+Die offizielle Toboggan Corporate Policy funktioniert ein wenig anders.
+
+Jede Richtlinie beschreibt zwei Positionen im Passwort, dabei steht 1 für das erste Zeichen,
+2 das zweite Zeichen und so weiter.
+Sei vorsichtig; Toboggan Unternehmensrichtlinien haben kein Konzept von "Index Null"!
+Genau eine dieser Positionen muss den angegebenen Buchstaben enthalten.
+Andere Vorkommen des Buchstabens sind für die Zwecke der Durchsetzung der Richtlinie irrelevant.
+
+Nehmen wir dieselbe Beispielliste von oben:
+
+ - 1-3 a: abcde ist gültig: Position 1 enthält a und Position 3 nicht.
+ - 1-3 b: cdefg ist ungültig: Weder Position 1 noch Position 3 enthält b.
+ - 2-9 c: ccccccccccc ist ungültig: sowohl Position 2 als auch Position 9 enthalten c.
+
+
+Wie viele Kennwörter sind nach der neuen Auslegung der Richtlinien gültig?

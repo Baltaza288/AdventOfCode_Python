@@ -1,0 +1,109 @@
+
+--- Tag 9: Verschlüsselungsfehler ---
+
+Während dein Nachbar fröhlich sein Videospiel genießt,
+richtest du deine Aufmerksamkeit auf einen offenen Datenanschluss an dem kleinen Bildschirm auf dem Sitz vor dir.
+
+Obwohl der Anschluss nicht dem Standard entspricht, gelingt es dir,
+ihn mit Hilfe mehrerer Büroklammern mit deinem Computer zu verbinden.
+Nach der Verbindung gibt der Anschluss eine Reihe von Zahlen aus (INPUT).
+
+Die Daten scheinen mit dem eXchange-Masking Addition System (XMAS) verschlüsselt zu sein,
+das ein altes Chiffrierverfahren mit einer großen Schwäche ist.
+
+XMAS beginnt mit der Übermittlung einer Präambel von 25 Zahlen.
+Danach sollte jede empfangene Zahl die Summe von zwei beliebigen der 25 unmittelbar vorhergehenden Zahlen sein.
+Die beiden Zahlen werden unterschiedliche Werte haben, und es kann mehr als ein solches Paar geben.
+
+Angenommen, deine Präambel besteht aus den Zahlen 1 bis 25 in einer zufälligen Reihenfolge.
+Um gültig zu sein, muss die nächste Zahl die Summe von zwei dieser Zahlen sein:
+
+ - 26 wäre eine gültige nächste Zahl, da sie 1 plus 25 sein könnte (oder viele andere
+    Paare, wie 2 und 24).
+ - 49 wäre eine gültige nächste Zahl, da sie die Summe von 24 und 25 ist.
+ - 100 wäre ungültig, da keine zwei der vorherigen 25 Zahlen die Summe 100 ergeben.
+ - 50 wäre ebenfalls ungültig, obwohl 25 in den vorhergehenden 25 Zahlen vorkommt,
+    müssen die beiden Zahlen des Paares unterschiedlich sein.
+
+Angenommen, die 26. Zahl ist 45, und die erste Zahl (die nicht mehr in Frage kommt,
+da sie mehr als 25 Zahlen zurückliegt) war 20. Damit die nächste Zahl gültig ist,
+muss es ein Zahlenpaar zwischen 1-19, 21-25 oder 45 geben, das sich zu dieser Zahl addiert:
+
+ - 26 wäre immer noch eine gültige nächste Zahl, da 1 und 25 noch innerhalb der vorherigen
+    25 Zahlen liegen.
+ - 65 wäre nicht gültig, da keine zwei der verfügbaren Zahlen die Summe ergeben.
+ - 64 und 66 wären beide gültig, da sie das Ergebnis von 19+45 bzw. 21+45 sind
+
+Hier ist ein größeres Beispiel, das nur die vorherigen 5 Zahlen berücksichtigt (also eine Präambel der Länge 5):
+
+    35
+    20
+    15
+    25
+    47
+    40
+    62
+    55
+    65
+    95
+    102
+    117
+    150
+    182
+    127
+    219
+    299
+    277
+    309
+    576
+
+In diesem Beispiel ist nach der 5-Zahlen-Präambel fast jede Zahl die Summe von zwei der vorherigen 5 Zahlen.
+Die einzige Zahl, die dieser Regel nicht folgt, ist 127.
+
+Der erste Schritt, um die Schwachstelle in den XMAS-Daten zu finden, besteht darin, die erste
+Zahl in der Liste (nach der Präambel) zu finden, die nicht die Summe von zwei der 25
+Zahlen vor ihr ist.
+
+
+Welches ist die erste Zahl, die diese Eigenschaft nicht hat?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+Der letzte Schritt, um die XMAS-Verschlüsselung zu knacken,
+stützt sich auf die ungültige Zahl die du gerade gefunden hast:
+Du musst eine zusammenhängende Menge von mindestens zwei Zahlen in deiner Liste finden,
+deren Summe die ungültige Zahl aus Schritt 1 ergibt.
+
+Betrachte wieder das obige Beispiel:
+
+    35
+    20
+    15
+    25
+    47
+    40
+    62
+    55
+    65
+    95
+    102
+    117
+    150
+    182
+    127
+    219
+    299
+    277
+    309
+    576
+
+In dieser Liste ergibt die Addition aller Zahlen von 15 bis 40 die ungültige Zahl aus Schritt 1, 127.
+(Natürlich kann die zusammenhängende Menge von Zahlen in deiner tatsächlichen Liste viel länger sein.)
+
+Um die Verschlüsselungsschwäche zu finden, addiere die kleinste und größte Zahl in diesem zusammenhängenden Bereich;
+in diesem Beispiel sind dies 15 und 47. Das ergibt 62.
+
+
+Was ist die Verschlüsselungsschwäche in deiner XMAS-verschlüsselten Zahlenliste?

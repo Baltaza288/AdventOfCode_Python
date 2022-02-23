@@ -1,0 +1,439 @@
+
+--- Tag 22: Krabbenkampf ---
+
+Es dauert nur ein paar Stunden auf einem Floß über den Ozean zu segeln, bis die Langeweile einsetzt.
+Zum Glück hast du ein kleines Spiel mit Weltraumkarten dabei!
+Du würdest gerne eine Partie Combat spielen und es gibt sogar einen Gegner:
+eine kleine Krabbe, die an Bord deines Floßes geklettert ist, bevor du losgefahren bist.
+
+Zum Glück dauert es nicht lange, der Krabbe die Regeln beizubringen.
+
+Bevor das Spiel beginnt, teilst du die Karten so auf, dass jeder Spieler seinen eigenen Stapel hat (INPUT).
+Das Spiel besteht dann aus einer Reihe von Runden: Beide Spieler ziehen ihre oberste Karte.
+Der Spieler mit der höherwertigen Karte gewinnt die Runde.
+Der Gewinner behält beide Karten und legt sie auf den Boden seines eigenen Stapels,
+sodass die Karte des Gewinners über der anderen Karte liegt.
+Wenn ein Spieler dadurch alle Karten besitzt, hat er gewonnen und das Spiel endet.
+
+Betrachte zum Beispiel die folgenden Startdecks:
+
+Spieler 1:
+9
+2
+6
+3
+1
+
+Spieler 2:
+5
+8
+4
+7
+10
+
+Diese Anordnung bedeutet, dass der Stapel von Spieler 1 5 Karten enthält, wobei die 9 oben und die 1 unten liegt.
+Der Stapel von Spieler 2 besteht ebenfalls aus 5 Karten, wobei 5 oben und 10 unten liegen.
+
+Die erste Runde beginnt damit, dass beide Spieler die oberste Karte ihres Stapels ziehen: 9 und 5.
+Spieler 1 hat die höhere Karte, also wandern beide Karten in den unteren Teil des Stapels von Spieler 1,
+sodass die 9 über der 5 liegt. Insgesamt dauert es 29 Runden, bis ein Spieler alle Karten hat:
+
+-- Runde 1 --
+Stapel von Spieler 1: 9, 2, 6, 3, 1
+Spieler 2's Deck: 5, 8, 4, 7, 10
+Spieler 1 spielt: 9
+Spieler 2 spielt: 5
+Spieler 1 gewinnt die Runde!
+
+-- Runde 2 --
+Spieler 1's Deck: 2, 6, 3, 1, 9, 5
+Spieler 2's Deck: 8, 4, 7, 10
+Spieler 1 spielt: 2
+Spieler 2 spielt: 8
+Spieler 2 gewinnt die Runde!
+
+-- Runde 3 --
+Spieler 1's Deck: 6, 3, 1, 9, 5
+Spieler 2's Deck: 4, 7, 10, 8, 2
+Spieler 1 spielt: 6
+Spieler 2 spielt: 4
+Spieler 1 gewinnt die Runde!
+
+-- Runde 4 --
+Spieler 1's Deck: 3, 1, 9, 5, 6, 4
+Spieler 2's Deck: 7, 10, 8, 2
+Spieler 1 spielt: 3
+Spieler 2 spielt: 7
+Spieler 2 gewinnt die Runde!
+
+-- Runde 5 --
+Spieler 1's Deck: 1, 9, 5, 6, 4
+Spieler 2's Deck: 10, 8, 2, 7, 3
+Spieler 1 spielt: 1
+Spieler 2 spielt: 10
+Spieler 2 gewinnt die Runde!
+
+...einige weitere Runden vergehen...
+
+-- Runde 27 --
+Spieler 1's Deck: 5, 4, 1
+Spieler 2's Deck: 8, 9, 7, 3, 2, 10, 6
+Spieler 1 spielt: 5
+Spieler 2 spielt: 8
+Spieler 2 gewinnt die Runde!
+
+-- Runde 28 --
+Spieler 1's Deck: 4, 1
+Spieler 2's Deck: 9, 7, 3, 2, 10, 6, 8, 5
+Spieler 1 spielt: 4
+Spieler 2 spielt: 9
+Spieler 2 gewinnt die Runde!
+
+-- Runde 29 --
+Spieler 1's Deck: 1
+Spieler 2's Deck: 7, 3, 2, 10, 6, 8, 5, 9, 4
+Spieler 1 spielt: 1
+Spieler 2 spielt: 7
+Spieler 2 gewinnt die Runde!
+
+
+== Ergebnisse nach dem Spiel ==
+Deck von Spieler 1:
+Spieler 2's Deck: 3, 2, 10, 6, 8, 5, 9, 4, 7, 1
+
+Sobald das Spiel zu Ende ist, kannst du die Punktzahl des Gewinners berechnen.
+Die unterste Karte in seinem Stapel ist den Wert der Karte multipliziert mit 1 wert,
+die zweitunterste Karte ist den Wert der Karte multipliziert mit 2 wert, und so weiter.
+Bei 10 Karten ist die oberste Karte den Wert der Karte, multipliziert mit 10, wert.
+In diesem Beispiel beträgt die Punktzahl des Gewinners:
+
+   3 * 10
++ 2 * 9
++ 10 * 8
++ 6 * 7
++ 8 * 6
++ 5 * 5
++ 9 * 4
++ 4 * 3
++ 7 * 2
++ 1 * 1
+= 306
+
+Wenn das Spiel zu Ende ist, hat der Gewinner also 306 Punkte.
+
+Spiele mit der kleinen Krabbe eine Partie Combat mit den beiden Karten, die du gerade ausgeteilt hast.
+
+
+Wie hoch ist der Punktestand des Gewinners?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+
+Du hast gegen die kleine Krabbe verloren! Zum Glück sind Krabben nicht sehr gut im Rückkampf.
+Um deine Ehre als Floß-Kapitän zu verteidigen, forderst du die kleine Krabbe zu einer Partie Recursive Combat heraus.
+
+Recursive Combat beginnt immer noch damit, dass die Karten in zwei Decks aufgeteilt werden.
+Du bietest an, mit denselben Startdecks wie zuvor zu spielen - das ist nur fair.
+Dann besteht das Spiel aus einer Reihe von Runden mit ein paar Änderungen:
+
+Bevor einer der beiden Spieler eine Karte austeilt, wird geprüft,
+ob es in einer früheren Runde dieses Spiels genau die gleichen Karten
+in der gleichen Reihenfolge in den Stapeln der gleichen Spieler gab,
+endet das Spiel sofort mit einem Sieg für Spieler 1.
+Vorherige Runden aus anderen Spielen werden nicht berücksichtigt.
+Damit wird verhindert, dass unendlich viele Spiele mit rekursivem Kampf gespielt werden,
+was nach einhelliger Meinung eine schlechte Idee ist.
+Andernfalls müssen die Karten in dieser Runde neu zusammengestellt werden.
+Die Spieler beginnen die Runde, indem jeder wie üblich die oberste Karte seines Stapels zieht.
+Wenn beide Spieler mindestens so viele Karten in ihrem Stapel haben,
+wie der Wert der Karte, die sie gerade gezogen haben,
+wird der Gewinner der Runde durch eine neue Partie Rekursiver Kampf (siehe unten) ermittelt.
+Andernfalls darf mindestens ein Spieler nicht mehr genügend Karten in seinem Stapel haben, um rekursiv zu spielen.
+Der Gewinner der Runde ist der Spieler mit der höherwertigen Karte.
+Wie im regulären Kampf gewinnt der Gewinner der Runde
+(auch wenn er die Runde durch den Sieg in einem Unterspiel gewonnen hat)
+nimmt die beiden Karten, die er zu Beginn der Runde erhalten hat und legt sie unter seinen eigenen Stapel
+(wiederum so, dass die Karte des Gewinners über der anderen Karte liegt).
+Beachte, dass die Karte des Gewinners die Karte mit dem niedrigeren Wert sein kann,
+wenn er die Runde durch den Gewinn eines Teilspiels gewonnen hat.
+Wenn das Sammeln von Karten durch den Runden-Gewinn dazu führt,
+dass ein Spieler alle Karten besitzt, hat er gewonnen und das Spiel endet.
+
+Hier ist ein Beispiel für ein kleines Spiel,
+das ohne die Regel zur Verhinderung von unendlichem Spiel ewig dauern würde:
+
+Spieler 1:
+43
+19
+
+Spieler 2:
+2
+29
+14
+
+Wenn während einer Runde Rekursiver Kampf beide Spieler mindestens so viele Karten in ihren eigenen Decks haben
+wie die Zahl auf der Karte, die sie gerade ausgeteilt haben, wird der Gewinner der Runde durch Rekursion in
+ein Unterspiel von Recursive Combat. (Zum Beispiel, wenn Spieler 1 die Karte 3 zieht und Spieler 2 die Karte 7,
+dies wäre der Fall, wenn Spieler 1 noch mindestens 3 Karten und Spieler 2 noch mindestens 7 Karten übrig hat,
+wobei die gezogenen 3 und 7 Karten nicht mitgezählt werden.)
+
+Um eine Teilpartie von Recursive Combat zu spielen, erstellt jeder Spieler einen neuen Stapel, indem er eine Kopie
+der nächsten Karten in seinem Stapel (die Anzahl der kopierten Karten entspricht der Zahl auf der Karte,
+die er gezogen hat, um das Unterspiel auszulösen).
+Während dieses Unterspiels ist das Spiel, das es ausgelöst hat, auf Eis gelegt und wird nicht beeinflusst.
+Es werden keine Karten aus den Decks der Spieler entfernt, um das Unterspiel zu bilden.
+(Wenn Spieler 1 zum Beispiel die Karte 3 gezogen hat, besteht sein Deck im Unterspiel aus Kopien
+der nächsten drei Karten in seinem Deck.)
+
+Hier ist ein vollständiges Spielbeispiel, wobei Spiel 1 das Hauptspiel von Recursive Combat ist:
+
+=== Spiel 1 ===
+
+-- Runde 1 (Spiel 1) --
+Deck von Spieler 1: 9, 2, 6, 3, 1
+Spieler 2's Deck: 5, 8, 4, 7, 10
+Spieler 1 spielt: 9
+Spieler 2 spielt: 5
+Spieler 1 gewinnt Runde 1 von Spiel 1!
+
+-- Runde 2 (Spiel 1) --
+Spieler 1's Deck: 2, 6, 3, 1, 9, 5
+Spieler 2's Deck: 8, 4, 7, 10
+Spieler 1 spielt: 2
+Spieler 2 spielt: 8
+Spieler 2 gewinnt Runde 2 von Spiel 1!
+
+-- Runde 3 (Spiel 1) --
+Spieler 1's Deck: 6, 3, 1, 9, 5
+Spieler 2's Deck: 4, 7, 10, 8, 2
+Spieler 1 spielt: 6
+Spieler 2 spielt: 4
+Spieler 1 gewinnt Runde 3 von Spiel 1!
+
+-- Runde 4 (Spiel 1) --
+Spieler 1's Deck: 3, 1, 9, 5, 6, 4
+Spieler 2's Deck: 7, 10, 8, 2
+Spieler 1 spielt: 3
+Spieler 2 spielt: 7
+Spieler 2 gewinnt Runde 4 von Spiel 1!
+
+-- Runde 5 (Spiel 1) --
+Spieler 1's Deck: 1, 9, 5, 6, 4
+Spieler 2's Deck: 10, 8, 2, 7, 3
+Spieler 1 spielt: 1
+Spieler 2 spielt: 10
+Spieler 2 gewinnt Runde 5 von Spiel 1!
+
+-- Runde 6 (Spiel 1) --
+Spieler 1's Deck: 9, 5, 6, 4
+Spieler 2's Deck: 8, 2, 7, 3, 10, 1
+Spieler 1 spielt: 9
+Spieler 2 spielt: 8
+Spieler 1 gewinnt Runde 6 von Spiel 1!
+
+-- Runde 7 (Spiel 1) --
+Spieler 1's Deck: 5, 6, 4, 9, 8
+Spieler 2's Deck: 2, 7, 3, 10, 1
+Spieler 1 spielt: 5
+Spieler 2 spielt: 2
+Spieler 1 gewinnt Runde 7 von Spiel 1!
+
+-- Runde 8 (Spiel 1) --
+Spieler 1's Deck: 6, 4, 9, 8, 5, 2
+Spieler 2's Deck: 7, 3, 10, 1
+Spieler 1 spielt: 6
+Spieler 2 spielt: 7
+Spieler 2 gewinnt Runde 8 von Spiel 1!
+
+-- Runde 9 (Spiel 1) --
+Spieler 1's Deck: 4, 9, 8, 5, 2
+Spieler 2's Deck: 3, 10, 1, 7, 6
+Spieler 1 spielt: 4
+Spieler 2 spielt: 3
+
+Wir spielen ein Unterspiel, um den Sieger zu ermitteln...
+
+=== Spiel 2 ===
+
+-- Runde 1 (Spiel 2) --
+Spieler 1's Deck: 9, 8, 5, 2
+Spieler 2's Deck: 10, 1, 7
+Spieler 1 spielt: 9
+Spieler 2 spielt: 10
+Spieler 2 gewinnt Runde 1 von Spiel 2!
+
+-- Runde 2 (Spiel 2) --
+Spieler 1's Deck: 8, 5, 2
+Spieler 2's Deck: 1, 7, 10, 9
+Spieler 1 spielt: 8
+Spieler 2 spielt: 1
+Spieler 1 gewinnt Runde 2 von Spiel 2!
+
+-- Runde 3 (Spiel 2) --
+Spieler 1's Deck: 5, 2, 8, 1
+Spieler 2's Deck: 7, 10, 9
+Spieler 1 spielt: 5
+Spieler 2 spielt: 7
+Spieler 2 gewinnt Runde 3 von Spiel 2!
+
+-- Runde 4 (Spiel 2) --
+Spieler 1's Deck: 2, 8, 1
+Spieler 2's Deck: 10, 9, 7, 5
+Spieler 1 spielt: 2
+Spieler 2 spielt: 10
+Spieler 2 gewinnt Runde 4 von Spiel 2!
+
+-- Runde 5 (Spiel 2) --
+Spieler 1's Deck: 8, 1
+Spieler 2's Deck: 9, 7, 5, 10, 2
+Spieler 1 spielt: 8
+Spieler 2 spielt: 9
+Spieler 2 gewinnt Runde 5 von Spiel 2!
+
+-- Runde 6 (Spiel 2) --
+Spieler 1's Deck: 1
+Spieler 2's Deck: 7, 5, 10, 2, 9, 8
+Spieler 1 spielt: 1
+Spieler 2 spielt: 7
+Spieler 2 gewinnt Runde 6 von Spiel 2!
+Der Gewinner von Spiel 2 ist Spieler 2!
+
+...wie auch immer, zurück zu Spiel 1.
+Spieler 2 gewinnt Runde 9 von Spiel 1!
+
+-- Runde 10 (Spiel 1) --
+Spieler 1's Deck: 9, 8, 5, 2
+Spieler 2's Deck: 10, 1, 7, 6, 3, 4
+Spieler 1 spielt: 9
+Spieler 2 spielt: 10
+Spieler 2 gewinnt Runde 10 von Spiel 1!
+
+-- Runde 11 (Spiel 1) --
+Spieler 1's Deck: 8, 5, 2
+Spieler 2's Deck: 1, 7, 6, 3, 4, 10, 9
+Spieler 1 spielt: 8
+Spieler 2 spielt: 1
+Spieler 1 gewinnt Runde 11 von Spiel 1!
+
+-- Runde 12 (Spiel 1) --
+Spieler 1's Deck: 5, 2, 8, 1
+Spieler 2's Deck: 7, 6, 3, 4, 10, 9
+Spieler 1 spielt: 5
+Spieler 2 spielt: 7
+Spieler 2 gewinnt Runde 12 von Spiel 1!
+
+-- Runde 13 (Spiel 1) --
+Spieler 1's Deck: 2, 8, 1
+Spieler 2's Deck: 6, 3, 4, 10, 9, 7, 5
+Spieler 1 spielt: 2
+Spieler 2 spielt: 6
+
+Wir spielen ein Unterspiel, um den Sieger zu ermitteln...
+
+=== Spiel 3 ===
+
+-- Runde 1 (Spiel 3) --
+Spieler 1's Deck: 8, 1
+Spieler 2's Deck: 3, 4, 10, 9, 7, 5
+Spieler 1 spielt: 8
+Spieler 2 spielt: 3
+Spieler 1 gewinnt Runde 1 von Spiel 3!
+
+-- Runde 2 (Spiel 3) --
+Spieler 1's Deck: 1, 8, 3
+Spieler 2's Deck: 4, 10, 9, 7, 5
+Spieler 1 spielt: 1
+Spieler 2 spielt: 4
+
+Wir spielen ein Unterspiel, um den Sieger zu ermitteln...
+
+=== Spiel 4 ===
+
+-- Runde 1 (Spiel 4) --
+Spieler 1's Deck: 8
+Spieler 2's Deck: 10, 9, 7, 5
+Spieler 1 spielt: 8
+Spieler 2 spielt: 10
+Spieler 2 gewinnt Runde 1 von Spiel 4!
+Der Gewinner von Spiel 4 ist Spieler 2!
+
+...wie auch immer, zurück zu Spiel 3.
+Spieler 2 gewinnt Runde 2 von Spiel 3!
+
+-- Runde 3 (Spiel 3) --
+Spieler 1's Deck: 8, 3
+Spieler 2's Deck: 10, 9, 7, 5, 4, 1
+Spieler 1 spielt: 8
+Spieler 2 spielt: 10
+Spieler 2 gewinnt Runde 3 von Spiel 3!
+
+-- Runde 4 (Spiel 3) --
+Spieler 1's Deck: 3
+Spieler 2's Deck: 9, 7, 5, 4, 1, 10, 8
+Spieler 1 spielt: 3
+Spieler 2 spielt: 9
+Spieler 2 gewinnt Runde 4 von Spiel 3!
+Der Gewinner von Spiel 3 ist Spieler 2!
+
+...wie auch immer, zurück zu Spiel 1.
+Spieler 2 gewinnt Runde 13 von Spiel 1!
+
+-- Runde 14 (Spiel 1) --
+Spieler 1's Deck: 8, 1
+Spieler 2's Deck: 3, 4, 10, 9, 7, 5, 6, 2
+Spieler 1 spielt: 8
+Spieler 2 spielt: 3
+Spieler 1 gewinnt Runde 14 von Spiel 1!
+
+-- Runde 15 (Spiel 1) --
+Spieler 1's Deck: 1, 8, 3
+Spieler 2's Deck: 4, 10, 9, 7, 5, 6, 2
+Spieler 1 spielt: 1
+Spieler 2 spielt: 4
+
+Wir spielen ein Unterspiel, um den Sieger zu ermitteln...
+
+=== Spiel 5 ===
+
+-- Runde 1 (Spiel 5) --
+Spieler 1's Deck: 8
+Spieler 2's Deck: 10, 9, 7, 5
+Spieler 1 spielt: 8
+Spieler 2 spielt: 10
+Spieler 2 gewinnt Runde 1 von Spiel 5!
+Der Gewinner von Spiel 5 ist Spieler 2!
+
+...wie auch immer, zurück zu Spiel 1.
+Spieler 2 gewinnt Runde 15 von Spiel 1!
+
+-- Runde 16 (Spiel 1) --
+Spieler 1's Deck: 8, 3
+Spieler 2's Deck: 10, 9, 7, 5, 6, 2, 4, 1
+Spieler 1 spielt: 8
+Spieler 2 spielt: 10
+Spieler 2 gewinnt Runde 16 von Spiel 1!
+
+-- Runde 17 (Spiel 1) --
+Spieler 1's Deck: 3
+Spieler 2's Deck: 9, 7, 5, 6, 2, 4, 1, 10, 8
+Spieler 1 spielt: 3
+Spieler 2 spielt: 9
+Spieler 2 gewinnt Runde 17 von Spiel 1!
+Der Gewinner von Spiel 1 ist Spieler 2!
+
+
+== Ergebnisse nach dem Spiel ==
+Deck von Spieler 1:
+Spieler 2's Deck: 7, 5, 6, 2, 4, 1, 10, 8, 9, 3
+
+Nach dem Spiel wird die Punktzahl des siegreichen Spielers anhand der Karten berechnet,
+die er in seinem ursprünglichen Deck hat, und zwar nach den gleichen Regeln wie beim normalen Combat.
+Im obigen Spiel beträgt die Punktzahl des Gewinners 291.
+
+Verteidige deine Ehre als Floß-Kapitän, indem du die kleine Krabbe in einem Spiel von
+Recursive Combat mit denselben zwei Decks wie zuvor.
+
+
+Wie hoch ist die Punktzahl des siegreichen Spielers?

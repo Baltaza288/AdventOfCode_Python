@@ -1,0 +1,109 @@
+
+--- Tag 24: Lobby Layout ---
+
+Dein Floß erreicht die tropische Insel. Es stellt sich heraus,
+dass die kleine Krabbe ein ausgezeichneter Navigator war.
+Du machst dich auf den Weg zum Resort.
+
+Als du die Lobby betrittst, entdeckst du ein kleines Problem: Der Boden wird gerade renoviert.
+Man kann nicht einmal den Check-in-Schalter erreichen, bevor der neue Fliesenboden verlegt ist.
+
+Die Fliesen sind alle sechseckig.
+Sie müssen in einem sechseckigen Raster mit einem ganz bestimmten Farbmuster angeordnet werden.
+Da du keine Lust hast zu warten, bietest du an, bei der Festlegung des Musters zu helfen.
+
+Die Fliesen sind auf einer Seite weiß und auf der anderen schwarz. Du beginnst mit der weißen Seite nach oben.
+Die Lobby ist groß genug, um jedes beliebige Muster unterzubringen, das dort erscheinen soll.
+
+Ein Mitglied des Renovierungsteams gibt dir eine Liste mit den Fliesen, die umgedreht werden müssen (INPUT).
+Jede Zeile in der Liste identifiziert ein einzelnes Plättchen, das umgedreht werden muss,
+indem eine Reihe von Schritten angegeben wird ausgehend von einer Referenzfliese in der Mitte des Raums.
+(Jede Zeile beginnt mit der gleichen Referenzkachel.)
+
+Da die Spielsteine sechseckig sind, hat jeder Spielstein sechs Nachbarn: Osten, Südosten, Südwesten, Westen,
+Nordwest und Nordost. Diese Richtungen werden in deiner Liste als e, se, sw, w, nw und ne angegeben.
+Ein Spielstein wird durch eine Reihe dieser Richtungen ohne Begrenzungszeichen identifiziert, zum Beispiel,
+esenee bezeichnet die Kachel, auf der du landest,
+wenn du bei der Referenzkachel beginnst und dich dann eine Kachel nach Osten,
+eine Kachel nach Südosten, eine Kachel nach Nordosten und eine Kachel nach Osten bewegst.
+
+Jedes Mal, wenn eine Kachel identifiziert wird, wechselt sie von weiß zu schwarz oder von schwarz zu weiß.
+Kacheln können mehr als einmal umgedreht werden.
+Eine Linie wie esew dreht beispielsweise eine Kachel,
+unmittelbar an der Referenzkachel um und eine Zeile wie nwwswee wird die Referenzkachel selbst gedreht.
+
+Hier ist ein größeres Beispiel:
+
+sesenwnenenewseeswwswswwnenewsewsw
+neeenesenwnwswswnenewnwwsewnenwseswesw
+seswneswswswsenwwnwse
+nwnwneseeswswnenewneswwnewseswneseene
+swweswneswnenwsewnwneneseenw
+eesenwseswswnenwswnwswsewwnwsene
+sewnenenenesenwsewnenwwwse
+wenwwweseeeweswwwnwwe
+wsweesenenewnwwnwsenewsenwwsesesenwne
+neeswseenwwswnwswswswswnw
+nenwswwswsewswnenenewsenwsenwnesesenew
+enewnwewneswsewnwswenweswnenwsenwsenwsw
+sweneswneswneneenwnewenewwneswswnese
+swwesenesewenwneswnwwneseswwne
+enesenwswswwneneswsenwnewswseenwsese
+wnwnesenesenenwwnenwsewesewsesesew
+nenewswnwewswnenesenwnesewesw
+eneswnwswnwsenenwnwnwwseeswneewsenese
+neswnwewnwnwseenwseesewsenwsweewe
+wseweeenwnesenwwwswnew
+
+Im obigen Beispiel werden 10 Spielsteine einmal umgedreht (nach schwarz)
+und 5 weitere werden zweimal umgedreht (zu schwarz und dann wieder zu weiß).
+Nachdem alle diese Anweisungen befolgt wurden, sind insgesamt 10 Plättchen schwarz.
+
+Gehe die Liste des Renovierungsteams durch und bestimme, welche Plättchen sie umdrehen müssen.
+
+
+Wie viele Kacheln zeigen, nach der Befolgung aller Anweisungen, mit der schwarzen Seite nach oben?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+
+Der Fliesenboden in der Lobby soll ein lebendiges Kunstwerk sein.
+Jeden Tag werden alle Fliesen nach folgenden Regeln umgedreht:
+
+Jede schwarze Fliese, die keine oder mehr als 2 schwarze Fliesen direkt neben sich hat, wird auf weiß umgedreht.
+Jedes weiße Plättchen, an das genau 2 schwarze Plättchen unmittelbar angrenzen, wird auf schwarz umgedreht.
+Unmittelbar angrenzende Spielsteine sind hier die sechs Spielsteine, die den betreffenden Spielstein direkt berühren.
+
+Die Regeln werden gleichzeitig auf alle Spielsteine angewandt. Anders ausgedrückt, es wird zuerst bestimmt,
+welche Plättchen umgedreht werden müssen, dann werden sie alle gleichzeitig umgedreht.
+
+Im obigen Beispiel ist die Anzahl der schwarzen Spielsteine, die nach einer bestimmten Anzahl von Tagen nach oben zeigen
+Tage vergangen ist, wie folgt:
+
+Tag 1: 15
+Tag 2: 12
+Tag 3: 25
+Tag 4: 14
+Tag 5: 23
+Tag 6: 28
+Tag 7: 41
+Tag 8: 37
+Tag 9: 49
+Tag 10: 37
+
+Tag 20: 132
+Tag 30: 259
+Tag 40: 406
+Tag 50: 566
+Tag 60: 788
+Tag 70: 1106
+Tag 80: 1373
+Tag 90: 1844
+Tag 100: 2208
+
+Nachdem dieser Vorgang insgesamt 100 Mal durchgeführt wurde, würden 2208 schwarze Steine nach oben zeigen.
+
+
+Wie viele Steine werden nach 100 Tagen schwarz sein?

@@ -1,30 +1,26 @@
 
 --- Tag 1: Reparaturbericht ---
 
-Nachdem Du fünf Jahre in Folge Weihnachten gerettet hast, hast Du beschlossen,
+Nachdem Du fünf Jahre in Folge Weihnachten gerettet hast, hast du beschlossen,
 einen Urlaub in einem schönen Resort auf einer tropischen Insel zu machen.
-Sicherlich wird das Weihnachtsfest acuh ohne Dich weitergehen.
+Sicherlich wird das Weihnachtsfest auch ohne dich weitergehen.
 
-Auf der tropischen Insel kannst Du nur bar bezahlen.
-Außerdem wird dort nur die inseleigene Währung akzeptiert. Die Goldmünzen,
+Auf der tropischen Insel kannst du nur bar bezahlen.
+Außerdem wird dort nur die Insel-eigene Währung akzeptiert. Die Goldmünzen,
 die dort verwendet werden, haben ein kleines Bild eines Seesterns darauf.
 Die Einheimischen nennen sie deshalb „Stars“.
 
 Außer auf der Insel hat niemand jemals von dieser Währung gehört,
-weshalb Du vorab kein Geld in diese Währung hättest wechseln können.
-Deine Unterkunft kostet, für den Zeitraum Deiner Reise, 50 Stars.
-Um Deinen Urlaub finanzieren zu können, musst Du Dir bis zum 25. Dezember
-50 Stars verdienen.
-Sammle die Stars durch das Lösen von Rätseln! Jeden Tag werden zwei Rätsel
-zur Verfügung gestellt. Das zweite Rätsel wird freigeschalten sobald Du
-das erste Rätsel gelöst hast. Jede korrekte Lösung gewährt einen Star.
-Viel Glück!
+weshalb du vorab kein Geld in diese Währung hättest wechseln können.
+Deine Unterkunft kostet, für den Zeitraum deiner Reise, 50 Stars.
+Um deinen Urlaub finanzieren zu können, musst du dir bis zum 25. Dezember 50 Stars verdienen.
+Sammle die Stars durch das Lösen von Rätseln! Jeden Tag werden zwei Rätsel zur Verfügung gestellt.
+Das zweite Rätsel wird freigeschaltet, sobald du das erste Rätsel gelöst hast.
+Jede korrekte Lösung gewährt einen Star. Viel Glück!
 
 
-Ehe Du gehst musst Du den Elfen in der Buchhaltung helfen,
-Deine Spesenabrechnung (INPUT) zu korrigieren.
-Du musst die beiden Einträge finden, deren Summe 2020 ergibt
-und dann die beiden Zahlen miteinander multiplizieren.
+Ehe du gehst musst du den Elfen in der Buchhaltung helfen, deine Spesenabrechnung (INPUT) zu korrigieren.
+Du musst die beiden Einträge finden, deren Summe 2020 ergeben und dann die beiden Zahlen miteinander multiplizieren.
 
 Beispiel:
     1721
@@ -35,27 +31,25 @@ Beispiel:
     1456
 
 In dieser Liste sind die beiden Einträge, die in Summe 2020 ergeben, 1721 und 299.
-Das Produkt dieser beiden Zahlen und somit die richtige Antwort ist 514579
-1721 x 299 = 514579
+Das Produkt dieser beiden Zahlen und somit die richtige Antwort ist 514579 (1721 x 299 = 514579).
 
-Natürlich ist Deine Spesenabrechnung wesentlich länger.
+Natürlich ist deine Spesenabrechnung wesentlich länger.
 Suche die beiden Einträge deren Summe 2020 ergibt!
 
 
-Welche Zahl erhältst Du, wenn du diese beiden Zahlen miteinander multiplizierst?
+Welche Zahl erhältst du, wenn du diese beiden Zahlen miteinander multiplizierst?
 
 
 ------------------------------------------------------------------------------------------------------------------------
---- Part Two ---
+--- Zweiter Teil ---
 
-Die Elfen in der Buchhaltung sind sehr dankbar für Deine Hilfe.
-Eine von ihnen bietet Dir sogar eine Seesternmünze an die sie
-von ihrem letzten Urlaub übrig hatte. Die Elfe bietet Dir
-eine zweite Münze an, wenn du drei Zahlen findest, welche die gleichen Kriterien erfüllen.
+Die Elfen in der Buchhaltung sind sehr dankbar für deine Hilfe.
+Eine von ihnen bietet dir sogar eine Seesternmünze an, die sie von ihrem letzten Urlaub übrig hatte.
+Die Elfe bietet dir eine zweite Münze an, wenn du drei Zahlen findest, welche die gleichen Kriterien erfüllen.
 
-Wenn Du das obige Beispiel noch einmal verwendest, sind die drei Einträge
-welche in Summe 2020 ergeben: 979, 366 und 675
-Wenn Du diese miteinander multiplizierst erhältst Du 241861950
+Wenn du das obige Beispiel noch einmal verwendest, sind die drei Einträge welche in Summe 2020 ergeben:
+979, 366 und 675
+Wenn du diese miteinander multiplizierst, erhältst du 241861950.
 
 
 Wie lautet das Produkt von drei Einträgen, welche in Summe 2020 ergeben?

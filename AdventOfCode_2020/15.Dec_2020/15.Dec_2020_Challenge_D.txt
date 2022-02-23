@@ -1,0 +1,73 @@
+
+--- Tag 15: Unruhige Rezitation ---
+
+Du nimmst den Flughafen-Shuttle und versuchst, einen neuen Flug zu deiner Urlaubsinsel zu buchen.
+Wegen des Sturms sind alle Direktflüge gestrichen worden, aber es gibt eine Route, um den Sturm zu umgehen.
+
+Während du auf deinen Flug wartest, beschließt du, dich bei den Elfen am Nordpol zu melden.
+Sie spielen ein Gedächtnisspiel und sind ganz aufgeregt, dir die Regeln zu erklären!
+
+Bei diesem Spiel sagen die Spieler abwechselnd Zahlen auf.
+Zu Beginn lesen sie abwechselnd aus einer Liste mit Startzahlen (INPUT).
+Dann wird in jedem Zug die zuletzt genannte Zahl betrachtet:
+
+Wenn die Zahl zum ersten Mal genannt wurde, sagt der aktuelle Spieler 0.
+Andernfalls, falls die Zahl schon einmal genannt wurde, nennt der aktuelle Spieler die Summe der Runden, welche die Zahl
+von dem Zeitpunkt entfernt ist, an dem sie zuletzt genannt wurde.
+Nach den Startzahlen nennt der Spieler also bei jedem Zug entweder die 0 (wenn die letzte Zahl neu ist)
+oder ein Alter (wenn die letzte Zahl eine Wiederholung ist).
+
+Nehmen wir an, die Startzahlen sind 0,3,6:
+
+Runde 1: Die 1. genannte Zahl ist eine Startzahl, 0.
+Runde 2: Die 2. genannte Zahl ist eine Startzahl, 3.
+Runde 3: Die 3. genannte Zahl ist eine Startzahl, nämlich 6.
+Runde 4: Betrachte nun die letzte genannte Zahl, 6.
+    Da dies das erste Mal war, dass die Zahl genannt wurde, ist die 4. genannte Zahl 0.
+Runde 5: Als Nächstes betrachten wir wieder die zuletzt genannte Zahl 0. Da sie bereits zuvor genannt wurde,
+    ist die nächste Zahl, die genannt wird, die Differenz zwischen der Nummer des Zuges,
+    in dem sie zuletzt genannt wurde (der vorherige Zug, 4) und der Zugnummer des Zeitpunkts,
+    an dem sie zuletzt genannt wurde (Zug 1). Die 5. genannte Zahl ist also 4 - 1 = 3.
+Runde 6: Die zuletzt genannte Zahl, 3, wurde auch schon vorher genannt, zuletzt in den Runden 5 und 2.
+    Die 6. genannte Zahl ist also 5 - 2 = 3.
+Runde 7: Da die 3 gerade zweimal hintereinander genannt wurde und die letzten beiden Runden 1 Runde auseinander liegen,
+    ist die 7. genannte Zahl 1.
+Runde 8: Da 1 neu ist, ist die 8. genannte Zahl 0.
+Runde 9: Die 0 wurde zuletzt in den Runden 8 und 4 genannt,
+    also ist die 9. genannte Zahl die Differenz zwischen diesen beiden Zahlen, also 4.
+Runde 10: 4 ist neu, die 10. genannte Zahl ist also 0.
+
+Das Spiel endet, wenn die Elfen genug vom Spielen haben oder das Abendessen fertig ist, je nachdem, was zuerst eintritt.
+
+Die Frage an dich lautet: Was wird die 2020. genannte Zahl sein?
+Im obigen Beispiel, wird die 2020. genannte Zahl 436 sein.
+
+Hier sind noch ein paar weitere Beispiele:
+
+Bei den Startzahlen 1,3,2 ist die 2020. genannte Zahl 1.
+Bei den Startzahlen 2,1,3 ist die 2020. genannte Zahl 10.
+Bei den Startzahlen 1,2,3 ist die 2020. genannte Zahl 27.
+Bei den Startzahlen 2,3,1 ist die 2020. genannte Zahl 78.
+Bei den Startzahlen 3,2,1 ist die 2020. genannte Zahl 438.
+Bei den Startzahlen 3,1,2 ist die 2020. genannte Zahl 1836.
+
+
+Wie lautet die genannte Zahl für das Jahr 2020, wenn man die Ausgangszahlen zugrunde legt?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+Die Elfen sind beeindruckt und stellen dich vor eine Herausforderung: Bestimme die 30.000.000. genannte Zahl.
+Zum Beispiel, mit den gleichen Startzahlen wie oben:
+
+Bei 0,3,6 ist die 30.000.000. genannte Zahl 175594.
+Bei 1,3,2 ist die 30.000.000. genannte Zahl 2578.
+Bei 2,1,3 ist die 30.000.000. genannte Zahl 3544142.
+Bei 1,2,3 ist die 30.000.000. genannte Zahl 261214.
+Bei 2,3,1 ist die 30.000.000. genannte Zahl 6895259.
+Bei 3,2,1 ist die 30.000.000. genannte Zahl 18.
+Bei 3,1,2 ist die 30.000.000. genannte Zahl 362.
+
+
+Wie lautet die 30.000.000. genannte Zahl, wenn man die Ausgangszahlen zugrunde legt?

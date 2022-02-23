@@ -1,0 +1,227 @@
+
+--- Tag 11: Sitzplatzsystem ---
+
+Ihr Flugzeug landet mit reichlich Zeitreserven.
+Die letzte Etappe Ihrer Reise ist eine Fähre, die Sie direkt auf die tropische Insel bringt
+wo Sie endlich Ihren Urlaub beginnen können. Als Sie den Wartebereich erreichen, um an Bord der Fähre zu gehen,
+stellen Sie fest, dass Sie so früh dran sind, dass noch niemand anderes angekommen ist!
+
+Indem du den Prozess nachstellst, mit dem die Leute ihren Sitzplatz im Wartebereich auswählen (oder verlassen),
+bist du ziemlich sicher, dass du den besten Sitzplatz vorhersagen kannst.
+Sie erstellen eine schnelle Karte der Sitzanordnung (INPUT).
+
+Die Sitzanordnung passt genau in ein Raster.
+Jede Position ist entweder der Boden (.), ein leerer Sitz (L) oder ein belegter Sitz (#).
+
+Die anfängliche Sitzanordnung könnte zum Beispiel so aussehen:
+
+L.LL.LL.LL
+LLLLLLLLL.LL
+L.L.L..L..
+LLLL.LL.LL.LL
+L.LL.LL.LL
+L.LLLLL.LL
+..L.L.....
+LLLLLLLLLL
+L.LLLLLL.L
+L.LLLLL.LL
+
+Jetzt müssen Sie nur noch die Leute modellieren, die in Kürze eintreffen werden.
+Glücklicherweise sind die Menschen völlig berechenbar und folgen immer einer einfachen Reihe von Regeln.
+Alle Entscheidungen beruhen auf der Anzahl der besetzten Plätze neben einem bestimmten Platz
+(einer der acht Plätze unmittelbar oberhalb, unterhalb, links, rechts oder diagonal vom Sitzplatz).
+Die folgenden Regeln werden auf jeden Sitzplatz gleichzeitig angewandt:
+
+Wenn ein Platz leer ist (L) und es keine besetzten Plätze in der Nähe gibt, wird der Platz besetzt.
+Wenn ein Platz besetzt ist (#) und vier oder mehr benachbarte Plätze ebenfalls besetzt sind, wird der Platz leer.
+Andernfalls ändert sich der Zustand des Platzes nicht.
+Der Boden (.) ändert sich nie; die Plätze bewegen sich nicht, und niemand sitzt auf dem Boden.
+
+Nach einer Runde dieser Regeln ist jeder Platz im Beispiellayout besetzt:
+
+#.##.##.##
+#######.##
+#.#.#..#..
+####.##.##
+#.##.##.##
+#.#####.##
+..#.#.....
+##########
+#.######.#
+#.#####.##
+
+Nach einer zweiten Runde werden die Plätze mit vier oder mehr besetzten benachbarten Plätzen wieder frei:
+
+#.LL.L#.##
+#LLLLLL.L#
+L.L.L..L..
+#LLL.LL.L#
+#.LL.LL.LL
+#.LLLL#.##
+..L.L.....
+#LLLLLLLL#
+#.LLLLLL.L
+#.#LLLL.##
+
+Dieser Prozess wird für drei weitere Runden fortgesetzt:
+
+#.##.L#.##
+#L###LL.L#
+L.#.#..#..
+#L##.##.L#
+#.##.LL.LL
+#.###L#.##
+..#.#.....
+#L######L#
+#.LL###L.L
+#.#L###.##
+#.#L.L#.##
+#LLL#LL.L#
+L.L.L..#...
+#LLL.##.L#
+#.LL.LL.LL
+#.LL#L#.##
+..L.L.....
+#L#LLLL#L#
+#.LLLLLL.L
+#.#L#L#.##
+#.#L.L#.##
+#LLL#LL.L#
+L.#.L..#..
+#L##.##.L#
+#.#L.LL.LL
+#.#L#L#.##
+..L.L.....
+#L#L##L#L#
+#.LLLLLL.L
+#.#L#L#.##
+
+An diesem Punkt geschieht etwas Interessantes:
+Das Chaos stabilisiert sich und weitere Anwendungen dieser Regeln führen dazu, dass keine Sitze ihren Zustand ändern!
+Sobald die Leute aufhören, sich zu bewegen, zählen Sie 37 besetzte Sitze.
+
+Simulieren Sie Ihren Sitzbereich, indem Sie die Sitzregeln so lange anwenden, bis sich der Zustand der Sitze nicht mehr ändert.
+Wie viele Sitze sind am Ende besetzt?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+Sobald die ersten Gäste eintreffen, erkennen Sie Ihren Fehler.
+Die Leute interessieren sich nicht nur für benachbarte Plätze -
+sie interessieren sich für den ersten Sitz, den sie in jeder dieser acht Richtungen sehen können!
+
+Anstatt nur die acht unmittelbar benachbarten Plätze zu berücksichtigen,
+den ersten Sitzplatz in jeder der acht Richtungen zu betrachten.
+Zum Beispiel würde der leere Sitzplatz unten acht besetzte Plätze sehen:
+
+.......#.
+...#.....
+.#.......
+.........
+..#L....#
+....#....
+.........
+#........
+...#.....
+
+Der leere Platz ganz links unten sieht nur einen leeren Platz, kann aber keinen der besetzten Plätze sehen:
+
+.............
+.L.L.#.#.#.#.#.
+.............
+
+Der leere Platz darunter würde keine besetzten Plätze sehen:
+
+.##.##.
+#.#.#.#
+##...##
+...L...
+##...##
+#.#.#.#
+.##.##.
+
+Außerdem scheinen die Menschen toleranter zu sein, als Sie erwartet haben:
+Es braucht jetzt fünf oder mehr sichtbare besetzte Plätze, damit ein besetzter Platz frei wird
+(und nicht mehr vier oder mehr wie bei den vorherigen Regeln). Die anderen Regeln gelten nach wie vor:
+Leere Plätze, auf denen keine besetzten Plätze zu sehen sind, werden besetzt, Plätze, auf die keine Regel zutrifft, ändern sich nicht, und der Boden ändert sich nie.
+
+Bei der gleichen Startaufstellung wie oben führen diese neuen Regeln dazu, dass sich der Sitzbereich wie folgt verschiebt:
+
+L.LL.LL.LL
+LLLLLLLLL.LL
+L.L.L..L..
+LLLL.LL.LL.LL
+L.LL.LL.LL
+L.LLLLL.LL
+..L.L.....
+LLLLLLLLLL
+L.LLLLLL.L
+L.LLLLL.LL
+#.##.##.##
+#######.##
+#.#.#..#..
+####.##.##
+#.##.##.##
+#.#####.##
+..#.#.....
+##########
+#.######.#
+#.#####.##
+#.LL.LL.L#
+#LLLLLL.LL
+L.L.L..L..
+LLLL.LL.LL.LL
+L.LL.LL.LL
+L.LLLLL.LL
+..L.L.....
+LLLLLLLLL#
+#.LLLLLL.L
+#.LLLLL.L#
+#.L#.##.L#
+#L#####.LL
+L.#.#..#..
+##L#.##.##
+#.##.#L.##
+#.#####.#L
+..#.#.....
+LLL####LL#
+#.L#####.L
+#.L####.L#
+#.L#.L#.L#.L#
+#LLLLLLLL.LL
+L.L.L..#..
+##LL.LL.L#
+L.LL.LL.L#
+#.LLLLL.LL
+..L.L.....
+LLLLLLLLL#
+#.LLLLL#.L
+#.L#LL#.L#
+#.L#.L#.L#.L#
+#LLLLLL.LL
+L.L.L..#..
+##L#.#L.L#
+L.L#.#L.L#
+#.L####.LL
+..#.#.....
+LLL###LLL#
+#.LLLLL#.L
+#.L#LL#.L#
+#.L#.L#.L#.L#
+#LLLLLL.LL
+L.L.L..#..
+##L#.#L.L#
+L.L#.LL.L#
+#.LLLL#.LL
+..#.L.....
+LLL###LLL#
+#.LLLLL#.L
+#.L#LL#.L#
+
+Auch an diesem Punkt hören die Leute auf, sich zu verschieben, und der Sitzbereich erreicht sein Gleichgewicht.
+Sobald dies der Fall ist, zählen Sie 26 belegte Plätze.
+
+
+In Anbetracht der neuen Sichtbarkeitsmethode und der Regeländerung, dass besetzte Sitze leer werden,
+wie viele Sitze werden nach Erreichen des Gleichgewichts besetzt?
