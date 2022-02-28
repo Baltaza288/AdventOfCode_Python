@@ -1,0 +1,54 @@
+
+--- Tag 15: Chiton ---
+
+Du hast den Ausgang der Höhle fast erreicht, aber die Wände rücken immer näher zusammen.
+Dein U-Boot passt aber gerade noch durch.
+Das Hauptproblem ist, dass die Wände der Höhle mit Chitons bedeckt sind
+und es wäre am besten, keine von ihnen anzustoßen.
+
+Die Höhle ist groß, hat aber eine sehr niedrige Decke, die deine Bewegung auf zwei Dimensionen beschränkt.
+Die Form der Höhle ähnelt einem Quadrat.
+Ein schneller Scan der Chiton-Dichte ergibt eine Karte des Risikoniveaus in der gesamten Höhle (INPUT).
+
+Zum Beispiel:
+
+1163751742
+1381373672
+2136511328
+3694931569
+7463417111
+1319128137
+1359912421
+3125421639
+1293138521
+2311944581
+
+Du beginnst in der linken oberen Position, dein Ziel ist die rechte untere Position
+und du kannst dich nicht diagonal bewegen. Die Zahl an jeder Position ist der Risikograd.
+Um das Gesamtrisiko eines ganzen Pfades zu bestimmen, addiere die Risikostufen jeder Position, die du betrittst
+(d. h. die Risikostufe der Ausgangsposition wird nur gezählt, wenn du sie betrittst.
+Wenn du sie verlässt, erhöht sich dein Gesamtrisiko nicht).
+
+Dein Ziel ist es, einen Weg mit dem geringsten Gesamtrisiko zu finden.
+In diesem Beispiel ist der Weg mit dem geringsten Gesamtrisiko:
+
+O163751742
+O381373672
+OOOOOOO328
+369493OO69
+7463417O11
+1319128OO7
+13599124O1
+31254216O9
+12931385OO
+231194458O
+
+Das Gesamtrisiko dieses Weges beträgt 40 (die Startposition wird nie eingegeben, daher wird ihr Risiko nicht gezählt).
+
+
+Welches ist das geringste Gesamtrisiko eines beliebigen Weges von links oben nach rechts unten?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

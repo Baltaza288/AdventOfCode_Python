@@ -1,0 +1,58 @@
+
+--- Tag 7: Der Verrat der Wale ---
+
+Ein riesiger Wal hat beschlossen, dass dein U-Boot seine nächste Mahlzeit ist und er ist viel schneller als du.
+Es gibt keinen Ausweg mehr!
+
+Plötzlich taucht ein Schwarm Krabben auf, um dich zu retten.
+Jede in ihrem eigenen winzigen U-Boot, sonst wäre es zu tief für sie.
+Sie scheinen sich darauf vorzubereiten, ein Loch in den Meeresboden zu sprengen.
+Die Sensoren zeigen ein riesiges unterirdisches Höhlensystem direkt hinter dem Ziel an!
+
+Die Krabben-U-Boote müssen alle ausgerichtet werden, bevor sie genug Energie haben,
+um ein ausreichend großes Loch zu sprengen, durch das dein U-Boot fahren kann.
+Wie auch immer, es sieht nicht so aus, als wären sie ausgerichtet, bevor der Wal dich erwischt!
+Vielleicht kannst du helfen?
+
+Es gibt einen großen Haken: Krabben-U-Boote können sich nur horizontal bewegen.
+
+Du erstellst schnell eine Liste mit der horizontalen Position jeder Krabbe (INPUT).
+Die Krabben-U-Boote haben nur begrenzten Treibstoff, also musst du einen Weg finden, um alle horizontalen Positionen
+übereinstimmen und sie dabei so wenig Treibstoff wie möglich verbrauchen.
+
+Nehmen wir als Beispiel die folgenden horizontalen Positionen:
+
+16,1,2,0,4,2,7,1,2,14
+
+Das bedeutet, dass es eine Krabbe mit der horizontalen Position 16 gibt,
+eine Krabbe mit der horizontalen Position 1, und so weiter.
+
+Jede Änderung der horizontalen Position einer einzelnen Krabbe um 1 Schritt kostet 1 Treibstoff.
+Man könnte eine beliebige horizontale Position wählen, um sie alle darauf auszurichten,
+aber diejenige, die am wenigsten Treibstoff kostet, ist die horizontale Position 2:
+
+Bewegung von 16 nach 2: 14 Treibstoff
+Bewegung von 1 nach 2: 1 Treibstoff
+Bewegung von 2 nach 2: 0 Treibstoff
+Bewegung von 0 auf 2: 2 Treibstoff
+Bewegung von 4 auf 2: 2 Treibstoff
+Wechsel von 2 auf 2: 0 Kraftstoff
+Wechsel von 7 auf 2: 5 Kraftstoff
+Wechsel von 1 auf 2: 1 Brennstoff
+Wechsel von 2 auf 2: 0 Kraftstoff
+Bewegung von 14 auf 2: 12 Treibstoff
+
+Dies kostet insgesamt 37 Treibstoff. Dies ist das billigste mögliche Ergebnis.
+Teurer wird es, wenn man sich an Position 1 (41 Treibstoff),
+Position 3 (39 Treibstoff) oder Position 10 (71 Treibstoff) ausrichtet.
+
+Bestimme die horizontale Position,
+auf die sich die Krabben mit dem geringstmöglichen Treibstoffverbrauch ausrichten können.
+
+
+Wie viel Treibstoff müssen sie aufwenden, um sich auf diese Position auszurichten?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

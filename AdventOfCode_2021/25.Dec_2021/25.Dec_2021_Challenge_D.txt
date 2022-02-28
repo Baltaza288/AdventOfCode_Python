@@ -1,0 +1,321 @@
+
+--- Tag 25: Seegurke ---
+
+Das ist er: der Grund des Meeresgrabens, der letzte Ort, an dem die Schlittenschlüssel sein könnten.
+Die experimentelle Antenne deines U-Boots ist noch nicht stark genug, um die Schlüssel zu entdecken,
+aber sie müssen hier sein. Du musst nur den Meeresboden erreichen und sie finden.
+
+Zumindest würdest du auf dem Meeresboden landen, wenn du könntest.
+Leider ist er komplett von zwei großen Seegurkenherden bedeckt und es gibt keine freie Stelle,
+die groß genug für dein U-Boot wäre.
+
+Du vermutest, dass die Elfen das schon einmal gemacht haben müssen,
+denn in diesem Moment entdeckst du die Telefonnummer eines Tiefseebiologen auf einem handgeschriebenen Zettel,
+der an der Wand des U-Boot-Cockpits klebt.
+
+"Seegurken? Ja, wahrscheinlich sind sie auf Nahrungssuche. Aber keine Sorge, sie sind berechenbare Kreaturen:
+Sie bewegen sich in absolut geraden Linien und nur dann vorwärts, wenn Platz dafür ist.
+Sie sind eigentlich recht höflich!"
+
+Du erklärst, dass du gerne vorhersagen würdest, wann du mit deinem U-Boot landen kannst.
+
+"Oh, das ist einfach, sie werden sich irgendwann auftürmen und genug Platz lassen für... Moment, hast du U-Boot gesagt?
+Und der einzige Ort, an dem es so viele Seegurken gibt, ist auf dem Grund des Marianen..." Du legst den Hörer auf.
+
+Es gibt zwei Seegurkenherden, die sich dieselbe Region teilen.
+Eine bewegt sich immer nach Osten (>), während die andere sich immer nach Süden bewegt (v).
+Jeder Ort kann höchstens eine Seegurke beherbergen. Die übrigen Orte sind leer (.).
+Das U-Boot erstellt hilfsweise eine Karte der Situation (INPUT).
+
+Zum Beispiel:
+
+v...>>.vv>
+.vv>>.vv..
+>>.>v>...v
+>>v>>.>.v.
+v>v.vv.v..
+>.>>..v...
+.vv..>.>v.
+v.v..>>v.v
+....v.v.v.>
+
+Bei jedem Schritt versuchen die Seegurken in der nach Osten ausgerichteten Herde, einen Platz weiterzukommen,
+dann versuchen die Seegurken in der nach Süden ausgerichteten Herde, sich um einen Ort weiterzubewegen.
+Wenn sich eine Herde vorwärts bewegt, prüft jede Seegurke in der Herde zunächst gleichzeitig,
+ob eine Seegurke an dem benachbarten Ort ist, dem sie zugewandt ist
+(sogar eine andere Seegurke, die in die gleiche Richtung schaut), dann bewegt sich jede Seegurke,
+die sich an einem leeren Ort befindet, gleichzeitig an diesen Ort.
+
+Also, in einer Situation wie dieser:
+
+...>>>>>...
+
+Nach einem Schritt hätte sich nur die Seegurke ganz rechts bewegt:
+
+...>>>>.>..
+
+Nach dem nächsten Schritt bewegen sich zwei Seegurken:
+
+...>>>.>.>.
+
+Während eines einzigen Schrittes bewegt sich zuerst die nach Osten gerichtete Herde,
+dann die nach Süden gerichtete Herde. Also, in dieser Situation
+
+..........
+.>v....v..
+.......>..
+..........
+
+Nach einem einzigen Schritt hat sich von den Seegurken auf der linken Seite
+nur die nach Süden gerichtete Seegurke bewegt (da sie nicht rechtzeitig aus dem Weg war,
+damit die nach Osten weisende Seegurke auf der linken Seite sich bewegen konnte),
+aber beide Seegurken auf der rechten Seite haben sich bewegt
+(weil die nach Osten gerichtete Seegurke der nach Süden gerichteten Seegurke aus dem Weg gegangen ist).
+
+..........
+.>........
+..v....v>.
+..........
+
+Aufgrund der starken Wasserströmungen in dem Gebiet erscheinen Seegurken,
+die sich vom rechten Rand der Karte wegbewegen, am linken Rand.
+Die sich vom rechten Kartenrand entfernen, am linken Rand und Seegurken,
+die sich vom unteren Kartenrand entfernen, am oberen Rand angezeigt.
+Seegurken prüfen immer, ob ihr Zielort leer ist, bevor sie sich bewegen,
+auch wenn dieses Ziel auf der gegenüberliegenden Seite der Karte liegt:
+
+Ausgangszustand:
+...>...
+.......
+......>
+v.....>
+......>
+.......
+..vvv..
+
+Nach 1 Schritt:
+..vv>..
+.......
+>......
+v.....>
+>......
+.......
+....v..
+
+Nach 2 Schritten:
+....v>.
+..vv...
+.>.....
+......>
+v>.....
+.......
+.......
+
+Nach 3 Schritten:
+......>
+..v.v..
+..>v...
+>......
+..>....
+v......
+.......
+
+Nach 4 Schritten:
+>......
+..v....
+..>.v..
+.>.v...
+...>...
+.......
+v......
+
+Um einen sicheren Platz zu finden, an dem das U-Boot landen kann, müssen die Seegurken aufhören, sich zu bewegen.
+Betrachten wir wieder das erste Beispiel:
+
+Ausgangszustand:
+v...>>.vv>
+.vv>>.vv..
+>>.>v>...v
+>>v>>.>.v.
+v>v.vv.v..
+>.>>..v...
+.vv..>.>v.
+v.v..>>v.v
+....v..v.>
+
+Nach 1 Schritt:
+....>.>v.>
+v.v>.>v.v.
+>v>>..>v..
+>>v>v>.>.v
+.>v.v...v.
+v>>.>vvvv..
+..v...>>..
+vv...>>vvv.
+>.v.v..v.v
+
+Nach 2 Schritten:
+>.v.v>>..v
+v.v.>>vvv..
+>v>.>.>.v.
+>>v>v.>v>.
+.>..v....v
+.>v>>.v.v.
+v....v>v>.
+.vv..>>v..
+v>.....vv.
+
+Nach 3 Schritten:
+v>v.v>.>v.
+v...>>.v.v
+>vv>.>v>...
+>>v>v.>.v>
+..>....v..
+.>.>v>v..v
+..v..v>vv>
+v.v..>>v..
+.v>....v..
+
+Nach 4 Schritten:
+v>..v.>>..
+v.v.>.>.v.
+v>vv.>>.v>v
+>>.>..v>.>
+..v>v...v.
+..>>.>vv..
+>.v.vv>v.v
+.....>>vv.
+vvv>...v..
+
+Nach 5 Schritten:
+vv>...>v>.
+v.v.v>.>v.
+>.v.>.>.>v
+>v>.>..v>>
+..v>v.v...
+..>.>>vvvv.
+.>...v>v...
+..v.v>>v.v
+v.v.>...v.
+
+...
+
+Nach 10 Schritten:
+..>..>>vvv.
+v.....>>.v
+..v.v>>>v>
+v>.>v.>>>.
+..v>v.vv.v
+.v.>>>.v..
+v.v..>v>..
+..v...>v.>
+.vv..v>vv.
+
+...
+
+Nach 20 Schritten:
+v>.....>>.
+>vv>.....v
+.>v>v.vv>>
+v>>>v.>v.>
+....vv>v..
+.v.>>>vvvv.
+..v..>>vvv.
+v.v..>>.v
+..v.....v>
+
+...
+
+Nach 30 Schritten:
+.vv.v..>>>
+v>...v...>
+>.v>.>vv.>
+>v>.>.>v.>
+.>..v.vv..
+..v>..>>v.
+....v>..>v
+v.v...>vv>
+v.v..>vvvv
+
+...
+
+Nach 40 Schritten:
+>>v>v..v..
+..>>v..vv.
+..>>>v.>.v
+..>>>>vvv>.
+v.....>...
+v.v...>v>>
+>vv.....v>
+..>v...v.>v
+vvv.v..v.>v
+
+...
+
+Nach 50 Schritten:
+..>>v>vv.v
+..v.>>vv..
+v.>>v>>v..
+..>>>>>vv.
+vvv....>vv
+..v....>>>
+v>.......>
+.vv>....v>
+.>v.vv.v..
+
+...
+
+Nach 55 Schritten:
+..>>v>vv..
+..v.>>vv..
+..>>v>>vv.
+..>>>>>vv.
+v......>vv
+v>v....>>v
+vvv...>..>
+>vv.....>.
+.>v.vv.v..
+
+Nach 56 Schritten:
+...>>v>vv...
+..v.>>vv..
+..>>v>>vv.
+..>>>>>vv.
+v......>vv
+v>v....>>v
+vvv....>.>
+>vv......>
+.>v.vv.v..
+
+Nach 57 Schritten:
+..>>v>vvv..
+..v.>>vv..
+..>>v>>vv.
+..>>>>>vv.
+v......>vv
+v>v....>>v
+vvv.....>>
+>vv......>
+.>v.vv.v..
+
+Nach 58 Schritten:
+..>>v>vvv..
+..v.>>vv..
+..>>v>>vv.
+..>>>>>vv.
+v......>vv
+v>v....>>v
+vvv.....>>
+>vv......>
+.>v.vv.v..
+
+In diesem Beispiel hören die Seegurken nach 58 Schritten auf, sich zu bewegen.
+Finde einen sicheren Ort, um dein U-Boot anzulanden.
+
+
+Welches ist die erste Stufe, auf der sich keine Seegurken bewegen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

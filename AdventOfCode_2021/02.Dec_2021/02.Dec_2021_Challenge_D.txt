@@ -1,0 +1,51 @@
+
+--- Tag 2: Tauchen! ---
+
+Jetzt musst du herausfinden, wie man das Ding steuert.
+
+Es sieht so aus, als ob das U-Boot eine Reihe von Befehlen ausführen kann,
+z.B. 'vorwärts 1', 'abwärts 2' oder 'aufwärts 3':
+
+Vorwärts X erhöht die horizontale Position um X Einheiten.
+Abwärts X erhöht die Tiefe um X Einheiten.
+Aufwärts X verringert die Tiefe um X Einheiten.
+
+Da du dich in einem U-Boot befindest, wirken sich "ab" und "auf" auf deine Tiefe aus,
+und somit das Gegenteil von dem bewirken, was man erwarten könnte.
+
+Das U-Boot scheint bereits einen geplanten Kurs zu haben (INPUT).
+Du solltest wahrscheinlich herausfinden, wohin es fährt.
+
+
+Beispiel:
+
+vorwärts 5
+abwärts 5
+vorwärts 8
+aufwärts 3
+abwärts 8
+vorwärts 2
+
+Deine horizontale Position und deine Tiefe beginnen beide bei 0.
+Die obigen Schritte würden sie dann wie folgt verändern:
+
+Vorwärts 5 addiert 5 zu deiner horizontalen Position, also insgesamt 5.
+Abwärts 5 addiert 5 zu deiner Tiefe, was einen Wert von 5 ergibt.
+Vorwärts 8 addiert 8 zu deiner horizontalen Position, also insgesamt 13.
+Aufwärts 3 verringert deine Tiefe um 3, was einen Wert von 2 ergibt.
+Abwärts 8 erhöht die Tiefe um 8, was einen Wert von 10 ergibt.
+Vorwärts 2 fügt 2 zu deiner horizontalen Position hinzu, insgesamt also 15.
+
+Wenn du diese Anweisungen befolgst, hast du eine horizontale Position von 15 und eine Tiefe von 10.
+(Die Multiplikation dieser Werte ergibt 150.)
+
+Berechne die horizontale Position und die Tiefe, die du nach dem geplanten Kurs haben würdest.
+
+
+Welches Ergebnis erhältst du, wenn du deine endgültige horizontale Position mit deiner endgültigen Tiefe multiplizierst?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+

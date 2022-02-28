@@ -1,0 +1,48 @@
+
+--- Tag 9: Rauchschale ---
+
+Diese Höhlen scheinen Lavaröhren zu sein. Teile sind sogar noch vulkanisch aktiv.
+Kleine hydrothermale Schlote setzen Rauch in die Höhlen frei, der sich langsam wie Regen absetzt.
+
+Wenn du modellieren könntest, wie der Rauch durch die Höhlen strömt,
+könntest du ihm vielleicht ausweichen und sind so viel sicherer.
+Das U-Boot erstellt für dich eine Höhenkarte des Bodens der nahe gelegenen Höhlen (INPUT).
+
+Der Rauch fließt zum niedrigsten Punkt des Bereichs, in dem er sich befindet.
+
+Betrachte zum Beispiel die folgende Höhenkarte:
+
+2199943210
+3987894921
+9856789892
+8767896789
+9899965678
+
+Jede Zahl entspricht der Höhe eines bestimmten Ortes, wobei 9 der höchste und 0 der niedrigste Wert ist,
+den ein Ort haben kann.
+
+Dein erstes Ziel ist es, die niedrigsten Punkte zu finden (die Orte, die niedriger sind als alle benachbarten Orte).
+Die meisten Orte haben vier benachbarte Orte (oben, unten, links und rechts).
+Orte am Rand oder in der Ecke der Karte haben drei bzw. zwei benachbarte Orte.
+(Diagonale Orte zählen nicht als benachbart.)
+
+In dem obigen Beispiel gibt es vier Tiefpunkte:
+Zwei befinden sich in der ersten Reihe (1 und 0),
+einer in der dritten Reihe (5)
+und einer in der unteren Reihe (ebenfalls 5).
+
+Alle anderen Orte auf der Höhenkarte haben einen niedrigeren Nachbarort und sind daher keine Tiefpunkte.
+
+Der Risikograd eines Tiefpunkts ist 1 plus seine Höhe.
+Im obigen Beispiel sind die Risikostufen der Tiefpunkte 2, 1, 6 und 6.
+Die Summe der Risikostufen aller niedrigen Punkte in der Höhenkarte ist also 15.
+
+Finde alle niedrigen Punkte auf deiner Höhenkarte.
+
+
+Wie hoch ist die Summe der Risikostufen aller niedrigen Punkte auf Ihrer Höhenkarte?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

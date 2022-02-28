@@ -1,0 +1,138 @@
+
+--- Tag 13: Transparentes Origami ---
+
+Du erreichst einen weiteren vulkanisch aktiven Teil der Höhle.
+Es wäre schön, wenn du eine Art Wärmebildtechnik einsetzen könntest,
+damit man im Voraus erkennen könnte, welche Höhlen zu heiß sind, um sie gefahrlos zu betreten.
+
+Glücklicherweise scheint das U-Boot mit einer Wärmebildkamera ausgestattet zu sein!
+Sobald du sie aktivierst, wirst du mit einer Meldung begrüßt:
+
+"Herzlichen Glückwunsch zu Ihrem Kauf! Um dieses Infrarot-Wärmebildsystem zu aktivieren,
+geben Sie bitte den Code ein, den Sie auf Seite 1 des Handbuchs finden."
+
+Offenbar haben die Elfen diese Funktion noch nie benutzt.
+Zu deiner Überraschung gelingt es dir, die Anleitung zu finden.
+Als du sie aufschlagen willst, fällt Seite 1 heraus. Es ist ein großes Blatt Transparentpapier!
+Das Transparentpapier ist mit zufälligen Punkten markiert und enthält eine Anleitung, wie man es falten kann (INPUT).
+Zum Beispiel:
+
+6,10
+0,14
+9,10
+0,3
+10,4
+4,11
+6,0
+6,12
+4,1
+0,13
+10,12
+3,4
+3,0
+8,4
+1,10
+2,14
+8,10
+9,0
+
+Faltung entlang y=7
+Falten entlang x=5
+
+Der erste Abschnitt ist eine Liste von Punkten auf dem Transparentpapier. 0,0 ist die obere linke Koordinate.
+Der erste Wert, x, steigt nach rechts an. Der zweite Wert, y, nimmt nach unten hin zu.
+Die Koordinate 3,0 liegt also rechts von 0,0, und die Koordinate 0,7 liegt unterhalb von 0,0.
+Die Koordinaten in diesem Beispiel bilden das folgende Muster,
+wobei # ein Punkt auf dem Papier und . eine leere, nicht markierte Stelle ist:
+
+...#..#..#.
+....#......
+...........
+#..........
+...#....#.#
+...........
+...........
+...........
+...........
+...........
+.#....#.##.
+....#......
+......#...#
+#..........
+#.#........
+
+Dann gibt es eine Liste von Faltanweisungen.
+Jede Anweisung zeigt eine Linie auf dem Transparentpapier an
+und fordert dich auf, das Papier nach oben (für horizontale y=... Linien)
+oder nach links (für vertikale x=... Linien) zu falten.
+In diesem Beispiel lautet die erste Faltanweisung Falten entlang y=7, was die Linie bezeichnet,
+die von allen Positionen gebildet wird, an denen y gleich 7 ist (hier mit - markiert):
+
+...#..#..#.
+....#......
+...........
+#..........
+...#....#.#
+...........
+...........
+-----------
+...........
+...........
+.#....#.##.
+....#......
+......#...#
+#..........
+#.#........
+
+Da es sich um eine horizontale Linie handelt, falte die untere Hälfte nach oben.
+Einige Punkte könnten sich nach dem Falten überlappen,
+aber die Punkte werden nie genau auf einer Falzlinie erscheinen. Das Ergebnis dieser Faltung sieht wie folgt aus:
+
+#.##..#..#.
+#...#......
+......#...#
+#...#......
+.#.#..#.###
+...........
+...........
+
+Jetzt sind nur noch 17 Punkte sichtbar.
+
+Beachte z. B. die beiden Punkte in der linken unteren Ecke, bevor das Transparentpapier gefaltet wird.
+Nach dem Falten erscheinen diese Punkte in der oberen linken Ecke (bei 0,0 und 0,1).
+Da das Papier durchsichtig ist, bleibt der Punkt direkt unter ihnen (bei 0,3) im Ergebnis sichtbar.
+
+Beachte auch, dass sich einige Punkte überlappen können.
+In diesem Fall verschmelzen die Punkte miteinander und werden zu einem einzigen Punkt.
+
+Die zweite Faltanweisung ist Falten entlang x=5, was diese Linie anzeigt:
+
+#.##.|#..#.
+#...#|.....
+.....|#...#
+#...#|.....
+.#.#.|#.###
+.....|.....
+.....|.....
+
+Da es sich um eine vertikale Linie handelt, nach links falten:
+
+#####
+#...#
+#...#
+#...#
+#####
+.....
+.....
+
+Die Anleitung hat ein Quadrat ergeben!
+
+Das Transparentpapier ist ziemlich groß, also konzentriere dich erst einmal darauf, die erste Falte zu vollenden.
+
+
+Wie viele Punkte sind nach der ersten Faltanweisung auf deinem Transparentpapier sichtbar?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

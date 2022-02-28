@@ -1,0 +1,57 @@
+
+--- Tag 3: Binärdiagnose ---
+
+Das U-Boot gibt seltsame knarrende Geräusche von sich, sodass du es bittest,
+vorsichtshalber einen Diagnosebericht zu erstellen.
+
+Der Diagnosebericht (INPUT) besteht aus einer Liste von Binärzahlen, welche, wenn sie richtig dekodiert werden,
+viele nützliche Informationen über den Zustand des U-Boots liefern.
+Der erste zu prüfende Parameter ist der Stromverbrauch.
+
+Aus den Binärzahlen im Diagnosebericht musst du zwei neue Binärzahlen erzeugen (die sogenannte Gamma- und Epsilon-Rate).
+Der Stromverbrauch kann dann durch Multiplikation der Gamma- mit der Epsilon-Rate ermittelt werden.
+
+Jedes Bit in der Gamma-Rate kann bestimmt werden,
+indem man das häufigste Bit an der entsprechenden Stelle aller Zahlen im Diagnosebericht ermittelt.
+
+Nehmen wir zum Beispiel den folgenden Diagnosebericht:
+
+00100
+11110
+10110
+10111
+10101
+01111
+00111
+11100
+10000
+11001
+00010
+01010
+
+Betrachtet man nur das erste Bit jeder Zahl, gibt es fünf 0-Bits und sieben 1-Bits.
+Da das häufigste Bit 1 ist, ist das erste Bit der Gamma-Rate 1.
+
+Das häufigste zweite Bit der Zahlen im Diagnosebericht ist 0, also ist das zweite Bit der Gammarate 0.
+
+Der häufigste Wert des dritten, vierten und fünften Bits ist 1, 1 bzw. 0,
+die letzten drei Bits der Gammarate sind also 110.
+
+Die Gamma-Rate ist also die Binärzahl 10110, oder 22 in Dezimalzahlen.
+
+Die Epsilon-Rate wird auf ähnliche Weise berechnet. Anstatt das häufigste Bit zu verwenden,
+wird das am wenigsten häufige Bit von jeder Position verwendet. Die Epsilon-Rate ist also 01001, also 9 in Dezimalzahlen.
+Multipliziert man die Gamma-Rate (22) mit der Epsilon-Rate (9), erhält man den Stromverbrauch, 198.
+
+Verwende die binären Zahlen in deinem Diagnosebericht, um die Gamma- und Epsilon-Rate zu berechnen!
+Multipliziere anschließend beide Werte miteinander.
+
+
+Wie hoch ist der Stromverbrauch des U-Boots?
+(Stelle sicher, deine Antwort in Dezimal- und nicht in Binärzahlen angeben)
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+

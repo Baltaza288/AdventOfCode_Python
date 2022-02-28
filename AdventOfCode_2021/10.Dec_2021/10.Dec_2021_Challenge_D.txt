@@ -1,0 +1,81 @@
+
+--- Tag 10: Syntax-Bewertung ---
+
+Du bittest das U-Boot, den besten Weg aus der Tiefseehöhle zu bestimmen, aber es antwortet nur:
+
+Syntaxfehler im Navigationssubsystem in der Zeile: alle.
+Alle?! Der Schaden ist schlimmer als du dachtest.
+Du rufst eine Kopie des Navigationssubsystems auf (INPUT).
+
+Die Syntax des Navigationssubsystems besteht aus mehreren Zeilen, die Chunks enthalten.
+In jeder Zeile befinden sich ein oder mehrere Chunks, und Chunks enthalten null oder mehr andere Chunks.
+Benachbarte Chunks sind nicht durch ein Begrenzungszeichen getrennt.
+Wenn ein Chunk aufhört, kann der nächste Chunk (falls vorhanden) sofort beginnen.
+Jeder Chunk muss mit einem von vier zulässigen Paaren von übereinstimmenden Zeichen beginnen und enden:
+
+Wenn ein Chunk mit ( beginnt, muss er mit ) schließen.
+Wenn ein Chunk mit [ beginnt, muss er mit ] enden.
+Wenn ein Chunk mit { beginnt, muss er mit } schließen.
+Wenn ein Abschnitt mit < beginnt, muss er mit > enden.
+
+() ist also ein zulässiger Chunk, der keine anderen Chunks enthält, ebenso wie [].
+Zu den komplexeren, aber gültigen Chunks gehören ([]), {()()()}, <([{}])>, [<>({}){}[([])<>]] und sogar (((((((((()))))))))).
+
+Einige Zeilen sind unvollständig, aber andere sind beschädigt. Finde zuerst die beschädigten Zeilen und verwerfe sie.
+
+Eine beschädigte Zeile ist eine Zeile, in der ein Chunk mit einem falschen Zeichen schließt.
+D.h. wenn die Zeichen, mit denen er beginnt und endet, nicht eines der vier oben aufgeführten zulässigen Paare bilden.
+
+Beispiele für fehlerhafte Abschnitte sind (], {()()()>, (((()))}, und <([]){()}[{}]).
+Ein solcher Chunk kann an beliebiger Stelle in einer Zeile erscheinen und sein Vorhandensein führt dazu,
+dass die gesamte Zeile als beschädigt betrachtet wird.
+
+Betrachten wir zum Beispiel das folgende Navigationsteilsystem:
+
+[({(<(())[]>[[{[]{<()<>>
+[(()[<>])]({[<{<<[]>>(
+{([(<{}[<>[]}>{[]{[(<()>
+(((({<>}<{<{<>}{[]{[]{}
+[[<[([]))<([[{}[[()]]]
+[{[{({}]{}}([{[{{{}}([]
+{<[[]]>}<{[{[{[]{()[[[]
+[<(<(<(<{}))><([]([]()
+<{([([[(<>()){}]>(<<{{
+<{([{{}}[<[[[<>{}]]]>[]]
+
+Einige der Zeilen sind nicht beschädigt, sondern nur unvollständig. Du kannst diese Zeilen vorerst ignorieren.
+Die restlichen fünf Zeilen sind beschädigt:
+
+{([(<{}[<>[]}>{[]{[(<()> - Erwartet ], aber stattdessen gefunden }.
+[[<[([]))<([[{}[[()]]] - Erwartet ], aber gefunden ) stattdessen.
+[{[{({}]{}}([{[{{{}}([] - Erwartet ), aber gefunden ] stattdessen.
+[<(<(<(<(<{}))><([]([]() - Erwartet >, aber gefunden ) stattdessen.
+<{([([[[(<>()){}]>(<<{{ - Erwartet ], aber gefunden > stattdessen.
+
+Stoppe beim ersten falschen Schlusszeichen in jeder fehlerhaften Zeile.
+
+Wusstest du, dass es bei Syntaxprüfprogrammen Wettbewerbe gibt
+um zu sehen, wer die höchste Punktzahl für Syntaxfehler in einer Datei erreichen kann?
+Das ist wahr! So berechnest du die Punktzahl für Syntaxfehler in einer Zeile,
+nimm das erste illegale Zeichen in der Zeile und schlage es in der folgenden Tabelle nach:
+
+): 3 Punkte.
+]: 57 Punkte.
+}: 1197 Punkte.
+>: 25137 Punkte.
+
+Im obigen Beispiel wurde ein unzulässiges ) zweimal gefunden (2*3 = 6 Punkte),
+ein unzulässiges ] wurde einmal gefunden (57 Punkte),
+ein unzulässiges } wurde einmal gefunden (1197 Punkte)
+und ein unzulässiges > wurde einmal gefunden (25137 Punkte).
+Die Gesamtzahl der Syntaxfehler für diese Datei beträgt also 6+57+1197+25137 = 26397 Punkte!
+
+Finde das erste illegale Zeichen in jeder fehlerhaften Zeile des Navigationssubsystems.
+
+
+Wie hoch ist die Gesamtsyntaxfehlerquote für diese Fehler?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

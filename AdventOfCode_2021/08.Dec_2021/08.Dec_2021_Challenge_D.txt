@@ -1,0 +1,100 @@
+
+--- Tag 8: Suche in sieben Segmenten ---
+
+Du hast kaum die Sicherheit der Höhle erreicht, als der Wal in den Höhleneingang kracht und ihn zum Einsturz bringt.
+Die Sensoren zeigen einen anderen Ausgang zu dieser Höhle in einer viel größeren Tiefe an,
+sodass du keine andere Wahl hast, als weiterzugehen.
+
+Während sich dein U-Boot langsam seinen Weg durch das Höhlensystem bahnt, stellst du fest,
+dass die vierstelligen Sieben-Segment-Anzeigen in deinem U-Boot nicht mehr funktionieren.
+Sie müssen während der Flucht beschädigt worden sein.
+Ohne sie wirst du in große Schwierigkeiten geraten, also finde besser heraus, was los ist.
+
+Jede Ziffer einer Sieben-Segment-Anzeige wird durch Ein- oder Ausschalten
+eines der sieben Segmente mit den Bezeichnungen a bis g wiedergegeben:
+
+  0:      1:      2:      3:      4:
+ aaaa    ....    aaaa    aaaa    ....
+b    c  .    c  .    c  .    c  b    c
+b    c  .    c  .    c  .    c  b    c
+ ....    ....    dddd    dddd    dddd
+e    f  .    f  e    .  .    f  .    f
+e    f  .    f  e    .  .    f  .    f
+ gggg    ....    gggg    gggg    ....
+
+  5:      6:      7:      8:      9:
+ aaaa    aaaa    aaaa    aaaa    aaaa
+b    .  b    .  .    c  b    c  b    c
+b    .  b    .  .    c  b    c  b    c
+ dddd    dddd    ....    dddd    dddd
+.    f  e    f  .    f  e    f  .    f
+.    f  e    f  .    f  e    f  .    f
+ gggg    gggg    ....    gggg    gggg
+
+Um eine 1 darzustellen, würden also nur die Segmente c und f eingeschaltet werden; der Rest wäre ausgeschaltet.
+Um eine 7 darzustellen, würden nur die Segmente a, c und f eingeschaltet werden.
+
+Das Problem ist, dass die Signale, die die Segmente steuern, auf jeder Anzeige vertauscht wurden.
+Das U-Boot versucht immer noch, Zahlen anzuzeigen, indem es die Signalleitungen a bis g ansteuert,
+aber diese Drähte sind wahllos mit den Segmenten verbunden.
+Schlimmer noch, die Verbindungen zwischen den Drähten und den Segmenten
+sind für jede vierstellige Anzeige getrennt vertauscht!
+(Alle Ziffern innerhalb einer Anzeige verwenden jedoch die gleichen Anschlüsse.)
+
+Du weißt also vielleicht, dass nur die Signaldrähte b und g eingeschaltet sind,
+aber das bedeutet nicht, dass die Segmente b und g auch eingeschaltet sind:
+Die einzige Ziffer, für die zwei Segmente verwendet werden, ist die 1.
+Das bedeutet also, dass die Segmente c und f eingeschaltet sein sollen.
+Mit dieser Information allein kannst du immer noch nicht feststellen,
+welcher Draht (b/g) zu welchem Segment (c/f) gehört. Dazu musst du weitere Informationen sammeln.
+
+Für jede Anzeige beobachtest du eine Weile die wechselnden Signale,
+notierst dir alle zehn eindeutigen Signalmuster, die du siehst
+und notierst dann einen einzelnen vierstelligen Ausgangswert (INPUT).
+Anhand der Signalmuster solltest du in der Lage sein, herauszufinden, welches Muster zu welcher Ziffer gehört.
+
+So könnte zum Beispiel ein einzelner Eintrag in deinen Notizen lauten:
+
+acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab | cdfeb fcadb cdfeb cdbaf
+
+Jeder Eintrag besteht aus zehn eindeutigen Signalmustern,
+einem | Trennzeichen und schließlich dem vierstelligen Ausgangswert.
+Innerhalb eines Eintrags werden dieselben Draht-/Segmentverbindungen verwendet
+(allerdings weißt du nicht, wie die Verbindungen tatsächlich aussehen).
+Die eindeutigen Signalmuster entsprechen den zehn verschiedenen Möglichkeiten,
+mit denen das U-Boot versucht, eine Ziffer darzustellen. Unter Verwendung der aktuellen Kabel-/Segmentverbindungen.
+Denn 7 ist die einzige Ziffer, die drei Segmente verwendet, 'dab' im obigen Beispiel bedeutet,
+dass zur Darstellung einer 7 die Signalleitungen d, a und b eingeschaltet sind.
+Da 4 die einzige Ziffer ist, die vier Segmente verwendet, bedeutet 'eafb',
+dass zur Darstellung einer 4 die Signalleitungen e, a, f und b eingeschaltet sind.
+
+Anhand dieser Informationen solltest du in der Lage sein, herauszufinden, welche Kombination von Signalleitungen
+jede der zehn Ziffern entspricht. Somit kannst du den vierstelligen Ausgangswert dekodieren.
+Leider sind im obigen Beispiel alle Ziffern des Ausgabewerts (cdfeb fcadb cdfeb cdbaf)
+fünf Segmente und somit schwieriger zu entschlüsseln.
+
+Konzentriere dich vorerst auf die einfachen Ziffern. Betrachte dieses größere Beispiel:
+
+be cfbegad cbdgef fgaecd cgeb fdcge agebfd fecdb fabcd edb | fdgacbe cefdb cefbgd gcbe
+edbfga begcd cbg gc gcadebf fbgde acbgfd abcde gfcbed gfec | fcgedb cgb dgebacf gc
+fgaebd cg bdaec gdafb agbcfd gdcbef bgcad gfac gcb cdgabef | cg cg fdcagb cbg
+fbegcd cbd adcefb dageb afcb bc aefdc ecdab fgdeca fcdbega | efabcd cedba gadfec cb
+aecbfdg fbg gf bafeg dbefa fcge gcbea fcaegb dgceab fcbdga | gecf egdcabf bgf bfgea
+fgeab ca afcebg bdacfeg cfaedg gcfdb baec bfadeg bafgc acf | gebdcfa ecba ca fadegcb
+dbcfg fgd bdegcaf fgec aegbdf ecdfab fbedc dacgb gdcebf gf | cefg dcbef fcge gbcadfe
+bdfegc cbegaf gecbf dfcage bdacg ed bedf ced adcbefg gebcd | ed bcgafe cdgba cbgef
+egadfb cdbfeg cegd fecab cgb gbdefca cg fgcdab egfdb bfceg | gbdfcae bgc cg cgb
+gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce
+
+Da die Ziffern 1, 4, 7 und 8 jeweils eine eindeutige Anzahl von Segmenten verwenden,
+solltest du in der Lage sein zu erkennen, welche Kombinationen von Signalen diesen Ziffern entsprechen.
+Zählt man nur die Ziffern in den Ausgabewerten (der Teil nach | in jeder Zeile),
+ergeben sich 26 Beispiele für Ziffern, die eine eindeutige Anzahl von Segmenten verwenden.
+
+
+Wie oft kommen die Ziffern 1, 4, 7 oder 8 in den Ausgabewerten vor?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

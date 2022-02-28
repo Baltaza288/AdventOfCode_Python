@@ -1,0 +1,136 @@
+
+--- Tag 16: Paketdecoder ---
+
+Als du die Höhle verlässt und offene Gewässer erreichst, empfängst du eine Nachricht von den Elfen auf dem Schiff.
+
+Die Übertragung wurde mit dem Buoyancy Interchange Transmission System (BITS) gesendet,
+eine Methode, um numerische Ausdrücke in eine binäre Sequenz zu packen.
+Der Computer deines U-Boots hat die Übertragung in hexadezimaler Form gespeichert (INPUT).
+
+Der erste Schritt der Dekodierung der Nachricht besteht darin, die hexadezimale Darstellung in eine binäre umzuwandeln.
+Jedes Zeichen der hexadezimalen Darstellung entspricht vier Bits der binären Daten:
+
+0 = 0000
+1 = 0001
+2 = 0010
+3 = 0011
+4 = 0100
+5 = 0101
+6 = 0110
+7 = 0111
+8 = 1000
+9 = 1001
+A = 1010
+B = 1011
+C = 1100
+D = 1101
+E = 1110
+F = 1111
+
+Die BITS-Übertragung enthält in ihrer äußersten Schicht ein einziges Paket, das wiederum viele andere Pakete enthält.
+Die hexadezimale Darstellung dieses Pakets kann einige zusätzliche 0-Bits am Ende enthalten.
+Diese sind nicht Teil der Übertragung und sollten ignoriert werden.
+
+Jedes Paket beginnt mit einem Standard-Header: Die ersten drei Bits kodieren die Paketversion,
+und die nächsten drei Bits kodieren die Pakettyp-ID. Diese beiden Werte sind Zahlen.
+Alle in einem Paket kodierten Zahlen werden binär dargestellt, wobei das höchstwertige Bit an erster Stelle steht.
+Eine Version, die als Binärsequenz 100 kodiert ist, steht beispielsweise für die Zahl 4.
+
+Pakete mit der Typ-ID 4 stellen einen literalen Wert dar. Literalwertpakete kodieren eine einzelne Binärzahl.
+Zu diesem Zweck wird die Binärzahl mit führenden Nullen aufgefüllt, bis ihre Länge ein Vielfaches von vier Bits ist,
+und wird dann in Gruppen von vier Bits aufgeteilt. Jeder Gruppe wird eine 1 vorangestellt, außer der letzten Gruppe,
+der ein 0-Bit vorangestellt ist. Diese Gruppen von fünf Bits folgen unmittelbar auf den Paketkopf.
+
+Zum Beispiel wird die hexadezimale Zeichenfolge D2FE28 zu:
+
+110 100 10111 11110 00101 000
+VVV TTT AAAAA BBBBB CCCCC
+
+Unter jedem Bit steht eine Bezeichnung, die seinen Zweck angibt:
+
+Die drei Bits mit der Bezeichnung V (110) sind die Paketversion, 6.
+Die drei Bits mit der Bezeichnung T (100) sind die ID des Pakettyps (4), was bedeutet,
+    dass das Paket ein Literalwert ist.
+Die fünf Bits mit der Bezeichnung A (10111) beginnen mit einer 1 (nicht die letzte Gruppe, lese weiter)
+    und enthalten die ersten vier Bits der Zahl 0111.
+Die fünf Bits, die mit B (11110) bezeichnet sind, beginnen mit einer 1 (nicht die letzte Gruppe, lese weiter)
+    und enthalten vier weitere Bits der Zahl 1110.
+Die fünf Bits, die mit C (00101) bezeichnet sind, beginnen mit einer 0 (letzte Gruppe, Ende des Pakets)
+    und enthalten die letzten vier Bits der Zahl 0101.
+Die drei nicht gekennzeichneten 0-Bits am Ende sind aufgrund der hexadezimalen Darstellung extra
+    und sollten ignoriert werden.
+Dieses Paket stellt also einen literalen Wert mit der Binärdarstellung 011111100101 dar, der dezimal 2021 ist.
+
+Jeder andere Pakettyp (alle Pakete mit einer anderen Typ-ID als 4) repräsentiert einen Operator,
+der eine Berechnung mit einem oder mehreren darin enthaltenen Teilpaketen durchführt.
+Im Moment sind die spezifischen Operationen nicht wichtig.
+Konzentriere dich auf das Parsen der Hierarchie der Unterpakete.
+
+Ein Operator-Paket enthält ein oder mehrere Pakete.
+Um anzugeben, welche nachfolgenden Binärdaten seine Unterpakete darstellen,
+kann ein Operator-Paket einen von zwei Modi verwenden,
+die durch das Bit unmittelbar nach dem Paketkopf angegeben werden.
+Dies wird als Längentyp-ID bezeichnet:
+
+Wenn die Längen-ID 0 ist, sind die nächsten 15 Bits eine Zahl, die für
+    die Gesamtlänge der in diesem Paket enthaltenen Teilpakete in Bits.
+Wenn die Längen-ID 1 ist, dann sind die nächsten 11 Bits eine Zahl, die für
+    die Anzahl der unmittelbar in diesem Paket enthaltenen Teilpakete.
+Nach dem Längen-ID-Bit und dem 15-Bit- oder 11-Bit-Feld erscheinen schließlich die Teilpakete.
+
+Hier ist zum Beispiel ein Operator-Paket (hexadezimaler String 38006F45291200)
+mit der Längen-ID 0, das zwei Teilpakete enthält:
+
+001 110 0 00000000001101111 01000101001 010010001001000000000
+VVV TTT I LLLLLLLLLLLLLLLLL AAAAAAAAAAA BBBBBBBBBBBBBB
+
+Die drei Bits mit der Bezeichnung V (001) sind die Paketversion, 1.
+Die drei Bits mit der Bezeichnung T (110) sind die Pakettyp-ID, 6, was bedeutet, dass das Paket ein Operator ist.
+Das Bit mit der Bezeichnung I (0) ist die Längen-ID, die anzeigt, dass die Länge eine 15-Bit-Zahl ist,
+    die die Anzahl der Bits in den Teilpaketen angibt.
+Die 15 Bits mit der Bezeichnung L (000000000011011) enthalten die Länge der Teilpakete in Bits, 27.
+Die 11 Bits mit der Bezeichnung A enthalten das erste Teilpaket, ein literaler Wert, der die Zahl 10 darstellt.
+Die 16 Bits mit der Bezeichnung B enthalten das zweite Teilpaket, einen literalen Wert, der die Zahl 20 darstellt.
+Nach dem Lesen von 11 und 16 Bits der Teilpaketdaten ist die in L (27) angegebene Gesamtlänge erreicht
+    und somit wird das Parsen dieses Pakets beendet.
+
+Ein weiteres Beispiel ist ein Operator-Paket (hexadezimaler String EE00D40C823060)
+mit der Längenkennung 1, das drei Teilpakete enthält:
+
+111 011 1 0000000001101 0100000011001 000001000 11000001100000
+VVV TTT I LLLLLLLLLLLLL AAAAAAAAAAAAA BBBBBBBBB CCCCCCCCCCCCCCC
+
+Die drei Bits mit der Bezeichnung V (111) sind die Paketversion, 7.
+Die drei Bits mit der Bezeichnung T (011) sind die Pakettyp-ID, 3, was bedeutet, dass das Paket ein Operator ist.
+Das Bit mit der Bezeichnung I (1) ist die Längenkennung, die anzeigt, dass die Länge eine 11-Bit-Zahl ist,
+    die die Anzahl der Teilpakete angibt.
+Die 11 Bits mit der Bezeichnung L (00000000011) enthalten die Anzahl der Teilpakete, 3.
+Die 11 Bits mit der Bezeichnung A enthalten das erste Teilpaket, einen literalen Wert, der die Zahl 1 darstellt.
+Die 11 Bits mit der Bezeichnung B enthalten das zweite Teilpaket, einen literalen Wert, der die Zahl 2 darstellt.
+Die 11 Bits mit der Bezeichnung C enthalten das dritte Teilpaket, einen literalen Wert, der die Zahl 3 darstellt.
+Nach dem Lesen von 3 vollständigen Teilpaketen ist die in L (3) angegebene Anzahl von Teilpaketen erreicht,
+    und somit wird das Parsen dieses Pakets beendet.
+
+Analysieren Sie nun die Hierarchie der Pakete während der Übertragung und addieren Sie alle Versionsnummern.
+
+Hier sind einige weitere Beispiele für hexadezimal kodierte Übertragungen:
+
+8A004A801A8002F478 steht für ein Operator-Paket (Version 4), das ein Operator-Paket (Version 1) enthält,
+    das ein Operator-Paket (Version 5) enthält, das einen Literal-Wert (Version 6) enthält.
+    Dieses Paket hat eine Versionssumme von 16.
+620080001611562C8802118E34 steht für ein Operator-Paket (Version 3), das zwei Teilpakete enthält.
+    Jedes Teilpaket ist ein Operator-Paket, das zwei Literal-Werte enthält. Dieses Paket hat eine Versionssumme von 12.
+C0015000016115A2E0802F182340 hat die gleiche Struktur wie das vorherige Beispiel,
+    aber das äußerste Paket verwendet eine andere Längen-ID. Dieses Paket hat eine Versionssumme von 23.
+A0016C880162017C3686B18A3D4780 ist ein Operator-Paket, das ein Operator-Paket enthält,
+    das ein Operator-Paket mit fünf Literal-Werten enthält. Dieses Paket hat eine Versionssumme von 31.
+
+Dekodiere die Struktur deiner hexadezimal kodierten BITS-Übertragung.
+
+
+Was erhältst du, wenn du die Versionsnummern in allen Paketen zusammenzählst?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

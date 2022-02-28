@@ -1,0 +1,76 @@
+
+--- Tag 14: Erweiterte Polymerisation ---
+
+Der unglaubliche Druck in dieser Tiefe beginnt, Ihr U-Boot zu belasten.
+Das U-Boot verfügt über eine Polymerisation-Anlage,
+die geeignete Materialien zur Verstärkung des U-Boots produzieren kann
+und in den nahegelegenen vulkanisch aktiven Höhlen sollten sogar
+die notwendigen Einsatzstoffe in ausreichender Menge vorhanden sein.
+
+Das U-Boot-Handbuch enthält eine Anleitung zur Ermittlung der optimalen Polymer-Formel.
+Insbesondere bietet es eine Polymer-Vorlage und eine Liste von Einsatzregeln für Paare (INPUT).
+Du musst nur ausrechnen, welches Polymer sich nach mehrmaliger Wiederholung des Paarbildungsprozesses ergeben würde.
+
+Beispiel:
+
+NNCB
+
+CH -> B
+HH -> N
+CB -> H
+NH -> C
+HB -> C
+HC -> B
+HN -> C
+NN -> C
+BH -> H
+NC -> B
+NB -> B
+BN -> B
+BB -> N
+BC -> B
+CC -> N
+CN -> C
+
+Die erste Zeile ist die Polymer-Vorlage - dies ist der Ausgangspunkt des Prozesses.
+
+Im folgenden Abschnitt werden die Regeln für das Einfügen von Paaren definiert.
+Eine Regel wie AB -> C bedeutet, dass, wenn die Elemente A und B unmittelbar nebeneinander liegen,
+Element C zwischen ihnen eingefügt werden sollte. Diese Einfügungen finden alle gleichzeitig statt.
+
+Ausgehend von der Polymer-Vorlage NNCB werden also im ersten Schritt alle drei Paare gleichzeitig berücksichtigt:
+
+Das erste Paar (NN) entspricht der Regel NN -> C, also wird das Element C zwischen dem ersten N und dem zweiten N eingefügt.
+Das zweite Paar (NC) entspricht der Regel NC -> B, sodass das Element B zwischen dem N und dem C eingefügt wird.
+Das dritte Paar (CB) entspricht der Regel CB -> H, sodass das Element H zwischen dem C und dem B eingefügt wird.
+Beachte, dass sich diese Paare überschneiden:
+Das zweite Element des einen Paares ist das erste Element des nächsten Paares.
+Da alle Paare gleichzeitig betrachtet werden, werden eingefügte Elemente erst im nächsten Schritt
+als Teil eines Paares betrachtet.
+
+Nach dem ersten Schritt dieses Prozesses wird das Polymer zu NCNBCHB.
+
+Hier sind die Ergebnisse einiger Schritte unter Anwendung der obigen Regeln:
+
+Vorlage:     NNCB
+Nach Schritt 1: NCNBCHB
+Nach Schritt 2: NBCCNBBBCBHCB
+Nach Schritt 3: NBBBCNCCNBBNBNBBCHBHHBCHB
+Nach Schritt 4: NBBNBNBBCCNBCNCCNBBNBBNBNBBNBBNBHCBHHNHCBBCBHCB
+
+Dieses Polymer wächst schnell. Nach Schritt 5 hat es eine Länge von 97. Nach Schritt 10 hat es eine Länge von 3073.
+Nach Schritt 10 kommt B 1749-mal, C 298-mal, H 161-mal und N 865-mal vor.
+Nimmt man die Menge des am häufigsten vorkommenden Elements (B, 1749)
+und subtrahiert die Menge des am wenigsten häufigen Elements (H, 161) ergibt das 1749 - 161 = 1588.
+
+Wende 10 Schritte der Paareinfügung auf die Polymer-Vorlage an
+und finde die häufigsten und am wenigsten gemeinsamen Elemente im Ergebnis.
+
+
+Welches Ergebnis erhält man, wenn man die Menge des am häufigsten vorkommenden Elements
+und die Menge des am wenigsten häufigen Elements subtrahiert?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

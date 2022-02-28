@@ -1,0 +1,137 @@
+
+--- Tag 23: Amphipoden ---
+
+Eine Gruppe von Amphipoden bemerkt dein schickes U-Boot und macht dich darauf aufmerksam.
+"Mit so einer beeindruckenden Hülle", sagt ein Amphipode,
+"Sie können uns sicher bei einer Frage helfen, die unsere besten Wissenschaftler verblüfft hat."
+
+Sie erklären weiter, dass in einer nahe gelegenen Höhle eine Gruppe scheuer, widerspenstiger Amphipoden lebt.
+Vier Arten von Flohkrebsen leben dort: Bernstein (A), Bronze (B), Kupfer (C) und Wüste (D).
+Sie leben in einer Höhle, die aus einem Gang und vier Nebenräumen besteht.
+Die Nebenräume sind anfangs voll mit Amphipoden, der Gang ist anfangs leer.
+
+Sie geben dir ein Diagramm der Situation (INPUT), einschließlich der Standorte der einzelnen Amphipoden
+(A, B, C oder D, die jeweils einen ansonsten freien Raum besetzen), Wände (#) und freier Raum (.).
+
+Zum Beispiel:
+
+#############
+#...........#
+###B#C#B#D###
+  #A#D#C#A#
+  #########
+
+Die Amphipoden möchten eine Methode, um alle Amphipoden in Nebenräumen zu organisieren
+so dass jeder Nebenraum eine Amphipodenart enthält und die Arten von links nach rechts von A bis D sortiert sind.
+
+So in etwa:
+
+#############
+#...........#
+###A#B#C#D###
+  #A#B#C#D#
+  #########
+
+Amphipoden können sich nach oben, unten, links oder rechts bewegen,
+solange sie sich in einen unbesetzten offenen Raum bewegen.
+Jede Amphipodenart benötigt eine andere Menge an Energie, um sich einen Schritt zu bewegen:
+Bernstein-Amphipoden benötigen 1 Energie pro Schritt,
+Bronze-Amphipoden benötigen 10 Energie,
+Kupfer-Amphipoden benötigen 100,
+Wüsten-Amphipoden 1000.
+
+Die Amphipoden möchten, dass du einen Weg findest, die Amphipoden zu organisieren,
+der die geringste Gesamtenergie erfordert.
+
+Da sie jedoch ängstlich und stur sind, haben die Amphipoden einige zusätzliche Regeln:
+
+Amphipoden bleiben niemals auf dem Platz unmittelbar vor einem Raum stehen.
+Sie können sich in diesen Raum bewegen so lange sie sich sofort weiterbewegen.
+(Dies bezieht sich insbesondere auf die vier offenen Räume im Flur,
+die sich direkt über der Startposition eines Amphipoden befinden.)
+Amphipoden bewegen sich nie vom Gang in einen Raum, es sei denn, dieser Raum ist ihr Zielraum
+und dieser Raum enthält keine Amphipoden, die nicht auch diesen Raum als Ziel haben.
+Wenn der Startraum eines Amphipoden nicht sein Zielraum ist, kann er in diesem Raum bleiben, bis er den Raum verlässt.
+(Ein bernsteinfarbener Amphipod kann sich zum Beispiel nicht vom Flur in die drei rechten Räume bewegen,
+und bewegt sich nur dann in den Raum ganz links,
+wenn dieser leer ist oder nur andere Bernstein-Amphipoden darin leben.)
+Sobald sich ein Amphipode im Gang nicht mehr bewegt, bleibt er an dieser Stelle stehen,
+bis er sich in einen Raum bewegen kann.
+(Das heißt, sobald sich ein Amphipode in Bewegung setzt, sind alle anderen Amphipoden, die sich im Gang befinden,
+an ihrem Platz gefangen und können sich erst wieder bewegen, wenn sie sich vollständig in einen Raum bewegen können.)
+Im obigen Beispiel können die Amphipoden mit einem Minimum von 12.521 Energie organisiert werden.
+Eine Möglichkeit, dies zu tun, ist unten dargestellt.
+
+Ausgangskonfiguration:
+
+#############
+#...........#
+###B#C#B#D###
+  #A#D#C#A#
+  #########
+
+Ein Bronze-Amphipode bewegt sich in den Gang, macht 4 Schritte und verbraucht 40 Energie:
+
+#############
+#...B.......#
+###B#C#.#D###
+  #A#D#C#A#
+  #########
+
+Der einzige Kupfer-Amphipode, der sich nicht in seinem Nebenraum befindet, bewegt sich dorthin,
+macht 4 Schritte und verbraucht 400 Energie:
+
+#############
+#...B.......#
+###B#.#C#D###
+  #A#D#C#A#
+  #########
+
+Ein Wüsten-Amphipode geht aus dem Weg, macht 3 Schritte und verbraucht 3000 Energie,
+und dann nimmt der Bronze-Amphipode seinen Platz ein, macht 3 Schritte und verbraucht 30 Energie:
+
+#############
+#.....D.....#
+###B#.#C#D###
+  #A#B#C#A#
+  #########
+
+Der Bronze-Amphipode ganz links bewegt sich mit 40 Energie in sein Zimmer:
+
+#############
+#.....D.....#
+###.#B#C#D###
+  #A#B#C#A#
+  #########
+
+Beide Amphipoden im rechten Raum bewegen sich in den Flur und verbrauchen insgesamt 2003 Energie:
+
+#############
+#.....D.D.A.#
+###.#B#C#.###
+  #A#B#C#.#
+  #########
+
+Beide Wüstenamphipoden bewegen sich mit 7000 Energie in den Raum ganz rechts:
+
+#############
+#.........A.#
+###.#B#C#D###
+  #A#B#C#D#
+  #########
+
+Schließlich bewegt sich der letzte Bernstein-Amphipode in sein Zimmer und verbraucht dabei 8 Energie:
+
+#############
+#...........#
+###A#B#C#D###
+  #A#B#C#D#
+  #########
+
+
+Wie viel Energie ist am wenigsten nötig, um die Amphipoden zu organisieren?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

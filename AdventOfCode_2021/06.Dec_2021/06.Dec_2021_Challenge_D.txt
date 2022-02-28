@@ -1,0 +1,80 @@
+
+--- Tag 6: Laternenfisch ---
+
+Der Meeresboden wird steiler. Vielleicht wurden die Schlittenschlüssel hierher getragen?
+
+Ein riesiger Schwarm leuchtender Laternenfische schwimmt vorbei.
+Sie müssen schnell laichen, um eine so große Anzahl zu erreichen - vielleicht exponentiell schnell?
+Um sicher zu sein, solltest du ihre Wachstumsrate modellieren.
+
+Obwohl du nichts über diese spezielle Art von Laternenfischen weißt,
+stellst du einige Vermutungen über ihre Eigenschaften an.
+Sicherlich erzeugt jeder Laternenfisch einmal alle 7 Tage einen neuen Laternenfisch.
+
+Dieser Vorgang ist jedoch nicht unbedingt bei jedem Laternenfisch synchronisiert.
+Einem Laternenfisch bleiben vielleicht noch 2 Tage, bis er einen neuen Laternenfisch erzeugt,
+einem anderen vielleicht 4 Tage.
+Man kann also jeden Fisch als eine einzige Zahl modellieren, die die Anzahl der Tage angibt,
+bis er einen neuen Laternenfisch erzeugt.
+
+Außerdem, so überlegst du, braucht ein neuer Laternenfisch sicherlich etwas länger,
+bis er in der Lage ist mehr Laternenfische zu produzieren: zwei Tage mehr für seinen ersten Zyklus.
+
+Nehmen wir also an, du hast einen Laternenfisch mit einem internen Zeitgeber von 3:
+
+Nach einem Tag würde sein interner Timer auf 2 gesetzt.
+Nach einem weiteren Tag würde sein interner Zeitgeber zu 1 werden.
+Nach einem weiteren Tag würde sein interner Zeitgeber zu 0 werden.
+Nach einem weiteren Tag würde sein interner Zeitgeber auf 6 zurückgesetzt
+    und er würde einen neuen Laternenfisch mit einer internen Zeitgeber von 8 erzeugen.
+Nach einem weiteren Tag hätte der erste Laternenfisch einen internen Zeitgeber von 5,
+    und der zweite Laternenfisch hätte einen internen Zeitgeber von 7.
+
+Ein Laternenfisch, der einen neuen Fisch erzeugt, setzt seinen Timer auf 6 zurück,
+nicht auf 7 (da 0 als gültiger Timerwert gilt).
+Der neue Laternenfisch beginnt mit einem internen Zeitgeber von 8
+und beginnt erst am nächsten Tag mit dem Herunterzählen.
+
+Das U-Boot erkennt, was du vorhast, und erstellt automatisch eine Liste mit den Altersangaben von mehreren hundert
+Laternenfische in der Nähe (INPUT). Nehmen wir zum Beispiel an, du hättest die folgende Liste erhalten:
+
+3,4,3,1,2
+
+Diese Liste bedeutet, dass der erste Fisch einen internen Timer von 3 hat,
+der zweite Fisch hat einen internen Timer von 4 und so weiter bis zum fünften Fisch,
+der einen internen Timer von 2 hat. Die Simulation dieser Fische über mehrere Tage würde wie folgt ablaufen:
+
+Ausgangszustand: 3,4,3,1,2
+Nach 1 Tag: 2,3,2,0,1
+Nach 2 Tagen: 1,2,1,6,0,8
+Nach 3 Tagen: 0,1,0,5,6,7,8
+Nach 4 Tagen: 6,0,6,4,5,6,7,8,8
+Nach 5 Tagen: 5,6,5,3,4,5,6,7,7,8
+Nach 6 Tagen: 4,5,4,2,3,4,5,6,6,7
+Nach 7 Tagen: 3,4,3,1,2,3,4,5,5,6
+Nach 8 Tagen: 2,3,2,0,1,2,3,4,4,5
+Nach 9 Tagen: 1,2,1,6,0,1,2,3,3,4,8
+Nach 10 Tagen: 0,1,0,5,6,0,1,2,2,3,7,8
+Nach 11 Tagen: 6,0,6,4,5,6,0,1,1,2,6,7,8,8,8
+Nach 12 Tagen: 5,6,5,3,4,5,6,0,0,1,5,6,7,7,7,8,8
+Nach 13 Tagen: 4,5,4,2,3,4,5,6,6,0,4,5,6,6,6,7,7,8,8
+Nach 14 Tagen: 3,4,3,1,2,3,4,5,5,6,3,4,5,5,5,6,6,7,7,8
+Nach 15 Tagen: 2,3,2,0,1,2,3,4,4,5,2,3,4,4,4,5,5,6,6,7
+Nach 16 Tagen: 1,2,1,6,0,1,2,3,3,4,1,2,3,3,3,4,4,5,5,6,8
+Nach 17 Tagen: 0,1,0,5,6,0,1,2,2,3,0,1,2,2,2,3,3,4,4,5,7,8
+Nach 18 Tagen: 6,0,6,4,5,6,0,1,1,2,6,0,1,1,1,2,2,3,3,4,6,7,8,8,8,8
+
+Jeden Tag wird eine 0 zu einer 6 und fügt eine neue 8 am Ende der Liste hinzu,
+während jede andere Zahl um 1 abnimmt, wenn sie zu Beginn des Tages vorhanden war.
+
+In diesem Beispiel gibt es nach 18 Tagen insgesamt 26 Fische. Nach 80 Tagen wären es dann insgesamt 5934.
+
+Finde eine Möglichkeit, die Population der Laternenfische zu simulieren.
+
+
+Wie viele Laternenfische gäbe es nach 80 Tagen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

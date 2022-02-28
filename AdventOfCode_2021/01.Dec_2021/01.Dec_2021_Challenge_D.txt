@@ -1,0 +1,70 @@
+
+--- Tag 1: Sonarsuchlauf ---
+
+Du kümmerst dich um deine eigenen Angelegenheiten auf einem Schiff auf See, als der Überbord-Alarm losgeht!
+Du eilst los, um zu sehen, ob du helfen kannst.
+Es scheint so, als sei einer der Elfen gestolpert und hat aus Versehen die Schlittenschlüssel ins Meer geschleudert!
+
+Ehe du dich versiehst, befindest du dich in einem U-Boot, das die Elfen für solche Situationen bereithalten.
+Es ist weihnachtlich beleuchtet (denn das ist es natürlich),
+es hat sogar eine experimentelle Antenne, die in der Lage sein sollte, die Schlüssel zu orten.
+wenn man die Signalstärke hoch genug einstellen kann.
+Es gibt ein kleines Messgerät, das die Signalstärke der Antenne anzeigt, indem es 0-50 Sterne anzeigt.
+
+Dein Instinkt sagt dir, dass du, um Weihnachten zu retten,
+bis zum 25. Dezember alle fünfzig Sterne sammeln musst.
+
+Sammle Sterne, indem du Rätsel löst. An jedem Tag des Adventskalenders werden zwei Rätsel zur Verfügung gestellt.
+Das zweite Rätsel wird freigeschaltet, wenn du das erste gelöst hast.
+Für jedes Rätsel gibt es einen Stern. Viel Glück!
+
+Wenn das U-Boot unter die Meeresoberfläche taucht,
+führt es automatisch eine Sonarabtastung des nahen Meeresbodens durch.
+Auf einem kleinen Bildschirm erscheint der Bericht der Sonarabtastung (INPUT):
+Jede Zeile ist eine Messung der Tiefe des Meeresbodens,
+während der Suchlauf sich immer weiter vom U-Boot entfernt.
+
+Nehmen wir zum Beispiel an, du hättest den folgenden Bericht:
+
+199
+200
+208
+210
+200
+207
+240
+269
+260
+263
+
+Aus diesem Bericht geht hervor, dass bei der Abtastung vom U-Boot aus,
+die Sonarabtastung Tiefen von 199, 200, 208, 210 und so weiter gefunden hat.
+
+Als Erstes müssen wir herausfinden, wie schnell die Tiefe zunimmt,
+nur damit du weißt, womit du es zu tun hast.
+Man weiß nie, ob die Schlüssel nicht von einer Meeresströmung oder einem Fisch in tieferes Wasser getragen werden.
+
+Zähle dazu, wie oft eine Tiefenmessung gegenüber der vorherigen Messung zunimmt.
+Es gibt keine Messung vor der ersten Messung.
+Im obigen Beispiel sind die Änderungen wie folgt:
+
+199 (N/A - keine vorherige Messung)
+200 (erhöht)
+208 (erhöht)
+210 (erhöht)
+200 (gesunken)
+207 (erhöht)
+240 (erhöht)
+269 (erhöht)
+260 (gesunken)
+263 (erhöht)
+
+In diesem Beispiel gibt es 7 Messungen, die größer sind als die vorherige Messung.
+
+
+Wie viele Messungen sind größer als die vorherige Messung?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

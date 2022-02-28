@@ -1,0 +1,85 @@
+
+--- Tag 4: Riesenkalmare ---
+
+Du bist bereits 1,5 km (fast eine Meile) unter der Oberfläche des Ozeans.
+So tief, dass du kein Sonnenlicht mehr sehen kannst.
+Was du jedoch sehen kannst, ist ein Riesenkalmar, der sich an der Außenseite deines U-Boots festgesetzt hat.
+
+Vielleicht will er Bingo spielen?
+
+Bingo wird auf einer Reihe von Spielbrettern gespielt, die jeweils aus einem 5x5-Gitter mit Zahlen bestehen.
+Die Zahlen werden nach dem Zufallsprinzip ausgewählt und die gewählte Zahl wird auf allen Tafeln markiert,
+auf denen sie erscheint. Die Zahlen erscheinen möglicherweise nicht auf allen Tafeln.
+Wenn alle Zahlen in einer beliebigen Zeile oder Spalte einer Tafel markiert sind, gewinnt diese Tafel.
+(Diagonal zählt nicht)
+
+Das U-Boot verfügt über ein Bingo-Subsystem, mit dem sich die Passagiere
+(derzeit du und der Riesenkrake) die Zeit vertreiben können.
+Es generiert automatisch eine zufällige Reihenfolge, in der die Zahlen gezogen werden,
+und einen zufälligen Satz von Tafeln (INPUT).
+
+Zum Beispiel:
+
+7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
+
+22 13 17 11  0
+ 8  2 23  4 24
+21  9 14 16  7
+ 6 10  3 18  5
+ 1 12 20 15 19
+
+ 3 15  0  2 22
+ 9 18 13 17  5
+19  8  7 25 23
+20 11 10 24  4
+14 21 16 12  6
+
+14 21 17 24  4
+10 16 15  9 19
+18  8 23 26 20
+22 11 13  6  5
+ 2  0 12  3  7
+
+Nachdem die ersten fünf Zahlen gezogen wurden (7, 4, 9, 5 und 11), gibt es noch keinen Gewinner,
+aber die Bretter sind wie folgt markiert (hier aus Platzgründen nebeneinander dargestellt):
+
+22 13 17  X  0         3 15  0  2 22        14 21 17 24  X
+ 8  2 23  X 24         X 18 13 17  X        10 16 15  X 19
+21  X 14 16  X        19  8  X 25 23        18  8 23 26 20
+ 6 10  3 18  X        20  X 10 24  X        22  X 13  6  X
+ 1 12 20 15 19        14 21 16 12  6         2  0 12  3  X
+
+Nachdem die nächsten sechs Zahlen gezogen wurden (17, 23, 2, 0, 14 und 21), gibt es immer noch keine Gewinner:
+
+22 13  X  X  X         3 15  X  X 22         X  X  X 24  X
+ 8  X  X  X 24         X 18 13  X  X        10 16 15  X 19
+ X  X  X 16  X        19  8  X 25  X        18  8  X 26 20
+ 6 10  3 18  X        20  X 10 24  X        22  X 13  6  X
+ 1 12 20 15 19         X  X 16 12  6         X  X 12  3  X
+
+Schließlich wird 24 gezogen:
+
+22 13  X  X  X         3 15  X  X 22         X  X  X  X  X
+ 8  X  X  X  X         X 18 13  X  X        10 16 15  X 19
+ X  X  X 16  X        19  8  X 25  X        18  8  X 26 20
+ 6 10  3 18  X        20  X 10  X  X        22  X 13  6  X
+ 1 12 20 15 19         X  X 16 12  6         X  X 12  3  X
+
+An dieser Stelle gewinnt das dritte Brett, da es mindestens eine komplette Zeile oder Spalte mit markierten Zahlen hat
+(in diesem Fall ist die gesamte obere Reihe markiert: 14 21 17 24 4).
+
+Die Punktzahl des Gewinner-Bretts kann nun berechnet werden.
+Dazu wird zunächst die Summe aller nicht markierten Zahlen auf diesem Brett ermittelt.
+In diesem Fall ist die Summe 188. Dann multiplizierst du diese Summe mit der Zahl,
+die gerade genannt wurde, als das Brett gewann, 24, um die endgültige Punktzahl zu erhalten: 188 * 24 = 4512.
+
+Um den Sieg gegen den Riesenkraken zu garantieren, musst du herausfinden, welches Brett zuerst gewinnen wird.
+
+
+Wie hoch wird dein Endergebnis sein, wenn du dieses Brett wählst?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+

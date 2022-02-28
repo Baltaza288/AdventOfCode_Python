@@ -1,0 +1,99 @@
+
+--- Tag 24: Arithmetisch-logische Einheit ---
+
+Aus der arithmetischen Logik-Unit (ALU) des U-Boots tritt magischer Rauch aus.
+Ohne die Fähigkeit, grundlegende arithmetische und logische Funktionen auszuführen,
+kann das U-Boot keine coolen Muster mit seinen Weihnachtslichtern erzeugen!
+
+Es kann auch nicht navigieren oder das Sauerstoffsystem betreiben.
+
+Aber keine Sorge - du hast wahrscheinlich noch genug Sauerstoff übrig, um eine neue ALU zu bauen.
+
+Die ALU ist eine vierdimensionale Verarbeitungseinheit: Sie hat die ganzzahligen Variablen w, x, y und z.
+Diese Variablen beginnen alle mit dem Wert 0.
+
+Die ALU unterstützt außerdem sechs Befehle:
+
+inp a   - Liest einen Eingabewert und schreibt ihn in die Variable a.
+add a b - Addiert den Wert von a zum Wert von b und speichert das Ergebnis in der Variablen a.
+mul a b - Multipliziert den Wert von a mit dem Wert von b und speichert das Ergebnis in der Variablen a.
+div a b - Teilt den Wert von a durch den Wert von b, schneidet das Ergebnis auf eine ganze Zahl ab,
+          und speichert das Ergebnis in der Variablen a. (Abschneiden bedeutet hier, den Wert gegen Null zu runden.)
+mod a b - Teilen Sie den Wert von a durch den Wert von b und speichern Sie den Rest in der Variablen a.
+          (Dies wird auch als Modulo-Operation bezeichnet.)
+eql a b - Wenn der Wert von a und b gleich ist, wird der Wert 1 in der Variablen a gespeichert.
+          Andernfalls speichert man den Wert 0 in der Variablen a.
+
+In all diesen Anweisungen sind a und b Platzhalter. A ist immer die Variable,
+in der das Ergebnis der Operation gespeichert wird (eine von w, x, y oder z),
+während b entweder eine Variable oder eine Zahl sein kann.
+Zahlen können positiv oder negativ sein, sind aber immer ganze Zahlen.
+
+Die ALU hat keine Sprungbefehle. In einem ALU-Programm wird jeder Befehl genau einmal
+in der Reihenfolge von oben nach unten ausgeführt.
+Das Programm wird angehalten, nachdem die letzte Anweisung ausgeführt wurde.
+(Programmautoren sollten besonders vorsichtig sein.
+Der Versuch der Ausführung von div mit b=0 oder der Versuch der Ausführung von mod mit a<0 oder b<=0 auszuführen,
+führt zum Absturz des Programms und kann sogar die ALU beschädigen.
+Diese Operationen sind in keinem ernsthaften ALU-Programm vorgesehen).
+
+Hier ist zum Beispiel ein ALU-Programm, das eine Eingabezahl nimmt, sie negiert und in x speichert:
+
+inp x
+mul x -1
+
+Hier ist ein ALU-Programm, das zwei Eingabezahlen entgegennimmt und z auf 1 setzt, wenn die zweite Eingabezahl
+dreimal so groß ist wie die erste Eingangszahl, ansonsten wird z auf 0 gesetzt:
+
+inp z
+inp x
+mul z 3
+eql z x
+
+Hier ist ein ALU-Programm, das eine nicht negative ganze Zahl als Eingabe nimmt, sie in Binärzahlen umwandelt,
+und speichert das niedrigste (1er) Bit in z, das zweitniedrigste (2er) Bit in y, das drittniedrigste (4er) Bit in x,
+und das viertniedrigste (8er) Bit in w:
+
+inp w
+z hinzufügen w
+mod z 2
+div w 2
+addiere y w
+mod y 2
+div w 2
+addiere x w
+mod x 2
+div w 2
+mod w 2
+
+Sobald du eine Ersatz-ALU gebaut hast, kannst du sie in das U-Boot einbauen.
+Das U-Boot nimmt sofort wieder auf, was es tat, als die ALU ausfiel: die Überprüfung der Modellnummer des U-Boots.
+Zu diesem Zweck führt die ALU das Programm MOdel Number Automatic Detector (MONAD, INPUT) aus.
+
+U-Boot-Modellnummern sind immer vierzehn-stellige Nummern, die nur aus den Ziffern 1 bis 9 bestehen.
+Die Ziffer 0 kann in einer Modellnummer nicht vorkommen.
+
+Wenn MONAD eine hypothetische vierzehn-stellige Modellnummer prüft, verwendet es vierzehn separate inp-Anweisungen,
+die jeweils eine einzelne Ziffer der Modellnummer in der Reihenfolge vom höchsten zum niedrigsten Wert erwarten.
+(Um also die Modellnummer 13579246899999 zu prüfen, würdest du der ersten inp-Anweisung eine 1 geben,
+3 an die zweite inp-Anweisung, 5 an die dritte inp-Anweisung usw).
+Das bedeutet, dass beim Betrieb von MONAD jeder Eingabeanweisung immer nur ein ganzzahliger Wert
+von mindestens 1 und höchstens 9 enthalten sein sollte.
+
+Nachdem MONAD alle seine Anweisungen ausgeführt hat, zeigt es an, dass die Modellnummer gültig war.
+Wenn die Modellnummer jedoch ungültig war, wird ein anderer Wert, der nicht Null ist, in der Variablen z hinterlassen.
+
+MONAD erlegt zusätzliche, mysteriöse Beschränkungen für Modellnummern auf, und die Legende besagt,
+dass die letzte Kopie der MONAD-Dokumentation von einem Marderhund aufgefressen wurde.
+Du wirst auf andere Weise herausfinden müssen, was MONAD tut.
+
+Um so viele U-Boot-Funktionen wie möglich zu aktivieren, musst du die größte gültige vierzehnstellige Modellnummer
+suchen, die keine 0-Ziffern enthält.
+
+
+Was ist die größte von MONAD akzeptierte Modellnummer?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

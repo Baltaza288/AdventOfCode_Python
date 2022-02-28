@@ -1,0 +1,67 @@
+
+--- Tag 21: Dirac-Würfel ---
+
+Es gibt nicht viel zu tun, während du langsam auf den Grund des Ozeans hinabsteigst.
+Der U-Boot-Computer fordert dich zu einem netten Spiel mit Dirac Würfel heraus.
+
+Dieses Spiel besteht aus einem einzelnen Würfel, zwei Spielfiguren und einem Spielbrett mit einer kreisförmigen Bahn
+mit zehn Feldern, die von 1 bis 10 im Uhrzeigersinn markiert sind.
+Das Startfeld jedes Spielers wird zufällig gewählt (INPUT). Spieler 1 fängt an.
+
+Die Spieler sind abwechselnd am Zug. Wenn ein Spieler an der Reihe ist,
+würfelt er dreimal mit dem Würfel und zählt die Ergebnisse zusammen.
+Dann bewegt der Spieler seine Spielfigur so oft vorwärts auf der Strecke
+(d. h. er bewegt sich im Uhrzeigersinn auf den Feldern mit steigendem Wert
+und kehrt nach 10 Feldern wieder zu 1 zurück).
+Wenn ein Spieler also auf Feld 7 steht und 2, 2 und 1 würfelt, würde er 5 Mal vorwärts ziehen,
+zu den Feldern 8, 9, 10, 1 und schließlich auf 2 anhalten.
+
+Nachdem jeder Spieler gezogen hat, erhöht sich sein Punktestand um den Wert des Feldes,
+auf dem seine Spielfigur gestoppt wurde. Die Punkte der Spieler beginnen bei 0.
+Wenn also der erste Spieler auf Feld 7 beginnt und insgesamt 5 würfelt,
+würde er auf Feld 2 stehen bleiben und 2 zu seiner Punktzahl hinzufügen (für eine Gesamtpunktzahl von 2).
+Das Spiel endet sofort mit einem Sieg für jeden Spieler, der mindestens 1000 Punkte erreicht hat.
+
+Da es sich beim ersten Spiel um ein Übungsspiel handelt,
+öffnet das U-Boot ein Fach mit der Aufschrift deterministische Würfel und ein 100-seitiger Würfel fällt heraus.
+Dieser Würfel würfelt immer zuerst eine 1, dann eine 2, dann eine 3 und so weiter bis zu 100,
+Danach beginnt er wieder bei 1. Spiele mit diesem Würfel.
+
+Nehmen wir zum Beispiel die folgenden Startpositionen an:
+
+Startposition von Spieler 1: 4
+Startposition von Spieler 2: 8
+
+Das Spiel würde folgendermaßen ablaufen:
+
+Spieler 1 würfelt 1+2+3 und zieht auf Feld 10, um insgesamt 10 Punkte zu erhalten.
+Spieler 2 würfelt 4+5+6 und zieht auf Feld 3, also insgesamt 3 Punkte.
+Spieler 1 würfelt 7+8+9 und zieht auf Feld 4, also insgesamt 14 Punkte.
+Spieler 2 würfelt 10+11+12 und zieht auf Feld 6 für eine Gesamtpunktzahl von 9.
+Spieler 1 würfelt 13+14+15 und zieht auf Feld 6 für eine Gesamtpunktzahl von 20.
+Spieler 2 würfelt 16+17+18 und zieht auf Feld 7 für eine Gesamtpunktzahl von 16.
+Spieler 1 würfelt 19+20+21 und zieht auf Feld 6 für eine Gesamtpunktzahl von 26.
+Spieler 2 würfelt 22+23+24 und bewegt sich auf Feld 6 für eine Gesamtpunktzahl von 22.
+
+...nach vielen Runden...
+
+Spieler 2 würfelt 82+83+84 und bewegt sich auf Feld 6 für eine Gesamtpunktzahl von 742.
+Spieler 1 würfelt 85+86+87 und zieht auf Feld 4 für eine Gesamtpunktzahl von 990.
+Spieler 2 würfelt 88+89+90 und zieht auf Feld 3 für eine Gesamtpunktzahl von 745.
+Spieler 1 würfelt 91+92+93 und zieht auf Feld 10 für eine Endpunktzahl von 1000.
+
+Da Spieler 1 mindestens 1000 Punkte hat, gewinnt Spieler 1 und das Spiel endet.
+Zu diesem Zeitpunkt hatte der unterlegene Spieler 745 Punkte und der Würfel wurde insgesamt 993 Mal geworfen.
+745 * 993 = 739785.
+
+Spiele ein Übungsspiel mit dem deterministischen 100-seitigen Würfel.
+
+
+Wenn einer der beiden Spieler gewinnt, was erhält man, wenn man die Punktzahl des unterlegenen Spielers
+mit der Anzahl der Würfelwürfe während des Spiels multipliziert?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+

@@ -1,0 +1,124 @@
+
+--- Tag 12: Passage Pathing ---
+
+Da die unterirdischen Subsysteme deines U-Boots nur suboptimal funktionieren, ist die einzige Möglichkeit,
+diese Höhle in absehbarer Zeit zu verlassen, dass du selbst einen Weg findest.
+Nicht nur einen Weg - den einzigen Weg. Um zu wissen, ob du den besten Weg gefunden hast, musst du alle Wege finden.
+
+Glücklicherweise funktionieren die Sensoren größtenteils noch,
+sodass du eine grobe Karte der verbleibenden Höhlen erstellen können (INPUT).
+
+Beispiel:
+
+Start-A
+Start-b
+A-c
+A-b
+b-d
+A-Ende
+b-Ende
+
+Dies ist eine Liste, die zeigt, wie alle Höhlen miteinander verbunden sind.
+Du Startest in der Höhle mit dem Namen Start, und dein Ziel ist die Höhle mit dem Namen Ende.
+Ein Eintrag wie b-d bedeutet, dass die Höhle b mit der Höhle d verbunden ist.
+Das heißt, du kannst dich zwischen den beiden Höhlen bewegen.
+
+Das obige Höhlensystem sieht also ungefähr so aus:
+
+    Start
+    /   \
+c--A-----b--d
+    \   /
+     Ende
+
+Dein Ziel ist es, die Anzahl der verschiedenen Wege zu finden, die am Startpunkt beginnen und am Endpunkt enden
+und kleine Höhlen nicht mehr als einmal besuchen.
+Es gibt zwei Arten von Höhlen: große Höhlen (in Großbuchstaben geschrieben, wie A) und kleine Höhlen (in Kleinbuchstaben geschrieben, wie b).
+Es wäre Zeitverschwendung, eine kleine Höhle mehr als einmal zu besuchen, aber große Höhlen sind groß genug,
+dass es sich lohnen könnte, sie mehrmals zu besuchen.
+Alle Wege, die du findest, sollten also kleine Höhlen höchstens einmal besuchen und können große Höhlen beliebig oft besuchen.
+
+Unter Berücksichtigung dieser Regeln gibt es 10 Wege durch dieses Beispielhöhlensystem:
+
+Start,A,b,A,c,A,Ende
+Start,A,b,A,Ende
+Start,A,b,Ende
+Start,A,c,A,b,A,Ende
+Start,A,c,A,b,Ende
+Start,A,c,A,Ende
+Start,A,Ende
+Start,b,A,c,A,Ende
+Start,b,A,Ende
+Start,b,Ende
+
+Jede Zeile in der obigen Liste entspricht einem einzelnen Pfad.
+Die Höhlen, die von diesem Pfad besucht werden,
+sind in der Reihenfolge ihres Besuchs aufgeführt und durch Kommas getrennt.
+
+Man beachte, dass in diesem Höhlensystem die Höhle d nie von einem Pfad besucht wird: Um dies zu tun,
+müsste Höhle b zweimal besucht werden (einmal auf dem Weg zu Höhle d und ein zweites Mal auf dem Rückweg von Höhle d),
+und da die Höhle b klein ist, ist dies nicht zulässig.
+
+Hier ist ein etwas größeres Beispiel:
+
+dc-Ende
+HN-Start
+Start-kj
+dc-Start
+dc-HN
+LN-dc
+HN-Ende
+kj-sa
+kj-HN
+kj-dc
+
+Die 19 Pfade durch das System lauten wie folgt:
+
+Start,HN,dc,HN,Ende
+Start,HN,dc,HN,kj,HN,Ende
+Start,HN,dc,Ende
+Start,HN,dc,kj,HN,Ende
+Start,HN,Ende
+Start,HN,kj,HN,dc,HN,Ende
+Start,HN,kj,HN,dc,Ende
+Start,HN,kj,HN,Ende
+Start,HN,kj,dc,HN,Ende
+Start,HN,kj,dc,Ende
+Start,dc,HN,Ende
+Start,dc,HN,kj,HN,Ende
+Start,dc,Ende
+Start,dc,kj,HN,Ende
+Start,kj,HN,dc,HN,Ende
+Start,kj,HN,dc,Ende
+Start,kj,HN,Ende
+Start,kj,dc,HN,Ende
+Start,kj,dc,Ende
+
+Schließlich hat dieses noch größere Beispiel 226 Pfade:
+
+fs-Ende
+er-DX
+fs-he
+Start-DX
+pj-DX
+Ende-zg
+zg-sl
+zg-pj
+pj-he
+RW-he
+fs-DX
+pj-RW
+zg-RW
+Start-pj
+er-WI
+zg-he
+pj-fs
+Start-RW
+
+
+Wie viele Wege durch dieses Höhlensystem gibt es, die höchstens einmal kleine Höhlen besuchen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
