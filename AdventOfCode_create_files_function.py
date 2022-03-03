@@ -15,7 +15,7 @@ for x in range(1,26,1):
     solution = os.path.join(path, day + '.Dec_' + year + '_solution.py')
     if not os.path.exists(path):
         os.makedirs(path)
-#    f = open(challenge, "a")
+    f = open(challenge, "a")
     f = open(challenge_d, "a")
-#    f = open(input, "a")
-#    f = open(solution, "a")
+    f = open(input, "a")
+    f = open(solution, "a")
