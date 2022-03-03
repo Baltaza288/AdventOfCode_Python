@@ -146,4 +146,4 @@ Wie viel Mana muss mindestens ausgegeben werden um den Kampf zu gewinnen?
 
 
 ------------------------------------------------------------------------------------------------------------------------
---- Part Zwei ---
+--- Zweiter Teil ---

@@ -32,4 +32,4 @@ Wie viele Lichter leuchten nach der Befolgung der Anweisungen?
 
 
 ------------------------------------------------------------------------------------------------------------------------
---- Part Zwei ---
+--- Zweiter Teil ---

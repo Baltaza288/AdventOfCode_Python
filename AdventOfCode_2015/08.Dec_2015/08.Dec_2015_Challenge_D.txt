@@ -35,4 +35,4 @@ der Anzahl der Zeichen im Speicher für die Werte der Strings insgesamt für die
 
 
 ------------------------------------------------------------------------------------------------------------------------
---- Part Zwei ---
+--- Zweiter Teil ---

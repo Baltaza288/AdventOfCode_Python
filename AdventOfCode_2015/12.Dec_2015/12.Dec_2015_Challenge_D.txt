@@ -1,8 +1,10 @@
 
 --- Tag 12: JSAbacusFramework.io ---
 
-Die Buchhaltungs-Elfen des Weihnachtsmannes brauchen Hilfe, um die Bücher nach einer kürzlich erfolgten Bestellung auszugleichen.
-Leider verwendet ihre Buchhaltungssoftware ein merkwürdiges Speicherformat. Hier kommst du ins Spiel.
+Die Buchhaltungs-Elfen des Weihnachtsmannes brauchen Hilfe,
+um die Bücher nach einer kürzlich erfolgten Bestellung auszugleichen.
+Leider verwendet ihre Buchhaltungssoftware ein merkwürdiges Speicherformat.
+Hier kommst du ins Spiel.
 
 Du hast ein JSON-Dokument, das eine Vielzahl von Dingen enthält: Arrays ([1,2,3]),
 Objekte ({"a":1, "b":2}), Zahlen und Zeichenketten.

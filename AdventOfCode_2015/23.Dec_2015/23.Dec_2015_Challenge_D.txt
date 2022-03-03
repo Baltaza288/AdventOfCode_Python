@@ -38,4 +38,4 @@ Welchen Wert hat das Register b, wenn die Ausführung des Programms in der Puzzl
 
 
 ------------------------------------------------------------------------------------------------------------------------
---- Part Zwei ---
+--- Zweiter Teil ---

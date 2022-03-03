@@ -22,7 +22,7 @@ Alle Maße in der Liste (INPUT) sind in cm angegeben. Wie viele cm² Geschenkpap
 
 
 ------------------------------------------------------------------------------------------------------------------------
---- Part Zwei ---
+--- Zweiter Teil ---
 
 Den Elfen gehen auch die Geschenkbänder aus. Da alle Bänder die gleiche Breite haben,
 müssen sich also nur über die Länge Gedanken machen, welche sie bestellen müssen.

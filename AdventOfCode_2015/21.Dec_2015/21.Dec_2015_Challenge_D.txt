@@ -74,4 +74,4 @@ Wie viel Gold musst du mindestens ausgeben, um trotzdem den Kampf zu gewinnen?
 
 
 ------------------------------------------------------------------------------------------------------------------------
---- Part Zwei ---
+--- Zweiter Teil ---

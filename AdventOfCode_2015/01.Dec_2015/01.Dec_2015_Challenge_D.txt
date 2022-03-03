@@ -34,7 +34,7 @@ In welches Stockwerk führten die Anweisungen (INPUT) den Weihnachtsmann?
 
 
 ------------------------------------------------------------------------------------------------------------------------
---- Part Zwei ---
+--- Zweiter Teil ---
 
 Finde nun mit denselben Anweisungen die Position des ersten Zeichens,
 das den Weihnachtsmann in den Keller (Etage -1) führt.

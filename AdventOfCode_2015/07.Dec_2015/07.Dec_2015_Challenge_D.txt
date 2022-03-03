@@ -58,4 +58,4 @@ welches Signal wird letztendlich für die Verdrahtung von a bereitgestellt?
 
 
 ------------------------------------------------------------------------------------------------------------------------
---- Part Zwei ---
+--- Zweiter Teil ---

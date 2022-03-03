@@ -25,7 +25,7 @@ Wie viele Häuser erhalten mindestens ein Geschenk?
 
 
 ------------------------------------------------------------------------------------------------------------------------
---- Part Zwei ---
+--- Zweiter Teil ---
 
 Um den Prozess zu beschleunigen, erfindet der Weihnachtsmann im nächsten Jahr
 eine Roboterversion von sich selbst, Robo-Santa, der mit ihm die Geschenke ausliefern soll.

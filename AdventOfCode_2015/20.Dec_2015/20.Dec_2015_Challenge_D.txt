@@ -37,4 +37,4 @@ das mindestens so viele Geschenke erhält wie die Zahl in deiner Rätseleingabe?
 
 
 ------------------------------------------------------------------------------------------------------------------------
---- Part Zwei ---
+--- Zweiter Teil ---
