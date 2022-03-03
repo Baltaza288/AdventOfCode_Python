@@ -8,7 +8,7 @@ It must be the Ceres monitoring station!
 In order to lock on to the signal, you'll need to boost your sensors.
 The Elves send up the latest BOOST program - Basic Operation Of System Test.
 
-While BOOST (your puzzle input) is capable of boosting your sensors,
+While BOOST (INPUT) is capable of boosting your sensors,
 for tenuous safety reasons, it refuses to do so until the computer it
 runs on passes some checks to demonstrate it is a complete Intcode computer.
 

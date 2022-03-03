@@ -1,0 +1,63 @@
+
+--- Tag 3: Gekreuzte Drähte ---
+
+Die Schwerkraftunterstützung war erfolgreich, und du bist auf dem Weg zur Venus Betankungsstation.
+Während der Eile zurück zur Erde wurde das Treibstoffmanagementsystem nicht vollständig installiert,
+also steht das als nächstes auf der Prioritätenliste.
+
+Wenn man die Frontplatte öffnet, kommt ein Wirrwarr von Kabeln zum Vorschein. Genauer gesagt, sind zwei Drähte
+mit einem zentralen Anschluss verbunden und verlaufen in einem Gitter nach außen.
+Du verfolgst den Weg, den jedes Kabel beim Verlassen des zentralen Anschlusses nimmt, ein Kabel pro Textzeile (INPUT).
+
+Die Drähte verdrehen und drehen sich, aber gelegentlich kreuzen sich die Wege der beiden Drähte.
+Um die Schaltung zu reparieren, musst du den Kreuzungspunkt finden, der dem zentralen Anschluss am nächsten ist.
+Da die Drähte auf einem Gitter liegen, verwendest du für diese Messung die Manhattan-Distanz.
+Zwar kreuzen sich die Drähte technisch gesehen genau am zentralen Anschluss, diese Kreuzung zählt allerdings nicht.
+Ebenso wenig zählen Kreuzungen, bei dem ein Draht sich selbst kreuzt.
+
+
+Wenn zum Beispiel der Weg des ersten Drahtes R8,U5,L5,D3 ist,
+dann geht er vom zentralen Anschluss (o), nach rechts 8, nach oben 5, nach links 5 und schließlich nach unten 3:
+
+    ...........
+    ...........
+    ...........
+    ....+----+.
+    ....|....|.
+    ....|....|.
+    ....|....|.
+    .........|.
+    .o-------+.
+    ...........
+
+Wenn der Weg des zweiten Drahtes U7,R6,D4,L4 ist, geht er 7 nach oben, 6 nach rechts, 4 nach unten und 4 nach links:
+
+    ...........
+    .+-----+...
+    .|.....|...
+    .|..+--X-+.
+    .|..|..|.|.
+    .|.-X--+.|.
+    .|..|....|.
+    .|.......|.
+    .o-------+.
+    ...........
+
+Diese Drähte kreuzen sich an zwei Stellen (mit X gekennzeichnet), aber der untere linke Draht
+ist näher am zentralen Anschluss: sein Abstand beträgt 3 + 3 = 6.
+
+Hier noch ein paar weitere Beispiele:
+
+ - R75,D30,R83,U83,L12,D49,R71,U7,L72
+    U62,R66,U55,R34,D71,R55,D58,R83 = Entfernung 159
+ - R98,U47,R26,D63,R33,U87,L62,D20,R33,U53,R51
+    U98,R91,D20,R16,D67,R40,U7,R15,U6,R7 = Entfernung 135
+
+
+Wie groß ist die Manhattan-Entfernung zwischen dem zentralen Anschlüssen und der nächstgelegenen Kreuzung?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+

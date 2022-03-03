@@ -1,0 +1,47 @@
+
+--- Tag 19: Traktorstrahl ---
+
+Da du dir über den Zustand von Santas Schiff nicht sicher warst,
+hast du dir die Traktorstrahl-Technologie von Triton geliehen. Zeit, sie auszuprobieren.
+
+Wenn du sicher von allem anderen weg bist, aktivierst du den Traktorstrahl, aber es passiert nichts.
+Es ist schwer zu sagen, ob er funktioniert, wenn es nichts gibt, worauf man ihn anwenden kann.
+Zum Glück kann das Drohnensystem deines Schiffs so konfiguriert werden,
+dass es eine Drohne zu bestimmten Koordinaten schickt und dann überprüft, ob sie gezogen wird.
+Es gibt sogar ein Intcode-Programm (INPUT), mit dem du Zugriff auf das Drohnensystem hast.
+
+Das Programm verwendet zwei Eingabeanweisungen, um die X- und Y-Position abzufragen.
+Negative Zahlen sind ungültig und verwirren die Drohne. Alle Zahlen sollten Null oder positiv sein.
+
+Dann gibt das Programm aus, ob die Drohne stillsteht (0) oder von etwas angezogen wird (1).
+Ein Beispiel: Die Koordinate X=0, Y=0 direkt vor dem Sender des Traktorstrahls,
+sodass das Drohnensteuerungsprogramm an dieser Stelle immer 1 melden.
+
+Um den Traktorstrahl besser zu verstehen, ist es wichtig, sich ein gutes Bild vom Strahl selbst zu machen.
+Nehmen wir zum Beispiel an, du scannst das 10x10-Raster der Punkte, die dem Sender am nächsten sind:
+
+           X
+      0-> 9
+     0#.........
+     |.#........
+     v..##......
+      ...###....
+      ....###...
+    Y .....####.
+      ......####
+      ......####
+      .......###
+     9........##
+
+In diesem Beispiel beträgt die Anzahl der vom Traktorstrahl betroffenen Punkte in
+dem 10x10-Bereich, der dem Sender am nächsten ist, 27 Punkte.
+
+Du musst jedoch einen größeren Bereich scannen, um die Form des Strahls zu verstehen.
+
+
+Wie viele Punkte werden von dem Traktorstrahl, in dem 50x50-Bereich die dem Sender am nächsten liegt, erfasst?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

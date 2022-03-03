@@ -13,7 +13,7 @@ but the vacuum robot has a needlessly bright LED that makes it easy to
 spot no matter where it is.
 
 An Intcode program, the Aft Scaffolding Control and Information Interface
-(ASCII, your puzzle input), provides access to the cameras and the
+(ASCII) (INPUT), provides access to the cameras and the
 vacuum robot. Currently, because the vacuum robot is asleep, you can
 only access the cameras.
 

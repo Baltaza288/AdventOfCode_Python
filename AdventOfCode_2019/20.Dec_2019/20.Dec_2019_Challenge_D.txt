@@ -1,0 +1,106 @@
+
+--- Tag 20: Donut-Labyrinth ---
+
+Du bemerkst ein seltsames Muster auf der Oberfläche des Pluto und landest in der Nähe um es näher zu betrachten.
+Bei näherer Betrachtung erkennst du, dass du eines der berühmten Labyrinthe der lange verschollenen Pluto-Zivilisation!
+
+Da es auf dem Pluto nicht viel Platz gibt, hat die Zivilisation, die hier lebte,
+durch die Erfindung einer Methode zur Faltung der Raumzeit gedeihen.
+Obwohl die Technologie nicht mehr verstanden wird, bieten Labyrinthe wie dieses
+einen kleinen Einblick in das tägliche Leben eines alten Plutobürgers.
+
+Dieses Labyrinth hat die Form eines Donuts.
+Portale entlang des inneren und äußeren Randes
+des Donuts können dich sofort von einer Seite zur anderen teleportieren lassen.
+
+
+Beispiel:
+
+             A
+             A
+      #######.#########
+      #######.........#
+      #######.#######.#
+      #######.#######.#
+      #######.#######.#
+      #####  B    ###.#
+    BC...##  C    ###.#
+      ##.##       ###.#
+      ##...DE  F  ###.#
+      #####    G  ###.#
+      #########.#####.#
+    DE..#######...###.#
+      #.#########.###.#
+    FG..#########.....#
+      ###########.#####
+                 Z
+                 Z
+
+Diese Karte des Labyrinths zeigt feste Wände (#) und offene Passagen (.).
+Jedes Labyrinth auf Pluto hat einen Anfang (die offene Kachel neben AA) und ein
+Ende (die offene Kachel neben ZZ). Labyrinthe auf Pluto haben auch Portale.
+Dieses Labyrinth hat drei Paare von Portalen: BC, DE und FG.
+Von einer offenen Kachel neben einer dieser Beschriftungen kann mit einem einzigen Schritt
+zu einer anderen Kachel mit der gleichen Bezeichnung.
+(Du kannst nur auf Kacheln gehen. Markierungen und leerer Raum sind nicht begehbar.)
+
+Ein Weg durch das Labyrinth kommt ohne Portale aus. Beginnend bei AA,
+könnte man 1 nach unten, 8 nach rechts, 12 nach unten, 4 nach links und 1 nach unten gehen, um ZZ zu erreichen,
+das sind insgesamt 26 Schritte.
+
+Es gibt jedoch auch einen kürzeren Weg: Du könntest von AA zum inneren BC
+Portal gehen (4 Schritte), zum äußeren BC-Portal warpen (1 Schritt), zum inneren
+DE (6 Schritte), Warp zum äußeren DE (1 Schritt), zum äußeren FG (4 Schritte),
+Warp zum inneren FG (1 Schritt) und schließlich zu ZZ (6 Schritte).
+Insgesamt, sind dies nur 23 Schritte.
+
+Hier ist ein größeres Beispiel:
+
+                       A
+                       A
+      #################.#############
+      #.#...#...................#.#.#
+      #.#.#.###.###.###.#########.#.#
+      #.#.#.......#...#.....#.#.#...#
+      #.#########.###.#####.#.#.###.#
+      #.............#.#.....#.......#
+      ###.###########.###.#####.#.#.#
+      #.....#        A   C    #.#.#.#
+      #######        S   P    #####.#
+      #.#...#                 #......VT
+      #.#.#.#                 #.#####
+      #...#.#               YN....#.#
+      #.###.#                 #####.#
+    DI....#.#                 #.....#
+      #####.#                 #.###.#
+    ZZ......#               QG....#..AS
+      ###.###                 #######
+    JO..#.#.#                 #.....#
+      #.#.#.#                 ###.#.#
+      #...#..DI             BU....#..LF
+      #####.#                 #.#####
+    YN......#               VT..#....QG
+      #.###.#                 #.###.#
+      #.#...#                 #.....#
+      ###.###    J L     J    #.#.###
+      #.....#    O F     P    #.#...#
+      #.###.#####.#.#####.#####.###.#
+      #...#.#.#...#.....#.....#.#...#
+      #.#####.###.###.#.#.#########.#
+      #...#.#.....#...#.#.#.#.....#.#
+      #.###.#####.###.###.#.#.#######
+      #.#.........#...#.............#
+      #########.###.###.#############
+               B   J   C
+               U   P   P
+
+In diesem Fall hat AA keinen direkten Weg zu ZZ, aber es besteht eine Verbindung zu AS und CP.
+Wenn man durch AS, QG, BU und JO geht, kann man ZZ in 58 Schritten erreichen.
+
+
+Wie viele Schritte braucht man in deinem Labyrinth, von AA zu ZZ?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

@@ -10,7 +10,7 @@ You'll need to rebuild the network from scratch.
 
 The computers on the network are standard Intcode computers that communicate
 by sending packets to each other. There are 50 of them in total, each running
-a copy of the same Network Interface Controller (NIC) software (your puzzle input).
+a copy of the same Network Interface Controller (NIC) software (INPUT).
 The computers have network addresses 0 through 49; when each computer boots up,
 it will request its network address via a single input instruction. Be sure to
 give each computer a unique network address.

@@ -7,7 +7,7 @@ no choice but to land.
 
 A scan of the local area reveals only one interesting feature:
 a massive underground vault. You generate a map of the tunnels
-(your puzzle input). The tunnels are too narrow to move diagonally.
+(INPUT). The tunnels are too narrow to move diagonally.
 
 Only one entrance (marked @) is present among the open
 passages (marked .) and stone walls (#), but you also

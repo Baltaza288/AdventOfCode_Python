@@ -1,0 +1,47 @@
+
+--- Tag 8: Weltraumbildformat ---
+
+Die Stimmung der Elfen hebt sich, als sie erkennen, dass du die Möglichkeit hast,
+einen ihrer Marsrover neu zu starten und so sind sie neugierig,
+ob du einen kurzen Aufenthalt auf dem Mars verbringen würdest. Du landest dein Schiff in der Nähe des Rovers.
+
+Als du den Rover erreichst, stellst du fest, dass er bereits dabei ist neu zu starten!
+Er wartet nur darauf, dass jemand ein BIOS-Passwort eingibt.
+Der für den Rover zuständige Elf macht ein Foto des Passworts (INPUT) und schickt es dir über das digitale Sendenetz.
+
+Leider sind die Bilder, die über das digitale Sendenetzwerk gesendet werden, unüblich kodiert.
+Stattdessen werden sie in einem speziellen Space Image Format übertragen.
+Keiner der Elfen scheint sich daran zu erinnern, warum dies der Fall ist.
+Sie schicken dir die Anweisungen, um es zu entschlüsseln.
+
+Die Bilder werden als eine Reihe von Ziffern gesendet, die jeweils die Farbe eines einzelnen Pixels darstellen.
+Die Ziffern füllen jede Zeile des Bildes von links nach rechts und wandern dann abwärts zur nächsten Zeile
+und füllen die Zeilen von oben nach unten, bis jedes Pixel des Bildes ausgefüllt ist.
+
+Jedes Bild besteht eigentlich aus einer Reihe von gleich großen Schichten, die auf diese Weise gefüllt werden.
+Die erste Ziffer entspricht also dem Pixel oben links in der ersten Ebene,
+die zweite Ziffer entspricht dem Pixel rechts daneben und so weiter bis zur letzten Ziffer,
+die dem Pixel der letzten Ebene unten rechts entspricht.
+
+Bei einem Bild mit einer Breite von 3 Pixeln und einer Höhe von 2 Pixeln entsprechen die Bilddaten zum Beispiel
+123456789012 entspricht den folgenden Bildebenen:
+
+    Ebene 1: 123
+             456
+
+    Ebene 2: 789
+             012
+
+Das Bild, das du erhalten hast, ist 25 Pixel breit und 6 Pixel hoch.
+
+
+Um sicherzustellen, dass das Bild bei der Übertragung nicht beschädigt wurde, möchten die Elfen, dass du
+die Ebene findest, die die wenigsten 0er-Ziffern enthält.
+
+
+Wie hoch ist auf dieser Ebene die Anzahl der 1-Ziffern multipliziert mit der Anzahl der 2-Ziffern?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

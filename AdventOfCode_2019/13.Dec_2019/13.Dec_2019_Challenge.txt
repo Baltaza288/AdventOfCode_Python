@@ -11,7 +11,7 @@ is all the way on the other end of the ship. Surely, it won't be hard
 to build your own - the care package even comes with schematics.
 
 The arcade cabinet runs Intcode software like the game the Elves sent
-(your puzzle input). It has a primitive screen capable of drawing square
+(INPUT). It has a primitive screen capable of drawing square
 tiles on a grid. The software draws tiles to the screen with output
 instructions: every three output instructions specify the x position
 (distance from the left), y position (distance from the top), and tile id.

@@ -14,7 +14,7 @@ through a hole in the hull and flying out into space.
 The clear choice for this mission is a droid that can jump over
 the holes in the hull - a springdroid.
 
-You can use an Intcode program (your puzzle input) running on an
+You can use an Intcode program (INPUT) running on an
 ASCII-capable computer to program the springdroid. However, springdroids
 don't run Intcode; instead, they run a simplified assembly language
 called springscript.

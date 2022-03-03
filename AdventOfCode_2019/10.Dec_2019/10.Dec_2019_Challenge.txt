@@ -7,7 +7,7 @@ of the asteroids and can't be sure they're safe.
 
 The Elves would like to build a new monitoring station in a nearby
 area of space; they hand you a map of all of the asteroids in that
-region (your puzzle input).
+region (INPUT).
 
 The map indicates whether each position is empty (.) or contains
 an asteroid (#). The asteroids are much smaller than they appear

@@ -14,7 +14,7 @@ up again. Before your ship starts freezing, you detach your ship and set it
 to automatically stay within range of Santa's ship.
 
 This droid can follow basic instructions and report on its surroundings;
-you can communicate with it through an Intcode program (your puzzle input)
+you can communicate with it through an Intcode program (INPUT)
 running on an ASCII-capable computer.
 
 As the droid moves through its environment, it will describe what it

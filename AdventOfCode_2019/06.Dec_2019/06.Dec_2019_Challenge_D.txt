@@ -1,0 +1,78 @@
+
+--- Tag 6: Universal Orbit Map ---
+
+Du bist in der Universal Orbit Map Anlage auf Merkur gelandet.
+Da die Navigation im Weltraum oft einen Wechsel zwischen den Umlaufbahnen erfordert,
+sind die Orbitkarten hier nützlich, um effiziente Routen zwischen, dir und dem Weihnachtsmann zu finden.
+Du lädst eine Karte der lokalen Bahnen herunter (INPUT).
+
+Mit Ausnahme des universellen Massenzentrums (COM) befindet sich jedes Objekt im Weltraum
+in einer Umlaufbahn um genau ein anderes Objekt.
+Eine Umlaufbahn sieht etwa so aus:
+
+                      \
+                       \
+                        |
+                        |
+    AAA--> o            o <--BBB
+                        |
+                        |
+                       /
+                      /
+
+In diesem Diagramm befindet sich das Objekt BBB auf einer Umlaufbahn um AAA. Die Bahn,
+die BBB um AAA nimmt (mit Linien gezeichnet), ist nur teilweise dargestellt.
+In den Kartendaten wird diese Bahnbeziehung mit AAA)BBB geschrieben, was bedeutet
+"BBB befindet sich in einer Umlaufbahn um AAA".
+
+Bevor du deine Kartendaten zum Zeichnen eines Kurses verwendest, musst du sicherstellen,
+dass sie beim Herunterladen nicht beschädigt wurden.
+Um die Karten zu überprüfen, verwendet die Universal Orbit Map Prüfsummen -
+die Gesamtzahl der direkten Umlaufbahnen (wie die oben gezeigte) und indirekten Umlaufbahnen.
+
+Wenn A um B und B um C kreist, dann kreist A indirekt um C.
+Diese Kette kann eine beliebige Anzahl von Objekten umfassen: Wenn A B umkreist, B C umkreist,
+und C umkreist D, dann umkreist A indirekt D.
+
+
+Nehmen wir zum Beispiel an, du hast die folgende Abbildung:
+
+    COM)B
+    B)C
+    C)D
+    D)E
+    E)F
+    B)G
+    G)H
+    D)I
+    E)J
+    J)K
+    K)L
+
+Optisch sieht die obige Karte der Umlaufbahnen wie folgt aus:
+
+            G - H       J - K - L
+           /           /
+    COM - B - C - D - E - F
+                   \
+                    I
+
+In dieser visuellen Darstellung, wenn zwei Objekte durch eine Linie verbunden sind,
+umkreist das Objekt auf der rechten Seite das Objekt auf der linken Seite direkt.
+
+Hier können wir die Gesamtzahl der Umlaufbahnen wie folgt berechnen:
+
+ - D umkreist direkt C und indirekt B und COM, also insgesamt 3 Bahnen.
+ - L umkreist direkt K und indirekt J, E, D, C, B, und COM,
+    insgesamt 7 Bahnen.
+ - COM umkreist nichts.
+
+Die Gesamtzahl der direkten und indirekten Bahnen in diesem Beispiel beträgt 42.
+
+
+Wie hoch ist die Gesamtzahl der direkten und indirekten Bahnen in deinen Kartendaten?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

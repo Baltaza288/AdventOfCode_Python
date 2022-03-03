@@ -1,0 +1,72 @@
+
+--- Tag 1: Die Tyrannei der Raketengleichung ---
+
+Der Weihnachtsmann ist, bei Lieferung von Geschenke an andere Planeten, am Rande des Sonnensystems gestrandet!
+Um seine Position im Weltraum genau zu berechnen, seinen Warp-Antrieb sicher auszurichten
+und rechtzeitig zur Erde zurückzukehren, um Weihnachten zu retten, braucht er dich,
+um ihm Messungen von fünfzig Sternen zu bringen.
+
+Sammle Sterne, indem du Rätsel löst. An jedem Tag des Adventskalenders werden zwei Rätsel zur Verfügung gestellt.
+Das zweite Rätsel wird freigeschaltet, sobald du das erste gelöst hast.
+Für jedes Rätsel gibt es einen Stern. Viel Glück!
+
+Die Elfen laden dich schnell in ein Raumschiff und bereiten den Start vor.
+
+Bei der ersten "Go/No-Go"-Abfrage sagen alle Elfen "Go", bis der Treibstoffzähler auftaucht.
+Sie haben die Menge des benötigten Treibstoffs noch nicht bestimmt.
+
+Der Treibstoff, der für den Start eines bestimmten Moduls benötigt wird, hängt von dessen Masse ab.
+Konkret bedeutet dies: Um den benötigten Treibstoff für ein Modul zu ermitteln, nimm seine Masse, teile durch drei,
+runde ab und ziehe zwei ab!
+
+
+Zum Beispiel:
+
+ - Bei einer Masse von 12 dividiert man durch 3, rundet ab, um 4 zu erhalten, und zieht dann 2 ab, um 2 zu erhalten.
+ - Bei einer Masse von 14 ergibt die Division durch 3 und das Abrunden immer noch 4,
+   sodass der benötigte Treibstoff ebenfalls 2 ergiebt.
+ - Bei einer Masse von 1.969 beträgt der benötigte Treibstoff 654.
+ - Bei einer Masse von 100.756 beträgt der benötigte Treibstoff 33583.
+
+Der Treibstoff-Sensor muss den gesamten Treibstoffbedarf kennen. Um ihn zu ermitteln,
+berechne den benötigten Treibstoff für die Masse jedes Moduls (INPUT).
+Addiere anschließend alle Treibstoffwerte zusammen.
+
+
+Wie hoch ist die Summe des Treibstoffbedarfs für alle Module deines Raumschiffs?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+Während der zweiten Go/No Go-Abstimmung stoppt der Elf, der für die Raketengleichung zuständig ist.
+Offensichtlich hast du vergessen zusätzlichen Treibstoff für den Treibstoff,
+den du gerade hinzugefügt hast zu berechnen.
+
+Der Treibstoff selbst benötigt Treibstoff, genau wie ein Modul - nimm seine Masse, teile durch drei,
+abrunden und zwei abziehen. Dieser Treibstoff benötigt jedoch auch Treibstoff, und dieser
+Treibstoff benötigt Treibstoff, und so weiter. Jede Masse, die negativen Treibstoff erfordern würde, sollte
+stattdessen so behandelt werden, als würde sie keinen Treibstoff benötigen.
+Die verbleibende Masse, falls vorhanden, wird stattdessen durch richtiges Wünschen gehandhabt,
+das keine Masse hat und nicht in den Rahmen dieser Berechnung.
+
+Berechne also für jede Modulmasse den Treibstoff und addiere ihn zur Gesamtsumme.
+Behandle dann die soeben berechnete Treibstoffmenge als Eingangsmasse und wiederhole den Vorgang,
+bis der Treibstoffbedarf Null oder negativ ist.
+
+Ein Beispiel:
+
+ - Ein Modul der Masse 14 benötigt 2 Treibstoff. Für diesen Brennstoff wird kein weiterer Brennstoff benötigt
+    (2 geteilt durch 3 und abgerundet ist 0, was einen negativen Treibstoff erfordern würde),
+    also ist der gesamte benötigte Treibstoff immer noch 2.
+ - Für ein Modul der Masse 1969 wird zunächst 654 Treibstoff benötigt. Dann erfordert dieser Treibstoff
+    216 mehr Treibstoff (654 / 3 - 2). 216 erfordert dann 70 weiteren Treibstoff, was wiederum
+    21 Treibstoff, was wiederum 5 Treibstoff erfordert, was wiederum keinen weiteren Treibstoff erfordert. Der gesamte
+    Treibstoffbedarf für ein Modul der Masse 1969 ist also 654 + 216 + 70 + 21 + 5 = 966.
+ - Der Treibstoffbedarf eines Moduls mit der Masse 100756 und seines Treibstoffs beträgt:
+    33583 + 11192 + 3728 + 1240 + 411 + 135 + 43 + 12 + 2 = 50346.
+
+
+Wie hoch ist die Summe des Treibstoffbedarfs für alle Module deines Raumschiffs
+unter Berücksichtigung der Masse des hinzugefügten Treibstoffs?
+(Berechne den Treibstoffbedarf für jedes Modul einzeln und addiere sie am Ende).

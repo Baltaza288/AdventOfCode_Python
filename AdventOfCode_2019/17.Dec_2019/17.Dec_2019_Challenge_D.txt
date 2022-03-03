@@ -1,0 +1,78 @@
+
+--- Tag 17: Einstellen und Vergessen ---
+
+Ein Frühwarnsystem erkennt eine ankommende Sonneneruption
+und aktiviert automatisch den elektromagnetischen Schild des Schiffes.
+Unglücklicherweise hat dies das Wi-Fi für viele kleine Roboter abgeschnitten, die sich,
+auf einem Außengerüst auf der unsicheren Seite des Schildes befinden. Um sie zu retten, musst du schnell handeln!
+
+Die einzigen Hilfsmittel, die dir zur Verfügung stehen, sind einige verkabelte Kameras
+und ein kleiner Saugroboter, der gerade an seiner Ladestation und im Ruhemodus befindet.
+Die Videoqualität ist schlecht, aber der Saugroboter hat eine unnötig helle LED,
+mit der er leicht zu erkennen ist, egal wo er sich befindet.
+
+Ein Intcode-Programm, das 'Aft Scaffolding Control and Information Interface' (ASCII)
+(INPUT), ermöglicht den Zugriff auf die Kameras und den Saugroboter.
+Da sich der Saugroboter derzeit im Ruhemodus befindet, kannst du nur auf die Kameras zugreifen.
+
+Wenn du das ASCII-Programm auf deinem Intcode-Computer ausführst, erhältst du die aktuelle Ansicht des Gerüsts.
+Diese wird, rein zufällig, als ASCII-Code ausgegeben:
+35 bedeutet #, 46 bedeutet ., 10 beginnt eine neue Ausgabezeile unterhalb der aktuellen und so weiter.
+(Innerhalb einer Zeile werden die Zeichen von links nach rechts gezeichnet.)
+
+In der Kameraausgabe steht # für ein Gerüst und . für freien Raum.
+Der Saugroboter ist als ^, v, < oder > sichtbar, je nachdem, ob er nach oben, unten, links oder rechts zeigt.
+Wenn er so gezeichnet ist, steht der Saugroboter immer auf einem Gerüst.
+Entfernt sich der Saugroboter jemals von einem Gerüst, beginnt er unkontrolliert das All zu taumeln
+und er wird als X sichtbar sein.
+
+Im Allgemeinen bildet das Gerüst einen Pfad, aber manchmal macht es eine Schleife auf sich selbst zurück.
+Nehmen wir zum Beispiel an, dass du über die Kameras folgende Ansicht sehen kannst:
+
+    ..#..........
+    ..#..........
+    #######...###
+    #.#...#...#.#
+    #############
+    ..#...#...#..
+    ..#####...^..
+
+Hier ist der Saugroboter ^ nach oben gerichtet und sitzt an einem Ende des Gerüsts
+in der Nähe der unteren rechten Ecke des Bildes. Das Gerüst geht weiter nach oben,
+macht mehrere Schleifen und endet oben links im Bild.
+
+Der erste Schritt besteht darin, die Kameras zu kalibrieren, indem man die Ausrichtungsparameter
+einiger wohldefinierter Punkte findet. Lokalisiere alle Gerüstschnittpunkte!
+Der Ausrichtungsparameter enspricht dem Abstand zum linken Rand multipliziert mit dem Abstand zum oberen Rand.
+Hier sind die Schnittpunkte aus dem obigen Bild mit O markiert:
+
+    ..#..........
+    ..#..........
+    ##O####...###
+    #.#...#...#.#
+    ##O###O###O##
+    ..#...#...#..
+    ..#####...^..
+
+Für diese Schnittpunkte:
+
+ - Der linke obere Schnittpunkt liegt 2 Einheiten vom linken Bildrand und 2 Einheiten vom oberen Rand entfernt.
+    Sein Ausrichtungsparameter ist also 2 * 2 = 4.
+ - Der untere linke Schnittpunkt liegt 2 Einheiten von links und 4 Einheiten von oben.
+    Sein Ausrichtungsparameter ist 2 * 4 = 8.
+ - Der Schnittpunkt unten-mittig liegt 6 Einheiten von links und 4 Einheiten von oben.
+    Sein Ausrichtungsparameter ist somit 24.
+ - Der Ausrichtungsparameter des rechten unteren Schnittpunkts ist 40.
+
+Um die Kameras zu kalibrieren, benötigst du die Summe der Ausrichtungsparameter.
+Im obigen Beispiel ist dies 76.
+
+Führe dein ASCII-Programm aus!
+
+
+Wie hoch ist die Summe der Ausrichtungsparameter für die Gerüst-Kreuzungen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

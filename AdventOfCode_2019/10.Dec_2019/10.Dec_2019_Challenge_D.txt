@@ -1,0 +1,137 @@
+
+--- Tag 10: Überwachungsstation ---
+
+Du fliegst in den Asteroidengürtel und erreichst die Überwachungsstation von Ceres.
+Die Elfen hier haben einen Notfall:
+Sie haben Probleme, alle Asteroiden zu verfolgen und können nicht sicher sein, dass sie sicher sind.
+
+Die Elfen möchten eine neue Überwachungsstation in einem nahe gelegenen
+Bereich des Weltraums errichten. Sie geben dir eine Karte aller Asteroiden in dieser Region (INPUT).
+
+Die Karte zeigt an, ob jede Position leer ist (.) oder einen Asteroiden enthält (#).
+Die Asteroiden sind viel kleiner als sie auf der Karte erscheinen
+und jeder Asteroid befindet sich genau in der Mitte seiner markierten Position.
+Die Asteroiden können mit X,Y-Koordinaten beschrieben werden wobei X die Entfernung vom linken Rand
+und Y die Entfernung vom oberen Rand ist. Die linke obere Ecke ist also 0,0 und die Position
+unmittelbar rechts davon ist 1,0.
+
+Deine Aufgabe ist es, herauszufinden, welcher Asteroid der beste Ort wäre um eine neue Überwachungsstation zu bauen.
+Eine Überwachungsstation kann jeden Asteroiden erkennen, zu dem sie eine direkte Sichtlinie hat - das heißt,
+es darf sich kein anderer Asteroid genau zwischen ihnen befinden.
+Diese Sichtlinie kann in jedem beliebigen Winkel verlaufen, nicht nur auf Linien,
+die am Gitter ausgerichtet sind oder diagonal verlaufen.
+Der beste Standort ist der Asteroid, der die meisten anderen Asteroiden erfassen kann.
+
+
+Betrachte zum Beispiel die folgende Karte:
+
+    .#..#
+    .....
+    #####
+    ....#
+    ...##
+
+Der beste Standort für eine neue Überwachungsstation auf dieser Karte ist der Asteroid bei 3,4,
+weil er 8 Asteroiden erkennen kann, mehr als jeder andere Standort.
+Der einzige Asteroid, den sie nicht entdecken kann, ist der Asteroid bei 1,0.
+Die Sicht auf diesen Asteroiden wird durch den Asteroiden bei 2,2.
+Alle anderen Asteroiden sind schlechtere Standorte. Sie können 7 oder weniger andere Asteroiden entdecken.
+Hier ist die Anzahl anderer Asteroiden, die eine Überwachungsstation auf jedem Asteroiden erkennen könnte:
+
+    .7..7
+    .....
+    67775
+    ....7
+    ...87
+
+Hier ist ein Asteroid (#) und einige Beispiele dafür, wie seine Sichtlinie blockiert werden könnte.
+Befände sich ein anderer Asteroid an der Stelle eines Großbuchstaben,
+wären die mit dem entsprechenden Kleinbuchstaben markierten Orte
+markierten Stellen blockiert und könnten nicht entdeckt werden:
+
+    #.........
+    ...A......
+    ...B..a...
+    .EDCG....a
+    ..F.c.b...
+    .....c....
+    ..efd.c.gb
+    .......c..
+    ....f...c.
+    ...e..d..c
+
+
+Hier sind einige größere Beispiele:
+
+Der beste ist 5,8 mit 33 anderen Asteroiden:
+
+    ......#.#.
+    #..#.#....
+    ..#######.
+    .#.#.###..
+    .#..#.....
+    ..#....#.#
+    #..#....#.
+    .##.#..###
+    ##...#..#.
+    .#....####
+
+Am besten ist 1,2 mit 35 anderen Asteroiden entdeckt:
+
+    #.#...#.#.
+    .###....#.
+    .#....#...
+    ##.#.#.#.#
+    ....#.#.#.
+    .##..###.#
+    ..#...##..
+    ..##....##
+    ......#...
+    .####.###.
+
+Der beste Wert ist 6,3 mit 41 anderen entdeckten Asteroiden:
+
+    .#..#..###
+    ####.###.#
+    ....###.#.
+    ..###.##.#
+    ##.##.#.#.
+    ....###..#
+    ..#.#..#.#
+    #..#.#.###
+    .##...##.#
+    .....#.#..
+
+Am besten ist 11,13 mit 210 anderen Asteroiden entdeckt:
+
+    .#..##.###...#######
+    ##.############..##.
+    .#.######.########.#
+    .###.#######.####.#.
+    #####.##.#.##.###.##
+    ..#####..#.#########
+    ####################
+    #.####....###.#.#.##
+    ##.#################
+    #####.##.###..####..
+    ..######..##.#######
+    ####.##.####...##..#
+    .#####..#.######.###
+    ##...#.##########...
+    #.##########.#######
+    .####.#.###.###.#.##
+    ....##.##.###..#####
+    .#.#.###########.###
+    #.#.#.#####.####.###
+    ###.##.####.##.#..##
+
+Finde den besten Standort für eine neue Überwachungsstation.
+
+
+Wie viele andere Asteroiden können von diesem Standort aus entdeckt werden?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+

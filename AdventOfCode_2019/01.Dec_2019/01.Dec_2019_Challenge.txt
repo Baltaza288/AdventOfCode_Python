@@ -29,7 +29,7 @@ For example:
  -  For a mass of 100756, the fuel required is 33583.
 
 The Fuel Counter-Upper needs to know the total fuel requirement. To find it,
-individually calculate the fuel needed for the mass of each module (your puzzle input),
+individually calculate the fuel needed for the mass of each module (INPUT),
 then add together all the fuel values.
 
 

@@ -1,0 +1,48 @@
+
+--- Tag 25: Kryostase ---
+
+Als du dich dem Schiff des Weihnachtsmanns näherst, melden deine Sensoren zwei wichtige Details:
+
+Erstens, dass du zu spät sein könntest: die Innentemperatur beträgt -40 Grad.
+
+Zweitens, dass es irgendwo auf dem Schiff ein schwaches Lebenszeichen gibt.
+
+Die Luftschleuse ist mit einem Code verriegelt. Deine beste Option ist, einen kleinen Droiden zu schicken,
+um die Situation zu untersuchen. Du koppelst dein Schiff an das des Weihnachtsmanns,
+brichst ein kleines Loch in die Hülle und lässt den Droiden hineinlaufen, bevor du es wieder verschließt.
+Bevor dein Schiff anfängt zu gefrieren, trennst du dein Schiff und stellst es so ein,
+dass es automatisch in Reichweite des Schiffes des Weihnachtsmanns bleibt.
+
+Der Droide kann einfache Anweisungen befolgen und über seine Umgebung berichten.
+Du kannst mit ihm über ein Intcode-Programm (INPUT) kommunizieren das auf einem ASCII-fähigen Computer läuft.
+
+Während der Droide sich durch seine Umgebung bewegt, wird er beschreiben, was er sieht.
+Wenn er "Command?" sagt, kannst du ihm eine einzelne Anweisung geben,
+die mit einem Zeilenumbruch (ASCII-Code 10) abgeschlossen wird.
+
+Mögliche Anweisungen sind:
+
+ - Bewegung über Nord, Süd, Ost oder West.
+ - Um einen Gegenstand zu nehmen, den der Droide in der Umgebung sieht, verwende den Befehl take <Name des Gegenstands>.
+    Wenn der Droide zum Beispiel meldet, dass er einen roten Ball sieht, kannst du ihn mit 'take red ball' aufheben.
+ - Um einen Gegenstand, den der Droide trägt, fallen zu lassen, verwende den Befehl drop <Name des Gegenstands>.
+    Wenn der Droide zum Beispiel einen grünen Ball trägt, kannst du ihn mit 'drop green ball' fallen lassen.
+ - Um eine Liste aller Gegenstände zu erhalten, die der Droide gerade bei sich trägt,
+    benutze den Befehl inv (für "inventory").
+
+Zusätzliche Leerzeichen oder andere Zeichen sind nicht erlaubt.
+Die Anweisungen müssen genau angegeben werden.
+
+Das Schiff des Weihnachtsmanns ist ein Raumschiff der Reindeer-Klasse.
+Diese Schiffe verwenden druckempfindliche Böden, um die Identität von Droiden und Besatzungsmitgliedern festzustellen.
+Die Standardkonfiguration für diese Raumschiffe ist, dass alle Droiden genau dasselbe Gewicht müssen,
+damit sie leichter zu erkennen sind. Wenn du an einem solchen Sensor vorbeikommst,
+musst du das richtige Gewicht erreichen, indem du Gegenstände aus der Umgebung mitnimmst.
+
+
+Sieh dich auf dem Schiff um, ob du das Passwort für die Hauptluftschleuse finden kannst!
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

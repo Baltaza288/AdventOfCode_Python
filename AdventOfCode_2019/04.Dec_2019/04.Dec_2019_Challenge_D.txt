@@ -1,0 +1,27 @@
+
+--- Tag 4: Sicherer Container ---
+
+Du kommst am Treibstoffdepot der Venus an und musst feststellen, dass es durch ein Passwort geschützt ist.
+Die Elfen hatten das Passwort auf einen Zettel geschrieben, aber jemand hat ihn weggeworfen.
+
+Du erinnerst dich jedoch an ein paar wichtige Fakten über das Passwort:
+
+ - Es ist eine sechsstellige Zahl.
+ - Der Wert liegt innerhalb des Bereichs, der in der Rätseleingabe angegeben ist.
+ - Zwei benachbarte Ziffern sind identisch (wie 22 in 122345).
+ - Von links nach rechts werden die Ziffern nie kleiner, sondern immer nur größer
+    oder bleiben gleich (wie 111123 oder 135679).
+
+Abgesehen von der Bereichsregel sind die folgenden Kriterien erfüllt:
+
+ - 111111 erfüllt diese Kriterien (doppelte 11, nimmt nie ab).
+ - 223450 erfüllt diese Kriterien nicht (abnehmendes Ziffernpaar 50).
+ - 123789 erfüllt diese Kriterien nicht (keine Verdopplung).
+
+
+Wie viele verschiedene Passwörter innerhalb des in der Rätseleingabe angegebenen Bereichs erfüllen diese Kriterien?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

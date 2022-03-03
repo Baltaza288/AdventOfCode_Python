@@ -1,0 +1,104 @@
+
+--- Tag 16: Fehlerhafte Frequenzübertragung ---
+
+Du hast 3/4 des Weges durch den Gasriesen zurückgelegt. Nicht nur, dass die Kommunikation zur Erde fünf Stunden dauert,
+auch die Signalqualität ist ziemlich schlecht.
+Du kannst das Signal mit dem Algorithmus der fehlerhaften Frequenzübertragung Algorithmus, auch FFT genannt, säubern.
+
+Als Eingabe benötigt FFT eine Liste von Zahlen.
+In dem von dir empfangenen Signal (INPUT) ist jede Zahl eine einzelne Ziffer: Daten wie 15243 repräsentieren
+die Folge 1, 5, 2, 4, 3.
+
+Die FFT arbeitet in wiederholten Phasen.
+In jeder Phase wird eine neue Liste erstellt, die der gleichen Länge wie die Eingabeliste entspricht.
+Diese neue Liste wird auch als Eingabe für die nächste Phase verwendet.
+
+Jedes Element in der neuen Liste wird gebildet, indem der Wert in der Eingabeliste
+mit einem Wert in einem sich wiederholenden Muster multipliziert wird und die Ergebnisse miteinander addiert werden.
+Wenn also die Eingabeliste 9, 8, 7, 6, 5 wäre und das Muster für ein bestimmtes Element wäre 1, 2, 3,
+dann wäre das Ergebnis 9*1 + 8*2 + 7*3 + 6*1 + 5*2
+wobei jedes Eingabeelement mit den Elementen des Wiederholungsmusters multipliziert wird.
+Sollte das Muster eine geringere Anzahl an Elemente beinhalten (wie im Beispiel),
+wird erneut vom 1. Element des Musters begonnen und mit dem nächsten Element in der Eingabe berechnet.
+Von den einzelnen Ergebnissen werden nur die Einerstelle beibehalten:
+Aus 38 wird 8, aus -17 wird 7 und so weiter.
+
+Während jedes Element im Ausgabefeld alle Elemente des Eingabefeldes verwendet
+Array-Elemente verwendet, hängt das tatsächlich zu verwendende Wiederholungsmuster davon ab, welches
+Ausgangselement berechnet wird. Das Basismuster ist 0, 1, 0, -1.
+Dann wird jeder Wert im Muster so oft wiederholt, wie es der Position in der betrachteten Ausgabeliste entspricht.
+Wiederhole dies einmal für das erste Element, zweimal für das zweite Element, dreimal für das dritte Element
+und so weiter. Wenn also das dritte Element der Ausgabeliste berechnet wird,
+würde die Wiederholung der Werte Folgendes ergeben: 0, 0, 0, 1, 1, 1, 0, 0, 0, -1, -1, -1.
+
+Bei der Anwendung des Musters muss der erste Wert genau einmal übersprungen werden.
+Mit anderen Worten, das gesamte Muster wird um eins nach links verschoben.
+So wird für das zweite Element der Ausgabeliste würde das tatsächliche Muster wie folgt aussehen:
+    0, 1, 1, 0, 0, -1, -1, 0, 0, 1, 1, 0, 0, -1, -1, ....
+
+Nachdem dieses Verfahren zur Berechnung jedes Elements der Ausgabeliste verwendet wurde, ist die Phase abgeschlossen
+und die Ausgabeliste dieser Phase wird als neue Eingabeliste für die nächste Phase, falls vorhanden.
+
+Für das Eingangssignal 12345678 gibt es vier Phasen der FFT.
+Innerhalb jeder Phase wird jede Ausgangsziffer in einer einzigen Zeile berechnet, wobei das Ergebnis ganz rechts steht.
+Jede Multiplikation zeigt die Eingangsziffer auf der linken und den Wert des Musters auf der rechten Seite:
+
+    Eingangssignal: 12345678
+
+    1*1  + 2*0  + 3*-1 + 4*0  + 5*1  + 6*0  + 7*-1 + 8*0  = 4
+    1*0  + 2*1  + 3*1  + 4*0  + 5*0  + 6*-1 + 7*-1 + 8*0  = 8
+    1*0  + 2*0  + 3*1  + 4*1  + 5*1  + 6*0  + 7*0  + 8*0  = 2
+    1*0  + 2*0  + 3*0  + 4*1  + 5*1  + 6*1  + 7*1  + 8*0  = 2
+    1*0  + 2*0  + 3*0  + 4*0  + 5*1  + 6*1  + 7*1  + 8*1  = 6
+    1*0  + 2*0  + 3*0  + 4*0  + 5*0  + 6*1  + 7*1  + 8*1  = 1
+    1*0  + 2*0  + 3*0  + 4*0  + 5*0  + 6*0  + 7*1  + 8*1  = 5
+    1*0  + 2*0  + 3*0  + 4*0  + 5*0  + 6*0  + 7*0  + 8*1  = 8
+
+    Nach 1 Phase: 48226158
+
+    4*1  + 8*0  + 2*-1 + 2*0  + 6*1  + 1*0  + 5*-1 + 8*0  = 3
+    4*0  + 8*1  + 2*1  + 2*0  + 6*0  + 1*-1 + 5*-1 + 8*0  = 4
+    4*0  + 8*0  + 2*1  + 2*1  + 6*1  + 1*0  + 5*0  + 8*0  = 0
+    4*0  + 8*0  + 2*0  + 2*1  + 6*1  + 1*1  + 5*1  + 8*0  = 4
+    4*0  + 8*0  + 2*0  + 2*0  + 6*1  + 1*1  + 5*1  + 8*1  = 0
+    4*0  + 8*0  + 2*0  + 2*0  + 6*0  + 1*1  + 5*1  + 8*1  = 4
+    4*0  + 8*0  + 2*0  + 2*0  + 6*0  + 1*0  + 5*1  + 8*1  = 3
+    4*0  + 8*0  + 2*0  + 2*0  + 6*0  + 1*0  + 5*0  + 8*1  = 8
+
+    Nach 2 Phasen: 34040438
+
+    3*1  + 4*0  + 0*-1 + 4*0  + 0*1  + 4*0  + 3*-1 + 8*0  = 0
+    3*0  + 4*1  + 0*1  + 4*0  + 0*0  + 4*-1 + 3*-1 + 8*0  = 3
+    3*0  + 4*0  + 0*1  + 4*1  + 0*1  + 4*0  + 3*0  + 8*0  = 4
+    3*0  + 4*0  + 0*0  + 4*1  + 0*1  + 4*1  + 3*1  + 8*0  = 1
+    3*0  + 4*0  + 0*0  + 4*0  + 0*1  + 4*1  + 3*1  + 8*1  = 5
+    3*0  + 4*0  + 0*0  + 4*0  + 0*0  + 4*1  + 3*1  + 8*1  = 5
+    3*0  + 4*0  + 0*0  + 4*0  + 0*0  + 4*0  + 3*1  + 8*1  = 1
+    3*0  + 4*0  + 0*0  + 4*0  + 0*0  + 4*0  + 3*0  + 8*1  = 8
+
+    Nach 3 Phasen: 03415518
+
+    0*1  + 3*0  + 4*-1 + 1*0  + 5*1  + 5*0  + 1*-1 + 8*0  = 0
+    0*0  + 3*1  + 4*1  + 1*0  + 5*0  + 5*-1 + 1*-1 + 8*0  = 1
+    0*0  + 3*0  + 4*1  + 1*1  + 5*1  + 5*0  + 1*0  + 8*0  = 0
+    0*0  + 3*0  + 4*0  + 1*1  + 5*1  + 5*1  + 1*1  + 8*0  = 2
+    0*0  + 3*0  + 4*0  + 1*0  + 5*1  + 5*1  + 1*1  + 8*1  = 9
+    0*0  + 3*0  + 4*0  + 1*0  + 5*0  + 5*1  + 1*1  + 8*1  = 4
+    0*0  + 3*0  + 4*0  + 1*0  + 5*0  + 5*0  + 1*1  + 8*1  = 9
+    0*0  + 3*0  + 4*0  + 1*0  + 5*0  + 5*0  + 1*0  + 8*1  = 8
+
+    Nach 4 Phasen: 01029498
+
+Hier sind die ersten acht Ziffern der endgültigen Ausgabeliste nach 100 Phasen für einige größere Eingaben:
+
+ - 80871224585914546619083218645595 wird zu 24176176.
+ - 19617804207202209144916044189917 wird zu 73745418.
+ - 69317163492948606335995924319873 wird zu 52432133.
+
+
+Wie lauten nach 100 FFT-Phasen die ersten acht Ziffern in der endgültigen Ausgabeliste?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

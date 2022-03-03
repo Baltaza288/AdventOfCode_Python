@@ -1,0 +1,121 @@
+
+--- Tag 21: Springdroiden-Abenteuer ---
+
+Du hebst vom Pluto ab und fliegst in Richtung des Weihnachtsmanns.
+
+Während du weiter mit dem Traktorstrahl experimentierst,
+ziehst du versehentlich einen Asteroiden direkt in dein Schiff!
+Er verursacht erheblichen Schaden an der Hülle und bringt dein Schiff ins Taumeln.
+
+Du kannst einen Droiden losschicken, um das zu untersuchen, aber das Taumeln verursacht genug künstliche Schwerkraft,
+dass ein falscher Schritt den Droiden durch ein Loch in der Hülle in den Weltraum fliegen lassen würde.
+
+Die klare Wahl für diese Mission ist ein Droide, der über die Löcher in der Hülle springen kann - ein Springdroide.
+
+Du kannst ein Intcode-Programm (INPUT) auf einem ASCII-fähigen Computer laufen, um den Springdroiden zu programmieren.
+Allerdings laufen Springdroiden laufen nicht mit Intcode, sondern mit einer vereinfachten Assemblersprache
+namens springscript.
+
+Ein Springdroide ist zwar durchaus in der Lage, durch die künstliche Schwerkraft und riesigen Löchern zu navigieren,
+aber er hat einen Nachteil: Er kann sich nur maximal höchstens 15 Springscript-Anweisungen merken.
+
+Der Springdroide bewegt sich automatisch vorwärts und überlegt ständig, ob er springen soll.
+Das Springscript-Programm definiert die Logik für diese Entscheidung.
+
+Springscript-Programme verwenden nur boolesche Werte, keine Zahlen oder Zeichenketten.
+Es stehen zwei Register zur Verfügung: T, das Register für temporäre Werte, und J, das Sprungregister.
+Wenn das Sprungregister am Ende des Springscript-Programms wahr ist, wird der Springdroide versuchen zu springen.
+Diese beiden Register beginnen mit dem Wert false.
+
+Springdroiden haben einen Sensor, der erkennen kann, ob sich in verschiedenen Entfernungen in der Richtung,
+in die er schaut, Boden vorhanden ist. Diese Werte werden in schreibgeschützten Registern geschrieben.
+Dein Springdroide kann den Boden in vier Entfernungen erkennen:
+eine Kachel entfernt (A), zwei Kacheln entfernt (B), drei Kacheln entfernt (C) und vier Kacheln entfernt (D).
+Wenn in der angegebenen Entfernung Boden vorhanden ist, ist das Register wahr.
+Befindet sich dort ein Loch, ist das Register falsch.
+
+Im springscript gibt es nur drei Anweisungen:
+
+ - AND X Y setzt Y auf wahr, wenn sowohl X als auch Y wahr sind. Andernfalls, setzt sie Y auf falsch.
+ - OR X Y setzt Y auf wahr, wenn mindestens eines von X oder Y wahr ist. Andernfalls, setzt es Y auf falsch.
+ - NOT X Y setzt Y auf wahr, wenn X falsch ist. Andernfalls, setzt es Y auf falsch.
+
+Bei allen drei Anweisungen muss das zweite Argument (Y) ein beschreibbares Register sein (entweder T oder J).
+Das erste Argument (X) kann ein beliebiges Register sein (einschließlich A, B, C oder D).
+
+Das Ein-Befehl-Programm NOT A J bedeutet zum Beispiel: "Wenn die Kachel unmittelbar vor mir nicht Boden ist, springe".
+
+Hier ist ein Programm, das springt,
+wenn ein drei Kacheln breites Loch (mit Boden auf der anderen Seite des Lochs) entdeckt wird:
+
+    NOT A J
+    NOT B T
+    AND T J
+    NOT C T
+    AND T J
+    AND D J
+
+Das Intcode-Programm erwartet ASCII-Eingaben und -Ausgaben. Es beginnt mit der Anzeige eines Prompts.
+Gib dann die gewünschten Anweisungen einzeln pro Zeile ein! Beende jede Zeile mit einem Zeilenumbruch (ASCII-Code 10).
+Wenn du mit der Eingabe deines Programms fertig bist, gib den Befehl WALK, gefolgt von einem Zeilenumbruch ein,
+um den Springdroiden anzuweisen, mit der Vermessung des Schiffsrumpfes zu beginnen.
+
+Wenn der Springdroide in den Weltraum stürzt, wird ein ASCII-Rendering der letzten Momente seines Lebens erzeugt.
+Darin ist @ der Springdroide, # ist die Hülle und . ist der leere Raum.
+Nehmen wir zum Beispiel an, du programmierst den Springdroiden wie folgt:
+
+    NOT D J
+    WALK
+
+Dieses Ein-Befehl-Programm setzt J auf wahr, wenn und nur wenn es keinen Boden vier Kacheln entfernt ist.
+Mit anderen Worten: Es versucht, in jedes Loch zu springen, das es findet:
+
+    .................
+    .................
+    @................
+    #####.###########
+
+    .................
+    .................
+    .@...............
+    #####.###########
+
+    .................
+    ..@..............
+    .................
+    #####.###########
+
+    ...@.............
+    .................
+    .................
+    #####.###########
+
+    .................
+    ....@............
+    .................
+    #####.###########
+
+    .................
+    .................
+    .....@...........
+    #####.###########
+
+    .................
+    .................
+    .................
+    #####@###########
+
+Wenn der Springdroide es jedoch erfolgreich überquert, verwendet er eine Ausgabeanweisung,
+um die Höhe des Schadens an der Hülle als eine einzelne riesige Ganzzahl außerhalb des normalen ASCII-Bereichs.
+
+
+Programmiere den Springdroiden mit einer Logik, die es ihm erlaubt, die Hülle zu untersuchen,
+ohne in den Weltraum zu fallen.
+
+
+Wie hoch ist der Schaden an der Hülle?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

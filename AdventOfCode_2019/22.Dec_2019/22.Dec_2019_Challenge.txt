@@ -137,7 +137,7 @@ at the top of your deck, the card to its right ends up just below the
 top card, and so on, until the rightmost card ends up at the bottom
 of the deck.
 
-The complete shuffle process (your puzzle input) consists of applying many
+The complete shuffle process (INPUT) consists of applying many
 of these techniques. Here are some examples that combine techniques; they all
 start with a factory order deck of 10 cards:
 

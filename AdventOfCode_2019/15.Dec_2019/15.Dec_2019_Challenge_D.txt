@@ -1,0 +1,92 @@
+
+--- Tag 15: Sauerstoffsystem ---
+
+Hier draußen in den Tiefen des Weltraums können viele Dinge schief gehen.
+Glücklicherweise haben viele dieser Dinge Kontrollleuchten. Leider leuchtet eine dieser Lampen:
+Das Sauerstoffsystem eines Teils des Schiffes ist ausgefallen!
+
+Den Anzeigen zufolge muss das Sauerstoffsystem schon vor Tagen ausgefallen sein
+nach einem Riss in Sauerstofftank zwei. Dieser Teil des Schiffes wurde automatisch versiegelt,
+sobald der Sauerstoffgehalt gefährlich niedrig wurde.
+Ein einzelner ferngesteuerter Reparaturdroide ist deine einzige Möglichkeit, das das Sauerstoffsystem zu reparieren.
+
+Das Care-Paket der Elfen enthielt ein Intcode-Programm (INPUT),
+mit dem du den Reparaturdroiden fernsteuern kannst.
+Durch Ausführen dieses Programms kannst du den Reparaturdroiden zum Sauerstoffsystem steuern und das Problem beheben.
+
+Das Fernsteuerungsprogramm führt die folgenden Schritte in einer Endlosschleife aus:
+
+ - Nehme einen Bewegungsbefehl über eine Eingabeanweisung an.
+ - Sende den Bewegungsbefehl an den Reparaturdroiden.
+ - Warte, bis der Reparaturdroide den Bewegungsvorgang beendet hat.
+ - Bericht über den Status des Reparaturdroiden mittels Ausgabeanweisung.
+
+Es werden nur vier Bewegungsbefehle verstanden: Nord (1), Süd (2), West (3), und Ost (4).
+Alle anderen Befehle sind ungültig. Die Bewegungen unterscheiden sich in der Richtung, aber nicht in der Entfernung:
+In einem ausreichend langen Ost-West Gang würde eine Reihe von Befehlen wie 4,4,4,4,3,3,3,3
+den Reparaturdroiden wieder an seinen Ausgangspunkt zurückbringen.
+
+Der Reparaturdroide kann mit einem der folgenden Statuscodes antworten:
+
+ - 0: Der Reparaturdroide hat eine Wand getroffen. Seine Position hat sich nicht verändert.
+ - 1: Der Reparaturdroide hat sich einen Schritt in die gewünschte Richtung bewegt.
+ - 2: Der Reparaturdroide hat sich einen Schritt in die gewünschte Richtung bewegt und das Sauerstoffsystems erreicht.
+
+Du weißt nichts über den Bereich um den Reparaturdroiden,
+aber du kannst es herausfinden, indem du die Statuscodes beobachtest.
+
+Wir können den Bereich zum Beispiel mit D für den Droiden, # für Wände,
+. für Orte, die der Droide durchqueren kann, und leeren Raum für unerforschte
+Orte. Der Ausgangszustand sieht dann wie folgt aus:
+
+
+
+   D
+
+
+Wenn der Droide nach Norden gehen soll, schickst du ihm eine 1. Wenn er mit 0 antwortet, weißt du,
+dass der Ort eine Wand ist und der Droide sich nicht bewegt hat:
+
+   #
+   D
+
+
+Um sich nach Osten zu bewegen, sende 4. Eine Antwort von 1 bedeutet, dass die Bewegung erfolgreich war:
+
+   #
+   .D
+
+
+Dann werden vielleicht Versuche, sich nach Norden (1), Süden (2) und Osten
+(4) alle mit der Antwort 0 beantwortet werden:
+
+   ##
+   .D#
+    #
+
+Jetzt weißt du, dass der Reparaturdroide in einer Sackgasse steckt. Gehe zurück mit 3.
+Du weißt bereits, dass du eine Antwort von 1 erhalten wirst, da du weißt, dass der Ort offen ist):
+
+   ##
+   D.#
+    #
+
+Dann bekommt vielleicht West (3) eine Antwort von 0, Süd (2) eine Antwort von 1,
+Süd (2) erhält eine Antwort von 0, und West (3) erhält eine Antwort von 2:
+
+       ##
+      #..#
+      D.#
+       #
+
+Aufgrund der Antwort von 2 weißt du nun, dass du das Sauerstoffsystem gefunden hast!
+In diesem Beispiel war es nur 2 Züge von der Startposition des Reparaturdroiden entfernt.
+
+
+Wie viele Bewegungsbefehle sind mindestens nötig, um den Reparaturdroiden von seiner Ausgangsposition
+zum Standort des Sauerstoffsystems zu bewegen?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

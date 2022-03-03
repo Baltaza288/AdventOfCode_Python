@@ -1,15 +1,14 @@
 
 --- Day 12: The N-Body Problem ---
 
-The space near Jupiter is not a very safe place; you need to
+The space near Jupiter is not a very safe place. You need to
 be careful of a big distracting red spot, extreme radiation,
 and a whole lot of moons swirling around. You decide to start
 by tracking the four largest moons: Io, Europa, Ganymede,
 and Callisto.
 
 After a brief scan, you calculate the position of each moon
-(your puzzle input). You just need to simulate their motion
-so you can avoid them.
+(INPUT). You just need to simulate their motion so you can avoid them.
 
 Each moon has a 3-dimensional position (x, y, and z) and a
 3-dimensional velocity. The position of each moon is given in
@@ -38,10 +37,10 @@ not modify the velocity of any moon.
 
 For example, suppose your scan reveals the following positions:
 
-    <x=-1, y=0, z=2>
-    <x=2, y=-10, z=-7>
-    <x=4, y=-8, z=8>
-    <x=3, y=5, z=-1>
+    <x=-1, y=0,   z=2>
+    <x= 2, y=-10, z=-7>
+    <x= 4, y=-8,  z=8>
+    <x= 3, y= 5,  z=-1>
 
 Simulating the motion of these moons would produce the following:
 

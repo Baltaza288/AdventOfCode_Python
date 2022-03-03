@@ -7,7 +7,7 @@ Eris is infested with bugs! With an over 24-hour roundtrip for messages
 between you and Earth, you'll have to deal with this problem on your own.
 
 Eris isn't a very large place; a scan of the entire area fits into
-a 5x5 grid (your puzzle input). The scan shows bugs (#) and empty
+a 5x5 grid (INPUT). The scan shows bugs (#) and empty
 spaces (.).
 
 Each minute, The bugs live and die based on the number of bugs in
@@ -63,8 +63,8 @@ Here are the first few minutes of an example scenario:
     ##...
 
 To understand the nature of the bugs, watch for the first time a layout of
-bugs and empty spaces matches any previous layout. In the example above,
-the first layout to appear twice is:
+bugs and empty spaces matches any previous layout.
+In the example above, the first layout to appear twice is:
 
     .....
     .....

@@ -1,0 +1,217 @@
+
+--- Tag 12: Das N-Körper-Problem ---
+
+Der Weltraum in der Nähe vom Jupiter ist kein sehr sicherer Ort.
+Man muss sich vor einem großen, ablenkenden roten Fleck, extremer Strahlung
+und einer ganzen Reihe von Monden, die dort herumschwirren aufpassen. Du beschließt,
+zunächst mit der Verfolgung der vier größten Monde zu beginnen: Io, Europa, Ganymed,
+und Kallisto.
+
+Nach einem kurzen Scan berechnest du die Position jedes Mondes (INPUT).
+Du musst nur ihre Bewegung simulieren, damit du ihnen ausweichen kannst.
+
+Jeder Mond hat eine 3-dimensionale Position (x, y und z) und eine 3-dimensionale Geschwindigkeit.
+Die Position eines jeden Mondes ist in deinem Scan angegeben.
+Die x-, y- und z-Geschwindigkeit jedes Mondes beginnt bei 0.
+
+Simuliere die Bewegung der Monde in Zeitschritten.
+Aktualisiere in jedem Zeitschritt die Geschwindigkeit jedes Mondes durch Anwendung der Schwerkraft.
+Sobald die Geschwindigkeiten aller Monde aktualisiert wurden, aktualisiere die Position jedes
+Mondes durch Anwendung der Geschwindigkeit. Die Zeit schreitet um einen Schritt voran, sobald alle
+Positionen aktualisiert sind.
+
+Um die Schwerkraft anzuwenden, betrachte jedes Paar Monde. Auf jeder Achse (x, y, und z),
+ändert sich die Geschwindigkeit jedes Mondes um genau +1 oder -1, um die Monde zusammenzuziehen.
+Wenn zum Beispiel Ganymed eine x-Position von 3 und Kallisto eine x-Position von 5 hat,
+ändert sich die x-Geschwindigkeit von Ganymed um +1 (weil 5 > 3)
+und die x-Geschwindigkeit von Kallisto um -1 (weil 3 < 5).
+Wenn jedoch die Positionen auf einer bestimmten Achse gleich sind, ändert sich die Geschwindigkeit auf
+die Geschwindigkeit auf dieser Achse für dieses Paar von Monden nicht.
+
+Sobald die gesamte Schwerkraft angewandt wurde, wende die Geschwindigkeit an:
+Addiere die Geschwindigkeit eines jeden Mondes zu seiner eigenen Position.
+Wenn zum Beispiel Europa eine Position von x=1, y=2, z=3 und eine Geschwindigkeit von x=-2, y=0,z=3 hat,
+wäre ihre neue Position x=-1, y=2, z=6. Dieser Vorgang ändert sich die Geschwindigkeit des Mondes nicht.
+
+
+Nehmen wir zum Beispiel an, dass dein Scan die folgenden Positionen ergibt:
+
+    <x=-1, y=  0, z=  2>
+    <x= 2, y=-10, z= -7>
+    <x= 4, y= -8, z=  8>
+    <x= 3, y=  5, z= -1>
+
+Simuliert man die Bewegung dieser Monde, so ergibt sich Folgendes:
+
+    Nach 0 Schritten:
+    pos=<x= -1, y=   0, z=  2>, vel=<x= 0, y= 0, z= 0>
+    pos=<x=  2, y= -10, z= -7>, vel=<x= 0, y= 0, z= 0>
+    pos=<x=  4, y=  -8, z=  8>, vel=<x= 0, y= 0, z= 0>
+    pos=<x=  3, y=   5, z= -1>, vel=<x= 0, y= 0, z= 0>
+
+    Nach 1 Schritt:
+    pos=<x= 2, y= -1, z=  1>, vel=<x=  3, y= -1, z= -1>
+    pos=<x= 3, y= -7, z= -4>, vel=<x=  1, y=  3, z=  3>
+    pos=<x= 1, y= -7, z=  5>, vel=<x= -3, y=  1, z= -3>
+    pos=<x= 2, y=  2, z=  0>, vel=<x= -1, y= -3, z=  1>
+
+    Nach 2 Schritten:
+    pos=<x= 5, y=-3, z=-1>, vel=<x= 3, y=-2, z=-2>
+    pos=<x= 1, y=-2, z= 2>, vel=<x=-2, y= 5, z= 6>
+    pos=<x= 1, y=-4, z=-1>, vel=<x= 0, y= 3, z=-6>
+    pos=<x= 1, y=-4, z= 2>, vel=<x=-1, y=-6, z= 2>
+
+    Nach 3 Schritten:
+    pos=<x= 5, y= -6, z= -1>, vel=<x=  0, y= -3, z=  0>
+    pos=<x= 0, y=  0, z=  6>, vel=<x= -1, y=  2, z=  4>
+    pos=<x= 2, y=  1, z= -5>, vel=<x=  1, y=  5, z= -4>
+    pos=<x= 1, y= -8, z=  2>, vel=<x=  0, y= -4, z=  0>
+
+    Nach 4 Schritten:
+    pos=<x= 2, y= -8, z=  0>, vel=<x= -3, y= -2, z=  1>
+    pos=<x= 2, y=  1, z=  7>, vel=<x=  2, y=  1, z=  1>
+    pos=<x= 2, y=  3, z= -6>, vel=<x=  0, y=  2, z= -1>
+    pos=<x= 2, y= -9, z=  1>, vel=<x=  1, y= -1, z= -1>
+
+    Nach 5 Schritten:
+    pos=<x= -1, y= -9, z=  2>, vel=<x= -3, y= -1, z=  2>
+    pos=<x=  4, y=  1, z=  5>, vel=<x=  2, y=  0, z= -2>
+    pos=<x=  2, y=  2, z= -4>, vel=<x=  0, y= -1, z=  2>
+    pos=<x=  3, y= -7, z= -1>, vel=<x=  1, y=  2, z= -2>
+
+    Nach 6 Schritten:
+    pos=<x= -1, y= -7, z=  3>, vel=<x=  0, y=  2, z=  1>
+    pos=<x=  3, y=  0, z=  0>, vel=<x= -1, y= -1, z= -5>
+    pos=<x=  3, y= -2, z=  1>, vel=<x=  1, y= -4, z=  5>
+    pos=<x=  3, y= -4, z= -2>, vel=<x=  0, y=  3, z= -1>
+
+    Nach 7 Schritten:
+    pos=<x= 2, y= -2, z=  1>, vel=<x=  3, y=  5, z= -2>
+    pos=<x= 1, y= -4, z= -4>, vel=<x= -2, y= -4, z= -4>
+    pos=<x= 3, y= -7, z=  5>, vel=<x=  0, y= -5, z=  4>
+    pos=<x= 2, y=  0, z=  0>, vel=<x= -1, y=  4, z=  2>
+
+    Nach 8 Schritten:
+    pos=<x= 5, y=  2, z= -2>, vel=<x=  3, y=  4, z= -3>
+    pos=<x= 2, y= -7, z= -5>, vel=<x=  1, y= -3, z= -1>
+    pos=<x= 0, y= -9, z=  6>, vel=<x= -3, y= -2, z=  1>
+    pos=<x= 1, y=  1, z=  3>, vel=<x= -1, y=  1, z=  3>
+
+    Nach 9 Schritten:
+    pos=<x= 5, y=  3, z= -4>, vel=<x= 0, y=  1, z= -2>
+    pos=<x= 2, y= -9, z= -3>, vel=<x= 0, y= -2, z=  2>
+    pos=<x= 0, y= -8, z=  4>, vel=<x= 0, y=  1, z= -2>
+    pos=<x= 1, y=  1, z=  5>, vel=<x= 0, y=  0, z=  2>
+
+    Nach 10 Schritten:
+    pos=<x= 2, y=  1, z= -3>, vel=<x= -3, y= -2, z=  1>
+    pos=<x= 1, y= -8, z=  0>, vel=<x= -1, y=  1, z=  3>
+    pos=<x= 3, y= -6, z=  1>, vel=<x=  3, y=  2, z= -3>
+    pos=<x= 2, y=  0, z=  4>, vel=<x=  1, y= -1, z= -1>
+
+Dann könnte es hilfreich sein, die Gesamtenergie des Systems zu berechnen.
+Die Gesamtenergie eines einzelnen Mondes ist seine potenzielle Energie multipliziert mit seiner kinetischen Energie.
+Die potenzielle Energie eines Mondes ist die Summe der absoluten Werte seiner x-, y- und z-Positionskoordinaten.
+Die kinetische Energie eines Mondes ist die Summe der absoluten Werte seiner Geschwindigkeits-Koordinaten.
+In den folgenden Zeilen sind die Berechnungen für die potenzielle Energie (pot),
+kinetische Energie (kin) und Gesamtenergie:
+
+    Energie nach 10 Schritten:
+    pot: 2 + 1 + 3 = 6;  kin: 3 + 2 + 1 = 6; Gesamt: 6 * 6 = 36
+    pot: 1 + 8 + 0 = 9;  kin: 1 + 1 + 3 = 5; Gesamt: 9 * 5 = 45
+    pot: 3 + 6 + 1 = 10; kin: 3 + 2 + 3 = 8; Gesamt: 10 * 8 = 80
+    pot: 2 + 0 + 4 = 6;  kin: 1 + 1 + 1 = 3; Gesamt: 6 * 3 = 18
+    Summe der Gesamtenergie: 36 + 45 + 80 + 18 = 179
+
+Im obigen Beispiel addiert man die Gesamtenergie für alle Monde
+nach 10 Schritten ergibt sich die Gesamtenergie im System, 179.
+
+Hier ist ein zweites Beispiel:
+
+    <x=-8, y=-10, z=0>
+    <x=5, y=5, z=10>
+    <x=2, y=-7, z=3>
+    <x=9, y=-8, z=-3>
+
+Alle zehn Schritte der Simulation für 100 Schritte ergeben:
+
+    Nach 0 Schritten:
+    pos=<x= -8, y=-10, z=   0>, vel=<x= 0, y= 0, z= 0>
+    pos=<x=  5, y=  5, z=  10>, vel=<x= 0, y= 0, z= 0>
+    pos=<x=  2, y= -7, z=   3>, vel=<x= 0, y= 0, z= 0>
+    pos=<x=  9, y= -8, z=  -3>, vel=<x= 0, y= 0, z= 0>
+
+    Nach 10 Schritten:
+    pos=<x= -9, y=-10, z=  1>, vel=<x= -2, y= -2, z= -1>
+    pos=<x=  4, y= 10, z=  9>, vel=<x= -3, y=  7, z= -2>
+    pos=<x=  8, y=-10, z= -3>, vel=<x=  5, y= -1, z= -2>
+    pos=<x=  5, y=-10, z=  3>, vel=<x=  0, y= -4, z=  5>
+
+    Nach 20 Schritten:
+    pos=<x= -10, y=   3, z= -4>, vel=<x= -5, y=  2, z=  0>
+    pos=<x=   5, y= -25, z=  6>, vel=<x=  1, y=  1, z= -4>
+    pos=<x=  13, y=   1, z=  1>, vel=<x=  5, y= -2, z=  2>
+    pos=<x=   0, y=   1, z=  7>, vel=<x= -1, y= -1, z=  2>
+
+    Nach 30 Schritten:
+    pos=<x= 15, y=  -6, z= -9>, vel=<x= -5, y=   4, z=  0>
+    pos=<x= -4, y= -11, z=  3>, vel=<x= -3, y= -10, z=  0>
+    pos=<x=  0, y=  -1, z= 11>, vel=<x=  7, y=   4, z=  3>
+    pos=<x= -3, y=  -2, z=  5>, vel=<x=  1, y=   2, z= -3>
+
+    Nach 40 Schritten:
+    pos=<x= 14, y= -12, z= -4>, vel=<x= 11, y=  3, z=  0>
+    pos=<x= -1, y=  18, z=  8>, vel=<x= -5, y=  2, z=  3>
+    pos=<x= -5, y= -14, z=  8>, vel=<x=  1, y= -2, z=  0>
+    pos=<x=  0, y= -12, z= -2>, vel=<x= -7, y= -3, z= -3>
+
+    Nach 50 Schritten:
+    pos=<x= -23, y=   4, z=  1>, vel=<x= -7, y= -1, z=  2>
+    pos=<x=  20, y= -31, z= 13>, vel=<x=  5, y=  3, z=  4>
+    pos=<x=  -4, y=   6, z=  1>, vel=<x= -1, y=  1, z= -3>
+    pos=<x=  15, y=   1, z= -5>, vel=<x=  3, y= -3, z= -3>
+
+    Nach 60 Schritten:
+    pos=<x=  36, y= -10, z=  6>, vel=<x=  5, y=  0, z=  3>
+    pos=<x= -18, y=  10, z=  9>, vel=<x= -3, y= -7, z=  5>
+    pos=<x=   8, y= -12, z= -3>, vel=<x= -2, y=  1, z= -7>
+    pos=<x= -18, y=  -8, z= -2>, vel=<x=  0, y=  6, z= -1>
+
+    Nach 70 Schritten:
+    pos=<x= -33, y= -6, z= 5>, vel=<x= -5, y= -4, z=  7>.
+    pos=<x=  13, y= -9, z= 2>, vel=<x= -2, y= 11, z=  3>
+    pos=<x=  11, y= -8, z= 2>, vel=<x=  8, y= -6, z= -7>
+    pos=<x=  17, y=  3, z= 1>, vel=<x= -1, y= -1, z= -3>
+
+    Nach 80 Schritten:
+    pos=<x=  30, y= -8, z=  3>, vel=<x=  3, y=   3, z=  0>
+    pos=<x=  -2, y= -4, z=  0>, vel=<x=  4, y= -13, z=  2>
+    pos=<x= -18, y= -7, z= 15>, vel=<x= -8, y=   2, z= -2>
+    pos=<x=  -2, y= -1, z= -8>, vel=<x=  1, y=   8, z=  0>
+
+    Nach 90 Schritten:
+    pos=<x= -25, y= -1, z=  4>, vel=<x=  1, y= -3, z=  4>
+    pos=<x=   2, y= -9, z=  0>, vel=<x= -3, y= 13, z= -1>
+    pos=<x=  32, y= -8, z= 14>, vel=<x=  5, y= -4, z=  6>
+    pos=<x=  -1, y= -2, z= -8>, vel=<x= -3, y= -6, z= -9>
+
+    Nach 100 Schritten:
+    pos=<x=   8, y= -12, z= -9>, vel=<x= -7, y=   3, z=  0>.
+    pos=<x=  13, y=  16, z= -3>, vel=<x=  3, y= -11, z= -5>
+    pos=<x= -29, y= -11, z= -1>, vel=<x= -3, y=   7, z=  4>
+    pos=<x=  16, y= -13, z= 23>, vel=<x=  7, y=   1, z=  1>
+
+    Energie nach 100 Schritten:
+    pot:  8 + 12 +  9 = 29; kin: 7 +  3 + 0 = 10; Gesamt: 29 * 10 = 290
+    pot: 13 + 16 +  3 = 32; kin: 3 + 11 + 5 = 19; Gesamt: 32 * 19 = 608
+    pot: 29 + 11 +  1 = 41; kin: 3 +  7 + 4 = 14; Gesamt: 41 * 14 = 574
+    pot: 16 + 13 + 23 = 52; kin: 7 +  1 + 1 =  9; Gesamt: 52 *  9 = 468
+    Summe der Gesamtenergie: 290 + 608 + 574 + 468 = 1940
+
+
+Wie hoch ist die Gesamtenergie im System nach der Simulation der Monde in deinem Scan für 1000 Schritte?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

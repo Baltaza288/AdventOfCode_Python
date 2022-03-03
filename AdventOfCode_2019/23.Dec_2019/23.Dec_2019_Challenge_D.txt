@@ -1,0 +1,49 @@
+
+--- Tag 23: Kategorie 6 ---
+
+Die Droiden haben die Reparatur des Schiffes so weit wie möglich abgeschlossen.
+Ihr Bericht deutet darauf hin, dass dies eine Katastrophe der Kategorie 6 war -
+nicht, weil es so schlimm war, sondern weil es den Vorrat an Netzwerkkabeln der Kategorie 6
+und den Großteil der Netzwerkinfrastruktur des Schiffes zerstört hat.
+
+Du wirst das Netzwerk von Grund auf neu aufbauen müssen.
+
+Die Computer im Netzwerk sind Standard-Intcode-Computer, die miteinander kommunizieren,
+indem sie sich gegenseitig Pakete schicken. Insgesamt gibt es 50 von ihnen,
+auf denen jeweils eine Kopie der gleichen Network Interface Controller (NIC) Software (INPUT) läuft.
+Die Computer haben die Netzwerkadressen 0 bis 49.
+Wenn jeder Computer hochfährt, wird er seine Netzwerkadresse über einen einzigen Eingabebefehl anfordern.
+Achte darauf, jedem Computer eine eindeutige Netzwerkadresse zu geben.
+
+Sobald ein Computer seine Netzwerkadresse erhalten hat, beginnt er zu arbeiten und über das Netzwerk zu kommunizieren,
+indem er Pakete sendet und empfängt. Alle Pakete enthalten zwei Werte namens X und Y.
+Die an einen Computer gesendeten Pakete werden vom Empfänger in eine Warteschlange gestellt
+und in der Reihenfolge ihres Empfangs gelesen.
+
+Um ein Paket an einen anderen Computer zu senden, verwendet der NIC drei Ausgabeanweisungen,
+die die Zieladresse des Pakets gefolgt von seinen X- und Y-Werten angeben.
+
+
+Drei Ausgabeanweisungen mit den Werten 10, 20, 30 würden zum Beispiel
+ein Paket mit X=20 und Y=30 an den Computer mit der Adresse 10 senden.
+
+Um ein Paket von einem anderen Computer zu empfangen, verwendet der NIC eine Eingabeanweisung.
+Wenn die Warteschlange für eingehende Pakete leer ist, gib -1 ein. Andernfalls, den X-Wert des nächsten Pakets.
+Der Computer verwendet dann einen zweiten Eingabebefehl, um den Y-Wert für dasselbe Paket zu erhalten.
+Sobald beide Werte des Pakets auf diese Weise gelesen wurden, wird das Paket aus der Warteschlange entfernt.
+
+Beachte, dass diese Eingabe- und Ausgabeanweisungen niemals blockiert werden.
+Genauer gesagt, warten die Ausgabeanweisungen nicht auf den Empfang des gesendeten Pakets -
+der Computer kann mehrere Pakete senden, bevor er eines empfängt.
+Ähnlich, warten Eingabeanweisungen nicht auf den Eingang eines Pakets -
+wenn kein Paket wartet, sollten die Eingabeanweisungen -1 erhalten.
+
+Starte alle 50 Computer und schließe sie an dein Netzwerk an.
+
+
+Wie hoch ist der Y-Wert des ersten Pakets, das an die Adresse 255 gesendet wird?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

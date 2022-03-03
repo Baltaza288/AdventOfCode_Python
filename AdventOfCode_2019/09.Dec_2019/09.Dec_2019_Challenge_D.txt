@@ -1,0 +1,72 @@
+
+--- Tag 9: Sensor Boost ---
+
+Du hast dich gerade von dem neu gestarteten Rover verabschiedet und den Mars verlassen,
+als du ein schwaches Notsignal aus dem Asteroidengürtel empfängst.
+Das muss die Überwachungsstation von Ceres sein!
+
+Um das Signal zu orten, musst du deine Sensoren verstärken.
+Die Elfen schicken das neueste BOOST-Programm - Basic Operation Of System Test - hoch.
+
+BOOST (INPUT) kann zwar deine Sensoren verstärken, aber aus Sicherheitsgründen weigert es sich,
+dies zu tun, bis der Computer, auf dem es läuft, einige Prüfungen bestanden hat, um zu beweisen,
+dass er ein vollständiger Intcode-Computer ist.
+
+Deinem vorhandenen Intcode-Computer [DAY5] fehlt eine wichtige Funktion:
+Er braucht Unterstützung für Parameter im relativen Modus.
+
+Parameter im Modus 2, dem relativen Modus, verhalten sich sehr ähnlich wie Parameter
+im Positionsmodus: Der Parameter wird als Position interpretiert.
+Wie im Positionsmodus können Parameter im relativen Modus gelesen oder geschrieben werden.
+
+Der wichtige Unterschied ist, dass Parameter im relativen Modus nicht von Adresse 0 aus zählen.
+Stattdessen zählen sie ab einem Wert, der als relative Basis bezeichnet wird.
+Die relative Basis beginnt bei 0.
+
+Die Adresse, auf die sich ein Parameter im relativen Modus bezieht, ist die Adresse selbst plus die
+aktuellen relativen Basis. Wenn die relative Basis 0 ist, beziehen sich die Parameter des relativen Modus
+Parameter und Positionsmodus-Parameter mit demselben Wert auf dieselbe Adresse.
+
+Bei einer relativen Basis von 50 bezieht sich zum Beispiel ein relativer Modus-Parameter
+von -7 auf die Speicheradresse 50 + -7 = 43.
+
+Die relative Basis wird mit der Anweisung "Relative Base Offset" geändert:
+
+ - Opcode 9 passt die relative Basis um den Wert seines einzigen Parameters an.
+    Die relative Basis erhöht sich (oder verringert sich, wenn der Wert negativ ist) um
+    den Wert des Parameters.
+
+Wenn die relative Basis beispielsweise 2000 ist, wäre die relative Basis nach der Anweisung 109,19, bei 2019.
+Wäre die nächste Anweisung 204,-34, dann würde der Wert an Adresse 1985 ausgegeben werden.
+
+Dein Intcode-Computer muss noch einige andere Fähigkeiten aufweisen:
+
+ - Der verfügbare Speicher des Computers sollte viel größer sein als das ursprüngliche Programm.
+    Der Speicher jenseits des Anfangsprogramms beginnt mit dem Wert 0 und kann wie jeder andere Speicher
+    gelesen oder geschrieben werden.
+    (Es ist jedoch ungültig, auf den Speicher an einer negativen Adresse zuzugreifen.)
+ - Der Computer sollte große Zahlen unterstützen.
+    Einige Anweisungen am Anfang des BOOST-Programms werden diese Fähigkeit überprüfen.
+
+Hier sind einige Beispielprogramme, die diese Funktionen nutzen:
+
+ - 109,1,204,-1,1001,100,1,100,1008,100,16,101,1006,101,0,99
+    nimmt keine Eingabe entgegen und erzeugt eine Kopie von sich selbst als Ausgabe.
+ - 1102,34915192,34915192,7,4,7,99,0 sollte eine 16-stellige Zahl ausgeben.
+ - 104,1125899906842624,99 soll die große Zahl in der Mitte ausgeben.
+
+Das Programm BOOST verlangt eine einzige Eingabe. Führe es im Testmodus aus, indem du den Wert 1 eingibst.
+Es führt eine Reihe von Prüfungen für jeden Opcode durch, gibt alle Opcodes (und die zugehörigen Parametermodi) aus,
+die anscheinend nicht richtig funktionieren und gibt schließlich einen BOOST-Schlüsselcode aus.
+
+Wenn dein Intcode-Computer voll funktionsfähig ist, sollte das BOOST-Programm
+keine fehlerhaft funktionierenden Opcodes melden, wenn es im Testmodus ausgeführt wird.
+Es sollte nur einen einzigen Wert ausgeben, den BOOST-Schlüsselcode.
+
+
+Welchen BOOST-Schlüsselcode gibt es aus?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

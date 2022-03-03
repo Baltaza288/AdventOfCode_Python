@@ -1,0 +1,99 @@
+
+--- Tag 5: Sonnig mit einer Chance auf Asteroiden ---
+
+Du fängst an zu schwitzen, während sich das Schiff auf den Merkur zubewegt.
+Die Elfen schlagen vor, dass du die Klimaanlage zum Laufen bringst indem du deinen Schiffscomputer aufrüstest,
+um das Thermal Environment Supervision Terminal zu unterstützen.
+
+Das Thermal Environment Supervision Terminal (TEST) beginnt mit der Ausführung eines Diagnoseprogramm (INPUT).
+Das TEST-Diagnoseprogramm wird nach einigen Modifikationen auf deinem vorhandenen Intcode-Computer [von Tag 2] laufen:
+
+Zunächst musst du zwei neue Anweisungen hinzufügen:
+
+ - Opcode 3 nimmt eine einzelne Ganzzahl als Eingabe und speichert sie an der Position
+     die durch seinen einzigen Parameter angegeben ist. Zum Beispiel würde die Anweisung 3,50
+     einen Eingabewert und speichert ihn an Adresse 50.
+ - Opcode 4 gibt den Wert seines einzigen Parameters aus.
+     Ein Beispiel, die Anweisung 4,50 würde den Wert an Adresse 50 ausgeben.
+
+Programme, die diese Befehle verwenden, werden mit einer Dokumentation geliefert, die
+erklärt, was an den Ein- und Ausgängen angeschlossen werden soll. Das Programm
+3,0,4,0,99 gibt aus, was immer es als Eingabe erhält, und hält dann an.
+
+Nun musst du Unterstützung für Parametermodi hinzufügen:
+
+Jeder Parameter einer Anweisung wird auf der Grundlage seines Parametermodus behandelt.
+Im Moment versteht dein Schiffscomputer bereits den Parametermodus 0, Positionsmodus, der bewirkt,
+dass der Parameter als eine Position interpretiert wird. Wenn der Parameter 50 ist, ist sein Wert der Wert,
+der an Adresse 50 im Speicher abgelegt ist. Bis jetzt waren alle Parameter im Positionsmodus.
+
+Nun muss Ihr Schiffscomputer auch Parameter im Modus 1 behandeln, Sofortmodus.
+Im Sofortmodus wird ein Parameter als Wert interpretiert. Wenn der Parameter 50 ist, ist sein Wert einfach 50.
+
+Parametermodus werden in demselben Wert wie der Opcode des Befehls gespeichert.
+Der Opcode ist eine zweistellige Zahl, die nur aus der Einerstelle und der Zehnerstelle des Wertes,
+d. h. der Opcode ist die äußerste rechte Stelle des ersten Wertes in einer Anweisung.
+Parametermodi sind einstellige Zahlen, eine pro Parameter. Sie werden vom Opcode aus von rechts nach links gelesen:
+Der Modus des ersten Parameters steht in der Hunderterstelle,
+der Modus des zweiten Parameters in der Tausenderstelle,
+der Modus des dritten Parameters steht in der Zehntausender-Stelle usw.
+Alle fehlenden Modi sind 0.
+
+
+Betrachten wir zum Beispiel das Programm 1002,4,3,4,33.
+
+Die erste Anweisung, 1002,4,3,4, ist eine Multiplikationsanweisung - die beiden äußersten rechten
+Ziffern des ersten Wertes, 02, zeigen Opcode 2, Multiplikation.
+Dann, von rechts nach links die Parametermodi 0 (Hunderterstelle), 1 (Tausenderstelle),
+und 0 (Zehntausenderstelle, nicht vorhanden und daher Null):
+
+    ABCDE
+     1002
+
+    DE - zweistelliger Opcode, 02 == Opcode 2
+     C - Modus des 1. Parameters, 0 == Positionsmodus
+     B - Modus des 2. Parameters, 1 == Sofortmodus
+     A - Modus des 3. Parameters, 0 == Positionsmodus,
+                                      entfällt, da es sich um eine führende Null handelt
+
+Diese Anweisung multipliziert ihre ersten beiden Parameter. Der erste Parameter, 4 im Positionsmodus,
+funktioniert wie zuvor - sein Wert ist der Wert, der an Adresse 4 (33).
+Der zweite Parameter, 3 im Sofortmodus, hat einfach den Wert 3. Das Ergebnis dieser Operation, 33 * 3 = 99,
+wird entsprechend dem dritten Parameter geschrieben, 4 im Positionsmodus, geschrieben,
+der ebenfalls wie zuvor funktioniert - 99 wird an Adresse 4 geschrieben.
+
+Parameter, auf die eine Anweisung schreibt, befinden sich nie im Sofortmodus.
+
+Abschließend noch einige Hinweise:
+
+ - Es ist wichtig, daran zu denken, dass der Befehlszeiger um
+    die Anzahl der Werte in der Anweisung erhöhen sollte, nachdem die Anweisung beendet ist.
+    Aufgrund der neuen Anweisungen ist dieser Wert nicht mehr immer 4.
+ - Ganzzahlen können negativ sein: 1101,100,-1,4,0 ist ein gültiges Programm
+    (Finde 100 + -1, speichert das Ergebnis an Position 4).
+
+Das Diagnoseprogramm TEST beginnt mit der Abfrage der ID des zu prüfenden Systems durch den Benutzer
+des zu testenden Systems, indem es eine Eingabeanweisung ausführt - gib 1 ein, die ID für die Klimaanlage des Schiffes.
+
+Anschließend führt es eine Reihe von Diagnosetests durch, die bestätigen,
+dass verschiedene Teile des Intcode-Rechners, wie z. B. die Parametermodi, korrekt funktionieren.
+Für jeden Test wird eine Ausgabeanweisung ausgeführt, die angibt, wie weit das Ergebnis
+des Tests vom erwarteten Wert abwich, wobei 0 bedeutet, dass der Test erfolgreich war.
+Ausgaben, die nicht Null sind, bedeuten, dass eine Funktion nicht korrekt funktioniert.
+Überprüfe die Anweisungen die vor der Ausgabeanweisung ausgeführt wurden,
+um festzustellen, welche Anweisung fehlgeschlagen ist.
+
+Schließlich gibt das Programm einen Diagnosecode aus und hält sofort an.
+Diese letzte Ausgabe ist kein Fehler. Eine Ausgabe gefolgt von einem sofortigen Halt bedeutet,
+dass das Programm beendet ist. Wenn alle Ausgaben mit Ausnahme des Diagnosecodes Null waren,
+lief das Diagnoseprogramm erfolgreich.
+
+Nachdem die einzige Eingabeanweisung eine 1 erhalten und alle Tests bestanden hat,
+
+
+Welchen Diagnosecode erzeugt das Programm?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

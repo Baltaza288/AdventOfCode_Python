@@ -1,0 +1,101 @@
+
+--- Tag 11: Weltraumpolizei ---
+
+Auf dem Weg zum Jupiter wirst du von der Weltraumpolizei angehalten.
+
+"Achtung, unmarkiertes Raumschiff! Sie verstoßen gegen das Weltraumgesetz!
+Alle Raumschiffe müssen eine deutlich sichtbare Registrierungskennung haben!
+Sie haben 24 Stunden Zeit, dem nachzukommen, sonst landen Sie im Weltraumgefängnis!"
+
+Da du nicht ins Weltraumgefängnis kommen möchtest, bittest du per Funk die Elfen auf der Erde um Hilfe.
+Es dauert fast drei Stunden, bis ihr Antwortsignal dich erreicht, aber sie schicken dir Anweisungen
+für die Inbetriebnahme des Notrumpfes Lackierroboter und stellen sogar ein kleines Intcode-Programm (INPUT)
+das ihn veranlasst, dein Schiff entsprechend zu lackieren.
+
+Es gibt nur ein Problem: Du hast keinen Roboter für den Notanstrich der Schiffshülle.
+
+Du musst einen neuen Roboter für die Notlackierung des Schiffsrumpfes bauen.
+Der Roboter muss sich auf dem Gitter aus quadratischen Platten an der Seite deines Schiffes bewegen können,
+die Farbe der aktuellen Tafel erkennen und die aktuelle Tafel schwarz oder weiß einfärben.
+(Derzeit sind alle Felder schwarz.)
+
+Das Intcode-Programm dient als Gehirn des Roboters. Das Programm verwendet Eingabeanweisungen,
+um auf die Kamera des Roboters zuzugreifen: Gib 0 ein, wenn der Roboter über einer schwarzen Tafel steht
+oder 1, wenn der Roboter über einer weißen Tafel steht. Dann gibt das Programm zwei Werte aus:
+
+ - Erstens gibt es einen Wert aus, der die Farbe angibt, mit der die Platte gestrichen werden soll,
+    über der der Roboter steht: 0 bedeutet, dass die Tafel schwarz gestrichen werden soll,
+    1 bedeutet, dass die Tafel die Platte weiß wird.
+ - Zweitens wird ein Wert ausgegeben, der die Richtung angibt, in die der Roboter
+    drehen soll: 0 bedeutet, er soll sich um 90 Grad nach links drehen
+    und 1 bedeutet er soll sich um 90 Grad nach rechts drehen.
+
+Nachdem sich der Roboter gedreht hat, sollte er sich immer genau ein Feld vorwärts bewegen.
+Der Roboter beginnt mit der Blickrichtung nach oben.
+
+Der Roboter läuft eine Weile so weiter und hält an, wenn er mit dem Zeichnen fertig ist.
+Starte den Intcode-Computer im Inneren des Roboters nicht neu während dieses Vorgangs.
+
+Nehmen wir zum Beispiel an, dass der Roboter gerade anfängt zu laufen. Schwarzen
+Felder sind als . gezeichnet und weiße Felder als #. Der Roboter zeigt in seine Blickrichtung (< ^ > v).
+Der Ausgangszustand und der Bereich in der Nähe des Roboters sieht wie folgt aus:
+
+    .....
+    .....
+    ..^..
+    .....
+    .....
+
+Das Feld unter dem Roboter (hier nicht sichtbar, da stattdessen ein ^ angezeigt wird)
+ist ebenfalls schwarz, und daher sollten alle Eingabeanweisungen an dieser Stelle mit 0 versehen werden.
+Angenommen, der Roboter gibt schließlich 1 (weiß malen) und dann 0 (links abbiegen).
+Nachdem er diese Aktionen ausgeführt und sich um ein Feld vorwärts bewegt hat, sieht die Region nun wie folgt aus:
+
+    .....
+    .....
+    .<#..
+    .....
+    .....
+
+Die Eingabeanweisungen sollten weiterhin mit 0 versehen werden. Als Nächstes könnte der Roboter
+0 (schwarz malen) und dann 0 (links abbiegen) ausgeben:
+
+    .....
+    .....
+    ..#..
+    .v...
+    .....
+
+Nach weiteren Ausgaben (1,0, 1,0):
+
+    .....
+    .....
+    ..^..
+    .##..
+    .....
+
+Der Roboter ist jetzt wieder dort, wo er angefangen hat, aber weil er sich jetzt auf einer weißen Platte befindet,
+sollten die Eingabeanweisungen 1 lauten. Nach mehreren weiteren Ausgaben (0,1, 1,0, 1,0), sieht die Fläche so aus:
+
+    .....
+    ..<#.
+    ...#.
+    .##..
+    .....
+
+Bevor du den Roboter einsetzt, solltest du eine Schätzung über den Bereich abgeben, den er abdecken wird:
+Du musst insbesondere die Anzahl der Tafeln kennen, die er mindestens einmal streichen wird, unabhängig von der Farbe.
+Im obigen Beispiel hat der Roboter 6 Felder mindestens einmal bemalt. (Er hat sein Startfeld zweimal bemalt,
+aber dieses Paneel wird trotzdem nur einmal gezählt.
+Außerdem hat er das Paneel, auf dem er geendet hat, nie gestrichen.)
+
+Baue einen neuen Lackier-Roboter für den Notrumpf und führe das Intcode-Programm auf ihm aus.
+
+
+Wie viele Felder bemalt er mindestens einmal?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
+

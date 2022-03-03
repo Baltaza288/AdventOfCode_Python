@@ -11,7 +11,7 @@ automatically sealed once oxygen levels went dangerously low.
 A single remotely-operated repair droid is your only option for fixing
 the oxygen system.
 
-The Elves' care package included an Intcode program (your puzzle input)
+The Elves' care package included an Intcode program (INPUT)
 that you can use to remotely control the repair droid. By running that
 program, you can direct the repair droid to the oxygen system and fix
 the problem.

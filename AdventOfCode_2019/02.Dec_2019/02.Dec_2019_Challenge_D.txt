@@ -1,0 +1,87 @@
+
+--- Tag 2: 1202 Programm-Alarm ---
+
+Auf dem Weg zu deiner Schwerkraftunterstützung um den Mond piept dein Schiffscomputer einen "1202-Programm-Alarm".
+Über das Funkgerät erklärt dir ein Elf, wie du mit der Situation umgehen sollst:
+"Mach dir keine Sorgen, das ist völlig normal..."
+Der Schiffscomputer geht in Flammen auf.
+
+Du informierst die Elfen, dass der magische Rauch des Computers zu entweichen scheint.
+"Dieser Computer hat Intcode-Programme ausgeführt, wie das Schwerkraft-Hilfsprogramm, an dem er gearbeitet hat.
+Da oben gibt es sicher genug Ersatzteile, um einen neuen Intcode-Computer zu bauen!"
+
+Ein Intcode-Programm ist eine Liste ganzer Zahlen, die durch Kommas getrennt sind (wie 1,0,0,3,99).
+Um ein Intcode-Programm auszuführen, schaust du dir zunächst die erste Ganzzahl an (die Position 0).
+Hier findest du einen Opcode - entweder 1, 2 oder 99. Der Opcode gibt an, was zu tun ist.
+99 bedeutet zum Beispiel, dass das Programm beendet ist und sofort angehalten werden sollte.
+Ein unbekannter Opcode bedeutet, dass etwas schief gelaufen ist.
+
+Opcode 1 addiert Zahlen, die an zwei Stellen gelesen wurden, und speichert das Ergebnis
+an einer dritten Stelle. Die ersten beiden geben die Positionen an, an denen die Eingabewerte zu lesen sind
+und die dritte gibt die Position an, an der die Ausgabe gespeichert werden soll.
+
+Wenn dein Intcode-Computer zum Beispiel auf 1,10,20,30 stößt,
+sollte er die Werte an den Positionen 10 und 20 lesen, diese Werte addieren und dann den
+Wert an Position 30 mit ihrer Summe überschreiben.
+
+Opcode 2 funktioniert genau wie Opcode 1, nur dass er die beiden Eingaben multipliziert anstatt sie zu addieren.
+Auch hier geben die drei Ganzzahlen nach dem Opcode an wo sich die Eingänge und Ausgänge befinden, nicht ihre Werte.
+
+Sobald du mit der Verarbeitung eines Opcodes fertig bist, gehe zum nächsten indem du 4 Positionen weitergehst.
+
+Nehmen wir zum Beispiel an, du hast das folgende Programm:
+
+    1,9,10,3,2,3,11,0,99,30,40,50
+
+Zur Veranschaulichung siehst du hier dasselbe Programm aufgeteilt in mehrere Zeilen:
+
+    1,9,10,3,
+    2,3,11,0,
+    99,
+    30,40,50
+
+Die ersten vier ganzen Zahlen, 1,9,10,3, befinden sich an den Positionen 0, 1, 2 und 3.
+Zusammen repräsentieren sie den ersten Opcode (1, Addition), die Positionen der
+der beiden Eingänge (9 und 10) und die Position des Ausgangs (3). Zur Bearbeitung
+diesen Opcode zu verarbeiten, musst du zunächst die Werte an den Eingangspositionen ermitteln:
+Position 9 enthält 30, und Position 10 enthält 40. Addiere diese Zahlen
+zusammen, um 70 zu erhalten. Dann speichere diesen Wert an der Ausgangsposition!
+Im Beispiel ist die Ausgabeposition (3) an Position 3, diese überschreibt sich also selbst.
+Danach sieht das Programm wie folgt aus:
+
+    1,9,10,70,
+    2,3,11,0,
+    99,
+    30,40,50
+
+Gehe 4 Stellen weiter, um zum nächsten Opcode 2 zu gelangen. Dieser Opcode funktioniert
+wie der vorherige, aber er multipliziert statt zu addieren. Die Eingänge
+befinden sich an den Positionen 3 und 11; diese Positionen enthalten 70 bzw. 50.
+Die Multiplikation ergibt 3500; dieser Wert wird an Position 0 gespeichert:
+
+    3500,9,10,70,
+    2,3,11,0,
+    99,
+    30,40,50
+
+Wenn man noch 4 Positionen weitergeht, kommt man bei Opcode 99 an und hält das Programm an.
+
+Hier sind die Anfangs- und Endzustände einiger weiterer kleiner Programme:
+
+ - 1,0,0,0,99 wird zu 2,0,0,0,99 (1 + 1 = 2).
+ - 2,3,0,3,99 wird zu 2,3,0,6,99 (3 * 2 = 6).
+ - 2,4,4,5,99,0 wird zu 2,4,4,5,99,9801 (99 * 99 = 9801).
+ - 1,1,1,4,99,5,6,0,99 wird zu 30,1,1,4,2,5,6,0,99.
+
+Wenn du einen funktionierenden Computer hast, ist der erste Schritt die Wiederherstellung des
+Schwerkraftunterstützungsprogramm (INPUT) wieder in den Zustand "1202 Programmalarm" zu versetzen, den es
+kurz bevor der letzte Computer Feuer fing. Dazu musst du, bevor du das Programm startest,
+die Position 1 durch den Wert 12 und die Position 2 durch den Wert 2 ersetzen.
+
+
+Welcher Wert bleibt an Position 0 übrig, nachdem das Programm angehalten wurde?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

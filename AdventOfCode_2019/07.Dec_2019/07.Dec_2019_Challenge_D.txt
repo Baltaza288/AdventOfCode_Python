@@ -1,0 +1,84 @@
+
+--- Tag 7: Verstärkungsschaltkreis ---
+
+Nach den Navigationskarten zu urteilen, musst du deinem Schiff mehr Energie zuführen um Santa rechtzeitig zu erreichen.
+Dazu musst du eine Reihe von Verstärkern konfigurieren, die bereits auf dem Schiff installiert sind.
+
+Es gibt fünf Verstärker, die in Reihe geschaltet sind.
+Jeder von ihnen empfängt ein Eingangssignal und erzeugt ein Ausgangssignal.
+Sie sind so angeschlossen, dass der Ausgang des ersten Verstärkers Ausgang des ersten Verstärkers
+zum Eingang des zweiten Verstärkers führt, der Ausgang des zweiten Verstärkers
+zum Eingang des dritten Verstärkers führt, und so weiter. Der Eingangswert des ersten Verstärkers ist 0
+und der Ausgang des letzten Verstärkers führt zu den Triebwerken deines Schiffes.
+
+        O-------O O-------O O-------O O-------O O-------O
+    0 ->| Verstärker A |->| Verstärker B |->| Verstärker C |->| Verstärker D |->| Verstärker E |-> (zum Triebwerk)
+        O-------O O-------O O-------O O-------O O-------O O-------O
+
+Die Elfen haben dir eine Software für die Verstärkersteuerung geschickt (INPUT).
+Ein Programm, das auf deinem vorhandenen Intcode-Computer laufen sollte.
+Auf jedem Verstärker soll eine Kopie des Programms laufen.
+
+Wenn eine Kopie des Programms auf einem Verstärker läuft, verwendet es zunächst eine Eingabeanweisung,
+um den Verstärker nach seiner aktuellen Phaseneinstellung zu fragen (eine Ganzzahl von 0 bis 4).
+Jede Phaseneinstellung wird genau einmal verwendet, aber die Elfen können sich nicht merken,
+welcher Verstärker welche Phaseneinstellung benötigt.
+
+Das Programm ruft dann eine weitere Eingabeanweisung auf, um das Eingangssignal des Verstärkers abzurufen,
+das richtige Ausgangssignal zu berechnen und es mit einer Ausgangsanweisung an den Verstärker
+mit einer Ausgangsanweisung zurückzugeben.
+Wenn der Verstärker noch kein Eingangssignal erhalten hat, wartet er, bis eines eintrifft.
+
+Deine Aufgabe ist es, das größte Ausgangssignal zu finden, das an die Triebwerke gesendet werden kann,
+indem du alle möglichen Kombinationen von Phaseneinstellungen an den Verstärkern ausprobierst.
+Vergewissere dich, dass der Speicher nicht von verschiedenen Kopien des Programms gemeinsam genutzt
+oder wiederverwendet wird.
+
+Nehmen wir zum Beispiel an, dass du die Phaseneinstellungssequenz 3,1,2,4,0 ausprobieren möchtest,
+was bedeuten würde, dass Verstärker A auf Phaseneinstellung 3, Verstärker B auf
+Einstellung 1, C auf 2, D auf 4 und E auf 0. Dann kannst du, mit den folgenden Schritten, das Ausgangssignal bestimmen,
+das vom Verstärker E zum Triebwerk gesendet wird:
+
+ - Starte die Kopie der Verstärker-Controller-Software, die auf Verstärker A läuft!
+    Gib ihr bei der ersten Eingabeanweisung die Phaseneinstellung des Verstärkers, 3 und
+    bei der zweiten Eingabeanweisung, das Eingangssignal 0. Nach einigen Berechnungen wird sie
+    eine Ausgangsanweisung verwenden, um das Ausgangssignal des Verstärkers anzugeben.
+ - Starte die Software für Verstärker B. Gib ihm die Phaseneinstellung (1) und dann das Ausgangssignal,
+    das von Verstärker A erzeugt wurde, damit ein neues Ausgangssignal für Verstärker C erzeugen werden kann.
+ - Starte die Software für Verstärker C, gib die Phaseneinstellung (2) und den Wert von Verstärker B ein
+    und sammle dann sein Ausgangssignal.
+ - Starte die Software von Verstärker D, gib die Phaseneinstellung (4) und den Eingangswert ein
+    und erfasse sein Ausgangssignal.
+ - Führe die Software von Verstärker E aus, gib die Phaseneinstellung (0) und den Eingangswert ein
+    und erfasse sein Ausgangssignal.
+
+Das endgültige Ausgangssignal von Verstärker E würde an die Triebwerke gesendet werden.
+Diese Phaseneinstellungssequenz war jedoch möglicherweise nicht die beste.
+Eine andere Sequenz hätte möglicherweise ein höheres Signal an die Triebwerke gesendet.
+
+Hier sind einige Beispielprogramme:
+
+ - Max. Triebwerkssignal 43.210 (von der Phaseneinstellungssequenz 4,3,2,1,0):
+
+    3,15,3,16,1002,16,10,16,1,16,15,15,4,15,99,0,0
+
+ - Max. Triebwerkssignal 54.321 (aus Phaseneinstellsequenz 0,1,2,3,4):
+
+    3,23,3,24,1002,24,10,24,1002,23,-1,23,
+    101,5,23,23,1,24,23,23,4,23,99,0,0
+
+- Max. Triebwerkssignal 65.210 (aus der Phaseneinstellsequenz 1,0,4,3,2):
+
+    3,31,3,32,1002,32,10,32,1001,31,-2,31,1007,31,0,33,
+    1002,33,7,33,1,33,31,31,1,32,31,31,4,31,99,0,0,0
+
+
+Probiere jede Kombination von Phaseneinstellungen an den Verstärkern aus!
+
+
+Welches ist das höchste Signal, das an die Triebwerke gesendet werden kann?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

@@ -1,0 +1,122 @@
+
+--- Tag 18: Viel-Welten-Theorie ---
+
+Als du dich Neptun näherst, entdeckt dich ein planetarisches Sicherheitssystem
+und aktiviert einen riesigen Traktorstrahl auf Triton! Du hast keine andere Wahl als zu landen.
+
+Ein Scan der Umgebung zeigt nur ein interessantes Merkmal: ein riesiges unterirdisches Gewölbe.
+Du erstellst eine Karte des Tunnelsystems (INPUT). Die Tunnel sind zu eng, um sich diagonal zu bewegen.
+
+Nur ein einziger Eingang (markiert mit @) befindet sich zwischen den offenen Gängen (markiert .) und Steinmauern (#).
+Du entdeckst auch eine Reihe von Schlüsseln (Kleinbuchstaben) und Türen (Großbuchstaben).
+Schlüssel mit einem bestimmten Buchstaben öffnen die Tür mit demselben Buchstaben:
+a öffnet A, b öffnet B und so weiter.
+Du bist dir nicht sicher, welchen Schlüssel du brauchst, um den Traktorstrahl zu deaktivieren,
+also musst du alle Schlüssel einsammeln.
+
+
+Nehmen wir zum Beispiel an, du hast die folgende Karte:
+
+    #########
+    #b.A.@.a#
+    #########
+
+Vom Eingang (@) aus kannst du nur eine große Tür (A) und einen Schlüssel (a).
+Wenn du dich zur Tür bewegst, hilft es dir nicht, aber du kannst 2 Schritte gehen, um den Schlüssel einzusammeln
+und schließt dabei A auf:
+
+    #########
+    #b.....@#
+    #########
+
+Dann kannst du 6 Schritte gehen, um den einzigen anderen Schlüssel, b, einzusammeln:
+
+    #########
+    #@......#
+    #########
+
+Das Sammeln aller Schlüssel erforderte also insgesamt 8 Schritte.
+
+Hier ist ein größeres Beispiel:
+
+    ########################
+    #f.D.E.e.C.b.A.@.a.B.c.#
+    ######################.#
+    #d.....................#
+    ########################
+
+Der einzig sinnvolle Schritt ist, den Schlüssel a zu nehmen und die Tür A zu öffnen:
+
+    ########################
+    #f.D.E.e.C.b.....@.B.c.#
+    ######################.#
+    #d.....................#
+    ########################
+
+Dann machst du dasselbe mit Schlüssel b:
+
+    ########################
+    #f.D.E.e.C.@.........c.#
+    ######################.#
+    #d.....................#
+    ########################
+
+...und mit Schlüssel c:
+
+    ########################
+    #f.D.E.e.............@.#
+    ######################.#
+    #d.....................#
+    ########################
+
+Jetzt hast du die Wahl zwischen den Schlüsseln d und e. Während der Schlüssel e
+näher liegt, wäre es auf lange Sicht langsamer, ihn jetzt zu sammeln, als das Sammeln von Schlüssel d,
+also ist das die beste Wahl:
+
+    ########################
+    #f...E.e...............#
+    ######################.#
+    #@.....................#
+    ########################
+
+Sammle schließlich den Schlüssel e ein, um die Tür E zu öffnen. Am Ende sammelst du noch Schlüssel f ein,
+was insgesamt 86 Schritte erfordert.
+
+Hier sind noch ein paar Beispiele:
+
+ - ########################
+    #...............b.C.D.f#
+    #.######################
+    #.....@.a.B.c.d.A.e.F.g#
+    ########################
+
+    Der kürzeste Weg besteht aus 132 Schritten: b, a, c, d, f, e, g
+
+ - #################
+    #i.G..c...e..H.p#
+    ########.########
+    #j.A...b...f...D.o#
+    ########@########
+    #k.E..a...g..B.n#
+    ########.########
+    #l.F...d...h..C.m#
+    #################
+
+    Die kürzeste Wege sind 136 Schritte, einer davon ist: a, f, b, j, g, n, h, d, l, o, e, p, c, i, k, m
+
+ - ########################
+    #@..............ac.GI.b#
+    ###d#e#f################
+    ###A#B#C################
+    ###g#h#i################
+    ########################
+
+    Die kürzesten Wege sind 81 Schritte, einer davon ist: a, c, f, i, d, g, b, e, h
+
+
+Wie viele Schritte umfasst der kürzeste Weg, der alle Schlüssel sammelt?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

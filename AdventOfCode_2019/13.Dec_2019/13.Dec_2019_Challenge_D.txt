@@ -1,0 +1,35 @@
+
+--- Tag 13: Care-Paket ---
+
+Während du über die Einsamkeit des Weltraums und die immer länger werdende dreistündige
+Hin- und Rückflug für Nachrichten zwischen dir und der Erde nachdenkst, bemerkst du,
+dass die Weltraum-Mail-Anzeigeleuchte blinkt. Um dich bei Verstand zu halten,
+haben die Elfen dir ein Care-Paket geschickt.
+
+Es ist ein neues Spiel für die Spielhalle des Schiffes!
+Leider ist die Spielhalle ganz am anderen Ende des Schiffes.
+Es ist sicher nicht schwer, ein eigenes Spiel zu bauen - dem Paket liegt sogar ein Schaltplan bei.
+
+Die Spielhalle läuft mit Intcode-Software, wie das Spiel, das die Elfen geschickt haben (INPUT).
+Er hat einen primitiven Bildschirm, auf dem quadratische Kacheln auf einem Gitter zeichnen.
+Die Software zeichnet Kacheln auf den Bildschirm nach folgenden Ausgabeanweisungen:
+Alle drei Ausgabeanweisungen geben die x-Position (Abstand von links),
+y-Position (Abstand von oben) und die Kachel-ID.
+Die Kachel-ID wird wie folgt interpretiert:
+
+ - 0 ist eine leere Kachel. In dieser Kachel befindet sich kein Spielobjekt.
+ - 1 ist eine Wandkachel. Mauern sind unzerstörbare Barrieren.
+ - 2 ist ein Block-Plättchen. Blöcke können durch den Ball zerbrochen werden.
+ - 3 ist ein horizontales Paddel-Plättchen. Das Paddel ist unzerstörbar.
+ - 4 ist ein Ball-Plättchen. Der Ball bewegt sich diagonal und prallt an Objekten ab.
+
+Eine Folge von Ausgabewerten wie 1,2,3,6,5,4 würde zum Beispiel eine horizontale Paddel-Kachel
+(1 Kachel von links und 2 Kacheln von oben) und eine Ballkachel (6 Kacheln von links und 5 Kacheln von oben).
+
+
+Starte das Spiel! Wie viele Spielsteine befinden sich auf dem Bildschirm, wenn das Spiel beendet wird?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+

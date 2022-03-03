@@ -1,0 +1,87 @@
+
+--- Tag 24: Planet der Zwietracht ---
+
+Du landest auf Eris, deiner letzten Station vor der Ankunft beim Weihnachtsmann. Sobald du gelandet bist,
+fangen deine Sensoren an, seltsame Lebensformen aufzuspüren, die sich dort bewegen:
+Eris ist von Wanzen befallen! Mit einem mehr als 24-stündigen Hin- und Rückflug für Nachrichten
+zwischen dir und der Erde, musst du dieses Problem selbst in den Griff bekommen.
+
+Eris ist nicht sehr groß. Ein Scan des gesamten Gebiets passt in ein 5x5-Raster (INPUT).
+Der Scan zeigt Wanzen (#) und leere Leerstellen (.).
+
+Jede Minute leben und sterben die Wanzen auf der Grundlage der Anzahl der Wanzen in
+den vier benachbarten Kacheln (nicht diagonal):
+
+ - Ein Käfer stirbt (wird zu einem leeren Feld), wenn nicht genau
+    ein Käfer neben ihm steht.
+ - Ein leeres Feld wird von einer Wanze befallen, wenn genau eine oder
+    zwei Käfer daneben liegen.
+
+Andernfalls bleibt ein Käfer oder ein leeres Feld unverändert.
+Kacheln an den Rändern des Rasters haben weniger als vier benachbarte Kacheln.
+Die fehlenden Kacheln zählen als leerer Platz. Dieser Vorgang findet an jedem Ort gleichzeitig statt,
+d.h. innerhalb einer Minute wird für jede Kachel zuerst die Anzahl der benachbarten Wanzen
+für jede Kachel gezählt, und dann werden die Kacheln aktualisiert.
+
+
+Hier sind die ersten paar Minuten eines Beispielszenarios:
+
+    Ausgangszustand:
+    ....#
+    #..#.
+    #..##
+    ..#..
+    #....
+
+    Nach 1 Minute:
+    #..#.
+    ####.
+    ###.#
+    ##.##
+    .##..
+
+    Nach 2 Minuten:
+    #####
+    ....#
+    ....#
+    ...#.
+    #.###
+
+    Nach 3 Minuten:
+    #....
+    ####.
+    ...##
+    #.##.
+    .##.#
+
+    Nach 4 Minuten:
+    ####.
+    ....#
+    ##..#
+    .....
+    ##...
+
+Um die Natur der Käfer zu verstehen, musst du herrausfinden,
+ob ein Layout von Wanzen und Leerstellen mit einem früheren Layout übereinstimmt.
+Im obigen Beispiel, ist das erste Layout, das zweimal auftaucht:
+
+    .....
+    .....
+    .....
+    #....
+    .#...
+
+Um die Bewertung der biologischen Vielfalt für dieses Layout zu berechnen, betrachte jede Kachel
+von links nach rechts in der obersten Reihe, dann von links nach rechts in der zweiten Reihe
+und so weiter. Jede dieser Kacheln ist eine bestimmt Anzahl an Biodiversitätspunkten wert,
+die mit einer Potenz von 2 aufsteigen: 1, 2, 4, 8, 16, 32 usw. Addiere die Biodiversitätspunkte für Kacheln mit Käfern!
+In diesem Beispiel befinden sich Käfer auf der 16. (32.768 Punkte) und der 22. Kachel (2.097.152 Punkte),
+was eine Gesamt Biodiversitätsbewertung von 2.129.920 ergibt.
+
+
+Wie hoch ist die Biodiversitätsbewertung für das erste Layout, das zweimal vorkommt?
+
+
+------------------------------------------------------------------------------------------------------------------------
+--- Zweiter Teil ---
+
