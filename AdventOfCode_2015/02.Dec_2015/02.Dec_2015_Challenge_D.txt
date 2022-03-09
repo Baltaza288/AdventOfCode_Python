@@ -27,8 +27,7 @@ Alle Maße in der Liste (INPUT) sind in cm angegeben. Wie viele cm² Geschenkpap
 Den Elfen gehen auch die Geschenkbänder aus. Da alle Bänder die gleiche Breite haben,
 müssen sich also nur über die Länge Gedanken machen, welche sie bestellen müssen.
 
-Das Geschenkband, das zum Einpacken eines Geschenks benötigt wird,
-ist berechnet sich aus dem Umfang der kleinsten Seite.
+Das Geschenkband, das zum Einpacken eines Geschenks benötigt wird, berechnet sich aus dem Umfang der kleinsten Seite.
 Jedes Geschenk soll noch eine Schleife bekommen.
 Die Länge der perfekten Schleife entspricht dem Volumen des Geschenks in cm.
 Fragen Sie aber nicht, wie sie die Schleife binden, das verraten sie nicht.

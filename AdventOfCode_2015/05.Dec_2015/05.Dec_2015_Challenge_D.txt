@@ -5,9 +5,11 @@ Der Weihnachtsmann braucht Hilfe, um herauszufinden, welche Zeichenfolgen in sei
 
 Eine gute Zeichenfolge ist eine, die alle folgenden Eigenschaften aufweist:
 
- - Sie enthält mindestens drei Vokale (nur aeiou), wie aei, xazegov oder aeiouaeiouaeiou.
- - Er enthält mindestens einen Buchstaben, der zweimal hintereinander vorkommt, wie xx, abcdde (dd) oder aabbccdd (aa, bb, cc oder dd).
- - Er enthält nicht die Zeichenfolgen ab, cd, pq oder xy, auch wenn sie Teil einer der anderen Anforderungen sind.
+ - Sie enthält mindestens drei Vokale (nur a,e,i,o,u), wie aei, xazegov oder aeiouaeiouaeiou.
+ - Sie enthält mindestens einen Buchstaben, der zweimal hintereinander vorkommt,
+    wie xx, abcdde (dd) oder aabbccdd (aa, bb, cc oder dd).
+ - Sie enthält nicht die Zeichenfolgen ab, cd, pq oder xy,
+    auch wenn sie Teil einer der anderen Anforderungen sind.
 
 
 Zum Beispiel:
@@ -26,3 +28,29 @@ Wie viele Zeichenfolgen sind gut?
 
 ------------------------------------------------------------------------------------------------------------------------
 --- Zweiter Teil ---
+
+Der Weihnachtsmann hat seinen Fehler erkannt und ist zu einem besseren Modell übergegangen, um zu bestimmen,
+ob eine Zeichenfolge gut oder schlecht ist.
+Die alten Regeln gelten nicht mehr, da sie alle eindeutig lächerlich sind.
+
+Jetzt ist eine Zeichenkette gut, wenn sie alle folgenden Eigenschaften aufweist:
+
+- Sie enthält ein Paar aus zwei beliebigen Buchstaben, die mindestens zweimal in der Zeichenkette vorkommen,
+   ohne sich zu überschneiden, wie xyxy (xy) oder aabcdefgaa (aa), aber nicht wie aaa (aa, aber es überschneidet sich).
+- Sie enthält mindestens einen Buchstaben, der sich mit genau einem Buchstaben dazwischen wiederholt,
+   wie xyx, abcdefeghi (efe), oder sogar aaa.
+
+Zum Beispiel:
+
+qjhvhtzxzqqjkmpb ist gut, weil es ein Paar enthält, das zweimal vorkommt (qj) und einen Buchstaben,
+  der sich mit genau einem Buchstaben dazwischen wiederholt (zxz).
+xxyxx ist gut, weil es ein Paar enthält, das zweimal vorkommt, und einen Buchstaben,
+  der sich mit einem dazwischenliegenden Buchstaben wiederholt, auch wenn sich die Buchstaben,
+  die von jeder Regel verwendet werden, überschneiden.
+uurcxstgmygtbstg ist schlecht, weil es ein Paar (tg),
+  aber keine Wiederholung mit einem einzelnen Buchstaben dazwischen hat.
+ieodomkazucvgmuy ist schlecht, weil es einen sich wiederholenden Buchstaben mit einem dazwischen (odo) hat,
+  aber kein Paar, das zweimal vorkommt.
+
+
+Wie viele Zeichenfolgen sind nach diesen neuen Regeln gut?

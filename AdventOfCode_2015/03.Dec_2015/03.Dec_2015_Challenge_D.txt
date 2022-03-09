@@ -32,7 +32,7 @@ eine Roboterversion von sich selbst, Robo-Santa, der mit ihm die Geschenke ausli
 
 Der Weihnachtsmann und Robo-Santa starten am selben Ort (und liefern zwei Geschenke an dasselbe Starthaus),
 anschließend wechseln sie sich dann auf Anweisung der Elfe ab,
-welcher eifrig das gleiche Drehbuch wie im Vorjahr abliest.
+welche eifrig die gleiche Liste wie im Vorjahr abliest.
 
 
 Beispiel:
