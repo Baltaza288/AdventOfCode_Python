@@ -8,7 +8,7 @@ year = input("witch year is it?\n")
 for x in range(1,26,1):
     num = x
     day = "{:02d}".format(num)
-    path = 'c:/Temp/temporary/AdventOfCode_' + year + '/' + day + '.Dec_' + year
+    path = 'C:/Users/altma/Documents/Coding/AdventOfCode_Python/AdventOfCode_' + year + '/' + day + '.Dec_' + year
     challenge = os.path.join(path, day + '.Dec_' + year + '_Challenge.txt')
     challenge_d = os.path.join(path, day + '.Dec_' + year + '_Challenge_D.txt')
     input = os.path.join(path, day + '.Dec_' + year + '_Input.txt')
